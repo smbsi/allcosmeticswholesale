@@ -1,0 +1,427 @@
+/*************************************************************************************************************************/
+/*************************************************************************************************************************/
+/**Special Fonts**/
+/**font-family: 'Special Elite', cursive;
+/**font-family: 'Montserrat', sans-serif;
+/*************************************************************************************************************************/
+/**Globals**/
+body{
+	background:url(images/background.gif) repeat;
+	margin:0px;
+}
+.container{
+	min-width:1350px;
+}
+.clear{
+	clear:both;
+}
+.clearLeft{
+	clear:left;
+}
+
+
+/*************************************************************************************************************************/
+/*************************************************************************************************************************/
+/**AppLoad**/
+#appPreView{
+	background:none;
+	float:left;
+	margin-left:325px;
+}
+#loader h5{
+	color:#ffffff;
+	font-size:18px;
+}
+
+
+/*************************************************************************************************************************/
+/*************************************************************************************************************************/
+/**header**/
+/**Top Third**/
+.headerTopThird{
+	width:100%;
+	height:46px;
+	background-image:url(images/header_background.png);
+	overflow:visible;
+	padding-top:6px;
+}
+.headerTopThird h5{
+	display:inline;
+	color:#ffffff;
+	font-size:16px;
+}
+.headerTopThird h6{
+	display:inline;
+	color:#ffffff;
+	font-size:12px;
+}
+.headerTopThird a{
+	color:#ffffff;
+}
+.headerLoginLink{
+	margin-left:10px;
+}
+.headerCartLink{
+	margin-right:200px;
+}
+.headerHelpLink{
+	margin-right:20px;
+}
+/**Mid Third**/
+.headerMidThird{
+	padding-top:40px;
+}
+.homepageLink{
+	margin-left:100px;
+}
+.productSearchForm{
+	width:320px;
+	height:100px;
+	float:right;
+	margin-right:100px;
+}
+/**.searchBorder{
+	z-index:2;
+	width:320px;
+	color:rgba(.1, .1, .1, .5);
+}**/
+.searchArea{
+	padding-top:12px;
+	background-color:rgba(200, 200, 200, .2);
+	border:none;
+}
+#searchBarInput{
+	width:200px;
+	float:left;
+	height:26px;
+}
+#searchBarButton{
+	color:#000000;
+	background-color:#3fb8af;
+	border:none;
+	float:left;
+	height:32px;
+	width:85px;
+}
+/*************************************************************************************************************************/
+/**Bottom third**/
+.navBarBrands{
+	background-size:cover;
+	width:120px;
+	height:60px;
+	margin-left:30px;
+	color:#ffffff;
+	text-align:center;
+	line-height:62px;
+	float:left;
+	font-family: 'Special Elite', cursive;
+}
+.navBarBrands:active{
+	color:#000000;
+}
+.navBarBrands:hover{
+	background-image:url(images/header_nav_bar/brands.png);
+	color:#000000;
+}
+.navBarEyes{
+	background-size:cover;
+	width:120px;
+	height:60px;
+	color:#ffffff;
+	text-align:center;
+	line-height:62px;
+	float:left;
+	font-family: 'Special Elite', cursive;
+}
+.navBarEyes:active{
+	color:#000000;
+}
+.navBarEyes:hover{
+	background-image:url(images/header_nav_bar/brands.png);
+	color:#000000;
+}
+.navBarLips{
+	background-size:cover;
+	width:120px;
+	height:60px;
+	color:#ffffff;
+	text-align:center;
+	line-height:62px;
+	float:left;
+	font-family: 'Special Elite', cursive;
+}
+.navBarLips:active{
+	color:#000000;
+}
+.navBarLips:hover{
+	background-image:url(images/header_nav_bar/brands.png);
+	color:#000000;
+}
+.navBarFace{
+	background-size:cover;
+	width:120px;
+	height:60px;
+	color:#ffffff;
+	text-align:center;
+	line-height:62px;
+	float:left;
+	font-family: 'Special Elite', cursive;
+}
+.navBarFace:active{
+	color:#000000;
+}
+.navBarFace:hover{
+	background-image:url(images/header_nav_bar/brands.png);
+	color:#000000;
+}
+.navBarAccess{
+	background-size:cover;
+	width:120px;
+	height:60px;
+	color:#ffffff;
+	text-align:center;
+	line-height:62px;
+	float:left;
+	font-family: 'Special Elite', cursive;
+}
+.navBarAccess:active{
+	color:#000000;
+}
+.navBarAccess:hover{
+	background-image:url(images/header_nav_bar/brands.png);
+	color:#000000;
+}
+.navBarSkin{
+	background-size:cover;
+	width:120px;
+	height:60px;
+	color:#ffffff;
+	text-align:center;
+	line-height:62px;
+	float:left;
+	font-family: 'Special Elite', cursive;
+}
+.navBarSkin:active{
+	color:#000000;
+}
+.navBarSkin:hover{
+	background-image:url(images/header_nav_bar/brands.png);
+	color:#000000;
+}
+.navBarNails{
+	background-size:cover;
+	width:120px;
+	height:60px;
+	color:#ffffff;
+	text-align:center;
+	line-height:62px;
+	float:left;
+	font-family: 'Special Elite', cursive;
+}
+.navBarNails:active{
+	color:#000000;
+}
+.navBarNails:hover{
+	background-image:url(images/header_nav_bar/brands.png);
+	color:#000000;
+}
+.navBarFragrance{
+	background-size:cover;
+	width:120px;
+	height:60px;
+	color:#ffffff;
+	text-align:center;
+	line-height:62px;
+	float:left;
+	font-family: 'Special Elite', cursive;
+}
+.navBarFragrance:active{
+	color:#000000;
+}
+.navBarFragrance:hover{
+	background-image:url(images/header_nav_bar/brands.png);
+	color:#000000;
+}
+.navBarHair{
+	background-size:cover;
+	width:120px;
+	height:60px;
+	color:#ffffff;
+	text-align:center;
+	line-height:62px;
+	float:left;
+	font-family: 'Special Elite', cursive;
+}
+.navBarHair:active{
+	color:#000000;
+}
+.navBarHair:hover{
+	background-image:url(images/header_nav_bar/brands.png);
+	color:#000000;
+}
+.navBarJewel{
+	background-size:cover;
+	width:120px;
+	height:60px;
+	color:#ffffff;
+	text-align:center;
+	line-height:62px;
+	float:left;
+	font-family: 'Special Elite', cursive;
+}
+.navBarJewel:active{
+	color:#000000;
+}
+.navBarJewel:hover{
+	background-image:url(images/header_nav_bar/brands.png);
+	color:#000000;
+}
+.navBarSale{
+	background-size:cover;
+	width:120px;
+	height:60px;
+	color:#ffffff;
+	text-align:center;
+	line-height:62px;
+	float:left;
+	font-family: 'Special Elite', cursive;
+}
+.navBarSale:active{
+	color:#000000;
+}
+.navBarSale:hover{
+	background-image:url(images/header_nav_bar/brands.png);
+	color:#000000;
+}
+/*************************************************************************************************************************/
+/*************************************************************************************************************************/
+/**Footer**/
+/**Top Third**/
+
+.footerTopThird{
+	width:100%;
+	height:65px;
+	background-color:#3fb8af;
+	border-bottom:solid 5px #7fc7af;
+}
+.footerTopThird H5{
+	float:right;
+	font-family: 'Montserrat', sans-serif;
+	
+}
+.footerTopThird H6{
+	float:right;
+	font-family: 'Montserrat', sans-serif;
+}
+.footerNewsLabel{
+	margin-left:170px;
+	margin-top:16px;
+}
+.footerTwit{
+	margin-top:16px;
+	float:right;
+	margin-right:100px;
+}
+.footerFb{
+	margin-top:16px;
+	float:right;
+	margin-right:20px;
+}
+#subscribeFrm{
+	height:52px;
+	width: 580px;
+	float:right;
+	margin-right:200px;
+}
+.userInfo{
+	height:52px;
+	width: 580px;
+	border:none;
+}
+.subName{
+	float:left;
+	height:30px;
+	width:200px;
+	margin-top:8px;
+	margin-right:15px;
+}
+.subEmail{
+	float:left;
+	height:30px;
+	width:200px;
+	margin-top:8px;
+}
+.subButton{
+	float:left;
+	height:37px;
+	width:125px;
+	margin-top:8px;
+	background-color:#000000;
+	font-family: 'Special Elite', cursive;
+	border-radius:0px;
+	color:#ffffff;
+	border:none;
+	font-size:18px;
+}
+.subscriberLists{
+	float:left;
+}
+
+/*************************************************************************************************************************/
+/**Mid Third**/
+
+.footerMidThird{
+	border-bottom:solid 5px #7fc7af;
+	background-color:#000000;
+	height:370px;
+	width:100%;
+}
+.footerMidThird h3{
+	color:#3fb8af;
+	font-family: 'Special Elite', cursive;
+	font-size:20px;
+	font-weight:200;
+	margin-left: 40px;
+	margin-top: 40px;
+}
+.footerMidThird li{
+	margin-top:15px;
+}
+.footerMidThird a{
+	color:#ffffff;
+	font-size:16px;
+	font-family: 'Montserrat', sans-serif;
+}
+.footerMidThird a:hover{
+	color:#ff3d7f;
+}
+
+/*************************************************************************************************************************/
+/**Bottom Third**/
+.footerBottomThird{
+	width:100%;
+	height:600px;
+}
+.footerBottomThird h1{
+	color:#ee3a77;
+	font-family: 'Special Elite', cursive;
+	margin-top:20px;
+	margin-left:20px;
+	font-weight:100;
+}
+.footerBottomThird p{
+color:#ffffff;
+margin-left:20px;
+}
+.footerBottomThird h4{
+	display:inline;
+	margin-right:120px;
+	margin-left:120px;
+	line-height: 140px;
+}
+.footerRibbon{
+	background:url(images/footer/splatter.png) 200px 4px no-repeat, url(images/footer/ribbonbar.png) left center repeat-x;
+	width:100%;
+	height:140px;
+	text-align:center;
+}

@@ -121,22 +121,16 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 				var $list = _rtag.list;
 				if($list && $list.length)	{
 					$list.empty().removeClass('loadingBG').attr('data-app-role','searchResults');
-					$list.closest('.previewListContainer').find('.resultsHeader').empty().remove(); //remove any previous results multipage headers
-
+					$list.parent().find('.resultsHeader').empty().remove(); //remove any previous results multipage headers
+	
 					if(L == 0)	{
 						$list.append("Your query returned zero results.");
 						}
 					else	{
-						var $parent;
-						if($list.is('tbody'))	{$parent = $list.closest('table').parent(); app.u.dump("LIST is a tbody");}
-						else if($list.is('table'))	{$parent = $list.parent();}
-						else	{$parent = $list}
-
-//put items into list (most likely a ul or tbody
 						$list.append(app.ext.store_search.u.getElasticResultsAsJQObject(_rtag)); //prioritize w/ getting product in front of buyer
 						if(app.ext.admin)	{
 							$list.hideLoading();
-							app.ext.admin.u.handleAppEvents($parent);
+							app.ext.admin.u.handleAppEvents($list);
 							}
 	
 						var EQ = $list.data('elastic-query'); //Elastic Query
@@ -150,7 +144,7 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 							$controlsContainer = $("<div \/>").addClass('ui-widget ui-widget-content resultsHeader clearfix ui-corner-bottom'); //used to hold menus and buttons.
 							
 //							$menuContainer.append($sortMenu); //sorting not working. commented out for now. !!!
-							$header.prependTo($parent);
+							$header.insertBefore($list);
 //pageMenu will be false if there are no pages. If there's no pagination, no further output is needed.
 							if($pageMenu)	{
 	
@@ -159,7 +153,7 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 								$multipage.appendTo($controlsContainer); //multipage nav is at the top and bottom
 								
 								
-								$controlsContainer.prependTo($parent);
+								$controlsContainer.insertBefore($list);
 //add to DOM prior to running menu. helps it to not barf.
 								$pageMenu.menu();
 //								$sortMenu.menu();
