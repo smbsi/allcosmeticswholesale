@@ -626,7 +626,7 @@ note - the click prevent default is because the renderFormat adds an onclick tha
 						});
 					}
 				else	{$('.ocmFacebookComment').addClass('displayNone')}
-
+				app.model.destroy('cartDetail');
 				app.calls.appCartCreate.init(); //!IMPORTANT! after the order is created, a new cart needs to be created and used. the old cart id is no longer valid. 
 				app.calls.refreshCart.init({},'immutable'); //!IMPORTANT! will reset local cart object. 
 				app.model.dispatchThis('immutable'); //these are auto-dispatched because they're essential.
@@ -1361,7 +1361,7 @@ don't toggle the panel till after preflight has occured. preflight is done once 
 					}
 					
 				if(errors == ''){
-					app.calls.authentication.zoovy.init({"login":email,"password":password},{'callback':'handleBuyerLogin','extension':'convertSessionToOrder'});
+					app.calls.appBuyerLogin.init({"login":email,"password":password},{'callback':'handleBuyerLogin','extension':'convertSessionToOrder'});
 					app.model.dispatchThis('immutable');
 					$('#preflightGuestInputs, #preflightAccountInputs').hide();
 					$('#chkoutPreflightFieldsetErrors').empty().addClass('loadingBG').show();

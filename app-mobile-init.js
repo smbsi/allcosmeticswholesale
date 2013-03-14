@@ -1,9 +1,6 @@
 var app = app || {vars:{},u:{}}; //make sure app exists.
 app.rq = app.rq || []; //ensure array is defined. rq = resource queue.
 
-
-
-
 app.rq.push(['extension',0,'store_checkout','extensions/store_checkout.js']);
 app.rq.push(['extension',0,'convertSessionToOrder','extensions/checkout_active/extension.js']);
 //app.rq.push(['extension',0,'convertSessionToOrder','extensions/checkout_passive/extension.js']);
@@ -12,6 +9,8 @@ app.rq.push(['extension',0,'convertSessionToOrder','extensions/checkout_active/e
 // ### NOTE - mobile does NOT work. it's in development.
 //app.rq.push(['extension',0,'convertSessionToOrder','extensions/checkout_mobile/extension.js']);
 //app.rq.push(['extension',0,'cco','extensions/cart_checkout_order.js']);
+
+
 
 
 app.rq.push(['extension',0,'store_prodlist','extensions/store_prodlist.js']);
@@ -29,15 +28,56 @@ app.rq.push(['extension',0,'myRIA','app-quickstart.js','startMyProgram']);
 //app.rq.push(['extension',1,'powerReviews_reviews','extensions/partner_powerreviews_reviews.js','startExtension']);
 //app.rq.push(['extension',0,'magicToolBox_mzp','extensions/partner_magictoolbox_mzp.js','startExtension']); // (not working yet - ticket in to MTB)
 
+
+
+
 app.rq.push(['script',0,(document.location.protocol == 'file:') ? app.vars.testURL+'jquery/config.js' : app.vars.baseURL+'jquery/config.js']); //The config.js is dynamically generated.
 app.rq.push(['script',0,app.vars.baseURL+'model.js']); //'validator':function(){return (typeof zoovyModel == 'function') ? true : false;}}
 app.rq.push(['script',0,app.vars.baseURL+'includes.js']); //','validator':function(){return (typeof handlePogs == 'function') ? true : false;}})
-
 app.rq.push(['script',0,app.vars.baseURL+'controller.js']);
 
 app.rq.push(['script',1,app.vars.baseURL+'resources/jquery.ui.jeditable.js']); //used for making text editable (customer address). non-essential. loaded late.
 app.rq.push(['script',1,app.vars.baseURL+'resources/jquery.showloading-v1.0.jt.js']); //used for making text editable (customer address). non-essential. loaded late.
-app.rq.push(['script',0,app.vars.baseURL+'resources/jquery.ui.anyplugins.js']); //in zero pass in case product page is first page.
+app.rq.push(['script',0,app.vars.baseURL+'resources/jquery.ui.anyplugins.js']); //in zero pass because it contains essential functions (anymessage & anycontent)
+
+
+
+app.rq.push(['script',1,app.vars.baseURL+'resources/jquery.touchSwipe-1.3.3.min.js']); //used w/ carouFedSel.
+app.rq.push(['script',1,app.vars.baseURL+'resources/jquery.carouFredSel-6.2.0.min.js']); //used on homepage.
+
+
+//group any third party files together (regardless of pass) to make troubleshooting easier.
+app.rq.push(['script',0,(document.location.protocol == 'https:' ? 'https:' : 'http:')+'//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js']);
+
+
+
+
+
+//add tabs to product data.
+//tabs are handled this way because jquery UI tabs REALLY wants an id and this ensures unique id's between product
+app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
+
+	var $target = $('#homeProdSearchNewArrivals');
+	if($target.data('isCarousel'))	{} //only make it a carousel once.
+	else	{
+//for whatever reason, caroufredsel needs to be executed after a moment.
+		setTimeout(function(){
+			$target.data('isCarousel',true).carouFredSel({
+				auto: false,
+				prev: '.foo2carouselPrev',
+				next: '.foo2carouselNext',
+				width: '100%',
+				scroll: 2,
+		//		mousewheel: true, //this is mobile, so mousewheel isn't necessary (plugin is not loaded)
+				swipe: {
+					onMouse: true,
+					onTouch: true
+					}
+				});
+			},1000); 
+		}
+
+	}]);
 
 
 
@@ -56,16 +96,7 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 		else	{} //couldn't find the tab to tabificate.
 	}]);
 
-//sample of an onDeparts. executed any time a user leaves this page/template type.
-app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.u.dump("just left the homepage")}]);
 
-
-
-
-
-
-//group any third party files together (regardless of pass) to make troubleshooting easier.
-app.rq.push(['script',0,(document.location.protocol == 'https:' ? 'https:' : 'http:')+'//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js']);
 
 
 /*
@@ -95,7 +126,7 @@ app.u.howManyPassZeroResourcesAreLoaded = function(debug)	{
 //the 'attempts' var is incremented each time the function is executed.
 
 app.u.initMVC = function(attempts){
-//	app.u.dump("app.u.initMVC activated ["+attempts+"]");
+	app.u.dump("app.u.initMVC activated ["+attempts+"]");
 	var includesAreDone = true;
 
 //what percentage of completion a single include represents (if 10 includes, each is 10%).
@@ -131,7 +162,6 @@ app.u.initMVC = function(attempts){
 	else	{
 		setTimeout("app.u.initMVC("+(attempts+1)+")",250);
 		}
-
 	}
 
 app.u.loadApp = function() {
@@ -149,6 +179,7 @@ app.u.loadApp = function() {
 //will pass in the page info object. (pageType, templateID, pid/navcat/show and more)
 app.u.appInitComplete = function(P)	{
 	app.u.dump("Executing myAppIsLoaded code...");
+	$('#tier1CategoriesContainer').menu({ position: { my: "left top", at: "left top" } });
 	}
 
 

@@ -26,14 +26,10 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130314134500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130311074200",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
-	"testURL":"http://www.8185f9.dagobah.zoovy.net/", //used ONLY if protocol is file: (for testing)
-	//"httpsURL":"https://ssl.zoovy.com/s=www.toynk.zoovy.com/",
-	"httpsURL":"https://ssl.zoovy.com/s=http://www.8185f9.dagobah.zoovy.net/",
-	//"httpURL":"http://www.toynk.zoovy.com/"
-	"httpURL":"http://www.8185f9.dagobah.zoovy.net/"
+	"testURL":"http://www.gkworld.com/" //used ONLY if protocol is file: (for testing)
 	},u:{},rq:[]};
 
 //set base url so images, css, js, etc all load from appropriate location once deployed.
@@ -51,11 +47,6 @@ css files should be included before any .js file to ensure they are downloaded i
 -->
 <link rel="stylesheet" type="text/css" href="app-quickstart.css" />
 <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/ui-lightness/jquery-ui.css" />
-<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Special+Elite'>
-<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Montserrat:400,700'>
-<link rel="stylesheet" type="text/css" href="Theme/jquery-ui-1.10.1.custom/css/ac_theme/jquery-ui-1.10.1.custom.css" />
-<link rel="stylesheet" type="text/css" href="_ac_styles.css" />
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script src="resources/jquery.ui.widget.min.js"></script><!-- here so that plugins that may load before the jqueryui lib load without error -->
@@ -65,14 +56,18 @@ css files should be included before any .js file to ensure they are downloaded i
 
 
 <script type="text/javascript">
-app.u.loadScript(app.vars.baseURL+"_ac_init.js");
+app.u.loadScript(app.vars.baseURL+"app-quickstart-init.js");
 </script>
 
 
 </head>
 
 <body>
-<div class="container">
+<!-- DELETE THIS WHEN YOU GET STARTED -->
+<h1>WELCOME TO QUICKSTART</h1>
+This file is intended to go along with the 10-step tutorial at:
+<a href="https://github.com/zoovy/AnyCommerce-Development/wiki/quickstart">https://github.com/zoovy/AnyCommerce-Development/wiki/quickstart</a>
+<!-- /DELETE THIS WHEN YOU GET STARTED -->
 
 
 
@@ -85,14 +80,12 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
 	<td>
 
 	<div id="loader">
+		<h3>One moment please.</h3>
+
 		<div class='alignCenter'>
-        <img src="images/appload.png" />
-        <img src="images/ajax-loader.gif" />
-        <h5>Preparing the showroom, give us a few seconds...</h5>
-		<!--<progress id="appPreViewProgressBar" max="100" value="0" /><br />
+		<progress id="appPreViewProgressBar" max="100" value="0" /><br />
 		</div>
 		<div id='appPreViewProgressText'>0% Complete</div>
-        -->
 	</div>
 	<div id="clickToLoad" class="displayNone pointer">
 		Click here to load your totally kickass shopping experience!
@@ -123,226 +116,8 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
 	<button class='displayNone prodDetailPrevItemButton' data-app-role='prodDetailPrevItemButton'>Previous</button>
 </div>
 
-<!--Begin Header Area-->
-<div class="header">
-	<div class="headerTopThird">
-    	<div class="floatLeft headerLoginLink"><h5>Welcome, <span>Guest!</span> <h6>Not You? <a>Login</a> or <a>Sign-up!</a></h6></h5></div>
-        <div class="floatRight headerHelpLink"><a class="pointer" onclick="return showContent('company',{'show':'contact'});" class='bindByAnchor'>Help</a></div>
-        <div class="floatRight headerCartLink bindByAnchor"><a class="pointer" href="#cart?."><span class="cartItemCount">0</span> Items </a> <h6>in your cart | </h6><a class="pointer bindByAnchor" href="#cart?.">View Shopping Bag</a></div>
-    </div>
-    <div class="headerMidThird">
-    	<a href="#homepage?." class='bindByAnchor' title='Home'><img class="floatLeft homepageLink" src="images/homepage_link_image.png" /></a>
-        <form name='headerSearchFrm' action='#' class='productSearchForm marginTop' method="get">
-        	
-              <fieldset class="searchArea">
-                  <!-- <legend>Search</legend> -->
-                  <input type='search' name='KEYWORDS' value='Find it here...' class="productSearchKeyword handleDefault secondary" id="searchBarInput" />
-                  <input class="search" type="submit" value="SEARCH" id="searchBarButton" />
-              </fieldset>
-            
-		</form>
-    </div>
-    <div class="clear"></div>
-    <div class="headerBottomThird">
-    	<div class="headerBottomThird">
-          <div class="navBarBrands">
-              <a>Brands</a>
-          </div>
-          <div class="navBarEyes">
-              <a>Eyes</a>
-          </div>
-          <div class="navBarLips">
-              <a>Lips</a>
-          </div>
-          <div class="navBarFace">
-              <a>Face</a>
-          </div>
-          <div class="navBarAccess">
-              <a>Accessories</a>
-          </div>
-          <div class="navBarSkin">
-              <a>Skin</a>
-          </div>
-          <div class="navBarNails">
-              <a>Nails</a>
-          </div>
-          <div class="navBarFragrance">
-              <a>Fragrance</a>
-          </div>
-          <div class="navBarHair">
-          	  <a>Hair</a>
-          </div>
-          <div class="navBarJewel">
-              <a>Jewelry</a>
-          </div>
-          <div class="navBarSale">
-              <a>Sale</a>
-          </div>
-       </div>
-    </div>
-</div>
-<!--End Header Area-->
-
 <div id='mainContentArea'></div><!-- DO NOT REMOVE - this is where the specific page (ex: homepage, product, category) content is going to go -->
 
-<!--Begin Footer Area-->
-<div class="footer">
-	<div class="footerTopThird">  	
-    	<img class="footerTwit" src="images/footer/twitter.png" />
-        <img class="footerFb" src="images/footer/facebook.png" />
-         <div class="floatLeft footerNewsLabel">
-         	<h5>STAY UPDATED</h5>
-            <div class="clearRight"></div> 
-         	<h6>WITH OUR NEWSLETTER</h6>
-         </div>
-         <form action='#' id='subscribeFrm' name='subscribeFrm' onSubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false">
-							<fieldset class='userInfo'>
-								<input type="text" name='fullname' value='' placeholder="   Name" class="subName" id='subscribeFullname' />
-                                <input type="email" name='login' value='' placeholder="   E-mail Address" class="subEmail" id='subscribeLogin' />
-                                <fieldset data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;" class='borderNone subscriberLists'></fieldset>
-								<input class="subButton" type="submit" value="Sign Up!" id="" />
-							</fieldset>
-						</form>
-	</div>
-    <div class="footerMidThird">
-    	<div class="floatLeft" style="width:40%;">
-        	<h3 class="floatLeft">CATEGORIES</h3>
-            <div class="clearLeft"></div>
-            <ul style="width:42%;" class="floatLeft">
-                <li>
-                    <a>Browse All Categories</a>
-                </li>
-                <li>
-                    <a>What's Hot!</a>
-                </li>
-                <li>
-                    <a>What's The Deal</a>
-                </li>
-                <li>
-                    <a>Brands</a>
-                </li>
-                <li>
-                    <a>Eyes</a>
-                </li>
-                <li>
-                    <a>Lips</a>
-                </li>
-                <li>
-                    <a>Face</a>
-                </li>
-            </ul>
-            <ul  style="width:42%;" class="floatLeft">
-                <li>
-                    <a>Accessories</a>
-                </li>
-                <li>
-                    <a>Skincare</a>
-                </li>
-                <li>
-                    <a>Nails</a>
-                </li>
-                <li>
-                    <a>Fragrance</a>
-                </li>
-                <li>
-                    <a>Hair</a>
-                </li>
-                <li>
-                    <a>Jewelry</a>
-                </li>
-                <li>
-                    <a>Sale</a>
-                </li>
-            </ul>
-        </div>
-        <div class="floatLeft" style="width:20%;">
-        	<h3 class="floatLeft">HELP</h3>
-            <div class="clearLeft"></div>
-            <ul class="floatLeft">
-                <li>
-                    <a>About Us</a>
-                </li>
-                <li>
-                    <a>Contact Us</a>
-                </li>
-                <li>
-                    <a>FAQs</a>
-                </li>
-                <li>
-                    <a>Shipping Policy</a>
-                </li>
-                <li>
-                    <a>Return Policy</a>	
-                </li>
-                <li>
-                    <a>Payment Policy</a>
-                </li>
-                <li>
-                    <a>Privacy Policy</a>
-                </li>
-            </ul>
-        </div>
-        <div class="floatLeft" style="width:20%;">
-        	<h3 class="floatLeft">MY ACCOUNT</h3>
-            <div class="clearLeft"></div>
-            <ul class="floatLeft">
-                <li>
-                    <a>Create An Account</a>
-                </li>
-                <li>
-                    <a>Log-in</a>
-                </li>
-                <li>
-                    <a>Change Password</a>
-                </li>
-                <li>
-                    <a>Update Preferences</a>
-                </li>
-                <li>
-                    <a>Wishlist Items</a>
-                </li>
-                <li>
-                    <a>Order tracking</a>
-                </li>
-                <li>
-                    <a>Sign Out</a>
-                </li>
-            </ul>
-        </div>
-        <div class="floatLeft" style="width:20%;">
-        	<h3 class="floatLeft">MORE ON FASHION</h3>
-            <div class="clearLeft"></div>
-            <ul class="floatLeft">
-                <li>
-                    <a>Tutorials</a>
-                </li>
-                <li>
-                    <a>Tips and Tricks</a>
-                </li>
-                <li>
-                    <a>Facebook</a>
-                </li>
-                <li>
-                    <a>Twitter</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="footerBottomThird">
-    	<h1>All Cosmetics Wholesale</h1>
-        <p>All Cosmetics Wholesale specializes in providing discount, quality makeup brands at wholesale and below wholesale pricing. At All Cosmetics Wholesale you'll also find rare and hard to find items. The products we provide are new and <span style="color:#3fb8af;">AUTHENTIC</span>.</p>
-        <br />
-		<p>ACW was founded in 2002 as a discount beauty products retailer. As a discount retailer, we have and will continue to bring you both prestige and mass products at reduced pricing. We have now created a new experience at our sister site Suite7beauty.com. Suite7beauty.com brings you amazing full retail lines of prestige and mass beauty brands. Added together with ACW discount lines, you can now purchase both discount and retail lines in one convenient checkout with one low shipping fee. Please visit us at Suite7beauty.com by clicking the link at the top of any ACW page.</p>
-		<br />
-        <p>Our products change daily so please check back often for the newest selection! We hope you enjoy your shopping!</p>
-        <br />
-        <p></p>
-        <div class="footerRibbon">
-        	<h4 style="color:#ffffff;">All Cosmetics Wholesale</h4><h4>2013 All Rights reserved</h4><h4>eCommerce by <span style="color:#ffffff;">Zoovy</span></h4>
-        </div>
-    </div>
-</div>
-<!--End Footer Area-->
 
 <!-- ... your html ends -->
 <!-- /VIEW CONTENT -->
@@ -1681,6 +1456,6 @@ The 'data-action' attribute is used to assign an onclick.
 
 </div>
 
-</div>
+
 </body>
 </html>

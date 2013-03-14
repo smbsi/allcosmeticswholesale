@@ -76,6 +76,8 @@ a callback was also added which just executes this call, so that checkout COULD 
 				var payerid = app.u.getParameterByName('PayerID');
 				if(token && payerid)	{
 					app.u.dump("It appears we've just returned from PayPal.");
+//ensure no other paypal payments in Q. could happen after cart is paypal, then user modifies cart and doesn't return to checkout
+					app.ext.store_checkout.u.nukePayPalEC(); 
 					app.ext.convertSessionToOrder.vars['payment-pt'] = token;
 					app.ext.convertSessionToOrder.vars['payment-pi'] = payerid;
 					app.ext.store_checkout.calls.cartPaymentQ.init({"cmd":"insert","PT":token,"PI":payerid,"TN":"PAYPALEC"},{"extension":"convertSessionToOrder","callback":"handlePayPalIntoPaymentQ"});
@@ -85,6 +87,7 @@ a callback was also added which just executes this call, so that checkout COULD 
 					}
 //if token and/or payerid is NOT set on URI, then this is either not yet a paypal order OR is/was paypal and user left checkout and has returned.
 				else if(app.ext.store_checkout.u.thisSessionIsPayPal())	{
+					app.u.dump("THIS IS a paypal session, but needs to be reset");
 					if(!app.ext.store_checkout.u.aValidPaypalTenderIsPresent())	{app.ext.store_checkout.u.nukePayPalEC();}
 					r = app.ext.convertSessionToOrder.calls.showCheckoutForm.init();
 					app.model.dispatchThis("immutable");
@@ -552,7 +555,7 @@ _gaq.push(['_trackEvent','Checkout','App Event','Server side validation failed']
 					app.ext.convertSessionToOrder.panelContent.preflight();
 //					app.u.dump(" -> GOT HERE!");
 					var auth = app.u.determineAuthentication();
-					app.u.dump(" -> auth: "+auth);
+//					app.u.dump(" -> auth: "+auth);
 //until it's determined whether shopper is a registered user or a guest, only show the preflight panel.
 //currently, admin during checkout isn't 'supported'. meaning nothing special happens but if we don't discount it, only passive checkout is avail
 					if(auth != 'none' && auth != 'admin')	{
@@ -575,7 +578,7 @@ _gaq.push(['_trackEvent','Checkout','App Event','Server side validation failed']
 						app.ext.convertSessionToOrder.panelContent.accountInfo();
 						app.ext.convertSessionToOrder.panelContent.shipAddress();
 						app.ext.convertSessionToOrder.panelContent.shipMethods();
-						app.u.dump(" -> in loadPanelContent");
+//						app.u.dump(" -> in loadPanelContent");
 						app.ext.convertSessionToOrder.panelContent.paymentOptions();
 //if order notes is on, show panel and populate content.
 						if(zGlobals.checkoutSettings.chkout_order_notes == true)	{
@@ -657,7 +660,7 @@ note - the click prevent default is because the renderFormat adds an onclick tha
 						});
 					}
 				else	{$('.ocmFacebookComment').addClass('displayNone')}
-
+				app.model.destroy('cartDetail');
 				app.calls.appCartCreate.init(); //!IMPORTANT! after the order is created, a new cart needs to be created and used. the old cart id is no longer valid. 
 				app.calls.refreshCart.init({},'immutable'); //!IMPORTANT! will reset local cart object. 
 				app.model.dispatchThis('immutable'); //these are auto-dispatched because they're essential.
@@ -1139,7 +1142,7 @@ payment options, pricing, etc
 	
 	//only show the third party logins IF user isn't already logged in to one and they're enabled
 						if(authState != 'thirdPartyGuest' && zGlobals.thirdParty.facebook.appId)
-								o+= "<div id='preflightThirdParty' class='"+className+" preflightInputContainer'><h2>Third Party Login<\/h2><fb:login-button onlogin='app.calls.authentication.facebook.init({\"callback\":\"authenticateThirdParty\",\"extension\":\"convertSessionToOrder\"}); app.model.dispatchThis(\"immutable\");'>Login with Facebook</fb:login-button><\/div>";
+								o+= "<div id='preflightThirdParty' class='"+className+" preflightInputContainer'><h2>Third Party Login<\/h2><fb:login-button onlogin='app.calls.appVerifyTrustedPartner.init(\"facebook\",{\"callback\":\"authenticateThirdParty\",\"extension\":\"convertSessionToOrder\"}); app.model.dispatchThis(\"immutable\");'>Login with Facebook</fb:login-button><\/div>";
 						}
 
 
@@ -1164,7 +1167,7 @@ payment options, pricing, etc
 			accountInfo : function()	{
 //				app.u.dump('BEGIN app.ext.convertSessionToOrder.panelContent.accountInfo.  ');
 				var authState = app.u.determineAuthentication();
-				var createCustomer = app.data.cartDetail['want/create_customer'] ? app.data.cartDetail['want/create_customer'] : 0;
+				var createCustomer = (app.data.cartDetail && app.data.cartDetail['want/create_customer']) ? app.data.cartDetail['want/create_customer'] : 0;
 				
 //				app.u.dump(' -> createCustomer = '+createCustomer);
 
@@ -1295,7 +1298,7 @@ $('.ui-state-active',$panelFieldset).first().trigger('click');
 
 //must appear after panel is loaded because otherwise the divs don't exist.
 //per brian, use shipping methods in cart, not in shipping call.
-				if(app.data.cartDetail['@SHIPMETHODS'].length == 0)	{
+				if(app.data.cartDetail && app.data.cartDetail['@SHIPMETHODS'].length == 0)	{
 					$('#noShipMethodsAvailable').toggle(true);
 					}
 				else if(!$('#data-bill_zip').val() && !$('ship_zip').val()) {
@@ -1311,13 +1314,13 @@ Of course, this should only happen IF a method was selected previously.
 				var foundMatchingShipMethodId = false; 
 				var L = app.data.cartShippingMethods['@methods'].length;
 				for(var i = 0; i < L; i += 1)	{
-					if(app.data.cartShippingMethods['@methods'][i].id == app.data.cartDetail['want/shipping_id'])	{
+					if(app.data.cartDetail && app.data.cartShippingMethods['@methods'][i].id == app.data.cartDetail['want/shipping_id'])	{
 						foundMatchingShipMethodId = true;
 						break; //once a match is found, no need to continue the loop.
 						}
 					}
 
-				if(foundMatchingShipMethodId == false && app.data.cartDetail['want/shipping_id'])	{
+				if(foundMatchingShipMethodId == false && app.data.cartDetail && app.data.cartDetail['want/shipping_id'])	{
 					app.u.dump(' -> previously selected ship method is no longer available. update session with null value.');
 					app.calls.cartSet.init({"want/shipping_id":null});  //the set will update the method, session and local storage.
 					app.calls.refreshCart.init({"callback":"updateCheckoutOrderContents","extension":"convertSessionToOrder"},'immutable');
@@ -1357,7 +1360,7 @@ two of it's children are rendered each time the panel is updated (the prodlist a
 
 
 			paymentOptions : function()	{
-				app.u.dump('BEGIN convertSessionToOrder.panelContent.paymentOptions');
+//				app.u.dump('BEGIN convertSessionToOrder.panelContent.paymentOptions');
 				var $panelFieldset = $("#chkoutPayOptionsFieldset").toggle(true).removeClass("loadingBG")
 				$panelFieldset.append(app.renderFunctions.createTemplateInstance('checkoutTemplatePayOptionsPanel','payOptionsContainer'));
 				app.renderFunctions.translateTemplate(app.data.appPaymentMethods,'payOptionsContainer');
@@ -1377,7 +1380,7 @@ two of it's children are rendered each time the panel is updated (the prodlist a
 					app.ext.convertSessionToOrder.vars["want/payby"] = val;
 					$("#chkoutPayOptionsFieldsetErrors").addClass("displayNone");
 					})
-				app.u.dump(" -> app.ext.convertSessionToOrder.vars['want/payby']: "+app.ext.convertSessionToOrder.vars['want/payby'])
+//				app.u.dump(" -> app.ext.convertSessionToOrder.vars['want/payby']: "+app.ext.convertSessionToOrder.vars['want/payby'])
 				if(app.ext.convertSessionToOrder.vars['want/payby'])	{
 					$(":radio[value='"+app.ext.convertSessionToOrder.vars['want/payby']+"']",$panelFieldset).click();
 					}
@@ -1537,7 +1540,7 @@ don't toggle the panel till after preflight has occured. preflight is done once 
 					}
 					
 				if(errors == ''){
-					app.calls.authentication.zoovy.init({"login":email,"password":password},{'callback':'handleBuyerLogin','extension':'convertSessionToOrder'});
+					app.calls.appBuyerLogin.init({"login":email,"password":password},{'callback':'handleBuyerLogin','extension':'convertSessionToOrder'});
 					app.model.dispatchThis('immutable');
 					$('#preflightGuestInputs, #preflightAccountInputs').hide();
 					$('#chkoutPreflightFieldsetErrors').empty().addClass('loadingBG').show();
@@ -1647,7 +1650,7 @@ _gaq.push(['_trackEvent','Checkout','User Event','Shipping method selected ('+sh
 
 //executed when the 'bill to ship' checkbox is checked (either on or off)
 			toggleShipAddressPanel : function()	{
-				app.u.dump('BEGIN app.ext.convertSessionToOrder.u.toggleShipAddressPanel');
+//				app.u.dump('BEGIN app.ext.convertSessionToOrder.u.toggleShipAddressPanel');
 //ship to billing
 				if($('#want-bill_to_ship_cb').is(':checked')) {
 					app.u.dump(' -> bill to ship IS checked (hide shipping address panel)');
@@ -1661,7 +1664,7 @@ _gaq.push(['_trackEvent','Checkout','User Event','Shipping method selected ('+sh
 					}
 //do not ship to billing
 				else {
-					app.u.dump('bill to ship is NOT checked (show shipping address panel)');
+//					app.u.dump('bill to ship is NOT checked (show shipping address panel)');
 					app.ext.convertSessionToOrder.u.handlePanel('chkoutShipAddress');  //empties panel. sets to loading.
 					$('#chkoutShipAddressFieldset').toggle(true);  //make sure panel is visible.
 					app.ext.convertSessionToOrder.panelContent.shipAddress(); //populate panel.
@@ -1690,7 +1693,7 @@ note - predefined addresses are hidden and the form is shown so that if the user
 
 */
 			handlePaypalFormManipulation : function()	{
-			app.u.dump("BEGIN convertSessionToOrder.u.handlePaypalFormManipulation ");
+//			app.u.dump("BEGIN convertSessionToOrder.u.handlePaypalFormManipulation ");
 			if(app.data.cartPaypalGetExpressCheckoutDetails && app.data.cartPaypalGetExpressCheckoutDetails['_msgs'])	{
 				//an error occured. error message is displayed as part of callback.
 				}
@@ -1795,11 +1798,11 @@ $('#paybySupplemental_PAYPALEC').empty().append("<a href='#top' onClick='app.ext
 
 				if(TYPE == 'bill' && billToShip == 0)	{
 //when billing is updated and bill to ship is NOT checked, no need to do any ajax update or panel update.
-					app.u.dump(" -> bill zip/country changed, but ship to billing is NOT checked, so no update needed.");
+//					app.u.dump(" -> bill zip/country changed, but ship to billing is NOT checked, so no update needed.");
 					}
 				else	{
 //to get here, type = ship OR (type = bill AND ship to bill is checked)
-					app.u.dump(" -> zip/country changed (type = "+TYPE+"). ship to bill = "+billToShip+" and typeof billToShop (should be number) = "+typeof billToShip);
+//					app.u.dump(" -> zip/country changed (type = "+TYPE+"). ship to bill = "+billToShip+" and typeof billToShop (should be number) = "+typeof billToShip);
 					
 /*
 in the list of calls below, sequence is important.  The session must be updated first so that all the other calls have accurate data to work with.
@@ -1808,7 +1811,7 @@ the refreshCart call can come second because none of the following calls are upd
 
 //save all the checkout fields.  This is cheaper (server side) than doing setSession for several fields according to BH (2012-12-29)
 					if(!SUCR)	{
-						app.u.dump(" -> saveCheckoutFields originated from recalculateShipMethods");
+//						app.u.dump(" -> saveCheckoutFields originated from recalculateShipMethods");
 						app.ext.convertSessionToOrder.calls.saveCheckoutFields.init();
 						app.calls.refreshCart.init({"callback":"updateCheckoutOrderContents","extension":"convertSessionToOrder"},'immutable');
 						}

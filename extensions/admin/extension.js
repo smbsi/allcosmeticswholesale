@@ -1447,7 +1447,7 @@ else	{
 
 		handleLogout : {
 			onSuccess : function(tagObj)	{
-				document.location = '/app/latest/logout.html'
+				document.location = '/app/latest/admin_logout.html'
 				}
 			},
 //in cases where the content needs to be reloaded after making an API call, but when a showUI directly won't do (because of sequencing, perhaps)
@@ -2152,13 +2152,13 @@ once multiple instances of the finder can be opened at one time, this will get u
 
 			login : function($form){
 				$('body').showLoading({"message":"Authenticating credentials. One moment please."});
-				app.calls.authentication.accountLogin.init($form.serializeJSON(),{'callback':'showHeader','extension':'admin'});
+				app.calls.authAdminLogin.init($form.serializeJSON(),{'callback':'showHeader','extension':'admin'});
 				app.model.dispatchThis('immutable');
 				}, //login
 
 			logout : function(){
 				$('body').showLoading({"message":"You are being logged out. One moment please."});
-				app.calls.authentication.authAdminLogout.init({'callback':'handleLogout','extension':'admin'});//always immutable.
+				app.calls.authAdminLogout.init({'callback':'handleLogout','extension':'admin'});//always immutable.
 				app.model.dispatchThis('immutable');
 //nuke all this after the request so that the dispatch has the info it needs.
 				app.ext.admin.u.selectivelyNukeLocalStorage(); //get rid of most local storage content. This will reduce issues for users with multiple accounts.
