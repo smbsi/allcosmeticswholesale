@@ -11,6 +11,7 @@ body{
 }
 .container{
 	min-width:1350px;
+	overflow:hidden;
 }
 .clear{
 	clear:both;
@@ -424,4 +425,43 @@ margin-left:20px;
 	width:100%;
 	height:140px;
 	text-align:center;
+}
+
+/*************************************************************************************************************************/
+/*************************************************************************************************************************/
+/**Homepage**/
+/**homepageTopSec**/
+.homepageTopSec{
+	position:relative;
+}
+.carouselHPBannerCont{
+	position:relative;
+	height:590px;
+	width:940px;
+	margin-left:10px;
+}
+
+.carouselHPBannerCont div.caroufredsel_wrapper{
+	float:left;
+	clear:both;
+}
+.carouselHPBannerList li{
+    width:920px;
+    height: 500px;
+    padding: 0;
+    display: block;
+    float: left;
+}
+.carouselHPBannerList img{
+	width:900px;
+    height: 480px;
+}
+
+.homepageSignUp{
+	height:480px;
+	width:370px;
+	background-image:url(images/homepage/newsletterbg.png);
+	position:absolute;
+	top:60px;
+	right:103px;
 }

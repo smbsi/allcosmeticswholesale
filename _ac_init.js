@@ -22,6 +22,7 @@ app.rq.push(['extension',0,'store_cart','extensions/store_cart.js']);
 app.rq.push(['extension',0,'store_crm','extensions/store_crm.js']);
 app.rq.push(['extension',0,'myRIA','app-quickstart.js','startMyProgram']);
 
+
 //app.rq.push(['extension',1,'google_analytics','extensions/partner_google_analytics.js','startExtension']);
 //app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js','startExtension']);
 //app.rq.push(['extension',1,'resellerratings_survey','extensions/partner_buysafe_guarantee.js','startExtension']); /// !!! needs testing.
@@ -32,29 +33,53 @@ app.rq.push(['extension',0,'myRIA','app-quickstart.js','startMyProgram']);
 app.rq.push(['script',0,(document.location.protocol == 'file:') ? app.vars.testURL+'jquery/config.js' : app.vars.baseURL+'jquery/config.js']); //The config.js is dynamically generated.
 app.rq.push(['script',0,app.vars.baseURL+'model.js']); //'validator':function(){return (typeof zoovyModel == 'function') ? true : false;}}
 app.rq.push(['script',0,app.vars.baseURL+'includes.js']); //','validator':function(){return (typeof handlePogs == 'function') ? true : false;}})
-
 app.rq.push(['script',0,app.vars.baseURL+'controller.js']);
 
 app.rq.push(['script',1,app.vars.baseURL+'resources/jquery.ui.jeditable.js']); //used for making text editable (customer address). non-essential. loaded late.
 app.rq.push(['script',1,app.vars.baseURL+'resources/jquery.showloading-v1.0.jt.js']); //used for making text editable (customer address). non-essential. loaded late.
 app.rq.push(['script',0,app.vars.baseURL+'resources/jquery.ui.anyplugins.js']); //in zero pass in case product page is first page.
 
-
+//Third party plugins
+app.rq.push(['script',0,app.vars.baseURL+'_jquery_cycle_plugin.js']);
+app.rq.push(['script',0,app.vars.baseURL+'carouFredSel-6.2.0/jquery.carouFredSel-6.2.0-packed.js']);
 
 
 //add tabs to product data.
 //tabs are handled this way because jquery UI tabs REALLY wants an id and this ensures unique id's between product
 app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
-	var safePID = app.u.makeSafeHTMLId(P.pid); //can't use jqSelector because productTEmplate_pid still used makesafe. planned Q1-2013 update ###
-	var $tabContainer = $( ".tabbedProductContent",$('#productTemplate_'+safePID));
-		if($tabContainer.length)	{
-			if($tabContainer.data("widget") == 'anytabs'){} //tabs have already been instantiated. no need to be redundant.
-			else	{
-				$tabContainer.anytabs();
-				}
-			}
-		else	{} //couldn't find the tab to tabificate.
-	}]);
+  var safePID = app.u.makeSafeHTMLId(P.pid); //can't use jqSelector because productTEmplate_pid still used makesafe. planned Q1-2013 update ###
+  var $tabContainer = $( ".tabbedProductContent",$('#productTemplate_'+safePID));
+	  if($tabContainer.length)	{
+		  if($tabContainer.data("widget") == 'anytabs'){} //tabs have already been instantiated. no need to be redundant.
+		  else	{
+			  $tabContainer.anytabs();
+			  }
+		  }
+	  else	{} //couldn't find the tab to tabificate.
+  }]);
+	
+	
+	
+var homepageLoad = false;
+app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) 
+{
+	//Carousel horizontal sliders
+	var carouselHPBanner;
+	function foo1(){ $(".carouselHPBannerList").carouFredSel
+	({
+		width   : 940,
+		height	: 500,
+		items   : 1,
+		scroll: 1,
+		auto : true
+		//pagination  : "#carouselHPBannerPag",
+		//prev : "#caroPrev1",
+		//next : "#caroNext1"
+	});
+	}
+	carouselHPBanner = foo1;
+	setTimeout(carouselHPBanner, 2000);
+}]);
 
 //sample of an onDeparts. executed any time a user leaves this page/template type.
 app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.u.dump("just left the homepage")}]);

@@ -60,6 +60,7 @@ css files should be included before any .js file to ensure they are downloaded i
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script src="resources/jquery.ui.widget.min.js"></script><!-- here so that plugins that may load before the jqueryui lib load without error -->
 <script type="text/javascript" src="loadscript.js"></script>
+<script type="text/javascript" src="_jquery_cycle_plugin.js"></script>
 
 
 
@@ -390,9 +391,29 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 <div id='homepageTemplate' class='homeTemplate'>
 	
 
-<ul id="wideSlideshow" class="pics slideshow">
+	<!--<ul id="wideSlideshow" class="pics slideshow">
 		<img src='images/blank.gif' width='712' height='400' data-bind="var: category(%page.banner_slideshow1); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
-	</ul>
+	</ul>-->
+    
+    <div class="homepageTopSec">
+    
+    	<div class="carouselHPBannerCont">
+        	<ul class="carouselHPBannerList">
+            	<li class="pointer" onClick="return showContent('category',{'navcat':'.'});">
+                	<img src="images/homepage/banner/placeholder1.png" />
+                </li>
+                <li class="pointer" onClick="return showContent('category',{'navcat':'.'});">
+                	<img src="images/homepage/banner/placeholder2.png" />
+                </li>
+                <li class="pointer" onClick="return showContent('category',{'navcat':'.'});">
+                	<img src="images/homepage/banner/placeholder3.png" />
+                </li>
+            </ul>
+            <div class="pagination" id="carouselHPBannerPag"></div>
+        </div>
+        <div class="homepageSignUp">
+        </div>
+    </div>
 	
 	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul>
 
