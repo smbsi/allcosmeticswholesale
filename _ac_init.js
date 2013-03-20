@@ -63,7 +63,7 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 var homepageLoad = false;
 app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) 
 {
-	//Carousel horizontal sliders
+	//Carousel horizontal sliders - homepage banner
 	var carouselHPBanner;
 	function foo1(){ $(".carouselHPBannerList").carouFredSel
 	({
@@ -79,7 +79,23 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 	}
 	carouselHPBanner = foo1;
 	setTimeout(carouselHPBanner, 2000);
+	
+	
 }]);
+
+//Header dropdown menus
+var showDropdown = function ($tag) {
+	var $dropdown = $(".dropdown", $tag);
+	var height = 330;
+	/*$dropdown.children().each(function(){
+		height += $(this).outerHeight(true);
+	});*/
+	$dropdown.stop().animate({"height":height+"px"}, 0);
+}
+	
+var hideDropdown = function ($tag) {
+	$(".dropdown", $tag).stop().animate({"height":"0px"}, 0);
+}
 
 //sample of an onDeparts. executed any time a user leaves this page/template type.
 app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.u.dump("just left the homepage")}]);

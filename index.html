@@ -127,9 +127,9 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
 <!--Begin Header Area-->
 <div class="header">
 	<div class="headerTopThird">
-    	<div class="floatLeft headerLoginLink"><h5>Welcome, <span>Guest!</span> <h6>Not You? <a>Login</a> or <a>Sign-up!</a></h6></h5></div>
+    	<div class="floatLeft headerLoginLink"><h5>Welcome, <span class='username'>Guest!</span> <h6>Not You? <a href='#top' onClick="return showContent('customer',{'show':'myaccount'});">Login</a> or <a href='#top' onClick="return showContent('customer',{'show':'newsletter'});">Sign-up!</a></h6></h5></div>
         <div class="floatRight headerHelpLink"><a class="pointer" onclick="return showContent('company',{'show':'contact'});" class='bindByAnchor'>Help</a></div>
-        <div class="floatRight headerCartLink bindByAnchor"><a class="pointer" href="#cart?."><span class="cartItemCount">0</span> Items </a> <h6>in your cart | </h6><a class="pointer bindByAnchor" href="#cart?.">View Shopping Bag</a></div>
+        <div class="floatRight headerCartLink bindByAnchor"><a class="pointer bindByAnchor" href="#cart?."><span class="cartItemCount">0</span> Items </a> <h6>in your cart | </h6><a class="pointer bindByAnchor" href="#cart?.">View Shopping Bag</a></div>
     </div>
     <div class="headerMidThird">
     	<a href="#homepage?." class='bindByAnchor' title='Home'><img class="floatLeft homepageLink" src="images/homepage_link_image.png" /></a>
@@ -146,38 +146,60 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
     <div class="clear"></div>
     <div class="headerBottomThird">
     	<div class="headerBottomThird">
-          <div class="navBarBrands">
-              <a>Brands</a>
+          <div class="navBarBrands" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a>Brands</a>
+              <ul class="dropdown headerDropdown alignLeft">
+                  <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.'});" class="pointer">category item name here</a></li>
+              </ul>
           </div>
-          <div class="navBarEyes">
-              <a>Eyes</a>
+          <div class="navBarEyes" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a>Eyes</a>
+              <ul class="dropdown headerDropdown alignLeft">
+                  <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.'});" class="pointer">category item name here</a></li>
+              </ul>
           </div>
-          <div class="navBarLips">
-              <a>Lips</a>
+          <div class="navBarLips" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a>Lips</a>
+              <ul class="dropdown headerDropdown alignLeft">
+                  <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.'});" class="pointer">category item name here</a></li>
+              </ul>
           </div>
-          <div class="navBarFace">
-              <a>Face</a>
+          <div class="navBarFace" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a>Face</a>
+              <ul class="dropdown headerDropdown alignLeft">
+                  <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.'});" class="pointer">category item name here</a></li>
+              </ul>
           </div>
-          <div class="navBarAccess">
-              <a>Accessories</a>
+          <div class="navBarAccess" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a>Accessories</a>
+              <ul class="dropdown headerDropdown alignLeft">
+                  <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.'});" class="pointer">category item name here</a></li>
+              </ul>
           </div>
-          <div class="navBarSkin">
-              <a>Skin</a>
+          <div class="navBarSkin" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a>Skin</a>
+              <ul class="dropdown headerDropdown alignLeft">
+                  <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.'});" class="pointer">category item name here</a></li>
+              </ul>
           </div>
-          <div class="navBarNails">
-              <a>Nails</a>
+          <div class="navBarNails" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a>Nails</a>
+              <ul class="dropdown headerDropdown alignLeft">
+                  <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.'});" class="pointer">category item name here</a></li>
+              </ul>
           </div>
-          <div class="navBarFragrance">
-              <a>Fragrance</a>
+          <div class="navBarFragrance" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a>Fragrance</a>
+              <ul class="dropdown headerDropdown alignLeft">
+                  <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.'});" class="pointer">category item name here</a></li>
+              </ul>
           </div>
-          <div class="navBarHair">
-          	  <a>Hair</a>
+          <div class="navBarHair" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a>Hair</a>
+              <ul class="dropdown headerDropdown alignLeft">
+                  <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.'});" class="pointer">category item name here</a></li>
+              </ul>
           </div>
-          <div class="navBarJewel">
-              <a>Jewelry</a>
+          <div class="navBarJewel" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a>Jewelry</a>
+              <ul class="dropdown headerDropdown alignLeft">
+                  <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.'});" class="pointer">category item name here</a></li>
+              </ul>
           </div>
-          <div class="navBarSale">
-              <a>Sale</a>
+          <div class="navBarSale" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a>Sale</a>
+              <ul class="dropdown headerDropdown alignLeft">
+                  <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.'});" class="pointer">category item name here</a></li>
+              </ul>
           </div>
        </div>
     </div>
@@ -189,8 +211,8 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
 <!--Begin Footer Area-->
 <div class="footer">
 	<div class="footerTopThird">  	
-    	<img class="footerTwit" src="images/footer/twitter.png" />
-        <img class="footerFb" src="images/footer/facebook.png" />
+    	<a class="pointer" href="https://twitter.com/@ACWcosmetics" target="_blank"><img class="footerTwit pointer" src="images/footer/twitter.png" /></a>
+        <a class="pointer" href="https://www.facebook.com/pages/ACW-Cosmetics/148431235211409" target="_blank"><img class="footerFb pointer" src="images/footer/facebook.png" /></a>
          <div class="floatLeft footerNewsLabel">
          	<h5>STAY UPDATED</h5>
             <div class="clearRight"></div> 
@@ -220,39 +242,39 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
                     <a>What's The Deal</a>
                 </li>
                 <li>
-                    <a>Brands</a>
+                    <a href='#top' onClick="return showContent('category',{'navcat':''});">Brands</a>
                 </li>
                 <li>
-                    <a>Eyes</a>
+                    <a href='#top' onClick="return showContent('category',{'navcat':'.200eyes'});">Eyes</a>
                 </li>
                 <li>
-                    <a>Lips</a>
+                    <a href='#top' onClick="return showContent('category',{'navcat':'.300lips'});">Lips</a>
                 </li>
                 <li>
-                    <a>Face</a>
+                    <a href='#top' onClick="return showContent('category',{'navcat':'.400face'});">Face</a>
                 </li>
             </ul>
             <ul  style="width:42%;" class="floatLeft">
                 <li>
-                    <a>Accessories</a>
+                    <a href='#top' onClick="return showContent('category',{'navcat':'.500accessories'});">Accessories</a>
                 </li>
                 <li>
-                    <a>Skincare</a>
+                    <a href='#top' onClick="return showContent('category',{'navcat':''});">Skincare</a>
                 </li>
                 <li>
-                    <a>Nails</a>
+                    <a href='#top' onClick="return showContent('category',{'navcat':''});">Nails</a>
                 </li>
                 <li>
-                    <a>Fragrance</a>
+                    <a href='#top' onClick="return showContent('category',{'navcat':''});">Fragrance</a>
                 </li>
                 <li>
-                    <a>Hair</a>
+                    <a href='#top' onClick="return showContent('category',{'navcat':'.450hair'});">Hair</a>
                 </li>
                 <li>
-                    <a>Jewelry</a>
+                    <a href='#top' onClick="return showContent('category',{'navcat':''});">Jewelry</a>
                 </li>
                 <li>
-                    <a>Sale</a>
+                    <a href='#top' onClick="return showContent('category',{'navcat':''});">Sale</a>
                 </li>
             </ul>
         </div>
@@ -431,7 +453,8 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             </div>
             <div class="socMed">
             	<div style="width:30%; height:100%; float:left;"></div>
-                <img class="floatLeft" src="images/homepage/facebook.png" /><img class="floatLeft" src="images/homepage/twitter.png" />
+                <a class="pointer" href="https://www.facebook.com/pages/ACW-Cosmetics/148431235211409" target="_blank"><img class="floatLeft pointer" src="images/homepage/facebook.png" /></a>
+                <a class="pointer" href="https://twitter.com/@ACWcosmetics" target="_blank"><img class="floatLeft pointer" src="images/homepage/twitter.png" /></a>
             </div>
             <div class="homepageSignUpBottom"></div>
         </div>
