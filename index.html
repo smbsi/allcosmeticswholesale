@@ -31,9 +31,9 @@ var app = {vars:{
 	"baseURL":"", //used in non-local mode.
 	"testURL":"http://www.8185f9.dagobah.zoovy.net/", //used ONLY if protocol is file: (for testing)
 	//"httpsURL":"https://ssl.zoovy.com/s=www.toynk.zoovy.com/",
-	"httpsURL":"https://ssl.zoovy.com/s=http://www.8185f9.dagobah.zoovy.net/",
+	//"httpsURL":"https://ssl.zoovy.com/s=http://www.8185f9.dagobah.zoovy.net/",
 	//"httpURL":"http://www.toynk.zoovy.com/"
-	"httpURL":"http://www.8185f9.dagobah.zoovy.net/"
+	//"httpURL":"http://www.8185f9.dagobah.zoovy.net/"
 	},u:{},rq:[]};
 
 //set base url so images, css, js, etc all load from appropriate location once deployed.
@@ -412,21 +412,45 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             <div class="pagination" id="carouselHPBannerPag"></div>
         </div>
         <div class="homepageSignUp">
+        	<div>
+            	<h2>GET IN ON</h3>
+                <h1>THE LATEST</h2>
+            </div>
+            <div class="clear">
+            	<form action='#' id='subscribeFrm' class="floatRight" name='subscribeFrm' onSubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false">
+                    <fieldset class='userInfo2'>
+                        <input type="text" name='fullname' value='' placeholder="   FULL NAME" class="floatRight homepageSubInput" id='subscribeFullname' />
+                        <input type="email" name='login' value='' placeholder="   E-MAIL ADDRESS" class="floatRight homepageSubInput" id='subscribeLogin' />
+                        <fieldset data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;" class='borderNone subscriberLists'></fieldset>
+                        <input class="homepageSubButton ui-button-text ui-button ui-state-default ui-corner-all floatRight" type="submit" value="SIGN UP!" />
+                    </fieldset>
+                </form>
+            </div>
+            <div class="floatRight clear">
+            	<hr><h3>FOLLOW US</h3><hr>
+            </div>
+            <div class="socMed">
+            	<div style="width:30%; height:100%; float:left;"></div>
+                <img class="floatLeft" src="images/homepage/facebook.png" /><img class="floatLeft" src="images/homepage/twitter.png" />
+            </div>
+            <div class="homepageSignUpBottom"></div>
         </div>
     </div>
+    <div class="homepageBottomSec">
+    </div>
 	
-	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul>
+	<!--<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul>
 
 	<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; before:<h2>Featured Items</h2>; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-	<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+	<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>-->
 
 <!-- a sample of how to format an elastic native search in a data-bind -->
-	<ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsNoPreview; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+	<!--<ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsNoPreview; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
 
-	<a href="#" onClick="return showContent('search',{'TAG':'IS_BESTSELLER'});">See all Best Sellers</a>
+	<a href="#" onClick="return showContent('search',{'TAG':'IS_BESTSELLER'});">See all Best Sellers</a>-->
 
 <!-- a sample of how to get a 'list' src onto the page. -->
-	<ul data-bind="var: list($models.@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+	<!--<ul data-bind="var: list($models.@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>-->
 
 
 </div>

@@ -38,6 +38,9 @@ body{
 /*************************************************************************************************************************/
 /*************************************************************************************************************************/
 /**header**/
+.header{
+	height:260px;
+}
 /**Top Third**/
 .headerTopThird{
 	width:100%;
@@ -330,13 +333,12 @@ body{
 }
 #subscribeFrm{
 	height:52px;
-	width: 580px;
+	width: 800px;
 	float:right;
-	margin-right:200px;
 }
 .userInfo{
 	height:52px;
-	width: 580px;
+	width: 800px;
 	border:none;
 }
 .subName{
@@ -401,7 +403,7 @@ body{
 /**Bottom Third**/
 .footerBottomThird{
 	width:100%;
-	height:600px;
+	height:500px;
 }
 .footerBottomThird h1{
 	color:#ee3a77;
@@ -462,6 +464,89 @@ margin-left:20px;
 	width:370px;
 	background-image:url(images/homepage/newsletterbg.png);
 	position:absolute;
-	top:60px;
+	top:0px;
 	right:103px;
+}
+
+.homepageSignUp div{
+	padding-top:10px;
+	width:100%;
+}
+
+.homepageSignUp div h2, h1{
+	color:white;
+	text-align:center;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.homepageSignUp div #subscribeFrm{
+	float: right;
+    height: 150px;
+    margin-right: 0px;
+    width: 350px;
+}
+
+.homepageSignUp div hr{
+	width:100px;
+	display:inline-block;
+	color:#313131;
+	margin-left:15px;
+	margin-top:15px;
+}
+.homepageSignUp div h3{
+	display:inline-block;
+	color:#313131;
+	vertical-align:3px;
+	margin-left:15px;
+	margin-top:15px;
+}
+
+.userInfo2{
+	float:right;
+	width:100%;
+	height:200px;
+	border: medium none;
+}
+
+.userInfo2 input{
+	margin-bottom:10px;
+	margin-right:23px;
+	margin-left:20px;
+}
+
+.homepageSubInput{
+	width:85%;
+	height:30px;
+}
+
+.homepageSubButton{
+	background-color: #000000;
+    border: medium none;
+    border-radius: 0 0 0 0;
+    color: #FFFFFF;
+    float: right;
+    font-family: 'Special Elite',cursive;
+    font-size: 18px;
+    height: 37px;
+    margin-top: 8px;
+    width: 125px;
+}
+
+.homepageSignUp div.socMed{
+	width:100%;
+	height:50px;
+	float:left;	
+}
+
+.socMed img{
+	margin-left:30px;
+}
+
+.homepageSignUp div.homepageSignUpBottom{
+	float:left;
+	width:100%;
+	height:122px;
+	background-image:url(images/homepage/newsletterSwatch.png);
+	background-size:cover;
+	background-repeat:no-repeat;
 }
