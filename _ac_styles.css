@@ -589,3 +589,46 @@ margin-left:20px;
 	background-size:cover;
 	background-repeat:no-repeat;
 }
+
+/*************************************************************************************************************************/
+/*************************************************************************************************************************/
+/**Category Page**/
+
+.catName{
+	color:white;
+}
+
+/*************************************************************************************************************************/
+/**productListTemplate**/
+.productList li{
+	width:330px;
+	height:330px;
+}
+.prodListDetails h5{
+	color:white;
+}
+.prodListPriceBuyCont{
+	width:100%;
+}
+.prodListPriceBuyCont div{
+	width:50%;
+	height:40px;
+	float:left;
+	background-color:rgba(200, 200, 200, .2);
+}
+.prodListPriceBuyCont h1{
+	color:white;
+	font-family: 'Special Elite', cursive;
+	line-height:50px;
+}
+.prodListPriceBuyCont form{
+	float:right;
+	width:50%;
+	height:40px;
+}
+.prodListPriceBuyCont button{
+	width:100%;
+	float:left;
+	height:40px;
+	font-family: 'Special Elite', cursive;
+}
