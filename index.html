@@ -211,8 +211,8 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
 <!--Begin Footer Area-->
 <div class="footer">
 	<div class="footerTopThird">  	
-    	<a class="pointer" href="https://twitter.com/@ACWcosmetics" target="_blank"><img class="footerTwit pointer" src="images/footer/twitter.png" /></a>
-        <a class="pointer" href="https://www.facebook.com/pages/ACW-Cosmetics/148431235211409" target="_blank"><img class="footerFb pointer" src="images/footer/facebook.png" /></a>
+    	<a class="pointer" href="https://twitter.com/@ACWcosmetics" target="_blank"><img class="footerTwit" src="images/footer/twitter.png" /></a>
+        <a class="pointer" href="https://www.facebook.com/pages/ACW-Cosmetics/148431235211409" target="_blank"><img class="footerFb" src="images/footer/facebook.png" /></a>
          <div class="floatLeft footerNewsLabel">
          	<h5>STAY UPDATED</h5>
             <div class="clearRight"></div> 
@@ -223,7 +223,7 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
 								<input type="text" name='fullname' value='' placeholder="   Name" class="subName" id='subscribeFullname' />
                                 <input type="email" name='login' value='' placeholder="   E-mail Address" class="subEmail" id='subscribeLogin' />
                                 <fieldset data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;" class='borderNone subscriberLists'></fieldset>
-								<input class="subButton" type="submit" value="Sign Up!" id="" />
+								<input class="subButton pointer" type="submit" value="Sign Up!" id="" />
 							</fieldset>
 						</form>
 	</div>
@@ -499,31 +499,31 @@ don't modify the 'data-templateid' unless you are changing template names and up
 	<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
     
     <div class="catListingCont">
-    	<div href='#top' onClick="return showContent('category',{'navcat':'.brands'});" style="margin-left:50px;" class="catListingCat">
+    	<div href='' onClick="return showContent('category',{'navcat':'.brands'});" style="margin-left:50px;" class="catListingCat">
         	<h1>BRANDS</h1>
         </div>
-        <div href='#top' onClick="return showContent('category',{'navcat':'.200eyes'});" class="catListingCat">
+        <div  onClick="return showContent('category',{'navcat':'.200eyes'});" class="catListingCat">
         	<h1>EYES</h1>
         </div>
-        <div href='#top' onClick="return showContent('category',{'navcat':'.300lips'});" class="catListingCat">
+        <div  onClick="return showContent('category',{'navcat':'.300lips'});" class="catListingCat">
         	<h1>LIPS</h1>
         </div>
-        <div href='#top' onClick="return showContent('category',{'navcat':'.400face'});" class="catListingCat">
+        <div  onClick="return showContent('category',{'navcat':'.400face'});" class="catListingCat">
         	<h1>FACE</h1>
         </div>
-        <div href='#top' onClick="return showContent('category',{'navcat':'.500accessories'});" style="margin-left:50px;" class="catListingCat">
+        <div  onClick="return showContent('category',{'navcat':'.500accessories'});" style="margin-left:50px;" class="catListingCat">
         	<h1>ACCESSORIES</h1>
         </div>
-        <div href='#top' onClick="return showContent('category',{'navcat':'.600skincare'});" class="catListingCat">
+        <div  onClick="return showContent('category',{'navcat':'.600skincare'});" class="catListingCat">
         	<h1>SKINCARE</h1>
         </div>
-        <div href='#top' onClick="return showContent('category',{'navcat':'.700nails'});" class="catListingCat">
+        <div  onClick="return showContent('category',{'navcat':'.700nails'});" class="catListingCat">
         	<h1>NAILS</h1>
         </div>
-        <div href='#top' onClick="return showContent('category',{'navcat':'.800fragrance'});" class="catListingCat">
+        <div  onClick="return showContent('category',{'navcat':'.800fragrance'});" class="catListingCat">
         	<h1>FRAGRANCE</h1>
         </div>
-        <div href='#top' onClick="return showContent('category',{'navcat':'.450hair'});" style="margin-left:50px;" class="catListingCat">
+        <div  onClick="return showContent('category',{'navcat':'.450hair'});" style="margin-left:50px;" class="catListingCat">
         	<h1>HAIR</h1>
         </div>
         <div class="catListingCat">
@@ -541,6 +541,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 	<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
 
+	<h2>SUITE 7 BRANDS</h2>
 	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
 
     <!--***Default databinds removed to match design***<!--<p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>-->
@@ -558,7 +559,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <ul>
 <li id='categoryListTemplate'>
 	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer'>
-		<div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='120' height='120' /></div>
+		<!--***Removed to match design***<!--<div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='120' height='120' /></div>-->
 		<div class='catName white2LGray'><span data-bind='var: category(pretty); format:catText; extension: myRIA;'></span></div>
 	</div>
 </li>
@@ -767,11 +768,11 @@ this will likely become more flexible in the future. ###
 
 	<div data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='prodThumbs'>
 
-<div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"2"});' class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image2); format:imageURL;' width='100' height='100' /></div>
+		<div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"2"});' class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image2); format:imageURL;' width='100' height='100' /></div>
 
-<div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"3"});' class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image3); format:imageURL;' width='100' height='100' /></div>
+		<div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"3"});' class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image3); format:imageURL;' width='100' height='100' /></div>
 
-<div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"4"});' class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image4); format:imageURL;' width='100' height='100' /></div>
+		<div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"4"});' class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image4); format:imageURL;' width='100' height='100' /></div>
 
 	</div>
 
