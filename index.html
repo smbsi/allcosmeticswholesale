@@ -420,6 +420,8 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     <div class="homepageTopSec">
     
     	<div class="carouselHPBannerCont">
+        	<a id="prevHPCaro"><img class="carouselHPButton pointer" style="left:50px;" src="images/homepage/arrow_bar_left.png" /></a>
+            <a id="nextHPCaro"><img class="carouselHPButton pointer" style="right:0px;" src="images/homepage/arrow_bar_right.png" /></a>
         	<ul class="carouselHPBannerList">
             	<li class="pointer" onClick="return showContent('category',{'navcat':'.'});">
                 	<img src="images/homepage/banner/placeholder1.png" />
@@ -495,18 +497,53 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id='categoryTemplate' class='loadingBG categoryTemplate'>
 
 	<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+    
+    <div class="catListingCont">
+    	<div href='#top' onClick="return showContent('category',{'navcat':'.brands'});" style="margin-left:50px;" class="catListingCat">
+        	<h1>BRANDS</h1>
+        </div>
+        <div href='#top' onClick="return showContent('category',{'navcat':'.200eyes'});" class="catListingCat">
+        	<h1>EYES</h1>
+        </div>
+        <div href='#top' onClick="return showContent('category',{'navcat':'.300lips'});" class="catListingCat">
+        	<h1>LIPS</h1>
+        </div>
+        <div href='#top' onClick="return showContent('category',{'navcat':'.400face'});" class="catListingCat">
+        	<h1>FACE</h1>
+        </div>
+        <div href='#top' onClick="return showContent('category',{'navcat':'.500accessories'});" style="margin-left:50px;" class="catListingCat">
+        	<h1>ACCESSORIES</h1>
+        </div>
+        <div href='#top' onClick="return showContent('category',{'navcat':'.600skincare'});" class="catListingCat">
+        	<h1>SKINCARE</h1>
+        </div>
+        <div href='#top' onClick="return showContent('category',{'navcat':'.700nails'});" class="catListingCat">
+        	<h1>NAILS</h1>
+        </div>
+        <div href='#top' onClick="return showContent('category',{'navcat':'.800fragrance'});" class="catListingCat">
+        	<h1>FRAGRANCE</h1>
+        </div>
+        <div href='#top' onClick="return showContent('category',{'navcat':'.450hair'});" style="margin-left:50px;" class="catListingCat">
+        	<h1>HAIR</h1>
+        </div>
+        <div class="catListingCat">
+        	<h1>JEWELRY</h1>
+        </div>
+        <div class="catListingCat">
+        	<h1>SALE</h1>
+        </div>
+        
+    </div>
 
-	<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" />
-
+	<!--***Default databinds removed to match design***<!--<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" />
 	<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>
-
-	<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
-
-	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
+	<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>-->
 
 	<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
 
-	<p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
+
+    <!--***Default databinds removed to match design***<!--<p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>-->
 
 
 </div>
@@ -553,7 +590,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
         <h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
 		
         <div class='prodThumbContainer' data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'>
-			<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='330' height='200' />
+			<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='300' height='200' />
 		</div>
         
 <!--	<span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>-->
@@ -963,8 +1000,8 @@ adding classes is not likely to have any bad effects.
 
 <!--  used in breadcrumb -->
 <ul>
-	<li id='breadcrumbTemplate'>
-	<a href='#' onClick="return showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" data-bind='var: category(pretty); format:catText; extension: myRIA;'></a>
+	<li id='breadcrumbTemplate' class="breadcrumbTemplate">
+		<a href='#' onClick="return showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" data-bind='var: category(pretty); format:catText; extension: myRIA;'></a>
 	</li>
 </ul>
 

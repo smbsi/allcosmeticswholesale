@@ -71,10 +71,10 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 		height	: 500,
 		items   : 1,
 		scroll: 1,
-		auto : true
+		auto : true,
 		//pagination  : "#carouselHPBannerPag",
-		//prev : "#caroPrev1",
-		//next : "#caroNext1"
+		prev : "#prevHPCaro",
+		next : "#nextHPCaro"
 	});
 	}
 	carouselHPBanner = foo1;
