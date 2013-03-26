@@ -738,28 +738,60 @@ div .catListingCat:hover{
 /*************************************************************************************************************************/
 /*************************************************************************************************************************/
 /**Product Page**/
+.prodViewerContainer{
+	height:600px;
+}
 /*************************************************************************************************************************/
 /**Product Image section**/
 .imageContainer{
 	padding-right:0px;
 	margin-right:24px;
+	float:left;
+	width:25%;
+	height:600px;
+	margin-left:45px;
 }
-td div .tagsContainer{
+div .tagsContainer{
 	border:none;
 }
 .imageContainer div{
 	border:solid 6px rgba(200, 200, 200, .2);
+	width: 340px;
+	float:left;
 }
-td .prodThumbs{
+.prodViewerContainer .prodThumbs div{
+	width: 100px;
+}
+div .prodThumbs{
 	margin-top:10px;
 	border:none;
 }
-.prodThumbs div{
+div .socialLinks{
+	border:none;
 }
 
 
+
 /*************************************************************************************************************************/
-/**Product Information Section**/
+/**Product Summary Section**/
+
+.prodSummaryContainer{
+	float:left;
+	width:40%;
+	height:600px;
+}
+.prodSummaryContainer h1{
+	font-size:22px;
+}
+.prodSummaryContainer h5{
+	color:white;
+	margin-left: 36px;
+}
 
 /*************************************************************************************************************************/
 /**Product Price/Cart/Review Section**/
+.priceReviewContainer{
+	width:30%;
+	float:left;
+	height:600px;
+}
