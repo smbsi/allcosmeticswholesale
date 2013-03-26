@@ -16,7 +16,7 @@
 
 ************************************************************** */
 
-var _acw = function() {
+var store_acw = function() {
 	var r= {
 		vars : {
 		},
@@ -24,18 +24,18 @@ var _acw = function() {
 		callbacks : {
 			init : {
 				onSuccess : function(){
-					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.init.onSuccess');
+					app.u.dump('BEGIN app.ext.ext._acw.callbacks.init.onSuccess');
 				},
 				onError : function() {
-					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.init.onError');
+					app.u.dump('BEGIN app.ext.ext._acw.callbacks.init.onError');
 				}
 			},
 			startExtension : {
 				onSuccess : function (){
-					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.startExtension.onSuccess')
+					app.u.dump('BEGIN app.ext.ext._acw.callbacks.startExtension.onSuccess')
 				},
 				onError : function (){
-					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.startExtension.onError');
+					app.u.dump('BEGIN app.ext._acw.callbacks.startExtension.onError');
 				}
 			}
 		},

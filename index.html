@@ -812,7 +812,9 @@ this will likely become more flexible in the future. ###
 
 		<fieldset data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></fieldset>
         <div class="prodQuantity">
-			<fieldset data-bind='var: product(pid); format:atcQuantityInput; extension:store_product;' placeholder="HOW MANY?" class="borderNone"></fieldset>
+			<fieldset data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; defaultValue:1;' class="borderNone"></fieldset>
+            <!--<fieldset data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; pretext:Quantity: ; defaultValue:1;' class='borderNone'></fieldset>-->
+
             <input type="button" value="ENTER" class="quantityButton" />
         </div>
 
@@ -821,7 +823,7 @@ this will likely become more flexible in the future. ###
     
     <span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
     <h4 class="displayNone" data-bind='var: reviews(reviews.average); format:showIfSet;'>product rating</h4>
-    <br class="displayNone" data-bind='var: reviews(reviews.average); format:showIfSetInline;' />
+    <br class="displayNone" data-bind='var: reviews(reviews.average); format:showIfSetInline; extension:store_acw;' />
     
     <input type="button" class="reviewButton pointer" value="PRODUCT REVIEWS" />
     
