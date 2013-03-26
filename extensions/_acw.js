@@ -21,6 +21,25 @@ var _acw = function() {
 		vars : {
 		},
 		
+		callbacks : {
+			init : {
+				onSuccess : function(){
+					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.init.onSuccess');
+				},
+				onError : function() {
+					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.init.onError');
+				}
+			},
+			startExtension : {
+				onSuccess : function (){
+					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.startExtension.onSuccess')
+				},
+				onError : function (){
+					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.startExtension.onError');
+				}
+			}
+		},
+		
 		renderFormats : {
 			//Identical to the showIFSet render format but sets to inline instead of block.
 			showIfSetInline : function($tag,data)	{
