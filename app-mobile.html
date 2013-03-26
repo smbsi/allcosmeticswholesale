@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130220095400",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201312.a",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"testURL":"http://www.sporks.zoovy.com/"
@@ -130,7 +130,7 @@ app.u.loadScript(app.vars.baseURL+"app-mobile-init.js");
 	<ul>
 		<li onClick="showContent('homepage',{});"><span class='sprite homeIcon'></span></li>
 		<li onClick="showContent('cart',{});"><span class='sprite cartIcon'></span></li>
-		<li><a href='#!company?show=lists' class='bindByAnchor'><span class='sprite wishlistIcon'></span></a></li>
+		<li><a href='#!customer?show=lists' class='bindByAnchor'><span class='sprite wishlistIcon'></span></a></li>
 		<li><a href='#!company?show=about' class='bindByAnchor'><span class='sprite infopagesIcon'></span></a></li>
 	</ul>
 	</div>
@@ -264,7 +264,8 @@ remember to NOT put the button inside the 'onclick' container or two events will
 <!-- 	<span data-bind='var: reviews(reviews.total); format:text; pretext: from ;posttext: reviews; className:numReviews;'></span> -->
 	</div>
 	
-	<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#'>
+	<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.addItemToCart($(this),{'action':'modal'}); return false;">
+		<input type='hidden' name='qty' value='1' \/>
 		<button data-bind='format:addToCartButton; extension:myRIA; useParentData:true;'>more details</button>
 	</form>
 	
@@ -288,14 +289,12 @@ container ul should have lineItemProdlist class on it instead of productList
 
 		<span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
 
-		<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodListAddToCartForm marginBottom clearfix' id='accessoriesAddToCartFrm' action='#' onSubmit="app.ext.myRIA.u.handleAddToCart(this.id,{'action':'modal'}); return false;">
-
+		<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.addItemToCart($(this)); return false;">
+	
 			<fieldset data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></fieldset>
-
-			<input type='submit' value='Add to Cart' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' class='displayNone ui-button ui-button-text ui-corner-all ui-state-default addToCartButton atcButton' />
-
-			<input type='hidden' value='1' size='3' name='quantity' />
-
+			<fieldset data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; pretext:Quantity: ; defaultValue:0;' class='borderNone'></fieldset>
+	
+			<input type='submit' value='Add to Cart' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;'  />
 		</form>
 
 	</div>
@@ -458,16 +457,15 @@ this will likely become more flexible in the future. ###
 	<ul title='please choose' id='prodlistChildren' class='listStyleNone fluidList clearfix noPadOrMargin productList smallProdlist' data-bind="var: product(zoovy:grp_children); format:productList; extension:store_prodlist; loadsTemplate:productListTemplateChildren; withInventory:1; withVariations:1;hide_summary:true;"></ul>
 
 
-<!--	<div data-bind='var: product(@inventory.inv); format:simpleInvDisplay; extension:store_product;' class='inventory'></div> -->
 	<div data-bind='var: product(zoovy:ship_latency); format:text;pretext:Normally ships in ;posttext: day(s);' class='latency'></div>
 
 
-	<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.handleAddToCart($(this),{'action':'modal'}); return false;">
+	<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.addItemToCart($(this)); return false;">
 
 		<fieldset data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></fieldset>
-		<fieldset data-bind='var: product(pid); format:atcQuantityInput; extension:store_product; pretext:Quantity: ;' class='borderNone'></fieldset>
+		<fieldset data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; pretext:Quantity: ; defaultValue:1;' class='borderNone'></fieldset>
 
-		<input type='submit' value='Add to Cart' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
+		<input type='submit' value='Add to Cart' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;'  />
 	</form>
 
 
@@ -592,10 +590,12 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 	<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.handleAddToCart($(this),{'action':'modal'}); return false;">
 
 		<fieldset data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></fieldset>
-		<fieldset data-bind='var: product(pid); format:atcQuantityInput; extension:store_product; pretext:Quantity: ;' class='borderNone'></fieldset>
+		<fieldset data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; pretext:Quantity: ; defaultValue:1;' class='borderNone'></fieldset>
 
-		<input type='submit' value='Add to Cart' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
+		<input type='submit' value='Add to Cart' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;'  />
 	</form>
+
+
 
 	<div id="prodDesc" data-bind='var: product(zoovy:prod_desc); format:wiki; wikiFormats:myRIA;'></div>
 
@@ -647,6 +647,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 
 
 
+
 <!--
 
 ############################
@@ -654,6 +655,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 MOST OFTEN YOU WANT TO LEAVE THESE TEMPLATES ALONE
 if modified, be careful about changing id's or classes.
 adding classes is not likely to have any bad effects.
+if you change these, you should move them above this comment so that when you (or the next person) does an upgrade, you know what isn't default
 
 ############################
 
@@ -700,7 +702,7 @@ adding classes is not likely to have any bad effects.
 
 		<div id='contactArticle' class='displayNone textContentArea'>
 			<h1>Contact Information</h1>
-			<form action='#' onSubmit="app.ext.store_crm.calls.appSendMessage.init($(this).serializeJSON(),{'callback':'showMessaging','parentID':'contactFormMessaging','message':'Thank you, your message has been sent'},'immutable'); app.model.dispatchThis('immutable');  return false;" id='contactForm' name='contactForm'>
+			<form action='#' onSubmit="app.calls.appSendMessage.init($(this).serializeJSON(),{'callback':'showMessaging','parentID':'contactFormMessaging','message':'Thank you, your message has been sent'},'immutable'); app.model.dispatchThis('immutable');  return false;" id='contactForm' name='contactForm'>
 			<fieldset>
 				<legend>Contact Us</legend>
 				<div id='contactFormMessaging'></div>
@@ -818,20 +820,18 @@ adding classes is not likely to have any bad effects.
 
 		<div id='myaccountArticle' class='displayNone textContentArea'>
 			<h1>My Account</h1>
-			<div id='logMessaging'></div>
 			<div><a href="#" onClick="app.ext.myRIA.u.handleLogoutActions(); return false;">Log Out</a></div>
 
-			<section id='buyerAddresses' class='clearfix'>
+			<section class='clearfix'>
 
-<div class='billAddressContainer'>
+<div class='billAddressContainer' data-app-role='addressContainer' data-app-addresstype='bill'>
 	<h2>Billing Address(es)</h2>
-<!--	<button class='floatRight ui-state-default ui-corner-all'><span class='ui-icon ui-icon-plusthick floatLeft'></span> Add </button> coming soon -->
-	<div class='billAddresses'></div><!-- billing addresses are loaded into here using billAddressTemplate -->
+	<div class='billAddresses' data-bind="var: buyer(@bill); format:processList; loadsTemplate:billAddressTemplate;"></div>
 </div>
 
-<div class='shipAddressContainer'>
+<div class='shipAddressContainer' data-app-role='addressContainer' data-app-addresstype='ship'>
 	<h2>Shipping Address(es)</h2>
-	<div class='shipAddresses'></div><!-- shipping addresses are loaded into here using shipAddressTemplate -->
+	<div class='billAddresses' data-bind="var: buyer(@ship); format:processList; loadsTemplate:shipAddressTemplate;"></div>
 </div>
 
 
@@ -1072,6 +1072,7 @@ So the cart template should contain these two elements and the extension should 
 	<li id='productListTemplateCart' class='padMargBorderBottom clearfix'>
 
 		<button class='floatRight removeButton' data-bind='format:removeItemBtn; extension:store_cart; useParentData:true;' >Remove Item From Cart</button>
+		<button class='floatRight moveToWishlist marginRight' data-bind='format:moveToWishlistButton; extension:myRIA; useParentData:true;' >Move to Wishlist</button>
 
 		<div class='floatLeft'><img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); defaultVar: product(%attribs.zoovy:prod_image1); format:imageURL;' width='75' height='75' /></div>
 
@@ -1278,25 +1279,19 @@ The 'data-action' attribute is used to assign an onclick.
 
 -->
 
-<address id='billAddressTemplate' class='ui-widget ui-widget-content ui-corner-all buyerAddressContainer buyerBillAddressContainer '>
-	<menu class='buttonMenu alignRight floatRight'>
-		<div class='offMenu'><button data-action="displayOnMenu" class='ui-button-text ui-button ui-state-default ui-corner-all'>edit</button></div>
-		<div class='onMenu'>
-			<button data-action="cancelAddressChanges" class='ui-button-text ui-button ui-state-default ui-corner-all'>cancel changes</button>
-			<button data-action="saveAddressChanges" class='ui-button-text ui-button ui-state-default ui-corner-all'>Save</button>
-		</div>
-		<div class='changeLog'></div>
-	</menu>
+<address id='billAddressTemplate' class='ui-widget ui-widget-content ui-corner-all marginBottom '>
+	<button data-app-event="myRIA|showBuyerAddressUpdate" class='floatRight'>edit</button>
 	<div class='addressFullname'>
-		<span data-bind="var: address(bill_firstname);format:text;" class='editable' title='first name'></span> <span data-bind="var: address(bill_lastname);format:text;" class='editable' title='last name'></span>
+		<span data-bind="var: address(bill_firstname);format:text;"  title='first name'></span>
+		<span data-bind="var: address(bill_lastname);format:text;"  title='last name'></span>
 	</div>
 	<div class='address'>
-		<div data-bind="var: address(bill_address1);format:text;" class='editable' title='address'></div>
-		<div data-bind="var: address(bill_address2);format:text;" class='editable' title='address 2'></div>
+		<div data-bind="var: address(bill_address1);format:text;"  title='address'></div>
+		<div data-bind="var: address(bill_address2);format:text;"  title='address 2'></div>
 
-		<span data-bind="var: address(bill_city);format:text;" class='editable' title='city'></span>,
-		<span data-bind="var: address(bill_region);format:text;" class='editable' title='state'></span>.
-		<span data-bind="var: address(bill_postal);format:text;" class='editable' title='zip'></span>
+		<span data-bind="var: address(bill_city);format:text;"  title='city'></span>,
+		<span data-bind="var: address(bill_region);format:text;"  title='state'></span>.
+		<span data-bind="var: address(bill_postal);format:text;"  title='zip'></span>
 		<div data-bind="var: address(bill_countrycode);format:text;" title='country'></div>
 
 	</div>
@@ -1305,38 +1300,90 @@ The 'data-action' attribute is used to assign an onclick.
 
 
 <!-- used in the my account area -->
-<address id='shipAddressTemplate' class='ui-widget ui-widget-content ui-corner-all buyerAddressContainer buyerShipAddressContainer'>
-	<menu class='buttonMenu alignRight floatRight'>
-		<div class='offMenu'><button data-action="displayOnMenu" class='ui-button-text ui-button ui-state-default ui-corner-all'>edit</button></div>
-		<div class='onMenu'>
-			<button data-action="cancelAddressChanges" class='ui-button-text ui-button ui-state-default ui-corner-all'>cancel changes</button>
-			<button data-action="saveAddressChanges" class='ui-button-text ui-button ui-state-default  ui-corner-all'>Save</button>
-		</div>
-		<div class='changeLog'></div>
-	</menu>
+<address id='shipAddressTemplate' class='ui-widget ui-widget-content ui-corner-all marginBottom '>
+	<button data-app-event="myRIA|showBuyerAddressUpdate" class='floatRight'>edit</button>
 	<div class='addressFullname'>
-		<span data-bind="var: address(ship_firstname);format:text;" class='editable' title='first name'></span> <span data-bind="var: address(ship_lastname);format:text;" class='editable' title='last name'></span>
+		<span data-bind="var: address(ship_firstname);format:text;"  title='first name'></span>
+		<span data-bind="var: address(ship_lastname);format:text;"  title='last name'></span>
 	</div>
 	<div class='address'>
-		<div data-bind="var: address(ship_address1);format:text;" class='editable' title='address'></div>
-		<div data-bind="var: address(ship_address2);format:text;" class='editable' title='address 2'></div>
+		<div data-bind="var: address(ship_address1);format:text;"  title='address'></div>
+		<div data-bind="var: address(ship_address2);format:text;"  title='address 2'></div>
 
-		<span data-bind="var: address(ship_city);format:text;" class='editable' title='city'></span>,
-		<span data-bind="var: address(ship_region);format:text;" class='editable' title='state'></span>.
-		<span data-bind="var: address(ship_postal);format:text;" class='editable' title='zip'></span>
+		<span data-bind="var: address(ship_city);format:text;"  title='city'></span>,
+		<span data-bind="var: address(ship_region);format:text;"  title='state'></span>.
+		<span data-bind="var: address(ship_postal);format:text;"  title='zip'></span>
 		<div data-bind="var: address(ship_countrycode);format:text;" title='country'></div>
 
 	</div>
+
 </address>
 
 
 
 
+<table class='orderContentsTable' data-app-role='invoiceContainer' id='invoiceTemplate'>
+<tr>
+	<td colspan='2'>
+<div class='floatRight'>
+<button data-app-event="myRIA|execOrder2Cart">Re-order</button>
+<button data-app-event="orderCreate|execInvoicePrint">Print Invoice</button>
+</div>
+
+<h3 data-bind='var:order(flow/pool);format:text; pretext:Order Status: ;'></h3>
+
+	</td>
+</tr>
+<tr>
+	<td>
+<hgroup class='marginBottom'>
+<!-- print icon -->
 
 
+<!-- <h2 data-bind='var:order(bill/firstname);format:text; pretext:Shipping Status: ;'></h2> -->
+
+<h5 class='orderTotal' data-bind='var:order(sum/order_total);format:money; currencySign: $;  hideZero:false; pretext:Order Total: ;'></h5>
+<h5 class='balanceDue' data-bind='var:order(sum/balance_due_total);format:money; currencySign: $;  hideZero:false; pretext:Balance Due: ;'></h5>
+</hgroup>
+
+<address class='marginBottom'>
+<h4>
+	<span data-bind='var:order(bill/firstname);format:text; pretext:Bill To: ;'></span>
+	<span data-bind='var:order(bill/lastname);format:text;'></span>
+</h4>
+<div data-bind='var:order(bill/address1);format:text;'></div>
+<div data-bind='var:order(bill/address2);format:text;'></div>
+<div>
+	<span data-bind='var:order(bill/city);format:text;posttext:, ;'></span>
+	<span data-bind='var:order(bill/region);format:text;posttext:. ;'></span>
+	<span data-bind='var:order(bill/postal);format:text; defaultVar:order(data.bill_int_zip);'></span>
+</div>
+<div data-bind='var:order(bill/countrycode);format:text;'></div>
+</address>
+
+<address class='marginBottom'>
+<h4>
+	<span data-bind='var:order(ship/firstname);format:text; pretext:Ship To: ;'></span>
+	<span data-bind='var:order(ship/lastname);format:text;'></span>
+</h4>
+<div data-bind='var:order(ship/address1);format:text;'></div>
+<div data-bind='var:order(ship/address2);format:text;'></div>
+<div>
+	<span data-bind='var:order(ship/city);format:text;posttext:, ;'></span>
+	<span data-bind='var:order(ship/region);format:text;posttext:. ;'></span>
+	<span data-bind='var:order(ship/postal);format:text; defaultVar:order(data.ship_int_zip);'></span>
+</div>
+<div data-bind='var:order(ship/countrycode);format:text;'></div>
+</address>
 
 
-
+	</td>
+	<td class='orderContentsProdlistContainer'>
+	<ul data-bind='var:order(tracking); format:orderTrackingLinks; extension:store_crm;before:<h4>Shipping:</h4>;' class='displayNone noListStyle marginBottom'></ul>
+	<ul data-bind="var: order(@ITEMS); format:stuffList; loadsTemplate:chkoutInvoiceItemTemplate;" class='listStyleNone lineItemProdlist'></ul>
+	</td>
+</tr>
+</table>
 
 
 
@@ -1391,7 +1438,7 @@ The 'data-action' attribute is used to assign an onclick.
 
 <h3 class='marginBottom'>Recover Password</h3>
 <div id='recoverPasswordMessaging'></div>
-<form action='#' onSubmit="app.ext.store_crm.calls.appBuyerPasswordRecover.init($('#passwordRecoveryLogin').val(),{'callback':'showMessaging','message':'Thank you, will receive an email shortly','targetID':'recoverPasswordMessaging'}); app.model.dispatchThis('immutable'); return false;">
+<form action='#' onSubmit="app.calls.appBuyerPasswordRecover.init($('#passwordRecoveryLogin').val(),{'callback':'showMessaging','message':'Thank you, will receive an email shortly','targetID':'recoverPasswordMessaging'}); app.model.dispatchThis('immutable'); return false;">
 <fieldset>
 <div class='marginBottom'><label for='passwordRecoveryLogin'>Login/Email</label> <input type='text' name='login' required='required' id='passwordRecoveryLogin' size='25' /></div>
 
@@ -1438,8 +1485,8 @@ The 'data-action' attribute is used to assign an onclick.
 	<li>Some JS test links
 	<ul>
 		<li><a href='#' onClick="localStorage.clear();">Clear Local Storage</a></li>
-		<li><a href='#' onClick="app.ext.convertSessionToOrder.a.startCheckout($('#mainContentArea'));">mobile checkout</a></li>
-		<li><a href='#' onClick="localStorage.clear();">Clear Local Storage</a></li>
+		<li><a href='#' onClick="app.ext.orderCreate.a.startCheckout($('#mainContentArea'));">mobile checkout</a></li>
+		<li><a href='#' onClick="$('#globalMessaging').anymessage({'message':'this is the message','gMessage':true})">anymessage</a></li>
 	</ul>
 	</li>
 </ul>
@@ -1449,6 +1496,9 @@ The 'data-action' attribute is used to assign an onclick.
 	<input type='search' name='KEYWORDS' placeholder='product search' class="productSearchKeyword handleDefault" />
 	<button>Search</button>
 </form>
+	</td>
+	<td>
+	<input type='text' name='destroy' placeholder='destroy' onBlur="app.model.destroy($(this).val());" />
 	</td>
 </tr>
 </table>

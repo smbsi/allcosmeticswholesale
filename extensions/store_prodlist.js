@@ -195,7 +195,8 @@ A special translate template for product so that reviews can be merged into the 
 					tmp['reviews'] = app.ext.store_prodlist.u.summarizeReviews(pid); //generates a summary object (total, average)
 					tmp['reviews']['@reviews'] = app.data['appReviewsList|'+pid]['@reviews']
 					}
-				app.renderFunctions.translateTemplate(app.data[tagObj.datapointer],tagObj.parentID);
+				$(app.u.jqSelector('#',tagObj.parentID)).anycontent({'datapointer':tagObj.datapointer});
+//				app.renderFunctions.translateTemplate(app.data[tagObj.datapointer],tagObj.parentID);
 				},
 //error needs to clear parent or we end up with orphans (especially in UI finder).
 			onError : function(responseData,uuid)	{
@@ -205,7 +206,7 @@ A special translate template for product so that reviews can be merged into the 
 				app.u.throwMessage(responseData,uuid);
 //for UI prod finder. if admin session, adds a 'remove' button so merchant can easily take missing items from list.
 // ### !!! NOTE - upgrade this to proper admin verify (function)
-				if(app.sessionId && app.sessionId.indexOf('**') === 0)	{
+				if(app.vars.cartID && app.vars.cartID.indexOf('**') === 0)	{
 					$('.ui-state-error',$parent).append("<button class='ui-state-default ui-corner-all'  onClick='app.ext.admin.u.removePidFromFinder($(this).closest(\"[data-pid]\"));'>Remove "+responseData.pid+"<\/button>");
 					}
 				}

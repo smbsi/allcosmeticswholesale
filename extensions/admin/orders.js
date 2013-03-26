@@ -658,9 +658,9 @@ app.ext.admin.u.handleAppEvents($target);
 
 
 		showOrderEditorInDialog : function(orderID,CID)	{
-//app.u.dump("BEGIN extensions.admin_orders.a.showOrderEditorInDialog");
-//app.u.dump(" -> orderID : "+orderID);
-//app.u.dump(" -> CID : "+CID);
+app.u.dump("BEGIN extensions.admin_orders.a.showOrderEditorInDialog");
+app.u.dump(" -> orderID : "+orderID);
+app.u.dump(" -> CID : "+CID);
 
 if(orderID)	{
 
@@ -1457,7 +1457,7 @@ see the renderformat paystatus for a quick breakdown of what the first integer r
 							if(sdomain && sDomains[sdomain])	{} //dispatch already queued.
 							else if(sdomain)	{
 								sDomains[sdomain] = true; //add to array so that each sdomain is only requested once.
-								app.calls.appProfileInfo.init({'sdomain':sdomain},{},'immutable');
+								app.calls.appProfileInfo.init({'domain':sdomain},{},'immutable');
 								}
 							else	{
 								sdomain = "DEFAULT"; //use default profile if no sdomain is available.
@@ -1779,7 +1779,7 @@ $('.editable',$container).each(function(){
 										formJSON[index.substr(4)] = "~"+formJSON[index]
 										}
 //strip pog_ but no tildae, which is ONLY needed for text based sogs.
-									else if(index.substring(0,4) == 'pog_')	{
+									else if(index.length == 2 && index.toUpperCase() == index)	{
 										var pogID = index.substr(4)
 //special handling for checkboxes. If NOT optional and blank, needs to be set to NO.
 //on a checkbox sog, an extra param is passed pog_ID_cb which is set to 1. this is to 'know' that the cb was present so if the value is blank, we can handle accordingly.

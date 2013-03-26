@@ -788,6 +788,32 @@ if no handler is in place, then the app would use legacy compatibility mode.
 				}
 			}, //adminUIProductPanelList
 
+
+//obj requires panel and pid and sub.  sub can be LOAD or SAVE
+/*
+		adminUIExecuteCGI : {
+			init : function(uri,vars,_tag,Q)	{
+				var r = 0;
+				if(uri)	{
+					r = 1;
+					_tag = _tag || {};
+					this.dispatch(uri,vars,_tag,Q);
+					}
+				else	{
+					$("#globalMessaging").anymessage({'message':'in adminUIExecuteCGI, uri not specified.','gMessage':true});
+					}
+				return r;
+				},
+			dispatch : function(uri,vars,_tag,Q)	{
+				obj = {};
+				obj['_cmd'] = "adminUIExecuteCGI";
+				if(vars)	{obj['%vars'] = vars} //only pass vars if present. would be a form post.
+				obj["_tag"] = _tag;
+				app.model.addDispatchToQ(obj,Q || 'mutable');
+				}
+			}, //adminUIProductPanelList
+*/
+
 		adminUIProductPanelList : {
 			init : function(pid,_tag,Q)	{
 				var r = 0;
@@ -1257,9 +1283,6 @@ app.rq.push(['css',0,app.vars.baseURL+'extensions/admin/resources/jHtmlArea-0.7.
 app.rq.push(['script',0,app.vars.baseURL+'extensions/admin/resources/jHtmlArea-0.7.5.ExamplePlusSource/scripts/jHtmlArea-0.7.5.min.js',function(){app.rq.push(['script',0,app.vars.baseURL+'extensions/admin/resources/jHtmlArea-0.7.5.ExamplePlusSource/scripts/jHtmlArea.ColorPickerMenu-0.7.0.min.js'])}]);
 
 
-app.ext.admin.calls.appResource.init('shipcodes.json',{},'passive'); //get this for orders.
-
-
 				return r;
 				},
 			onError : function(d)	{
@@ -1276,15 +1299,16 @@ app.ext.admin.calls.appResource.init('shipcodes.json',{},'passive'); //get this 
 				var L = app.rq.length-1;
 //load any remaining resources into the app.
 				for(var i = L; i >= 0; i -= 1)	{
-					app.u.handleResourceQ(app.rq[i]);
+					app.u.loadResourceFile(app.rq[i]);
 					app.rq.splice(i, 1); //remove once handled.
 					}
-				app.rq.push = app.u.handleResourceQ; //reassign push function to auto-add the resource.
+				app.rq.push = app.u.loadResourceFile; //reassign push function to auto-add the resource.
 
 if(app.u.getBrowserInfo().substr(0,4) == 'msie' && parseFloat(navigator.appVersion.split("MSIE")[1]) < 10)	{
 	app.u.throwMessage("<p>In an effort to provide the best user experience for you and to also keep our development team sane, we've opted to optimize our user interface for webkit based browsers. These include; Safari, Chrome and FireFox. Each of these are free and provide a better experience, including more diagnostics for us to maintain our own app framework.<\/p><p><b>Our store apps support IE8+<\/b><\/p>");
 	}
 
+app.ext.admin.calls.appResource.init('shipcodes.json',{},'passive'); //get this for orders.
 
 //get list of domains and show chooser.
 				var $domainChooser = $("<div \/>").attr({'id':'domainChooserDialog','title':'Choose a domain to work on'}).addClass('displayNone').appendTo('body');
@@ -1599,7 +1623,7 @@ else	{
 		pidFinderChangesSaved : {
 			onSuccess : function(tagObj)	{
 				app.u.dump("BEGIN admin.callbacks.pidFinderChangesSaved");
-				$('#finderMessaging').prepend(app.u.formatMessage({'message':'Your changes have been saved.','htmlid':'finderRequestResponse','uiIcon':'check','timeoutFunction':"$('#finderRequestResponse').slideUp(1000);"}))
+				$('#finderMessaging').anymessage({'message':'Your changes have been saved.','htmlid':'finderRequestResponse','uiIcon':'check','timeoutFunction':"$('#finderRequestResponse').slideUp(1000);"})
 				app.ext.admin.u.changeFinderButtonsState('enable'); //make buttons clickable
 				},
 			onError : function(responseData)	{
@@ -1638,11 +1662,11 @@ $('#finderTargetList, #finderRemovedList').find("li[data-status]").each(function
 app.u.dump(" -> items updated: "+uCount);
 app.u.dump(" -> errors: "+eCount);
 if(uCount > 0)	{
-	$('#finderMessaging').prepend(app.u.formatMessage({'message':'Items Updated: '+uCount,'htmlid':'finderRequestResponse','uiIcon':'check','timeoutFunction':"$('#finderRequestResponse').slideUp(1000);"}))
+	$('#finderMessaging').anymessage({'message':'Items Updated: '+uCount,'htmlid':'finderRequestResponse','uiIcon':'check'})
 	}
 
 if(eCount > 0)	{
-	$('#finderMessaging').prepend(app.u.formatMessage(eCount+' errors occured!<ul>'+eReport+'<\/ul>'));
+	$('#finderMessaging').anymessage({'message':eCount+' errors occured!<ul>'+eReport+'<\/ul>'});
 	}
 
 app.ext.admin.u.changeFinderButtonsState('enable'); //make buttons clickable
@@ -2596,6 +2620,7 @@ var chart = new Highcharts.Chart({
 					$target.empty().append("<div class='loadingBG'></div>");
 //					alert(path);
 					app.model.fetchAdminResource(path,P);
+//					app.ext.admin.calls.adminUIExecuteCGI.init(path,{infoObj:P})
 					}
 				}, //handleShowSection
 
@@ -3259,8 +3284,8 @@ else	{
 
 //go into detail mode. This expands the detail column and shrinks the list col. 
 //this also toggles a specific class in the list column off
-				app.u.dump(" -> old mode: "+oldMode);
-				app.u.dump(" -> mode: "+mode);
+//				app.u.dump(" -> old mode: "+oldMode);
+//				app.u.dump(" -> mode: "+mode);
 				
 				if(mode == 'detail')	{
 					$btn.show().button('destroy').button({icons: {primary: "ui-icon-seek-prev"},text: false});
@@ -3310,58 +3335,6 @@ else	{
 					}
 				
 				}, //toggleDualMode
-
-
-//Currently, a fairly simple validation script. The browsers aren't always implementing their form validation for the dynamically generated content, so this
-//is simple validator which can be extended over time.
-// checks for 'required' attribute and, if set, makes sure field is set and, if max-length is set, that the min. number of characters has been met.
-//
-			validateForm : function($form)	{
-				app.u.dump("BEGIN admin.u.validateForm");
-				if($form && $form instanceof jQuery)	{
-					var r = true; //what is returned. false if any required fields are empty.
-					$form.showLoading({'message':'Validating'});
-					$('input',$form).each(function(){
-						var $input = $(this),
-						$span = $("<span \/>").css('padding-left','6px').addClass('formValidationError');
-						
-						
-						app.u.dump(" -> validating input."+$input.attr('name'));
-						
-						function removeClass($t){
-							$t.off('focus.removeClass').on('focus.removeClass',function(){$t.removeClass('ui-state-error')});
-							}
-						
-						if($input.attr('required') == 'required' && !$input.val())	{
-							r = false;
-							$input.addClass('ui-state-error');
-							$input.parent().append($span.text('required'));
-							removeClass($input);
-							}
-						else if($input.attr('maxlength') && $input.val().length > $input.attr('maxlength'))	{
-							r = false;
-							$input.addClass('ui-state-error');
-							$input.parent().append($span.text('requires a max of '+$input.attr('maxlength')+' characters'));
-							removeClass($input);
-							}
-						else if($input.data('minlength') && $input.val().length < $input.data('minlength'))	{
-							r = false;
-							$input.addClass('ui-state-error');
-							$input.parent().append($span.text('requires a max of '+$input.attr('maxlength')+' characters'));
-							removeClass($input);
-							}
-						else	{
-							$input.removeClass('ui-state-error'); //removed in case added in previous validation attempt.
-							}
-						});
-					$form.hideLoading();
-					}
-				else	{
-					$('#globalMessaging').anymessage({'message':'Object passed into admin.u.validateForm is empty or not a jquery object','gMessage':true});
-					}
-				app.u.dump(" -> r in validateForm: "+r);
-				return r;
-				},
 
 
 //In some cases, we'll likely want to kill everything in local storage BUT save the login and session data.
@@ -3701,7 +3674,7 @@ just lose the back button feature.
 				$btn.hide(); //editor opens in list mode. so button is hidden till detail mode is activated by edit/detail button.
 				$btn.off('click.toggleDualMode').on('click.toggleDualMode',function(event){
 					event.preventDefault();
-					app.ext.admin.u.toggleDualMode($btn.closest("[data-app-role='dualModeContainer']")).first();
+					app.ext.admin.u.toggleDualMode($btn.closest("[data-app-role='dualModeContainer']").first());
 					});
 				}, //toggleDualMode
 
