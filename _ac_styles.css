@@ -335,9 +335,24 @@ body{
 	color:white;
 	font-family: 'Montserrat', sans-serif;
 }
+
+
+/*************************************************************************************************************************/
+/*************************************************************************************************************************/
+/**main content area**/
+#mainContentArea{
+	float:left;
+}
+
+
 /*************************************************************************************************************************/
 /*************************************************************************************************************************/
 /**Footer**/
+.footer{
+	float:left;
+}
+
+/*************************************************************************************************************************/
 /**Top Third**/
 
 .footerTopThird{
@@ -480,6 +495,7 @@ margin-left:20px;
 	height:590px;
 	width:940px;
 	margin-left:10px;
+	float:left;
 }
 .carouselHPBannerCont div.caroufredsel_wrapper{
 	float:left;
@@ -507,9 +523,8 @@ margin-left:20px;
 	height:480px;
 	width:370px;
 	background-image:url(images/homepage/newsletterbg.png);
-	position:absolute;
-	top:0px;
-	right:103px;
+	float:left;
+	margin-top: 16px;
 }
 
 .homepageSignUp div{
