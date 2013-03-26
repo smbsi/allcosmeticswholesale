@@ -753,6 +753,7 @@ this will likely become more flexible in the future. ###
 <div id='productTemplate'>
 
 <ul class='clearfix noPadOrMargin fluidList breadcrumb' data-bind='var: session(session.recentCategories.0); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+<br /><br />
 
 <div class='prodViewerContainer'>
 	<div class='imageContainer'>
@@ -823,13 +824,22 @@ this will likely become more flexible in the future. ###
 
 		<fieldset data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></fieldset>
         <div class="prodQuantity">
-			<fieldset data-bind='var: product(pid); format:atcQuantityInput; extension:store_product;' class="borderNone"></fieldset>
+			<fieldset data-bind='var: product(pid); format:atcQuantityInput; extension:store_product;' placeholder="HOW MANY?" class="borderNone"></fieldset>
             <input type="button" value="ENTER" class="quantityButton" />
         </div>
 
 		<input type='submit' value='Add to Cart' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
 	</form>
+    
+    <span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
+    <h4 class="displayNone" data-bind='var: reviews(reviews.average); format:showIfSet;'>product rating</h4>
+    <br class="displayNone" data-bind='var: reviews(reviews.average); format:showIfSetInline;' />
+    
+    <input type="button" class="reviewButton pointer" value="PRODUCT REVIEWS" />
+    
+    <input type="button" class="writeReviewButton pointer" value="WRITE A REVIEW" onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).parent().attr("data-pid"),"templateID":"reviewFrmTemplate"}); return false;' />
 
+	<input type="button" class="wishlistButton pointer" value="ADD TO WISHLIST" onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;" />
 
 	<div data-bind='var:product(zoovy:qty_price);format:quantityDiscounts; extension:store_product; pretext:Quantity Discounts:; className:marginBottom;'></div>
 
@@ -840,9 +850,9 @@ this will likely become more flexible in the future. ###
 
 	<menu data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='CRMButtonMenu'>
 
-	<a href='#' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).parent().attr("data-pid"),"templateID":"reviewFrmTemplate"}); return false;'>Write Review</a>	|
+	<!--***<!--Removed to match design<a href='#' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).parent().attr("data-pid"),"templateID":"reviewFrmTemplate"}); return false;'>Write Review</a>	|
 
-	<a href='#' onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;">Add to Wishlist</a>
+	<a href='#' onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;">Add to Wishlist</a> -->
 
 	</menu>
 

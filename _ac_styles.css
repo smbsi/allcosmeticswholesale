@@ -884,3 +884,38 @@ form .addToCartButton{
 	font-family: 'Special Elite', cursive;
 	font-size: 22px;
 }
+
+.reviewButton{
+	margin-left:50px;
+	width: 67%;
+	border: medium none;
+    border-radius: 0 0 0 0;
+	height: 50px;
+	font-family: 'Special Elite', cursive;
+	font-size: 18px;
+	margin-bottom:10px;
+	background-color:#ff3d7f;
+}
+.writeReviewButton{
+	margin-left:50px;
+	width: 67%;
+	border: medium none;
+    border-radius: 0 0 0 0;
+	height: 50px;
+	font-family: 'Special Elite', cursive;
+	font-size: 18px;
+	color:white;
+	background-color:black;
+	margin-bottom:10px;
+}
+.wishlistButton{
+	margin-left:50px;
+	width: 67%;
+	border: medium none;
+    border-radius: 0 0 0 0;
+	height: 50px;
+	font-family: 'Special Elite', cursive;
+	font-size: 18px;
+	color:white;
+	background-color:black;
+}
