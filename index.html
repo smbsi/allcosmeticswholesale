@@ -779,36 +779,53 @@ this will likely become more flexible in the future. ###
 
 </div>
 
+
 <div class='prodSummaryContainer marginBottom no_underline'>
 	<h1 data-bind='var: product(zoovy:prod_name); format:text;'></h1>
 	<br />
 	<h5 style="display:inline-block; color:white;">Item No.</h5>&nbsp;<h5 class='stid' data-bind='var: product(pid); format:text;' style="color:#ff3d7f; display:inline-block; margin-left:0px;"></h5>
+    <br /><br /> 
+    <div data-bind='var: product(zoovy:prod_desc); format:wiki; wikiFormats:myRIA;'></div>
     
 </div> 
-<div class="priceReviewContainer">
-    <h5 data-bind='var: product(zoovy:prod_mfg); format:searchLink; extension:myRIA; pretext: Mfg: ;'></h5>
-    <h5 data-bind='var: product(zoovy:prod_mfgid); format:text; pretext: Mfg ID: ;'></h5>
 
+
+<div class="priceReviewContainer">
+	
+    <h4>FREE SHIPPING ON ALL U.S.</h4>
+    <h4>ORDERS ABOVE &#36;100</h4>
+    <br /><br /> 
 
     <div class='priceContainer'>
-        <h4 class='basePrice' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; pretext: Our Price: ;'></h4>
-        <h5 class='prodMSRP' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true; pretext: MSRP: ;'></h5>
-        <span class='savings'>
-            <span class='savingsDifference' data-bind='var: product(pid); format:priceRetailSavingsDifference; extension:myRIA; pretext: You save: ;'></span>
-            <span class='savingsPercentage' data-bind='var: product(pid); format:priceRetailSavingsPercentage; extension:myRIA; pretext: (; posttext:);'></span>
-        </span>
+        <h1 class='basePrice' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true;'></h1>
+        <h4>OUR PRICE</h4>
+        <br />
+        
+        <h2 class='prodMSRP' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true;'></h2>
+        <h4 class="displayNone" data-bind='var: product(zoovy:prod_msrp); format:showIfSet;'>MSRP</h4>
+        <br class="displayNone" data-bind='var: product(zoovy:prod_msrp); format:showIfSetInline;' />
+        
+        <h3 class='savingsDifference' data-bind='var: product(pid); format:priceRetailSavingsDifference; extension:myRIA;'></h3>
+        <h3 class='savingsPercentage' data-bind='var: product(pid); format:priceRetailSavingsPercentage; extension:myRIA; pretext: (; posttext:);'></h3>
+        <h4>YOU SAVE</h4>
     </div>
+    
+    <!--***Removed to match design***<!--<h5 data-bind='var: product(zoovy:prod_mfg); format:searchLink; extension:myRIA; pretext: Mfg: ;'></h5>
+    <h5 data-bind='var: product(zoovy:prod_mfgid); format:text; pretext: Mfg ID: ;'></h5>
     
     <ul title='please choose' id='prodlistChildren' class='listStyleNone fluidList clearfix noPadOrMargin productList smallProdlist' data-bind="var: product(zoovy:grp_children); format:productList; extension:store_prodlist; loadsTemplate:productListTemplateChildren;hide_summary:true;"></ul>
     
         <!--	<div data-bind='var: product(@inventory.inv); format:simpleInvDisplay; extension:store_product;' class='inventory'></div> -->
-	<div data-bind='var: product(zoovy:ship_latency); format:text;pretext:Normally ships in ;posttext: day(s);' class='latency'></div>
+	<!--<div data-bind='var: product(zoovy:ship_latency); format:text;pretext:Normally ships in ;posttext: day(s);' class='latency'></div> -->
 
 
 	<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.handleAddToCart($(this),{'action':'modal'}); return false;">
 
 		<fieldset data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></fieldset>
-		<fieldset data-bind='var: product(pid); format:atcQuantityInput; extension:store_product; pretext:Quantity: ;' class='borderNone'></fieldset>
+        <div class="prodQuantity">
+			<fieldset data-bind='var: product(pid); format:atcQuantityInput; extension:store_product;' class="borderNone"></fieldset>
+            <input type="button" value="ENTER" class="quantityButton" />
+        </div>
 
 		<input type='submit' value='Add to Cart' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
 	</form>

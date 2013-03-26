@@ -2442,6 +2442,13 @@ return $r;
 				$tag.show().css('display','block'); //IE isn't responding to the 'show', so the display:block is added as well.
 				}
 			},
+			
+//Same as showIFSet but inline instead of block
+			showIfSetInline : function($tag,data)	{
+			if(data.value)	{
+				$tag.show().css('display','inline'); //IE isn't responding to the 'show', so the display:block is added as well.
+				}
+			},
 
 
 
