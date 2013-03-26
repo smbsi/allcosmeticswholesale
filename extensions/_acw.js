@@ -27,9 +27,9 @@ var _acw = function() {
 			if(data.value)	{
 				$tag.show().css('display','inline'); //IE isn't responding to the 'show', so the display:inline is added as well.
 				}
-			},
-			
 			}
+			
+		}
 	}
 	return r;
 }
