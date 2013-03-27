@@ -412,6 +412,8 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     	<div class="carouselHPBannerCont">
         	<a id="prevHPCaro"><img class="carouselHPButton pointer" style="left:50px; top: 16px;" src="images/homepage/arrow_bar_left.png" /></a>
             <a id="nextHPCaro"><img class="carouselHPButton pointer" style="right:0px; top: 16px;" src="images/homepage/arrow_bar_right.png" /></a>
+            <div id="paginCaro">
+            </div>
         	<ul class="carouselHPBannerList">
             	<li class="pointer" onClick="return showContent('category',{'navcat':'.'});">
                 	<img src="images/homepage/banner/placeholder1.png" />
@@ -530,7 +532,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 	<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>
 	<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>-->
 
-	<h2>SUITE 7 BRANDS</h2>
+	<h2>BRANDS</h2>
 	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
 
     <!--***Default databinds removed to match design***<!--<p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>-->
@@ -577,7 +579,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
 
 	<div class="prodListDetails" onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
 		
-        <h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
+        <h5 data-bind='var: product(zoovy:prod_name); format:truncText; numCharacters: 80;'></h5>
 		
         <div class='prodThumbContainer' data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'>
 			<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='300' height='200' />
@@ -594,8 +596,9 @@ remember to NOT put the button inside the 'onclick' container or two events will
         <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm' action='#'>
             <button data-bind='format:addToCartButton; extension:myRIA; useParentData:true;'>more details</button>
         </form>
+        <h4 data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true; pretext: MSRP ;'></h4>
     </div>
-    <h4 data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true; pretext: MSRP ;'></h4>
+    
 	
 </li>
 
@@ -797,7 +800,7 @@ this will likely become more flexible in the future. ###
         
         <h2 class='prodMSRP' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true;'></h2>
         <h4 class="displayNone" data-bind='var: product(zoovy:prod_msrp); format:showIfSet;'>MSRP</h4>
-        <br class="displayNone" data-bind='var: product(zoovy:prod_msrp); format:showIfSetInline;' />
+        <br class="displayNone" data-bind='var: product(zoovy:prod_msrp); format:showIfSetInline; extension:store_acw;' />
         
         <h3 class='savingsDifference' data-bind='var: product(pid); format:priceRetailSavingsDifference; extension:myRIA;'></h3>
         <h3 class='savingsPercentage' data-bind='var: product(pid); format:priceRetailSavingsPercentage; extension:myRIA; pretext: (; posttext:);'></h3>

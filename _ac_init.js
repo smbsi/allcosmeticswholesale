@@ -74,7 +74,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 		items   : 1,
 		scroll: 1,
 		auto : true,
-		//pagination  : "#carouselHPBannerPag",
+		pagination  : "#paginCaro",
 		prev : "#prevHPCaro",
 		next : "#nextHPCaro"
 	});
@@ -97,7 +97,7 @@ var showDropdown = function ($tag) {
 }
 	
 var hideDropdown = function ($tag) {
-	$(".dropdown", $tag).stop().animate({"height":"0px"}, 0);
+	$(".dropdown", $tag).stop().animate({"height":"0px"}, 100);
 }
 
 
