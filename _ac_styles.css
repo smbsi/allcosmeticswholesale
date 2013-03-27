@@ -915,8 +915,12 @@ div .socialLinks{
 	display:inline-block;
 	color:#3fb8af;
 }
+.savingsPercentage{
+	font-size: 10px;
+    vertical-align: text-top;
+}
 .savingsDifference{
-	margin-left:87px;
+	margin-left:100px;
 }
 
 .prodViewerAddToCartForm{
@@ -1002,6 +1006,11 @@ form .addToCartButton{
 	color:white;
 	background-color:black;
 }
-.cents{
+h1 .cents{
 	font-size: 18px;
+	vertical-align:top;
+}
+h2 .cents{
+	font-size: 18px;
+	vertical-align:top;
 }
