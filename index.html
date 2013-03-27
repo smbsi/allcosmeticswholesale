@@ -530,8 +530,6 @@ don't modify the 'data-templateid' unless you are changing template names and up
 	<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>
 	<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>-->
 
-	<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
-
 	<h2>SUITE 7 BRANDS</h2>
 	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
 
@@ -715,6 +713,13 @@ SANITY -> if you change the height and width of this image, change the .minimalM
 
 
 
+<div id='categoryProductListTemplate' class='loadingBG productListTemplate' data-app-role='productListPage'>
+	<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+    
+    <ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
+</div>
+
+
 
 
 
@@ -796,7 +801,7 @@ this will likely become more flexible in the future. ###
         
         <h3 class='savingsDifference' data-bind='var: product(pid); format:priceRetailSavingsDifference; extension:myRIA;'></h3>
         <h3 class='savingsPercentage' data-bind='var: product(pid); format:priceRetailSavingsPercentage; extension:myRIA; pretext: (; posttext:);'></h3>
-        <h4>YOU SAVE</h4>
+        <h4 class="displayNone" data-bind='var: product(zoovy:prod_msrp); format:showIfSet;'>YOU SAVE</h4>
     </div>
     
     <!--***Removed to match design***<!--<h5 data-bind='var: product(zoovy:prod_mfg); format:searchLink; extension:myRIA; pretext: Mfg: ;'></h5>

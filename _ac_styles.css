@@ -712,10 +712,9 @@ div .catListingCat:hover{
 	float:left;
 	height:50px;
 	font-family: 'Special Elite', cursive;
-	font-size: 24px;
+	font-size: 20px;
 	border-radius: 0 0 0 0;
 	border: medium none;
-	padding-top: 6px;
 }
 
 /*************************************************************************************************************************/
@@ -893,7 +892,7 @@ form .addToCartButton{
 	height: 50px;
 	font-family: 'Special Elite', cursive;
 	font-size: 18px;
-	margin-bottom:10px;
+	margin-bottom:20px;
 	background-color:#ff3d7f;
 }
 .writeReviewButton{
@@ -906,7 +905,7 @@ form .addToCartButton{
 	font-size: 18px;
 	color:white;
 	background-color:black;
-	margin-bottom:10px;
+	margin-bottom:20px;
 }
 .wishlistButton{
 	margin-left:50px;
@@ -918,4 +917,7 @@ form .addToCartButton{
 	font-size: 18px;
 	color:white;
 	background-color:black;
+}
+.cents{
+	font-size: 18px;
 }

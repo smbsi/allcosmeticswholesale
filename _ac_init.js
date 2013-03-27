@@ -85,6 +85,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 	
 }]);
 
+
 //Header dropdown menus
 var showDropdown = function ($tag) {
 	var $dropdown = $(".dropdown", $tag);
@@ -98,6 +99,8 @@ var showDropdown = function ($tag) {
 var hideDropdown = function ($tag) {
 	$(".dropdown", $tag).stop().animate({"height":"0px"}, 0);
 }
+
+
 
 //sample of an onDeparts. executed any time a user leaves this page/template type.
 app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.u.dump("just left the homepage")}]);

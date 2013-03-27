@@ -19,6 +19,9 @@
 var store_acw = function() {
 	var r= {
 		vars : {
+			catTemplates : {
+				".brands.100pure" : "categoryProductListTemplate"
+			},
 		},
 		
 		callbacks : {

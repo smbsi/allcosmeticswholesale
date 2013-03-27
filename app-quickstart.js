@@ -31,6 +31,7 @@ var myRIA = function() {
 			'homepageTemplate',	'categoryTemplate',
 			'categoryListTemplate',
 			'categoryListTemplateRootCats',
+			'categoryProductListTemplate',
 			'productListTemplate',
 			'productListTemplateATC',
 			'productListTemplateBuyerList',
@@ -716,7 +717,7 @@ fallback is to just output the value.
 
 //if price is not set, item isn't purchaseable. buttonState is set to 'disabled' if item isn't purchaseable or is out of stock.
 				
-				var className, price, buttonState, buttonText = 'Add to Cart',
+				var className, price, buttonState, buttonText = 'BAG IT!',
 				pid = data.value.pid, //...pid set in both elastic and appProductGet
 				inv = app.ext.store_product.u.getProductInventory(pid),
 				$form = $tag.closest('form');
@@ -2618,15 +2619,21 @@ buyer to 'take with them' as they move between  pages.
 						
 					else if(catSafeID == zGlobals.appSettings.rootcat || infoObj.pageType == 'homepage')	{
 						infoObj.templateID = 'homepageTemplate'
-						}
-					else	{
-						infoObj.templateID = 'categoryTemplate'
+		     			app.u.dump("homepage selected");
+             		}
+	  	
+            		else if(app.ext.store_acw.vars.catTemplates[catSafeID]){
+             			app.u.dump("category catsafeid option selected");
+              			infoObj.templateID = app.ext.store_acw.vars.catTemplates[catSafeID]
+            		}
+          			else{
+              			app.u.dump("category default option selected");
+              			infoObj.templateID = 'categoryTemplate'
 						}
 					infoObj.state = 'onInits';
-					var parentID = infoObj.parentID || infoObj.templateID+'_'+app.u.makeSafeHTMLId(catSafeID);
-					infoObj.parentID = parentID;
 					app.ext.myRIA.u.handleTemplateFunctions(infoObj);
-
+					var parentID = infoObj.parentID || infoObj.templateID+'_'+app.u.makeSafeHTMLId(catSafeID);
+					app.u.dump(" -> parentID: "+parentID);
 //only have to create the template instance once. showContent takes care of making it visible again. but the oncompletes are handled in the callback, so they get executed here.
 					if($('#'+parentID).length > 0){
 						app.u.dump(" -> "+parentID+" already exists. Use it");
@@ -2647,7 +2654,6 @@ buyer to 'take with them' as they move between  pages.
 						app.ext.store_navcats.calls.appCategoryDetailMax.init(catSafeID,{'callback':'fetchPageContent','extension':'myRIA','templateID':infoObj.templateID,'parentID':parentID});
 						app.model.dispatchThis();
 						}
-
 
 					}
 				return parentID;
