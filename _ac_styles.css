@@ -1019,6 +1019,9 @@ h2 .cents{
 /*************************************************************************************************************************/
 /*************************************************************************************************************************/
 /**Shopping Cart**/
+.cartZipCodeContainer, .cartAltButtonsContainer, .cartSummaryContainer{
+	border-bottom:none;
+}
 .ui-widget-content{
 	background:url(images/background.gif) repeat;
 }
@@ -1033,7 +1036,56 @@ h2 .cents{
 }
 
 /*************************************************************************************************************************/
-/**Checkout and pricing section**/
+/**Cart Stuff Section**/
+
+.addToWishlistForm{
+	border: 6px solid rgba(200, 200, 200, 0.2);
+	width: 715px;
+	height:160px;
+}
+.addToWishlistForm div{
+	width: 700px;
+	height:150px;
+	background-color:#ffcc00;
+	padding-left:15px;
+	padding-bottom:10px;
+}
+.addToWishlistForm h1{
+	font-family: 'Special Elite', cursive;
+	font-weight:200;
+	color:black;
+	padding-top: 10px;
+}
+.addToWishlistForm p{
+	font-family: 'Montserrat', sans-serif;
+	padding-top:10px;
+}
+.wlAddCloseButton{
+	float:right;
+	font-family: 'Special Elite', cursive !important;
+	height: 35px;
+	padding: 5px;
+	margin-right: 10px;
+	border:none;
+	border-radius:0px;
+	background-color:#000000;
+	color:white;
+	font-size:14px !important; 
+}
+.wlAddConfirmButton{
+	float:right;
+	margin-right: 20px;
+	font-family: 'Special Elite', cursive !important;
+	height: 35px;
+	padding: 5px;
+	border:none;
+	border-radius:0px;
+	background-color:#3fb8af;
+	font-size:14px !important;
+}
+
+/*************************************************************************************************************************/
+/**Checkout and Pricing Section**/
 .cartSummaryTotalsContainer{
 	width:20%;
 }
@@ -1042,12 +1094,67 @@ h2 .cents{
 	float:left;
 	font-family: 'Montserrat', sans-serif;
 }
+.cartSummaryTotalsContainer h2{
+	color:white;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 14px;
+}
 .checkoutButton{
 	font-family: 'Special Elite', cursive !important;
-	width:175px;
+	width:180px;
 	height:45px;
 	border-radius:0px;
 	border:none !important;
 	font-weight: 200 !important;
 	font-size: 22px !important;
+	padding-top: 5px;
+}
+
+/*************************************************************************************************************************/
+/**Helpful Links Section**/
+.cartLinks{
+	margin-top:200px;
+	width: 200px;
+}
+.cartLinks div{
+	width:100px;
+	height:30px;
+	background-color:#ff3d7f;
+	width: 200px;
+}
+.cartLinks h4{
+	text-align:center;
+	line-height: 30px;
+	font-family: 'Montserrat', sans-serif;
+}
+.cartLinks a{
+	color:white;
+	float:left;
+	clear:left;
+	font-family: 'Montserrat', sans-serif;
+	margin-top:15px;
+	margin-left: 10px;
+	font-weight: 600;
+	text-decoration:none;
+}
+.cartLinks a:hover{
+	color:#3fb8af;
+}
+
+/*************************************************************************************************************************/
+/**Bottom Section**/
+.cartStaticText{
+	float:left;
+	width:700px;
+}
+.cartStaticText h3{
+	color:#3fb8af;
+	font-family: 'Special Elite', cursive;
+	font-size: 20px;
+	font-weight: 200;
+}
+.cartStaticText p{
+	color:white;
+	font-size:12px;
 }

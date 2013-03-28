@@ -1373,11 +1373,19 @@ So the cart template should contain these two elements and the extension should 
 <table class='cartContainer'>
 <tr>
 	<td class='cartStuffContainer'>
-	<ul id='cartStuffList' data-bind="var: cart(@ITEMS); format:stuffList; loadsTemplate:productListTemplateCart;" class='listStyleNone fluidList clearfix noPadOrMargin productList lineItemProdlist'></ul>
-	</td>
+		<ul id='cartStuffList' data-bind="var: cart(@ITEMS); format:stuffList; loadsTemplate:productListTemplateCart;" class='listStyleNone fluidList clearfix noPadOrMargin productList lineItemProdlist'></ul>
+		<div class="addToWishlistForm displayNone">
+        	<div>
+            	<h1>SAVE ITEM FOR LATER&#63;</h1>
+                <p>This adds the selected item to your wishlist and removes it from your shopping bag&#46; You can <a>view your wishlist</a> here&#46;</p>
+                <button class="wlAddConfirmButton">SAVE FOR LATER</button>
+                <button class="wlAddCloseButton">CANCEL</button>
+            </div>
+        </div>
+    </td>
 
 	<td class='cartSummaryTotalsContainer'>
-	<div class='ui-widget ui-widget-content ui-helper-clearfix ui-corner-all'>
+	<div class='ui-widget ui-helper-clearfix ui-corner-all'>
 		<h2 class='ui-widget-header ui-helper-clearfix ui-corner-all ui-header'>YOUR TOTAL</h2>
 		<div class='cartSummaryContainer'>
 
@@ -1418,7 +1426,7 @@ So the cart template should contain these two elements and the extension should 
 
 	<!-- some buttons that are alternatives to checkout. fewer is better -->
 	<menu class='cartAltButtonsContainer noPadOrMargin'>
-	<button class='ui-button-text ui-button ui-state-default ui-corner-all continueShoppingButton' onClick="$('#modalCart').dialog('close');">Continue Shopping</button>
+	<!--***Removed to match design***<!--<button class='ui-button-text ui-button ui-state-default ui-corner-all continueShoppingButton' onClick="$('#modalCart').dialog('close');">Continue Shopping</button>-->
 	</menu>
 
 	<div class='checkoutButtonsContainer'>
@@ -1436,13 +1444,13 @@ So the cart template should contain these two elements and the extension should 
     
     <div class="cartLinks">
     	<div>
-        	<h4></h4>
+        	<h4>HELPFUL LINKS</h4>
         </div>
-        <a></a>
-        <a></a>
-        <a></a>
-        <a></a>
-        <a></a>
+        <a href='#top' onClick="return showContent('company',{'show':'return'});">PRODUCT WARRANTY</a>
+        <a href='#top' onClick="return showContent('company',{'show':'return'});">RETURN POLICY</a>
+        <a href='#top' onClick="return showContent('company',{'show':'return'});">EXCHANGE POLICY</a>
+        <a href='#top' onClick="return showContent('company',{'show':'shipping'});">SHIPPING POLICY</a>
+        <a href='#top' onClick="return showContent('company',{'show':'contact'});">CUSTOMER SERVICE</a>
     </div>
 
 </section>
@@ -1456,14 +1464,14 @@ So the cart template should contain these two elements and the extension should 
 </table>
 </form>
 
-<div>
+<div class="cartStaticText">
 	<div>
-    	<h3></h3>
-        <p></p>
+    	<h3>FREE SHIPPING ON ALL DOMESTIC ORDERS ABOVE &#36;100</h3>
+        <p>All domestic orders qualify for free standard shippinG&#46; Applicable only to address in the continental United States &#40;HI and AK are not included&#41;&#46; Free shipping does not apply to orders shipped to PO Boxes or international destinations&#46; Not applicable to eBay or Amazon purchases&#46;</p>
     </div>
     <div>
-    	<h3></h3>
-        <p></p>
+    	<h3>PREORDERS</h3>
+        <p>All preorders paid with a credit card will be charged at the time of shipment&#46; All preorders paid with Google Checkout, Paypal or Amazon Payments will be charged when your order is placed&#46; If you do not wish to pay for your preorder until it ships then you must use the checkout button and pay with a credit card&#46; Orders that have both preorder and instock items we be shipped at the same time in one shipment&#46; We recommend that you do not order in stock items with preorder items&#46;</p>
     </div>
 </div>
 </div><!-- /cartTemplate -->
