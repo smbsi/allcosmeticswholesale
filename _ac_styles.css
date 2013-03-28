@@ -1093,16 +1093,20 @@ h2 .cents{
 	color:white;
 	float:left;
 	font-family: 'Montserrat', sans-serif;
+	margin-left:20px;
+	margin-right:80px;
+	text-align:center;
 }
 .cartSummaryTotalsContainer h2{
 	color:white;
 	text-align: center;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 14px;
+	padding-right:60px;
 }
 .checkoutButton{
 	font-family: 'Special Elite', cursive !important;
-	width:180px;
+	width:220px;
 	height:45px;
 	border-radius:0px;
 	border:none !important;
@@ -1111,17 +1115,38 @@ h2 .cents{
 	padding-top: 5px;
 }
 
+.cartSummaryContainer #couponContainer{
+	border: 10px solid rgba(200, 200, 200, 0.2);
+	float:right;
+	margin-right: 59px;
+	margin-bottom:10px;
+}
+.cartSummaryContainer #couponCode{
+	width:130px;
+	float:right;
+	border:none;
+	border-radius:0px;
+	height:28px;
+}
+.cartSummaryContainer #addCouponBtn{
+	float:right;
+	border:none;
+	border-radius:0px;
+	height:30px;
+	width:70px;
+}
+
 /*************************************************************************************************************************/
 /**Helpful Links Section**/
 .cartLinks{
-	margin-top:200px;
-	width: 200px;
+	margin-top:260px;
+	width: 240px;
 }
 .cartLinks div{
 	width:100px;
 	height:30px;
 	background-color:#ff3d7f;
-	width: 200px;
+	width: 240px;
 }
 .cartLinks h4{
 	text-align:center;

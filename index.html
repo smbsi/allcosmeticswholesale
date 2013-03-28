@@ -1428,6 +1428,14 @@ So the cart template should contain these two elements and the extension should 
 	<menu class='cartAltButtonsContainer noPadOrMargin'>
 	<!--***Removed to match design***<!--<button class='ui-button-text ui-button ui-state-default ui-corner-all continueShoppingButton' onClick="$('#modalCart').dialog('close');">Continue Shopping</button>-->
 	</menu>
+    
+    <div id='couponContainer'>
+        <div id='couponMessaging'></div><!-- used to report success and fail messaging -->
+        <div id='couponFrmContainer'>
+        	<button class='loadingButton ui-state-default ui-corner-all' onClick="app.ext.convertSessionToOrder.u.handleCouponSubmit(); return false;" id='addCouponBtn'><span></span>APPLY</button>
+            <input type='text' name='coupon' id='couponCode' size='8' placeholder="  Coupon Code"  onKeyPress="if(event.keyCode==13){$('#addCouponBtn').click();}" />
+        </div>
+	</div>
 
 	<div class='checkoutButtonsContainer'>
 
