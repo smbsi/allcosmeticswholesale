@@ -1014,3 +1014,40 @@ h2 .cents{
 	font-size: 18px;
 	vertical-align:top;
 }
+
+
+/*************************************************************************************************************************/
+/*************************************************************************************************************************/
+/**Shopping Cart**/
+.ui-widget-content{
+	background:url(images/background.gif) repeat;
+}
+.ui-widget-header{
+	background-color:rgba(0, 0, 0, 0);
+	background-image:none;
+	border:none;
+}
+.ui-dialog .ui-dialog-title{
+	background-color:rgba(0, 0, 0, 0);
+	color:#FF3D7F;
+}
+
+/*************************************************************************************************************************/
+/**Checkout and pricing section**/
+.cartSummaryTotalsContainer{
+	width:20%;
+}
+.cartSummaryContainer h5{
+	color:white;
+	float:left;
+	font-family: 'Montserrat', sans-serif;
+}
+.checkoutButton{
+	font-family: 'Special Elite', cursive !important;
+	width:175px;
+	height:45px;
+	border-radius:0px;
+	border:none !important;
+	font-weight: 200 !important;
+	font-size: 22px !important;
+}

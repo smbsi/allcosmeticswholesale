@@ -1378,7 +1378,7 @@ So the cart template should contain these two elements and the extension should 
 
 	<td class='cartSummaryTotalsContainer'>
 	<div class='ui-widget ui-widget-content ui-helper-clearfix ui-corner-all'>
-		<h2 class='ui-widget-header ui-helper-clearfix ui-corner-all ui-header'>Cart Totals</h2>
+		<h2 class='ui-widget-header ui-helper-clearfix ui-corner-all ui-header'>YOUR TOTAL</h2>
 		<div class='cartSummaryContainer'>
 
 <section id='cartTemplateCostSummary' class='cartSummary'>
@@ -1399,7 +1399,7 @@ So the cart template should contain these two elements and the extension should 
 
 </section>
 
-<section id='cartTemplateShippingContainer'>
+<!--***Removed to match design***<!--<section id='cartTemplateShippingContainer'>
 	<h3>Shipping:</h3>
 	<ul class='noPadOrMargin listStyleNone cartShipMethods' data-bind='var: cart(@SHIPMETHODS); format:shipMethodsAsRadioButtons; extension:store_cart;'></ul>
 </section>
@@ -1412,7 +1412,7 @@ So the cart template should contain these two elements and the extension should 
 	app.ext.store_cart.u.updateCartSummary();
 	app.ext.store_cart.calls.cartShippingMethodsWithUpdate.init();
 	app.model.dispatchThis('immutable');"  />
-	</div>
+	</div>-->
 
 
 
@@ -1423,7 +1423,7 @@ So the cart template should contain these two elements and the extension should 
 
 	<div class='checkoutButtonsContainer'>
 
-		<span title='proceed to secure checkout'><button class='ui-button ui-button-text ui-state-default ui-corner-all checkoutButton' onClick="showContent('checkout',{});">Store Checkout</button></span>
+		<span title='proceed to secure checkout'><button class='ui-button ui-button-text ui-state-default ui-corner-all checkoutButton' onClick="showContent('checkout',{});">CHECK OUT</button></span>
 
 		<span id='paypalECButton' data-bind='var: cart(cart/cartid); format:paypalECButton;'></span>
 
@@ -1432,16 +1432,40 @@ So the cart template should contain these two elements and the extension should 
 		<span id='amazonCheckoutButton' class='pointer' data-bind='var: cart(cart/cartid); format:amazonCheckoutButton;'></span>
 
 	</div>
+    <h5>FREE SHIPPING ON ALL U.S. ORDERS ABOVE 100&#33;</h5>
+    
+    <div class="cartLinks">
+    	<div>
+        	<h4></h4>
+        </div>
+        <a></a>
+        <a></a>
+        <a></a>
+        <a></a>
+        <a></a>
+    </div>
 
 </section>
 
 		</div>
 	</div>
 	</td>
+    
 </tr>
 
 </table>
 </form>
+
+<div>
+	<div>
+    	<h3></h3>
+        <p></p>
+    </div>
+    <div>
+    	<h3></h3>
+        <p></p>
+    </div>
+</div>
 </div><!-- /cartTemplate -->
 
 
