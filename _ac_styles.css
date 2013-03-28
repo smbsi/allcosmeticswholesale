@@ -385,6 +385,7 @@ body{
 /**main content area**/
 #mainContentArea{
 	float:left;
+	width:1423px;
 }
 
 
@@ -1183,3 +1184,25 @@ h2 .cents{
 	color:white;
 	font-size:12px;
 }
+
+
+/*************************************************************************************************************************/
+/*************************************************************************************************************************/
+/**Company page Templates**/
+.sideline{
+}
+.companyTitleBox{
+	width:250px;
+	height:40px;
+	background-color:#ff3d7f;
+}
+.companyTitleBox h3{
+	text-align:center;
+	line-height:40px;
+	font-family: 'Montserrat', sans-serif;
+	font-size:16px;
+	font-weight:600;
+}
+
+/*************************************************************************************************************************/
+/**About Template**/
