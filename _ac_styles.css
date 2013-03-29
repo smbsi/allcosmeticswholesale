@@ -731,7 +731,7 @@ margin-left:20px;
 	color:white;
 }
 .catName{
-	color:white;
+	color:black;
 }
 .catListingCont{
 	width:100%;
@@ -888,7 +888,6 @@ div .catListingCat:hover{
 	line-height: 130px;
 }
 .catName span:hover{
-	color:#ff3d7f;
 }
 
 
