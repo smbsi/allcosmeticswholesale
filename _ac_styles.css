@@ -368,16 +368,48 @@ body{
 	background-image:url(images/header_nav_bar/dropdownbackground.png);
 	background-repeat:no-repeat;
 	background-size:cover;
-	
+}
+.headerDropdownBrand{
+	height: 0px;
+	width: 780px;
+	float:left;
+	background-image:url(images/header_nav_bar/dropdownbackground.png);
+	background-repeat:no-repeat;
+	background-size:cover;
 }
 .headerDropdownLink{
-	margin-top:14px;
+	line-height:25px;
 }
 .headerDropdownLink a{
 	text-decoration:none;
 	color:white;
 	font-family: 'Montserrat', sans-serif;
 }
+.headerDropdownLink a:hover{
+	color:#3fb8af;
+}
+.dropdownSpacer{
+	width:100%;
+	height:50px;
+}
+.dropdownSpacerBrand{
+	width:100%;
+	height:50px;
+}
+.headerDropdownBrand ul{
+	float:left;
+	height:100%;
+	width:170px;
+	margin-left:20px;
+	list-style:none;
+}
+.headerDropdown ul{
+	list-style:none;
+}
+.headerDropdown li{
+	list-style:none;
+}
+
 
 
 /*************************************************************************************************************************/
@@ -649,13 +681,14 @@ margin-left:20px;
 	background-color: #000000;
     border: medium none;
     border-radius: 0 0 0 0;
-    color: #FFFFFF;
+    color: black;
     float: right;
     font-family: 'Special Elite',cursive;
     font-size: 18px;
     height: 37px;
     margin-top: 8px;
     width: 125px;
+	padding-top:12px !important;
 }
 
 .homepageSignUp div.socMed{
@@ -702,11 +735,10 @@ margin-left:20px;
 }
 .catListingCont{
 	width:100%;
-	height:450px;
 }
 div .catListingCat{
-	width:20%;
-	height:150px;
+	width:19% !important;
+	height:150px !important;
 	background:url(images/category_page/category_listing_norm.png);
 	background-repeat:no-repeat;
 	background-size:contain;
@@ -724,15 +756,54 @@ div .catListingCat:hover{
 	font-weight: 400;
 	color:black;
 }
-
 .categoryTemplate h2{
 	color:#3fb8af;
 	font-family: 'Special Elite', cursive;
 	font-weight: 200;
-    padding-left: 13px;
+    margin-left:60px;
 	margin-bottom:20px;
     padding-top: 15px;
 }
+
+.brandList{
+	width:100%;
+	height:400px;
+}
+.brandList ul{
+	width:22%;
+	float:left;
+}
+.brandList li{
+	font-family: 'Montserrat', sans-serif;
+	list-style:none;
+	margin-bottom:5px;
+}
+.brandList a{
+	color:white;
+}
+.brandList a:hover{
+	color:#3fb8af;
+}
+.suite7List{
+	width:100%;
+	height:400px;
+}
+.suite7List ul{
+	width:22%;
+	float:left;
+}
+.suite7List li{
+	font-family: 'Montserrat', sans-serif;
+	list-style:none;
+	margin-bottom:5px;
+}
+.suite7List a{
+	color:white;
+}
+.suite7List a:hover{
+	color:#ff3d7f;
+}
+
 
 /*************************************************************************************************************************/
 /**productListTemplate**/
@@ -813,6 +884,8 @@ div .catListingCat:hover{
 	font-family: 'Montserrat', sans-serif;
 	font-size: 18px;
 	width: 23%;
+	text-align: center;
+	line-height: 130px;
 }
 .catName span:hover{
 	color:#ff3d7f;
@@ -1195,6 +1268,8 @@ h2 .cents{
 	width:250px;
 	height:40px;
 	background-color:#ff3d7f;
+	margin-top:30px;
+	margin-bottom:15px;
 }
 .companyTitleBox h3{
 	text-align:center;
@@ -1204,5 +1279,38 @@ h2 .cents{
 	font-weight:600;
 }
 
+#companyNav a{
+	color:white;
+	font-family: 'Montserrat', sans-serif;
+	font-weight:600;
+}
+#companyNav a:hover{
+	color:#3fb8af;
+}
+#companyNav a:active{
+	color:#ff9e9d;
+}
+
 /*************************************************************************************************************************/
 /**About Template**/
+#aboutArticle{
+	padding-left:60px;
+}
+#aboutArticle h1{
+	font-family: 'Special Elite', cursive;
+	font-weight:200;
+	color:#ff3d7f;
+	text-align:left;
+}
+#aboutArticle h4{
+	color:white;
+	font-family: 'Montserrat', sans-serif;
+}
+#aboutArticle h5{
+	color:#ff3d7f;
+	font-family: 'Montserrat', sans-serif;
+	font-size:16px;
+}
+
+
+	

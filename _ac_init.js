@@ -104,10 +104,21 @@ var showDropdown = function ($tag) {
 	});*/
 	$dropdown.stop().animate({"height":height+"px"}, 0);
 }
+
+var showDropdownBrand = function ($tag) {
+	var $dropdown = $(".dropdown", $tag);
+	var height = 480;
+	/*$dropdown.children().each(function(){
+		height += $(this).outerHeight(true);
+	});*/
+	$dropdown.stop().animate({"height":height+"px"}, 0);
+}
 	
 var hideDropdown = function ($tag) {
 	$(".dropdown", $tag).stop().animate({"height":"0px"}, 100);
 }
+
+
 
 
 
