@@ -758,16 +758,31 @@ div .catListingCat:hover{
 }
 .categoryTemplate h2{
 	color:#3fb8af;
+	float: left;
 	font-family: 'Special Elite', cursive;
 	font-weight: 200;
     margin-left:60px;
 	margin-bottom:20px;
     padding-top: 15px;
+	clear:both;
+}
+.categoryTemplate h3{
+	color:#ff3d7f;
+	font-size:24px;
+	float: left;
+	font-family: 'Special Elite', cursive;
+	font-weight: 200;
+    margin-left:60px;
+	margin-bottom:20px;
+    padding-top: 15px;
+	clear:both;
 }
 
 .brandList{
 	width:100%;
-	height:400px;
+	height:570px;
+	float:left;
+	padding-left: 20px;
 }
 .brandList ul{
 	width:22%;
@@ -787,6 +802,8 @@ div .catListingCat:hover{
 .suite7List{
 	width:100%;
 	height:400px;
+	float:left;
+	padding-left: 20px;
 }
 .suite7List ul{
 	width:22%;
