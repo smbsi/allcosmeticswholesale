@@ -788,12 +788,12 @@ remember to NOT put the button inside the 'onclick' container or two events will
 
 	<button class='floatRight pointer quickView displayNone' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">Quickview</button>
 
-	<div class="prodListDetails" onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
+	<div class="prodListDetails pointer" onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>
 		
-        <h5 data-bind='var: product(zoovy:prod_name); format:truncText; numCharacters: 80;'></h5>
+        <h5 data-bind='var: product(zoovy:prod_name); format:truncText; numCharacters: 70;'></h5>
 		
         <div class='prodThumbContainer' data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'>
-			<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='300' height='200' />
+			<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='278' height='200' />
 		</div>
         
 <!--	<span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>-->
@@ -1548,30 +1548,31 @@ onclicks are recursive, so only add it to the parent element.
 <div id='mpControlSpec' class='mpControlContainer'>
 	<div class='mpControls ui-widget ui-state-default ui-corner-top'>
 
-<span class="mpControlsPagination ui-state-active ui-corner-all floatRight paging pointer" data-role='next' title="next page">
-	<span class="ui-icon ui-icon-circle-triangle-e"></span>
+<span class="mpControlsPagination ui-corner-all floatRight paging pointer" data-role='next' title="next page">
+	<span>NEXT</span>
 </span>
 
-<div class='floatRight ddUlMenu mpControlsPagination'>
+<div class='floatRight ddUlMenu mpControlsPagination mpPaginationColor'>
 <ul>
 	<li>
 
 	<a href='#' onClick='return false;'>
-	<span data-bind='var:prodlistmeta(page_in_focus); format:text; pretext: page ;'></span>
+	<span data-bind='var:prodlistmeta(page_in_focus); format:text; pretext: Page ;'></span>
 	<span data-bind='var:prodlistmeta(total_page_count); format:text; pretext: of ;'></span>	</a>
 	<ul data-bind='var:prodlistmeta(total_page_count); format:mpPagesAsListItems; extension:store_prodlist;' class='ui-widget-content ui-corner-bottom'></ul>
 	</li>
 </ul>
 </div>
 
-<span class="mpControlsPagination ui-state-active ui-corner-all floatRight paging pointer" data-role='previous' title="previous page">
-	<span class="ui-icon ui-icon-circle-triangle-w"></span>
+<span class="mpControlsPagination ui-corner-all floatRight paging pointer" data-role='previous' title="previous page">
+	<span>PREV</span>
 </span>
 
-
+<!--***REMOVED TO MATCH DESIGN***
 <span data-bind='var:prodlistmeta(page_start_point); format:text; pretext:items ;'></span>
 <span data-bind='var:prodlistmeta(page_end_point); format:text; pretext: - ;'></span>
 <span data-bind='var:prodlistmeta(total_product_count); format:text; pretext: of ;'></span>
+***-->
 
 	</div><!-- /.mpControls -->
 </div><!-- /#mpControlSpec -->
