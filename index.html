@@ -283,17 +283,17 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
                   <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.600skincare.lips'});" class="pointer">Lips</a></li>
               </ul>
           </div>
-          <div class="navBarNails" href='#top' onClick="return showContent('category',{'navcat':'.acw.700nails'});" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a>Nails</a>
-              <ul class="dropdown headerDropdown alignLeft">
+          <div class="navBarNails" href='#top' onClick="return showContent('category',{'navcat':'.acw.700nails'});"><a>Nails</a> <!--**ADD BACK WHEN DROPDOWN CATS AVAILABLE**--><!--onClick="return showContent('category',{'navcat':'.acw.700nails'});" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"-->
+              <!--**ADD BACK WHEN DROPDOWN CATS AVAILABLE**--><!--<ul class="dropdown headerDropdown alignLeft">
               	  <div class="dropdownSpacer"></div>
                   <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':''});" class="pointer"></a></li>
-              </ul>
+              </ul>-->
           </div>
-          <div class="navBarFragrance" href='#top' onClick="return showContent('category',{'navcat':'.acw.800fragrance'});" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a>Fragrance</a>
-              <ul class="dropdown headerDropdown alignLeft">
+          <div class="navBarFragrance" href='#top' onClick="return showContent('category',{'navcat':'.acw.800fragrance'});"><a>Fragrance</a> <!--**ADD BACK WHEN DROPDOWN CATS AVAILABLE**--><!--onClick="return showContent('category',{'navcat':'.acw.800fragrance'});" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"-->
+              <!--**ADD BACK WHEN DROPDOWN CATS AVAILABLE**--><!--<ul class="dropdown headerDropdown alignLeft">
               	  <div class="dropdownSpacer"></div>
                   <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':''});" class="pointer"></a></li>
-              </ul>
+              </ul>-->
           </div>
           <div class="navBarHair" href='#top' onClick="return showContent('category',{'navcat':'.acw.450hair'});" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a>Hair</a>
               <ul class="dropdown headerDropdown alignLeft">
@@ -304,13 +304,13 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
                   <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.450hair.stylingproducts'});" class="pointer">Styling Products</a></li>
               </ul>
           </div>
-          <div class="navBarJewel" href='#top' onClick="return showContent('category',{'navcat':''});" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a>Jewelry</a>
-              <ul class="dropdown headerDropdown alignLeft">
+          <div class="navBarJewel" href='#top' onClick="return showContent('category',{'navcat':'.acw.brands.jewelry'});"><a>Jewelry</a><!--**ADD BACK WHEN DROPDOWN CATS AVAILABLE**--><!-- onClick="return showContent('category',{'navcat':''});" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"-->
+              <!--**ADD BACK WHEN DROPDOWN CATS AVAILABLE**--><!--<ul class="dropdown headerDropdown alignLeft">
               	  <div class="dropdownSpacer"></div>
                   <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':''});" class="pointer"></a></li>
-              </ul>
+              </ul>-->
           </div>
-          <div class="navBarSale" href='#top' onClick="return showContent('category',{'navcat':'.'});" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a>Sale</a>
+          <div class="navBarSale" href='#top' onClick="return showContent('category',{'navcat':''});" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a>Sale</a>
               <ul class="dropdown headerDropdown alignLeft">
               	  <div class="dropdownSpacer"></div>
                   <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':''});" class="pointer"></a></li>
@@ -550,7 +550,8 @@ the homepageTemplate template is loaded into mainContentArea by default when the
                 	<img src="images/homepage/banner/placeholder3.png" />
                 </li>
             </ul>
-            <div class="pagination" id="carouselHPBannerPag"></div>
+            <div class="pagination" id="carouselHPBannerPag">
+            </div>
         </div>
         <div class="homepageSignUp">
         	<div>
@@ -562,7 +563,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
                     <fieldset class='userInfo2'>
                         <input type="text" name='fullname' value='' placeholder="   FULL NAME" class="floatRight homepageSubInput" id='subscribeFullname' />
                         <input type="email" name='login' value='' placeholder="   E-MAIL ADDRESS" class="floatRight homepageSubInput" id='subscribeLogin' />
-                        <fieldset data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;" class='borderNone subscriberLists'></fieldset>
+                        <fieldset class='borderNone subscriberLists'></fieldset>
                         <input class="homepageSubButton ui-button-text ui-button ui-state-default ui-corner-all floatRight" type="submit" value="SIGN UP!" />
                     </fieldset>
                 </form>
@@ -578,8 +579,26 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             <div class="homepageSignUpBottom"></div>
         </div>
     </div>
+    <div class="clear"></div>
     <div class="homepageBottomSec">
+    	
+    	<div class="carouselHPSearchCont">
+        	<div class="carouselHPSearchPagination">
+                <a id="prevHPSearchCaro"><img class="pointer" src="images/homepage/carousel_arrow_left.png" /></a>
+                <a id="nextHPSearchCaro"><img class="pointer" src="images/homepage/carousel_arrow_right.png" /></a>
+            </div>
+            <!--<div id="paginSearchCaro">
+            </div>-->
+            <div class="clear"></div>
+        	<div class="carouselHPSearchList">
+                	<ul id='homeProdSearchFresh' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_FRESH"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+                    <ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+                    <ul id='homeProdSearchDiscontinued' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_DISCONTINUED"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+            </div>
+            <!--<div class="pagination" id="carouselHPSearchPag"></div>-->
+        </div>
     </div>
+    
 	
 	<!--<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul>
 
@@ -953,16 +972,28 @@ remember to NOT put the button inside the 'onclick' container or two events will
 SANITY -> if you change the height and width of this image, change the .minimalMode .searchResultsProduct in qs_styles.css to match
 -->
 <li id='productListTemplateResults' class='loadingBG searchResultsProduct ' >
-	<div onClick="app.ext.myRIA.a.handleProdPreview($(this).parent().attr('data-pid'));" class='pointer'>
+	<div onClick="app.ext.myRIA.a.handleProdPreview($(this).parent().attr('data-pid'));" class='pointer prodListDetails'>
+    	<h5 class='hideInMinimalMode pointer' data-bind='var: product(prod_name); format:truncText; numCharacters: 70;'></h5>
 		<div class='prodThumbContainer'>
-		<img src='blank.gif' class='prodThumb' alt='' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='120' height='120' />
+			<img src='blank.gif' class='prodThumb' alt='' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='278' height='200' />
 		</div>
-
-		<h5 class='hideInMinimalMode' data-bind='var: product(prod_name); format:text;'></h5>
-
-		<h6 class='hideInMinimalMode' data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
+        
+        <div class="prodListPriceBuyCont">
+    		<div>
+        		<h1 class='hideInMinimalMode' data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price;'></h1>
+        	</div>
+            <!--<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm' action='#'>
+                <button data-bind='format:addToCartButton; extension:myRIA; useParentData:true;'>more details</button>
+            </form>-->
+            <div class="moreDetailsButton">
+            	<div class='hideInMinimalMode pointer moreDetails prodViewerAddToCartForm' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});"><span>more details</span></div>
+            </div>
+        </div>
+        <h4 data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true; pretext: MSRP ;'></h4>
+		
+		<!--<h6 class='hideInMinimalMode' data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>-->
 	</div>
-	<div class='hideInMinimalMode pointer moreDetails' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">more details</div>
+	
 </li>
 
 <li id='productListTemplateResultsNoPreview' class='loadingBG searchResultsProduct ' >
@@ -1080,7 +1111,7 @@ this will likely become more flexible in the future. ###
         <!--	<div data-bind='var: product(@inventory.inv); format:simpleInvDisplay; extension:store_product;' class='inventory'></div> -->
 	<!--<div data-bind='var: product(zoovy:ship_latency); format:text;pretext:Normally ships in ;posttext: day(s);' class='latency'></div> -->
 
-
+	
 	<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.handleAddToCart($(this),{'action':'modal'}); return false;">
 
 		<fieldset data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></fieldset>

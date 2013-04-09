@@ -164,13 +164,16 @@ var store_acw = function() {
 				".acw.600skincare.face" : "categoryProductListTemplate",
 				".acw.600skincare.lips" : "categoryProductListTemplate",
 				//NAILS
+				".acw.700nails" : "categoryProductListTemplate",
 				//FRAGRANCE
+				".acw.800fragrance" : "categoryProductListTemplate",
 				//HAIR
 				".acw.450hair.conditioner" : "categoryProductListTemplate",
 				".acw.450hair.hairaccessories" : "categoryProductListTemplate",
 				".acw.450hair.shampoo" : "categoryProductListTemplate",
-				".acw.450hair.stylingproducts" : "categoryProductListTemplate"
+				".acw.450hair.stylingproducts" : "categoryProductListTemplate",
 				//JEWELRY
+				".acw.brands.jewelry" : "categoryProductListTemplate",
 				//SALE
 			},
 		},

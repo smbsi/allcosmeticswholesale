@@ -734,6 +734,31 @@ margin-left:20px;
 }
 
 /*************************************************************************************************************************/
+/**homepageBottomSec**/
+.carouselHPSearchCont{
+	margin-left:30px;
+}
+.carouselHPSearchPagination{
+	float:left;
+}
+.carouselHPSearchList{
+	width:1300px;
+	height:1000px;
+}
+#homeProdSearchFresh{
+	width:1300px;
+	height:1000px;
+}
+#homeProdSearchBestSellers{
+	width:1300px;
+	height:1000px;
+}
+#homeProdSearchDiscontinued{
+	width:1300px;
+	height:1000px;
+}
+
+/*************************************************************************************************************************/
 /*************************************************************************************************************************/
 /**Category Page**/
 
@@ -890,6 +915,30 @@ div .catListingCat:hover{
 	float:right;
 	width:50%;
 	height:50px;
+}
+.moreDetailsButton{
+	float:right;
+	width:50%;
+	height:50px;
+}
+.moreDetailsButton div{
+	width:100%;
+	float:left;
+	height:50px;
+	font-family: 'Special Elite', cursive;
+	font-size: 20px;
+	border-radius: 0 0 0 0;
+	border: medium none;
+	background-color:#3FB8AF;
+}
+.moreDetailsButton div:hover{
+	background-color:#EE3A77;
+}
+div .moreDetailsButton span{
+	font-size: 20px;
+	margin-left: 8px;
+    margin-top: 15px;
+	display: block;
 }
 .prodListPriceBuyCont button{
 	width:100%;

@@ -83,6 +83,20 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 	setTimeout(carouselHPBanner, 2000);
 	
 	
+	//Carousel horizontal sliders - homepage search lists
+	var carouselHPSearch;
+	function foo2(){ $(".carouselHPSearchList").carouFredSel
+	({
+		width   : 1300,
+		height	: 1000,
+		items   : 1,
+		auto : false,
+		prev : "#prevHPSearchCaro",
+		next : "#nextHPSearchCaro"
+	});
+	}
+	carouselHPSearch = foo2;
+	setTimeout(carouselHPSearch, 2000);	
 }]);
 
 app.rq.push(['templateFunction','cartTemplate','onCompletes',function(P) 
