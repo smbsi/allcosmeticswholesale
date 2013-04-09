@@ -19,6 +19,9 @@ body{
 .clearLeft{
 	clear:left;
 }
+.noUnderline{
+	text-decoration:none;
+}
 
 
 /*************************************************************************************************************************/
@@ -371,7 +374,7 @@ body{
 }
 .headerDropdownBrand{
 	height: 0px;
-	width: 780px;
+	width: 990px;
 	float:left;
 	background-image:url(images/header_nav_bar/dropdownbackground.png);
 	background-repeat:no-repeat;
@@ -380,12 +383,30 @@ body{
 .headerDropdownLink{
 	line-height:25px;
 }
+.headerDropdownLink2{
+	line-height:13px;
+	margin-top: 13px;
+}
+.headerDropdownLink2 a{
+	text-decoration:none;
+	color:white;
+	font-family: 'Montserrat', sans-serif;
+	font-size:12px;
+}
 .headerDropdownLink a{
 	text-decoration:none;
 	color:white;
 	font-family: 'Montserrat', sans-serif;
 }
+.headerDropdownLink2 a{
+	text-decoration:none;
+	color:white;
+	font-family: 'Montserrat', sans-serif;
+}
 .headerDropdownLink a:hover{
+	color:#3fb8af;
+}
+.headerDropdownLink2 a:hover{
 	color:#3fb8af;
 }
 .dropdownSpacer{
@@ -399,8 +420,9 @@ body{
 .headerDropdownBrand ul{
 	float:left;
 	height:100%;
-	width:170px;
+	width:90px;
 	margin-left:20px;
+	margin-top: 40px;
 	list-style:none;
 }
 .headerDropdown ul{
@@ -408,6 +430,7 @@ body{
 }
 .headerDropdown li{
 	list-style:none;
+	 margin-left: 10px;
 }
 
 
@@ -819,6 +842,9 @@ div .catListingCat:hover{
 }
 .suite7List a:hover{
 	color:#ff3d7f;
+}
+.suite7List span{
+	color:#3fb8af;
 }
 
 

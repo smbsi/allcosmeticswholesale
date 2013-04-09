@@ -107,7 +107,7 @@ var showDropdown = function ($tag) {
 
 var showDropdownBrand = function ($tag) {
 	var $dropdown = $(".dropdown", $tag);
-	var height = 480;
+	var height = 620;
 	/*$dropdown.children().each(function(){
 		height += $(this).outerHeight(true);
 	});*/
