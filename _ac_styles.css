@@ -858,15 +858,15 @@ div .catListingCat:hover{
 /*************************************************************************************************************************/
 /**Search Categories**/
 
-#catProdSearchSale{
+#catCatSearchSale{
 	width:1300px;
 	height:1000px;
 }
-#catProdSearchBestSellers{
+#catCatSearchBestSellers{
 	width:1300px;
 	height:1000px;
 }
-#catProdSearchDiscontinued{
+#catCatSearchDiscontinued{
 	width:1300px;
 	height:1000px;
 }
@@ -1306,6 +1306,69 @@ h1 .cents{
 h2 .cents{
 	font-size: 18px;
 	vertical-align:top;
+}
+
+/*************************************************************************************************************************/
+/**Search Categories**/
+
+#catProdSearchSale{
+	width:1300px;
+	height:1000px;
+}
+#catProdSearchBestSellers{
+	width:1300px;
+	height:1000px;
+}
+#catProdSearchDiscontinued{
+	width:1300px;
+	height:1000px;
+}
+.carouselProdSearchCont{
+	margin-left:30px;
+}
+.carouselProdSearchList{
+	width:1300px;
+	height:1000px;
+}
+.carouselProdSearchList div{
+	float:left;
+}
+.carouselProdSearchList ul{
+	float:left;
+	width:1300px;
+}
+.carouselProdSearchPagination{
+	float:left;
+	position:relative;
+	width:1300px;
+}
+.carouselProdSearchPagination a{
+	position:absolute;
+	z-index:2;
+}
+.carouselProdSearchPaginTitle{
+	float:left;
+	padding-left:0 !important;
+}
+.carouselProdSearchPaginTitleBottom{
+	float:left;
+	padding-left:0 !important;
+}
+.carouselProdSearchPaginTitle li{
+	float:left;
+	width:433px;
+	text-align:center;
+}
+.carouselProdSearchPaginTitleBottom li{
+	float:left;
+	width:433px;
+	text-align:center;
+}
+.carouselProdSearchPaginTitle h2{
+	color:#3fb8af;
+}
+.carouselProdSearchPaginTitleBottom h2{
+	color:#3fb8af;
 }
 
 

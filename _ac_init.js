@@ -152,8 +152,6 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 
 
 
-
-
 app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) 
 {
 	//Carousel horizontal sliders - homepage search lists
@@ -222,6 +220,79 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P)
 	carouselCatSearchPaginationTitleBottom = foo7;
 	setTimeout(carouselCatSearchPaginationTitleBottom, 2000);
 }]);
+
+
+
+
+app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) 
+{
+	//Carousel horizontal sliders - homepage search lists
+	var carouselProdSearch;
+	function foo8(){ $(".carouselProdSearchList").carouFredSel
+	({
+		width   : 1300,
+		height	: 1000,
+		items   : 1,
+		scroll: 1,
+		auto : false
+	});
+	}
+	carouselProdSearch = foo8;
+	setTimeout(carouselProdSearch, 2000);	
+	
+	
+	var carouselProdSearchPaginationTitle;
+	function foo9(){ $(".carouselProdSearchPaginTitle").carouFredSel
+	({
+		width   : 1300,
+		height	: 50,
+		align: "left",
+		items   : 3,
+		scroll: 1,
+		auto : false,
+		items: {minimum: 1}
+	});
+	}
+	carouselProdSearchPaginationTitle = foo9;
+	setTimeout(carouselProdSearchPaginationTitle, 2000);	
+	
+	
+	var carouselProdSearchPaginationTitleBottom;
+	function foo10(){ $(".carouselProdSearchPaginTitleBottom").carouFredSel
+	({
+		width   : 1300,
+		height	: 50,
+		align: "left",
+		items   : 3,
+		scroll: 1,
+		auto : false,
+		items: {minimum: 1}
+	});
+	$("#nextProdSearchCaro").click(function() {
+    	$(".carouselProdSearchPaginTitle").trigger("next", 1);
+		$(".carouselProdSearchList").trigger("next", 1);
+		$(".carouselProdSearchPaginTitleBottom").trigger("next", 1);
+    });
+	$("#nextProdSearchCaro2").click(function() {
+    	$(".carouselProdSearchPaginTitle").trigger("next", 1);
+		$(".carouselProdSearchList").trigger("next", 1);
+		$(".carouselProdSearchPaginTitleBottom").trigger("next", 1);
+    });
+	$("#prevProdSearchCaro").click(function() {
+    	$(".carouselProdSearchPaginTitle").trigger("prev", 1);
+		$(".carouselProdSearchList").trigger("prev", 1);
+		$(".carouselProdSearchPaginTitleBottom").trigger("prev", 1);
+    });
+	$("#prevProdSearchCaro2").click(function() {
+    	$(".carouselProdSearchPaginTitle").trigger("prev", 1);
+		$(".carouselProdSearchList").trigger("prev", 1);
+		$(".carouselProdSearchPaginTitleBottom").trigger("prev", 1);
+    });	
+	}
+	carouselProdSearchPaginationTitleBottom = foo10;
+	setTimeout(carouselProdSearchPaginationTitleBottom, 2000);
+}]);
+
 
 
 
