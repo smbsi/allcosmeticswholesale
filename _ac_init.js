@@ -150,6 +150,81 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 	setTimeout(carouselHPSearchPaginationTitleBottom, 2000);
 }]);
 
+
+
+
+
+app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) 
+{
+	//Carousel horizontal sliders - homepage search lists
+	var carouselCatSearch;
+	function foo5(){ $(".carouselCatSearchList").carouFredSel
+	({
+		width   : 1300,
+		height	: 1000,
+		items   : 1,
+		scroll: 1,
+		auto : false
+	});
+	}
+	carouselCatSearch = foo5;
+	setTimeout(carouselCatSearch, 2000);	
+	
+	
+	var carouselCatSearchPaginationTitle;
+	function foo6(){ $(".carouselCatSearchPaginTitle").carouFredSel
+	({
+		width   : 1300,
+		height	: 50,
+		align: "left",
+		items   : 3,
+		scroll: 1,
+		auto : false,
+		items: {minimum: 1}
+	});
+	}
+	carouselCatSearchPaginationTitle = foo6;
+	setTimeout(carouselCatSearchPaginationTitle, 2000);	
+	
+	
+	var carouselCatSearchPaginationTitleBottom;
+	function foo7(){ $(".carouselCatSearchPaginTitleBottom").carouFredSel
+	({
+		width   : 1300,
+		height	: 50,
+		align: "left",
+		items   : 3,
+		scroll: 1,
+		auto : false,
+		items: {minimum: 1}
+	});
+	$("#nextCatSearchCaro").click(function() {
+    	$(".carouselCatSearchPaginTitle").trigger("next", 1);
+		$(".carouselCatSearchList").trigger("next", 1);
+		$(".carouselCatSearchPaginTitleBottom").trigger("next", 1);
+    });
+	$("#nextCatSearchCaro2").click(function() {
+    	$(".carouselCatSearchPaginTitle").trigger("next", 1);
+		$(".carouselCatSearchList").trigger("next", 1);
+		$(".carouselCatSearchPaginTitleBottom").trigger("next", 1);
+    });
+	$("#prevCatSearchCaro").click(function() {
+    	$(".carouselCatSearchPaginTitle").trigger("prev", 1);
+		$(".carouselCatSearchList").trigger("prev", 1);
+		$(".carouselCatSearchPaginTitleBottom").trigger("prev", 1);
+    });
+	$("#prevCatSearchCaro2").click(function() {
+    	$(".carouselCatSearchPaginTitle").trigger("prev", 1);
+		$(".carouselCatSearchList").trigger("prev", 1);
+		$(".carouselCatSearchPaginTitleBottom").trigger("prev", 1);
+    });	
+	}
+	carouselCatSearchPaginationTitleBottom = foo7;
+	setTimeout(carouselCatSearchPaginationTitleBottom, 2000);
+}]);
+
+
+
 app.rq.push(['templateFunction','cartTemplate','onCompletes',function(P) 
 {
 	//selector function for filtered search that displays appropriate wood menu options when wood is selected.	

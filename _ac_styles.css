@@ -735,19 +735,7 @@ margin-left:20px;
 
 /*************************************************************************************************************************/
 /**homepageBottomSec**/
-.carouselHPSearchCont{
-	margin-left:30px;
-}
-.carouselHPSearchPagination{
-	float:left;
-	position:relative;
-	width:1300px;
-}
-.carouselHPSearchList{
-	width:1300px;
-	height:1000px;
-}
-#homeProdSearchFresh{
+#homeProdSearchSale{
 	width:1300px;
 	height:1000px;
 }
@@ -758,6 +746,18 @@ margin-left:20px;
 #homeProdSearchDiscontinued{
 	width:1300px;
 	height:1000px;
+}
+.carouselHPSearchCont{
+	margin-left:30px;
+}
+.carouselHPSearchList{
+	width:1300px;
+	height:1000px;
+}
+.carouselHPSearchPagination{
+	float:left;
+	position:relative;
+	width:1300px;
 }
 .carouselHPSearchPagination a{
 	position:absolute;
@@ -855,7 +855,74 @@ div .catListingCat:hover{
     padding-top: 15px;
 	clear:both;
 }
+/*************************************************************************************************************************/
+/**Search Categories**/
 
+#catProdSearchSale{
+	width:1300px;
+	height:1000px;
+}
+#catProdSearchBestSellers{
+	width:1300px;
+	height:1000px;
+}
+#catProdSearchDiscontinued{
+	width:1300px;
+	height:1000px;
+}
+.carouselCatSearchCont{
+	margin-left:30px;
+}
+.carouselCatSearchList{
+	width:1300px;
+	height:1000px;
+}
+.carouselCatSearchList div{
+	float:left;
+}
+.carouselCatSearchList ul{
+	float:left;
+	width:1300px;
+}
+.carouselCatSearchPagination{
+	float:left;
+	position:relative;
+	width:1300px;
+}
+.carouselCatSearchPagination a{
+	position:absolute;
+	z-index:2;
+}
+.carouselCatSearchPaginTitle{
+	float:left;
+	padding-left:0 !important;
+	margin-left:40px !important;
+}
+.carouselCatSearchPaginTitleBottom{
+	float:left;
+	padding-left:0 !important;
+	margin-left:40px !important;
+}
+.carouselCatSearchPaginTitle li{
+	float:left;
+	width:433px;
+	text-align:center;
+}
+.carouselCatSearchPaginTitleBottom li{
+	float:left;
+	width:433px;
+	text-align:center;
+}
+.carouselCatSearchPaginTitle h2{
+	color:#3fb8af;
+}
+.carouselCatSearchPaginTitleBottom h2{
+	color:#3fb8af;
+}
+
+
+/*************************************************************************************************************************/
+/**Bottom Links**/
 .brandList{
 	width:100%;
 	height:570px;

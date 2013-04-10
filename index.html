@@ -595,7 +595,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             </div>
             <div class="clear"></div>
         	<div class="carouselHPSearchList">
-                	<ul id='homeProdSearchFresh' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_SALE"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+                	<ul id='homeProdSearchSale' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_SALE"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
                     <ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
                     <ul id='homeProdSearchDiscontinued' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_DISCONTINUED"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
             </div>
@@ -652,6 +652,36 @@ don't modify the 'data-templateid' unless you are changing template names and up
     <div class="catListingCont">
     	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
     </div>
+    
+    <div class="carouselCatSearchCont">
+        <div class="clear"></div>
+        	<div class="carouselCatSearchPagination">
+                <a style="left:380px; top:30px;" id="prevCatSearchCaro" class="prevCatSearchCaro pointer"><img class="pointer" src="images/homepage/carousel_arrow_left.png" /></a>
+                <a style="right:340px; top:30px;" id="nextCatSearchCaro" class="nextCatSearchCaro pointer"><img class="pointer" src="images/homepage/carousel_arrow_right.png" /></a>
+            	<ul class="carouselCatSearchPaginTitle">
+                   <li><h2>Featured Items</h2></li>
+                   <li><h2>What's The Deal</h2></li>
+                   <li><h2>Previously Viewed</h2></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        	<div class="carouselCatSearchList">
+                	<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
+                    <ul id='catProdSearchSale' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_SALE"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+                    <ul id='catProdSearchDiscontinued' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_DISCONTINUED"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+            </div>
+            <div class="clear"></div>
+            <div class="carouselCatSearchPagination">
+                <a style="left:380px; top:30px;" id="prevCatSearchCaro2" class="prevCatSearchCaro2 pointer"><img class="pointer" src="images/homepage/carousel_arrow_left.png" /></a>
+                <a style="right:340px; top:30px;" id="nextCatSearchCaro2" class="nextCatSearchCaro2 pointer"><img class="pointer" src="images/homepage/carousel_arrow_right.png" /></a>
+            	<ul class="carouselCatSearchPaginTitleBottom">
+                   <li><h2>Featured Items</h2></li>
+                   <li><h2>What's The Deal</h2></li>
+                   <li><h2>Previously Viewed</h2></li>
+                </ul>
+            </div>
+            <!--<div class="pagination" id="carouselHPSearchPag"></div>-->
+        </div>
     
     <h2>BRANDS</h2>
     <div class="brandList">
