@@ -583,17 +583,31 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     <div class="homepageBottomSec">
     	
     	<div class="carouselHPSearchCont">
+        <div class="clear"></div>
         	<div class="carouselHPSearchPagination">
-                <a id="prevHPSearchCaro"><img class="pointer" src="images/homepage/carousel_arrow_left.png" /></a>
-                <a id="nextHPSearchCaro"><img class="pointer" src="images/homepage/carousel_arrow_right.png" /></a>
+                <a style="left:410px; top:22px;" id="prevHPSearchCaro" class="prevHPSearchCaro pointer"><img class="pointer" src="images/homepage/carousel_arrow_left.png" /></a>
+                <a style="right:395px; top:22px;" id="nextHPSearchCaro" class="nextHPSearchCaro pointer"><img class="pointer" src="images/homepage/carousel_arrow_right.png" /></a>
+            	<ul class="carouselSearchPaginTitle">
+                   <li><h2>What's the Deal</h2></li>
+                   <li><h2>What's Hot</h2></li>
+                   <li><h2>What's R.I.P.</h2></li>
+                </ul>
             </div>
-            <!--<div id="paginSearchCaro">
-            </div>-->
             <div class="clear"></div>
         	<div class="carouselHPSearchList">
-                	<ul id='homeProdSearchFresh' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_FRESH"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+                	<ul id='homeProdSearchFresh' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_SALE"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
                     <ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
                     <ul id='homeProdSearchDiscontinued' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_DISCONTINUED"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+            </div>
+            <div class="clear"></div>
+            <div class="carouselHPSearchPagination">
+                <a style="left:410px; top:22px;" id="prevHPSearchCaro2" class="prevHPSearchCaro2 pointer"><img class="pointer" src="images/homepage/carousel_arrow_left.png" /></a>
+                <a style="right:395px; top:22px;" id="nextHPSearchCaro2" class="nextHPSearchCaro2 pointer"><img class="pointer" src="images/homepage/carousel_arrow_right.png" /></a>
+            	<ul class="carouselSearchPaginTitleBottom">
+                   <li><h2>What's the Deal</h2></li>
+                   <li><h2>What's Hot</h2></li>
+                   <li><h2>What's R.I.P.</h2></li>
+                </ul>
             </div>
             <!--<div class="pagination" id="carouselHPSearchPag"></div>-->
         </div>

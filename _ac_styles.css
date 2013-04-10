@@ -740,6 +740,8 @@ margin-left:20px;
 }
 .carouselHPSearchPagination{
 	float:left;
+	position:relative;
+	width:1300px;
 }
 .carouselHPSearchList{
 	width:1300px;
@@ -756,6 +758,34 @@ margin-left:20px;
 #homeProdSearchDiscontinued{
 	width:1300px;
 	height:1000px;
+}
+.carouselHPSearchPagination a{
+	position:absolute;
+	z-index:2;
+}
+.carouselSearchPaginTitle{
+	float:left;
+	padding-left:0 !important;
+}
+.carouselSearchPaginTitleBottom{
+	float:left;
+	padding-left:0 !important;
+}
+.carouselSearchPaginTitle li{
+	float:left;
+	width:433px;
+	text-align:center;
+}
+.carouselSearchPaginTitleBottom li{
+	float:left;
+	width:433px;
+	text-align:center;
+}
+.carouselSearchPaginTitle h2{
+	color:#3fb8af;
+}
+.carouselSearchPaginTitleBottom h2{
+	color:#3fb8af;
 }
 
 /*************************************************************************************************************************/

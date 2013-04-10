@@ -75,8 +75,8 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 		scroll: 1,
 		auto : true,
 		pagination  : "#paginCaro",
-		prev : "#prevHPCaro",
-		next : "#nextHPCaro"
+		prev : ".prevHPCaro",
+		next : ".nextHPCaro"
 	});
 	}
 	carouselHPBanner = foo1;
@@ -90,13 +90,64 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 		width   : 1300,
 		height	: 1000,
 		items   : 1,
-		auto : false,
-		prev : "#prevHPSearchCaro",
-		next : "#nextHPSearchCaro"
+		scroll: 1,
+		auto : false
 	});
 	}
 	carouselHPSearch = foo2;
 	setTimeout(carouselHPSearch, 2000);	
+	
+	
+	var carouselHPSearchPaginationTitle;
+	function foo3(){ $(".carouselSearchPaginTitle").carouFredSel
+	({
+		width   : 1300,
+		height	: 50,
+		align: "left",
+		items   : 3,
+		scroll: 1,
+		auto : false,
+		items: {minimum: 1}
+	});
+	}
+	carouselHPSearchPaginationTitle = foo3;
+	setTimeout(carouselHPSearchPaginationTitle, 2000);	
+	
+	
+	var carouselHPSearchPaginationTitleBottom;
+	function foo4(){ $(".carouselSearchPaginTitleBottom").carouFredSel
+	({
+		width   : 1300,
+		height	: 50,
+		align: "left",
+		items   : 3,
+		scroll: 1,
+		auto : false,
+		items: {minimum: 1}
+	});
+	$("#nextHPSearchCaro").click(function() {
+    	$(".carouselSearchPaginTitle").trigger("next", 1);
+		$(".carouselHPSearchList").trigger("next", 1);
+		$(".carouselSearchPaginTitleBottom").trigger("next", 1);
+    });
+	$("#nextHPSearchCaro2").click(function() {
+    	$(".carouselSearchPaginTitle").trigger("next", 1);
+		$(".carouselHPSearchList").trigger("next", 1);
+		$(".carouselSearchPaginTitleBottom").trigger("next", 1);
+    });
+	$("#prevHPSearchCaro").click(function() {
+    	$(".carouselSearchPaginTitle").trigger("prev", 1);
+		$(".carouselHPSearchList").trigger("prev", 1);
+		$(".carouselSearchPaginTitleBottom").trigger("prev", 1);
+    });
+	$("#prevHPSearchCaro2").click(function() {
+    	$(".carouselSearchPaginTitle").trigger("prev", 1);
+		$(".carouselHPSearchList").trigger("prev", 1);
+		$(".carouselSearchPaginTitleBottom").trigger("prev", 1);
+    });	
+	}
+	carouselHPSearchPaginationTitleBottom = foo4;
+	setTimeout(carouselHPSearchPaginationTitleBottom, 2000);
 }]);
 
 app.rq.push(['templateFunction','cartTemplate','onCompletes',function(P) 
