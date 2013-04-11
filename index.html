@@ -668,9 +668,11 @@ don't modify the 'data-templateid' unless you are changing template names and up
         	<div class="carouselCatSearchList">
                 	<ul id='catProdSearch' data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
                     <ul id='catProdSearchSale' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_SALE"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-                    <div id='recentlyViewedItemsContainer'>
-                    	<ul data-bind="var: session(recentlyViewedItems); format: productList; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; hide_pagination:1; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-            		</div>
+                    <div class="recentlyViewedBuildContainer">
+                        <div id='recentlyViewedItemsContainer'>
+                            <ul data-bind="var: session(recentlyViewedItems); format: productList; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; hide_pagination:1; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+                        </div>
+                    </div>
             </div>
             <div class="clear"></div>
             <div class="carouselCatSearchPagination">

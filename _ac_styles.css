@@ -12,6 +12,7 @@ body{
 .container{
 	min-width:1350px;
 	overflow:hidden;
+	width:1350px;
 }
 .clear{
 	clear:both;

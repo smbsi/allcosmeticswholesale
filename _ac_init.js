@@ -160,10 +160,22 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 	setTimeout(carouselHPSearchPaginationTitleBottom, 2000);
 }]);
 
-
-
+app.rq.push(['templateFunction','categoryTemplate','onInits',function(P) 
+{
+//Checks to see if the #recentlyViewedItemsContainer exists and creates it if it doesnn't
+	if($('#recentlyViewedItemsContainer').length === 0)
+	{app.u.dump("recently viewed container exists, aborting create");}
+	else
+	{
+		app.u.dump("recently viewed container does not exists, creating new container/list");
+		$('.recentlyViewedBuildContainer').append("<div id='recentlyViewedItemsContainer'> <ul data-bind=\"var: session(recentlyViewedItems); format: productList; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; hide_pagination:1; withReviews:1;\" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul></div>");
+	}
+}]);	
+	
+	
 app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) 
 {
+	
 	//Carousel horizontal sliders - homepage search lists
 	var carouselCatSearch;
 	function foo5(){ $(".carouselCatSearchList").carouFredSel
@@ -236,6 +248,9 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P)
 
 app.rq.push(['templateFunction','categoryTemplate','onDeparts',function(P) 
 {
+	app.u.dump("Destroying recently created container.");
+	//Destroys the recently viewed element so that it can be used in other cat pages.
+	$(".recentlyViewedBuildContainer").empty();
 	}]);
 
 
