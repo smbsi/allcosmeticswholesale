@@ -668,7 +668,9 @@ don't modify the 'data-templateid' unless you are changing template names and up
         	<div class="carouselCatSearchList">
                 	<ul id='catProdSearch' data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
                     <ul id='catProdSearchSale' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_SALE"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-                    <ul id='catProdSearchDiscontinued' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_DISCONTINUED"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+                    <div id='recentlyViewedItemsContainer'>
+                    	<ul data-bind="var: session(recentlyViewedItems); format: productList; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; hide_pagination:1; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+            		</div>
             </div>
             <div class="clear"></div>
             <div class="carouselCatSearchPagination">
@@ -1201,28 +1203,40 @@ this will likely become more flexible in the future. ###
 <div class="carouselProdSearchCont">
     <div class="clear"></div>
     <div class="carouselProdSearchPagination">
-        <a style="left:380px; top:25px;" id="prevProdSearchCaro" class="prevProdSearchCaro pointer"><img class="pointer" src="images/homepage/carousel_arrow_left.png" /></a>
-        <a style="right:340px; top:25px;" id="nextProdSearchCaro" class="nextProdSearchCaro pointer"><img class="pointer" src="images/homepage/carousel_arrow_right.png" /></a>
+        <a style="left:380px; top:25px;" class="prevProdSearchCaro pointer"><img class="pointer" src="images/homepage/carousel_arrow_left.png" /></a>
+        <a style="right:340px; top:25px;" class="nextProdSearchCaro pointer"><img class="pointer" src="images/homepage/carousel_arrow_right.png" /></a>
         <ul class="carouselProdSearchPaginTitle">
+           <li><h2>What's The Deal</h2></li>
+           <li>
+               <div class="displayNone" data-bind='var: session(recentlyViewedItems); format:showIfSet;'>
+                   <h2>You'll Love These</h2>
+               </div>
+               <h2>What's Hot</h2>
+           </li>
            <li><h2>Previously Viewed</h2></li>
-           <li><h2>You'll Love These</h2></li>
-           <li><h2>Goes Well With...</h2></li>
         </ul>
     </div>
     <div class="clear"></div>
     <div class="carouselProdSearchList">
-            <ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
-            <ul id='ProdProdSearchSale' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_SALE"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-            <ul id='ProdProdSearchDiscontinued' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_DISCONTINUED"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+    		<div>
+            	<div class="displayNone" data-bind='var: product(zoovy:related_products); format:showIfSet;'>
+            		<ul class='listStyleNone fluidList clearfix noPadOrMargin productList youMIghtLikeUL' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateProgPG;hide_pagination:true;hide_summary:true; withReviews:1;"></ul>
+                </div>
+                <ul data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList prodSearchBestSellers'></ul>
+            </div>
+            <div id='recentlyViewedItemsContainer'>
+                <ul data-bind="var: session(recentlyViewedItems); format: productList; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; hide_pagination:1; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+            </div>
+            <ul data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_SALE"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList prodProdSearchSale'></ul>
     </div>
     <div class="clear"></div>
     <div class="carouselProdSearchPagination">
-        <a style="left:380px; top:25px;" id="prevProdSearchCaro2" class="prevProdSearchCaro2 pointer"><img class="pointer" src="images/homepage/carousel_arrow_left.png" /></a>
-        <a style="right:340px; top:25px;" id="nextProdSearchCaro2" class="nextProdSearchCaro2 pointer"><img class="pointer" src="images/homepage/carousel_arrow_right.png" /></a>
+        <a style="left:380px; top:25px;" class="prevProdSearchCaro2 pointer"><img class="pointer" src="images/homepage/carousel_arrow_left.png" /></a>
+        <a style="right:340px; top:25px;" class="nextProdSearchCaro2 pointer"><img class="pointer" src="images/homepage/carousel_arrow_right.png" /></a>
         <ul class="carouselProdSearchPaginTitleBottom">
-           <li><h2>Previously Viewed</h2></li>
+            <li><h2>What's The Deal</h2></li>
            <li><h2>You'll Love These</h2></li>
-           <li><h2>Goes Well With...</h2></li>
+           <li><h2>Previously Viewed</h2></li>
         </ul>
     </div>
         <!--<div class="pagination" id="carouselHPSearchPag"></div>-->

@@ -59,6 +59,16 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 		  }
 	  else	{} //couldn't find the tab to tabificate.
   }]);
+  
+  
+  app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) {
+	  
+	//Adds any viewed products to the recently viewed list.	
+	var $container = $('#recentlyViewedItemsContainer');
+	$container.show();
+	$("ul",$container).empty(); //empty product list
+	$container.anycontent({data:app.ext.myRIA.vars.session}); //build product list
+	}]);
 	
 	
 	
@@ -196,22 +206,22 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P)
 		auto : false,
 		items: {minimum: 1}
 	});
-	$("#nextCatSearchCaro").click(function() {
+	$(".nextCatSearchCaro").click(function() {
     	$(".carouselCatSearchPaginTitle").trigger("next", 1);
 		$(".carouselCatSearchList").trigger("next", 1);
 		$(".carouselCatSearchPaginTitleBottom").trigger("next", 1);
     });
-	$("#nextCatSearchCaro2").click(function() {
+	$(".nextCatSearchCaro2").click(function() {
     	$(".carouselCatSearchPaginTitle").trigger("next", 1);
 		$(".carouselCatSearchList").trigger("next", 1);
 		$(".carouselCatSearchPaginTitleBottom").trigger("next", 1);
     });
-	$("#prevCatSearchCaro").click(function() {
+	$(".prevCatSearchCaro").click(function() {
     	$(".carouselCatSearchPaginTitle").trigger("prev", 1);
 		$(".carouselCatSearchList").trigger("prev", 1);
 		$(".carouselCatSearchPaginTitleBottom").trigger("prev", 1);
     });
-	$("#prevCatSearchCaro2").click(function() {
+	$(".prevCatSearchCaro2").click(function() {
     	$(".carouselCatSearchPaginTitle").trigger("prev", 1);
 		$(".carouselCatSearchList").trigger("prev", 1);
 		$(".carouselCatSearchPaginTitleBottom").trigger("prev", 1);
@@ -220,6 +230,13 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P)
 	carouselCatSearchPaginationTitleBottom = foo7;
 	setTimeout(carouselCatSearchPaginationTitleBottom, 2000);
 }]);
+
+
+
+
+app.rq.push(['templateFunction','categoryTemplate','onDeparts',function(P) 
+{
+	}]);
 
 
 
@@ -268,22 +285,22 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P)
 		auto : false,
 		items: {minimum: 1}
 	});
-	$("#nextProdSearchCaro").click(function() {
+	$(".nextProdSearchCaro").click(function() {
     	$(".carouselProdSearchPaginTitle").trigger("next", 1);
 		$(".carouselProdSearchList").trigger("next", 1);
 		$(".carouselProdSearchPaginTitleBottom").trigger("next", 1);
     });
-	$("#nextProdSearchCaro2").click(function() {
+	$(".nextProdSearchCaro2").click(function() {
     	$(".carouselProdSearchPaginTitle").trigger("next", 1);
 		$(".carouselProdSearchList").trigger("next", 1);
 		$(".carouselProdSearchPaginTitleBottom").trigger("next", 1);
     });
-	$("#prevProdSearchCaro").click(function() {
+	$(".prevProdSearchCaro").click(function() {
     	$(".carouselProdSearchPaginTitle").trigger("prev", 1);
 		$(".carouselProdSearchList").trigger("prev", 1);
 		$(".carouselProdSearchPaginTitleBottom").trigger("prev", 1);
     });
-	$("#prevProdSearchCaro2").click(function() {
+	$(".prevProdSearchCaro2").click(function() {
     	$(".carouselProdSearchPaginTitle").trigger("prev", 1);
 		$(".carouselProdSearchList").trigger("prev", 1);
 		$(".carouselProdSearchPaginTitleBottom").trigger("prev", 1);

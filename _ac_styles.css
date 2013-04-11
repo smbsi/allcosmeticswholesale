@@ -883,6 +883,12 @@ div .catListingCat:hover{
 .carouselCatSearchList ul{
 	float:left;
 	width:1300px;
+	height:1000px;
+}
+#recentlyViewedItemsContainer{
+	float:left;
+	width:1300px;
+	height:1000px;
 }
 .carouselCatSearchPagination{
 	float:left;
@@ -1065,6 +1071,8 @@ div .moreDetailsButton span{
 
 .mpControlContainer{
 	height:45px;
+	clear:both;
+	width:100%;
 }
 .mpControls{
 	background-color:black;
@@ -1074,6 +1082,7 @@ div .moreDetailsButton span{
 	height:45px;
 	line-height:43px;
 	padding-right: 570px;
+	width:100%;
 }
 .mpControls div{
 	line-height: 43px;
@@ -1311,15 +1320,15 @@ h2 .cents{
 /*************************************************************************************************************************/
 /**Search Categories**/
 
-#catProdSearchSale{
+.prodProdSearchSale{
 	width:1300px;
 	height:1000px;
 }
-#catProdSearchBestSellers{
+.prodSearchBestSellers{
 	width:1300px;
 	height:1000px;
 }
-#catProdSearchDiscontinued{
+.prodProdSearchSale{
 	width:1300px;
 	height:1000px;
 }
@@ -1336,6 +1345,7 @@ h2 .cents{
 .carouselProdSearchList ul{
 	float:left;
 	width:1300px;
+	height:1000px;
 }
 .carouselProdSearchPagination{
 	float:left;
@@ -1358,6 +1368,8 @@ h2 .cents{
 	float:left;
 	width:433px;
 	text-align:center;
+	height:27px;
+	overflow:hidden;
 }
 .carouselProdSearchPaginTitleBottom li{
 	float:left;
