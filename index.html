@@ -1202,7 +1202,7 @@ this will likely become more flexible in the future. ###
 </div>
 
 
-<div class="carouselProdSearchCont">
+<div class="carouselProdSearchCont displayNone" data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_FRESH"}}}); format:showIfSet;'>
     <div class="carouselProdTitleCont">
        <div class="displayNone" data-bind='var: product(zoovy:related_products); format:showIfSet;'>
            <h2>You'll Love These</h2>
@@ -1213,7 +1213,7 @@ this will likely become more flexible in the future. ###
         <div class="carouselYouMightLikeCont" data-bind='var: product(zoovy:related_products); format:showIfSet;'>
             <ul class='listStyleNone fluidList clearfix noPadOrMargin productList youMIghtLikeUL' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateProgPG;hide_pagination:true;hide_summary:true; withReviews:1;"></ul>
         </div>
-        <ul data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList prodSearchBestSellers'></ul>
+        <ul data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_FRESH"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList prodSearchBestSellers'></ul>
     </div>
 </div>
 <!--

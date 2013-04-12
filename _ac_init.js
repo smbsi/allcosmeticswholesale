@@ -258,6 +258,7 @@ app.rq.push(['templateFunction','categoryTemplate','onDeparts',function(P)
 
 app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) 
 {
+	/*REMOVED DUE TO NEW DESIGN
 	//Carousel horizontal sliders - homepage search lists
 	var carouselProdSearch;
 	function foo8(){ $(".carouselProdSearchList").carouFredSel
@@ -323,6 +324,7 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P)
 	}
 	carouselProdSearchPaginationTitleBottom = foo10;
 	setTimeout(carouselProdSearchPaginationTitleBottom, 2000);
+	*/
 }]);
 
 
