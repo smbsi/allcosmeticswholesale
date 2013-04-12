@@ -1203,6 +1203,21 @@ this will likely become more flexible in the future. ###
 
 
 <div class="carouselProdSearchCont">
+    <div class="carouselProdTitleCont">
+       <div class="displayNone" data-bind='var: product(zoovy:related_products); format:showIfSet;'>
+           <h2>You'll Love These</h2>
+       </div>
+       <h2>What's Hot</h2>
+    </div>
+    <div class="carouselProdListCont">
+        <div class="carouselYouMightLikeCont" data-bind='var: product(zoovy:related_products); format:showIfSet;'>
+            <ul class='listStyleNone fluidList clearfix noPadOrMargin productList youMIghtLikeUL' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateProgPG;hide_pagination:true;hide_summary:true; withReviews:1;"></ul>
+        </div>
+        <ul data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList prodSearchBestSellers'></ul>
+    </div>
+</div>
+<!--
+<div class="carouselProdSearchCont">
     <div class="clear"></div>
     <div class="carouselProdSearchPagination">
         <a style="left:380px; top:25px;" class="prevProdSearchCaro pointer"><img class="pointer" src="images/homepage/carousel_arrow_left.png" /></a>
@@ -1237,12 +1252,20 @@ this will likely become more flexible in the future. ###
         <a style="right:340px; top:25px;" class="nextProdSearchCaro2 pointer"><img class="pointer" src="images/homepage/carousel_arrow_right.png" /></a>
         <ul class="carouselProdSearchPaginTitleBottom">
             <li><h2>What's The Deal</h2></li>
-           <li><h2>You'll Love These</h2></li>
+           <li>
+               <div class="displayNone" data-bind='var: session(recentlyViewedItems); format:showIfSet;'>
+                   <h2>You'll Love These</h2>
+               </div>
+               <h2>What's Hot</h2>
+           </li>
            <li><h2>Previously Viewed</h2></li>
         </ul>
     </div>
+    -->
         <!--<div class="pagination" id="carouselHPSearchPag"></div>-->
+<!--
 </div>
+-->
 
 	<!--###Removed to match design***<!--<div class="tabbedProductContentTD">
 <!--
@@ -1850,13 +1873,14 @@ So the cart template should contain these two elements and the extension should 
 	<!--***Removed to match design***<!--<button class='ui-button-text ui-button ui-state-default ui-corner-all continueShoppingButton' onClick="$('#modalCart').dialog('close');">Continue Shopping</button>-->
 	</menu>
     
-    <div id='couponContainer'>
-        <div id='couponMessaging'></div><!-- used to report success and fail messaging -->
-        <div id='couponFrmContainer'>
-        	<button class='loadingButton ui-state-default ui-corner-all' onClick="app.ext.convertSessionToOrder.u.handleCouponSubmit(); return false;" id='addCouponBtn'><span></span>APPLY</button>
-            <input type='text' name='coupon' id='couponCode' size='8' placeholder="  Coupon Code"  onKeyPress="if(event.keyCode==13){$('#addCouponBtn').click();}" />
-        </div>
+    <!--<div id='couponContainer'>
+            <div id='couponMessaging'></div><!-- used to report success and fail messaging -->
+            <!--<div id='couponFrmContainer'>
+                <button class='loadingButton ui-state-default ui-corner-all' onClick="app.ext.convertSessionToOrder.u.handleCouponSubmit(); return false;" id='addCouponBtn'><span></span>APPLY</button>
+                <input type='text' name='coupon' id='couponCode' size='8' placeholder="  Coupon Code"  onKeyPress="if(event.keyCode==13){$('#addCouponBtn').click();}" />
+            </div>
 	</div>
+    -->
 
 	<div class='checkoutButtonsContainer'>
 

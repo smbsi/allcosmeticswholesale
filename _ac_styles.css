@@ -1124,9 +1124,6 @@ ul .mpControlJumpToPage{
 /*************************************************************************************************************************/
 /*************************************************************************************************************************/
 /**Product Page**/
-.prodViewerContainer{
-	height:800px;
-}
 /*************************************************************************************************************************/
 /**Product Image section**/
 .imageContainer{
@@ -1336,6 +1333,29 @@ h2 .cents{
 .carouselProdSearchCont{
 	margin-left:30px;
 }
+.carouselProdTitleCont{
+	color:#3fb8af;
+	text-align:center;
+	clear:both;
+	overflow: hidden;
+	 height: 27px;
+}
+.carouselProdListCont{
+	clear:both;
+	overflow:hidden;
+	height:1000px;
+	width:1300px;
+}
+
+
+.carouselYouMightLikeCont{
+	display:none;
+	height:1000px;
+	width:100%;
+}
+.prodSearchBestSellers{
+}
+
 .carouselProdSearchList{
 	width:1300px;
 	height:1000px;
