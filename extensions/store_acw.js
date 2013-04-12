@@ -58,6 +58,7 @@ var store_acw = function() {
 				".brands.occ" : "categoryProductListTemplate",
 				".brands.suite_7_beauty" : "categoryProductListTemplate",
 				".brands.yr_nails" : "categoryProductListTemplate",
+				".acw.brands.100__pure" : "categoryProductListTemplate",
 				".acw.brands.adoro" : "categoryProductListTemplate",
                 ".acw.brands.almay" : "categoryProductListTemplate",
 				".acw.brands.balmshell" : "categoryProductListTemplate",

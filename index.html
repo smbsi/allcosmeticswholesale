@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130412094000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130412120000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"testURL":"http://www.8185f9.dagobah.zoovy.net/", //used ONLY if protocol is file: (for testing)
@@ -110,16 +110,18 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
 
 <!-- These add specific functionality for the app. In most cases, you want to leave them alone. -->
 <div id='appNav'>
-	<button class='displayNone prodDetailNextItemButton' data-app-role='prodDetailNextItemButton'>Next</button>
-	<button class='displayNone prodDetailPrevItemButton' data-app-role='prodDetailPrevItemButton'>Previous</button>
+	<!--<button class='displayNone prodDetailNextItemButton' data-app-role='prodDetailNextItemButton'>Next</button>
+	<button class='displayNone prodDetailPrevItemButton' data-app-role='prodDetailPrevItemButton'>Previous</button>-->
 </div>
 
 <!--Begin Header Area-->
 <div class="header">
 	<div class="headerTopThird">
-    	<div class="floatLeft headerLoginLink"><h5>Welcome, <span class='username'>Guest!</span> <h6>Not You? <a>Login</a> or <a href='#top' onClick="return showContent('customer',{'show':'newsletter'});">Sign-up!</a></h6></h5></div>
-        <div class="floatRight headerHelpLink"><a class="pointer" onclick="return showContent('company',{'show':'contact'});" class='bindByAnchor'>Help</a></div>
-        <div class="floatRight headerCartLink bindByAnchor"><a class="pointer bindByAnchor" href="#cart?."><span class="cartItemCount">0</span> Items </a> <h6>in your cart | </h6><a class="pointer bindByAnchor" href="#cart?.">View Shopping Bag</a></div>
+    	<div class="centeringContainer">
+            <div class="floatLeft headerLoginLink"><h5>Welcome, <span class='username'>Guest!</span> <h6>Not You? <a>Login</a> or <a href='#top' onClick="return showContent('customer',{'show':'newsletter'});">Sign-up!</a></h6></h5></div>
+            <div class="floatRight headerHelpLink"><a class="pointer" onclick="return showContent('company',{'show':'contact'});" class='bindByAnchor'>Help</a></div>
+            <div class="floatRight headerCartLink bindByAnchor"><a class="pointer bindByAnchor" href="#cart?."><span class="cartItemCount">0</span> Items </a> <h6>in your cart | </h6><a class="pointer bindByAnchor" href="#cart?.">View Shopping Bag</a></div>
+    	</div>
     </div>
     <div class="headerMidThird">
     	<a href="#homepage?." class='bindByAnchor' title='Home'><img class="floatLeft homepageLink" src="images/homepage_link_image.png" /></a>
@@ -325,158 +327,164 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
 
 <!--Begin Footer Area-->
 <div class="footer">
-	<div class="footerTopThird">  	
-    	<a class="pointer" href="https://twitter.com/@ACWcosmetics" target="_blank"><img class="footerTwit" src="images/footer/twitter.png" /></a>
-        <a class="pointer" href="https://www.facebook.com/pages/ACW-Cosmetics/148431235211409" target="_blank"><img class="footerFb" src="images/footer/facebook.png" /></a>
-         <div class="floatLeft footerNewsLabel">
-         	<h5>STAY UPDATED</h5>
-            <div class="clearRight"></div> 
-         	<h6>WITH OUR NEWSLETTER</h6>
-         </div>
-         <form action='#' id='subscribeFrm' name='subscribeFrm' onSubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false">
-							<fieldset class='userInfo'>
-								<input type="text" name='fullname' value='' placeholder="   Name" class="subName" id='subscribeFullname' />
-                                <input type="email" name='login' value='' placeholder="   E-mail Address" class="subEmail" id='subscribeLogin' />
-                                <fieldset data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;" class='borderNone subscriberLists'></fieldset>
-								<input class="subButton pointer" type="submit" value="Sign Up!" id="" />
-							</fieldset>
-						</form>
-	</div>
+	<div class="footerTopThird">
+    	<div class="centeringContainer">  	
+            <a class="pointer" href="https://twitter.com/@ACWcosmetics" target="_blank"><img class="footerTwit" src="images/footer/twitter.png" /></a>
+            <a class="pointer" href="https://www.facebook.com/pages/ACW-Cosmetics/148431235211409" target="_blank"><img class="footerFb" src="images/footer/facebook.png" /></a>
+             <div class="floatLeft footerNewsLabel">
+                <h5>STAY UPDATED</h5>
+                <div class="clearRight"></div> 
+                <h6>WITH OUR NEWSLETTER</h6>
+             </div>
+             <form action='#' id='subscribeFrm' name='subscribeFrm' onSubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false">
+                                <fieldset class='userInfo'>
+                                    <input type="text" name='fullname' value='' placeholder="   Name" class="subName" id='subscribeFullname' />
+                                    <input type="email" name='login' value='' placeholder="   E-mail Address" class="subEmail" id='subscribeLogin' />
+                                    <fieldset data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;" class='borderNone subscriberLists'></fieldset>
+                                    <input class="subButton pointer" type="submit" value="Sign Up!" id="" />
+                                </fieldset>
+                            </form>
+        </div>
+    </div>
     <div class="footerMidThird">
-    	<div class="floatLeft" style="width:40%;">
-        	<h3 class="floatLeft">CATEGORIES</h3>
-            <div class="clearLeft"></div>
-            <ul style="width:42%;" class="floatLeft">
-                <li>
-                    <a href='#top' onClick="return showContent('category',{'navcat':'.acw'});">Browse All Categories</a>
-                </li>
-                <li>
-                    <a>What's Hot!</a>
-                </li>
-                <li>
-                    <a>What's The Deal</a>
-                </li>
-                <li>
-                    <a href='#top' onClick="return showContent('category',{'navcat':'.acw.brands'});">Brands</a>
-                </li>
-                <li>
-                    <a href='#top' onClick="return showContent('category',{'navcat':'.acw.200eyes'});">Eyes</a>
-                </li>
-                <li>
-                    <a href='#top' onClick="return showContent('category',{'navcat':'.acw.300lips'});">Lips</a>
-                </li>
-                <li>
-                    <a href='#top' onClick="return showContent('category',{'navcat':'.acw.400face'});">Face</a>
-                </li>
-            </ul>
-            <ul  style="width:42%;" class="floatLeft">
-                <li>
-                    <a href='#top' onClick="return showContent('category',{'navcat':'.acw.500accessories'});">Accessories</a>
-                </li>
-                <li>
-                    <a href='#top' onClick="return showContent('category',{'navcat':'.acw.600skincare'});">Skincare</a>
-                </li>
-                <li>
-                    <a href='#top' onClick="return showContent('category',{'navcat':'.acw.700nails'});">Nails</a>
-                </li>
-                <li>
-                    <a href='#top' onClick="return showContent('category',{'navcat':'.acw.800fragrance'});">Fragrance</a>
-                </li>
-                <li>
-                    <a href='#top' onClick="return showContent('category',{'navcat':'.acw.450hair'});">Hair</a>
-                </li>
-                <li>
-                    <a href='#top' onClick="return showContent('category',{'navcat':''});">Jewelry</a>
-                </li>
-                <li>
-                    <a href='#top' onClick="return showContent('category',{'navcat':''});">Sale</a>
-                </li>
-            </ul>
-        </div>
-        <div class="floatLeft" style="width:20%;">
-        	<h3 class="floatLeft">HELP</h3>
-            <div class="clearLeft"></div>
-            <ul class="floatLeft">
-                <li>
-                    <a href='#top' onClick="return showContent('company',{'show':'about'});">About Us</a>
-                </li>
-                <li>
-                    <a href='#top' onClick="return showContent('company',{'show':'contact'});">Contact Us</a>
-                </li>
-                <li>
-                    <a  href='#top' onClick="return showContent('company',{'show':'faq'});">FAQs</a>
-                </li>
-                <li>
-                    <a  href='#top' onClick="return showContent('company',{'show':'shipping'});">Shipping Policy</a>
-                </li>
-                <li>
-                    <a  href='#top' onClick="return showContent('company',{'show':'return'});">Return Policy</a>	
-                </li>
-                <li>
-                    <a  href='#top' onClick="return showContent('company',{'show':'payment'});">Payment Policy</a>
-                </li>
-                <li>
-                    <a  href='#top' onClick="return showContent('company',{'show':'privacy'});">Privacy Policy</a>
-                </li>
-            </ul>
-        </div>
-        <div class="floatLeft" style="width:20%;">
-        	<h3 class="floatLeft">MY ACCOUNT</h3>
-            <div class="clearLeft"></div>
-            <ul class="floatLeft">
-                <li>
-                    <a href='#top' onClick="return showContent('customer',{'show':'newsletter'});">Create An Account</a>
-                </li>
-                <li>
-                    <a href='#top' onClick="return showContent('customer',{'show':'myaccount'});">Log-in</a>
-                </li>
-                <li>
-                    <a href='#top' onClick="return showContent('customer',{'show':'myaccount'});">Change Password</a>
-                </li>
-                <li>
-                    <a href='#top' onClick="return showContent('customer',{'show':'myaccount'});">Update Preferences</a>
-                </li>
-                <li>
-                    <a href='#top' onClick="return showContent('customer',{'show':'lists'});">Wishlist Items</a>
-                </li>
-                <li>
-                    <a href='#top' onClick="return showContent('customer',{'show':'orders'});">Order tracking</a>
-                </li>
-                <li>
-                    <a href="#top" onclick="app.ext.myRIA.u.handleLogoutActions(); return false;">Sign Out</a>
-                </li>
-            </ul>
-        </div>
-        <div class="floatLeft" style="width:20%;">
-        	<h3 class="floatLeft">MORE ON FASHION</h3>
-            <div class="clearLeft"></div>
-            <ul class="floatLeft">
-                <li>
-                    <a>Tutorials</a>
-                </li>
-                <li>
-                    <a>Tips and Tricks</a>
-                </li>
-                <li>
-                    <a class="pointer" href="https://www.facebook.com/pages/ACW-Cosmetics/148431235211409" target="_blank">Facebook</a>
-                </li>
-                <li>
-                    <a class="pointer" href="https://twitter.com/@ACWcosmetics" target="_blank">Twitter</a>
-                </li>
-            </ul>
+    	<div class="centeringContainer>"
+            <div class="floatLeft" style="width:40%;">
+                <h3 class="floatLeft">CATEGORIES</h3>
+                <div class="clearLeft"></div>
+                <ul style="width:42%;" class="floatLeft">
+                    <li>
+                        <a href='#top' onClick="return showContent('category',{'navcat':'.acw'});">Browse All Categories</a>
+                    </li>
+                    <li>
+                        <a>What's Hot!</a>
+                    </li>
+                    <li>
+                        <a>What's The Deal</a>
+                    </li>
+                    <li>
+                        <a href='#top' onClick="return showContent('category',{'navcat':'.acw.brands'});">Brands</a>
+                    </li>
+                    <li>
+                        <a href='#top' onClick="return showContent('category',{'navcat':'.acw.200eyes'});">Eyes</a>
+                    </li>
+                    <li>
+                        <a href='#top' onClick="return showContent('category',{'navcat':'.acw.300lips'});">Lips</a>
+                    </li>
+                    <li>
+                        <a href='#top' onClick="return showContent('category',{'navcat':'.acw.400face'});">Face</a>
+                    </li>
+                </ul>
+                <ul  style="width:42%;" class="floatLeft">
+                    <li>
+                        <a href='#top' onClick="return showContent('category',{'navcat':'.acw.500accessories'});">Accessories</a>
+                    </li>
+                    <li>
+                        <a href='#top' onClick="return showContent('category',{'navcat':'.acw.600skincare'});">Skincare</a>
+                    </li>
+                    <li>
+                        <a href='#top' onClick="return showContent('category',{'navcat':'.acw.700nails'});">Nails</a>
+                    </li>
+                    <li>
+                        <a href='#top' onClick="return showContent('category',{'navcat':'.acw.800fragrance'});">Fragrance</a>
+                    </li>
+                    <li>
+                        <a href='#top' onClick="return showContent('category',{'navcat':'.acw.450hair'});">Hair</a>
+                    </li>
+                    <li>
+                        <a href='#top' onClick="return showContent('category',{'navcat':''});">Jewelry</a>
+                    </li>
+                    <li>
+                        <a href='#top' onClick="return showContent('category',{'navcat':''});">Sale</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="floatLeft" style="width:20%;">
+                <h3 class="floatLeft">HELP</h3>
+                <div class="clearLeft"></div>
+                <ul class="floatLeft">
+                    <li>
+                        <a href='#top' onClick="return showContent('company',{'show':'about'});">About Us</a>
+                    </li>
+                    <li>
+                        <a href='#top' onClick="return showContent('company',{'show':'contact'});">Contact Us</a>
+                    </li>
+                    <li>
+                        <a  href='#top' onClick="return showContent('company',{'show':'faq'});">FAQs</a>
+                    </li>
+                    <li>
+                        <a  href='#top' onClick="return showContent('company',{'show':'shipping'});">Shipping Policy</a>
+                    </li>
+                    <li>
+                        <a  href='#top' onClick="return showContent('company',{'show':'return'});">Return Policy</a>	
+                    </li>
+                    <li>
+                        <a  href='#top' onClick="return showContent('company',{'show':'payment'});">Payment Policy</a>
+                    </li>
+                    <li>
+                        <a  href='#top' onClick="return showContent('company',{'show':'privacy'});">Privacy Policy</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="floatLeft" style="width:20%;">
+                <h3 class="floatLeft">MY ACCOUNT</h3>
+                <div class="clearLeft"></div>
+                <ul class="floatLeft">
+                    <li>
+                        <a href='#top' onClick="return showContent('customer',{'show':'newsletter'});">Create An Account</a>
+                    </li>
+                    <li>
+                        <a href='#top' onClick="return showContent('customer',{'show':'myaccount'});">Log-in</a>
+                    </li>
+                    <li>
+                        <a href='#top' onClick="return showContent('customer',{'show':'myaccount'});">Change Password</a>
+                    </li>
+                    <li>
+                        <a href='#top' onClick="return showContent('customer',{'show':'myaccount'});">Update Preferences</a>
+                    </li>
+                    <li>
+                        <a href='#top' onClick="return showContent('customer',{'show':'lists'});">Wishlist Items</a>
+                    </li>
+                    <li>
+                        <a href='#top' onClick="return showContent('customer',{'show':'orders'});">Order tracking</a>
+                    </li>
+                    <li>
+                        <a href="#top" onclick="app.ext.myRIA.u.handleLogoutActions(); return false;">Sign Out</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="floatLeft" style="width:20%;">
+                <h3 class="floatLeft">MORE ON FASHION</h3>
+                <div class="clearLeft"></div>
+                <ul class="floatLeft">
+                    <li>
+                        <a>Tutorials</a>
+                    </li>
+                    <li>
+                        <a>Tips and Tricks</a>
+                    </li>
+                    <li>
+                        <a class="pointer" href="https://www.facebook.com/pages/ACW-Cosmetics/148431235211409" target="_blank">Facebook</a>
+                    </li>
+                    <li>
+                        <a class="pointer" href="https://twitter.com/@ACWcosmetics" target="_blank">Twitter</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="footerBottomThird">
-    	<h1>All Cosmetics Wholesale</h1>
-        <p>All Cosmetics Wholesale specializes in providing discount, quality makeup brands at wholesale and below wholesale pricing. At All Cosmetics Wholesale you'll also find rare and hard to find items. The products we provide are new and <span style="color:#3fb8af;">AUTHENTIC</span>.</p>
-        <br />
-		<p>ACW was founded in 2002 as a discount beauty products retailer. As a discount retailer, we have and will continue to bring you both prestige and mass products at reduced pricing. We have now created a new experience at our sister site Suite7beauty.com. Suite7beauty.com brings you amazing full retail lines of prestige and mass beauty brands. Added together with ACW discount lines, you can now purchase both discount and retail lines in one convenient checkout with one low shipping fee. Please visit us at Suite7beauty.com by clicking the link at the top of any ACW page.</p>
-		<br />
-        <p>Our products change daily so please check back often for the newest selection! We hope you enjoy your shopping!</p>
-        <br />
-        <p></p>
-        <div class="footerRibbon">
-        	<h4 style="color:#ffffff;">All Cosmetics Wholesale</h4><h4>2013 All Rights reserved</h4><h4>eCommerce by <span style="color:#ffffff;">Zoovy</span></h4>
+        <div class="centeringContainer">
+            <h1>All Cosmetics Wholesale</h1>
+            <p>All Cosmetics Wholesale specializes in providing discount, quality makeup brands at wholesale and below wholesale pricing. At All Cosmetics Wholesale you'll also find rare and hard to find items. The products we provide are new and <span style="color:#3fb8af;">AUTHENTIC</span>.</p>
+            <br />
+            <p>ACW was founded in 2002 as a discount beauty products retailer. As a discount retailer, we have and will continue to bring you both prestige and mass products at reduced pricing. We have now created a new experience at our sister site Suite7beauty.com. Suite7beauty.com brings you amazing full retail lines of prestige and mass beauty brands. Added together with ACW discount lines, you can now purchase both discount and retail lines in one convenient checkout with one low shipping fee. Please visit us at Suite7beauty.com by clicking the link at the top of any ACW page.</p>
+            <br />
+            <p>Our products change daily so please check back often for the newest selection! We hope you enjoy your shopping!</p>
+            <br />
+            <p></p>
+            <div class="footerRibbon">
+                <h4 style="color:#ffffff;">All Cosmetics Wholesale</h4><h4>2013 All Rights reserved</h4><h4>eCommerce by <span style="color:#ffffff;">Zoovy</span></h4>
+            </div>
         </div>
     </div>
 </div>
@@ -925,7 +933,8 @@ remember to NOT put the button inside the 'onclick' container or two events will
     	<div>
         	<h1 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price;'></h1>
         </div>
-        <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm' action='#'>
+        <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm' action='#' onSubmit="app.ext.myRIA.u.addItemToCart($(this),{'action':'modal'}); return false;">
+            <input type='hidden' name='qty' value='1' />
             <button data-bind='format:addToCartButton; extension:myRIA; useParentData:true;'>more details</button>
         </form>
         <h4 data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true; pretext: MSRP ;'></h4>
@@ -1160,7 +1169,7 @@ this will likely become more flexible in the future. ###
 	<!--<div data-bind='var: product(zoovy:ship_latency); format:text;pretext:Normally ships in ;posttext: day(s);' class='latency'></div> -->
 
 	
-	<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.handleAddToCart($(this),{'action':'modal'}); return false;">
+	<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.addItemToCart($(this)); return false;">
 
 		<fieldset data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></fieldset>
         <div class="prodQuantity">
@@ -1170,7 +1179,7 @@ this will likely become more flexible in the future. ###
             <input type="button" value="ENTER" class="quantityButton" />
         </div>
 
-		<input type='submit' value='Add to Cart' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
+		<input type='submit' value='Add to Cart' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;'  />
 	</form>
     
     <span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
@@ -1830,6 +1839,7 @@ So the cart template should contain these two elements and the extension should 
 
 	<td class='cartSummaryTotalsContainer'>
 	<div class='ui-widget ui-helper-clearfix ui-corner-all'>
+    	<div data-bind='var: cart(sum/order_total); format:money; className:orderTotal; hideZero:false; currencySign: $; '></div>
 		<h2 class='ui-widget-header ui-helper-clearfix ui-corner-all ui-header'>YOUR TOTAL</h2>
 		<div class='cartSummaryContainer'>
 
@@ -1841,7 +1851,6 @@ So the cart template should contain these two elements and the extension should 
 
 	<div data-bind='var: cart(want/shipping_id); format:shipInfoById; className:orderShipping; hideZero:false; extension:store_cart;'></div>
 
-	<div data-bind='var: cart(sum/order_total); format:money; className:orderTotal; hideZero:false; currencySign: $; pretext:Order Total: ; '></div>
 
 	<div data-bind='var: cart(sum/gfc_total); format:money; className:orderGiftcardTotal; hideZero:false; currencySign: $; pretext:Giftcard(s): ; '></div>
 	<div data-bind='var: cart(sum/pnt_total); format:money; className:rewardPointsTotal; hideZero:false; currencySign: $; pretext:Reward Points: ; '></div>
