@@ -20,10 +20,11 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201312.a",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201314.a",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
-	"testURL":"http://www.sporks.zoovy.com/" //used ONLY if protocol is file: (for testing)
+	"checkoutAuthMode" : "required",//can be passive, active or required
+	"testURL":"http://www.beachmall.com/" //used ONLY if protocol is file: (for testing)
 	},u:{},rq:[]};
 
 //set base url so images, css, js, etc all load from appropriate location once deployed.
@@ -407,7 +408,6 @@ this will likely become more flexible in the future. ###
 <table class='prodViewerContainer'>
 <tr>
 	<td class='imageContainer'>
-<!--	<img src='blank.gif' id='bobWasHere' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format: magicZoomPlus; extension: magicToolBox_mzp;' width='340' height='340' /> -->
 
 <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).attr("data-pid")});' class='pointer clearfix'  data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>
 
@@ -448,13 +448,13 @@ this will likely become more flexible in the future. ###
 	<div class="socialLinks"></div>
 
 
-	<table class='marginBottom fullWidth gridTable' app-data-role='childrenSiblingsContainer'>
+	<table class='marginBottom fullWidth gridTable' data-app-role='childrenSiblingsContainer'>
 		<tbody data-bind="var: product(zoovy:grp_children); format:productList; extension:store_prodlist; loadsTemplate:productListTemplateChildren;hide_summary:true; withInventory:1; withVariations:1;"></tbody>
 	</table>
 
 
 	<div data-bind='var: product(zoovy:ship_latency); format:text;pretext:Normally ships in ;posttext: day(s);' class='latency marginBottom'></div>
-
+	<div data-app-role='timeInTransit' class='displayNone'></div>
 
 	<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.addItemToCart($(this)); return false;">
 
@@ -524,7 +524,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 	</div>
 
 	<div class='tabContent' data-anytab-content='prodVideo'>
-		<div id="prodVideo" data-bind='var: product(youtube:videoid); format:youtubeVideo;'></div>
+		<div data-bind='var: product(youtube:videoid); format:youtubeVideo;'></div>
 	</div>
 
 	<div class='tabContent' data-anytab-content='prodAccessories'>
@@ -585,7 +585,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 		<span data-bind='var: reviews(reviews.total); format:text;posttext: from ;posttext: reviews; className:numReviews;'></span>
 	</section>
 
-	<div id="prodDesc" data-bind='var: product(zoovy:prod_desc); format:wiki; wikiFormats:myRIA;'></div>
+	<div data-bind='var: product(zoovy:prod_desc); format:wiki; wikiFormats:myRIA;'></div>
 
 	</td>
 </tr>
@@ -787,8 +787,8 @@ if you change these, you should move them above this comment so that when you (o
 	<div class='sideline' >
 	<nav id='customerNav'>
 	<ul class='listStyleNone noPadOrMargin'>
-<!-- before restoring this, test cuz news form on left was causing some conflicts -->
-		<li><a href='#customer?show=subscriberLists'>Newsletter Subscription</a></li>
+<!-- before restoring this, test cuz news form on left was causing some conflicts
+		<li><a href='#customer?show=subscriberLists'>Newsletter Subscription</a></li> -->
 		<li><a href='#customer?show=myaccount'>My Account</a></li>
 		<li><a href='#customer?show=changepassword'>Change Password</a></li>
 		<li><a href='#customer?show=orders'>Order History</a></li>
@@ -1301,17 +1301,17 @@ The 'data-action' attribute is used to assign an onclick.
 <address id='billAddressTemplate' class='ui-widget ui-widget-content ui-corner-all marginBottom '>
 	<button data-app-event="myRIA|showBuyerAddressUpdate" class='floatRight'>edit</button>
 	<div class='addressFullname'>
-		<span data-bind="var: address(bill_firstname);format:text;"  title='first name'></span>
-		<span data-bind="var: address(bill_lastname);format:text;"  title='last name'></span>
+		<span data-bind="var: address(bill/firstname);format:text;"  title='first name'></span>
+		<span data-bind="var: address(bill/lastname);format:text;"  title='last name'></span>
 	</div>
 	<div class='address'>
-		<div data-bind="var: address(bill_address1);format:text;"  title='address'></div>
-		<div data-bind="var: address(bill_address2);format:text;"  title='address 2'></div>
+		<div data-bind="var: address(bill/address1);format:text;"  title='address'></div>
+		<div data-bind="var: address(bill/address2);format:text;"  title='address 2'></div>
 
-		<span data-bind="var: address(bill_city);format:text;"  title='city'></span>,
-		<span data-bind="var: address(bill_region);format:text;"  title='state'></span>.
-		<span data-bind="var: address(bill_postal);format:text;"  title='zip'></span>
-		<div data-bind="var: address(bill_countrycode);format:text;" title='country'></div>
+		<span data-bind="var: address(bill/city);format:text;"  title='city'></span>,
+		<span data-bind="var: address(bill/region);format:text;"  title='state'></span>.
+		<span data-bind="var: address(bill/postal);format:text;"  title='zip'></span>
+		<div data-bind="var: address(bill/countrycode);format:text;" title='country'></div>
 
 	</div>
 
@@ -1322,17 +1322,17 @@ The 'data-action' attribute is used to assign an onclick.
 <address id='shipAddressTemplate' class='ui-widget ui-widget-content ui-corner-all marginBottom '>
 	<button data-app-event="myRIA|showBuyerAddressUpdate" class='floatRight'>edit</button>
 	<div class='addressFullname'>
-		<span data-bind="var: address(ship_firstname);format:text;"  title='first name'></span>
-		<span data-bind="var: address(ship_lastname);format:text;"  title='last name'></span>
+		<span data-bind="var: address(ship/firstname);format:text;"  title='first name'></span>
+		<span data-bind="var: address(ship/lastname);format:text;"  title='last name'></span>
 	</div>
 	<div class='address'>
-		<div data-bind="var: address(ship_address1);format:text;"  title='address'></div>
-		<div data-bind="var: address(ship_address2);format:text;"  title='address 2'></div>
+		<div data-bind="var: address(ship/address1);format:text;"  title='address'></div>
+		<div data-bind="var: address(ship/address2);format:text;"  title='address 2'></div>
 
-		<span data-bind="var: address(ship_city);format:text;"  title='city'></span>,
-		<span data-bind="var: address(ship_region);format:text;"  title='state'></span>.
-		<span data-bind="var: address(ship_postal);format:text;"  title='zip'></span>
-		<div data-bind="var: address(ship_countrycode);format:text;" title='country'></div>
+		<span data-bind="var: address(ship/city);format:text;"  title='city'></span>,
+		<span data-bind="var: address(ship/region);format:text;"  title='state'></span>.
+		<span data-bind="var: address(ship/postal);format:text;"  title='zip'></span>
+		<div data-bind="var: address(ship/countrycode);format:text;" title='country'></div>
 
 	</div>
 
@@ -1399,7 +1399,9 @@ The 'data-action' attribute is used to assign an onclick.
 	</td>
 	<td class='orderContentsProdlistContainer'>
 	<ul data-bind='var:order(order/tracking); format:orderTrackingLinks; extension:store_crm;before:<h4>Shipping:</h4>;' class='displayNone noListStyle marginBottom'></ul>
-	<ul data-bind="var: order(order/@ITEMS); format:stuffList; loadsTemplate:chkoutInvoiceItemTemplate;" class='listStyleNone lineItemProdlist'></ul>
+	<table  class='listStyleNone lineItemProdlist'>
+		<tbody data-bind="var: order(order/@ITEMS); format:stuffList; loadsTemplate:chkoutInvoiceItemTemplate;"></tbody>
+	</table>
 	</td>
 </tr>
 </table>

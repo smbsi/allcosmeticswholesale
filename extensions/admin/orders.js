@@ -564,6 +564,7 @@ else	{
 //if you are reusing a targetID, do your own empty before running this.
 var $target = $(app.u.jqSelector('#',targetID)),
 $order = $(app.renderFunctions.createTemplateInstance('orderDetailsTemplate',{'id':targetID+"_order",'orderid':orderID,'cid':CID}));
+
 $order.attr('data-order-view-parent',orderID); //put this on the parent so that any forms or whatnot that need to reload early can closest() this attrib and get id.
 
 //create an instance of the invoice display so something is in front of the user quickly.
@@ -573,6 +574,8 @@ $('body').showLoading({'message':'Fetching order'});
 
 //go fetch order data. callback handles data population.
 app.model.destroy('adminOrderDetail|'+orderID); //get a clean copy of the order.
+app.model.destroy('adminOrderPaymentMethods'); //though not stored in local, be sure the last orders methods aren't by accident.
+
 app.ext.admin.calls.adminOrderDetail.init(orderID,{'callback':function(responseData){
 //	app.u.dump("Executing callback for adminOrderDetail");
 	
@@ -591,6 +594,9 @@ app.ext.admin.calls.adminOrderDetail.init(orderID,{'callback':function(responseD
 		orderData.emailMessages = app.ext.admin_orders.vars.emailMessages; //pass in the email messages for use in the send mail button
 
 		app.renderFunctions.translateSelector(selector,orderData);
+		
+		$(".gridTable",selector).anytable();
+		
 //cartid isn't present till after the orderDetail request, so getting payment methods adds a second api request.
 		app.ext.admin.calls.adminOrderPaymentMethods.init({
 			'orderid':orderID,
@@ -925,6 +931,19 @@ else	{
 			return true;
 			}, //paystatus
 
+
+		orderEditQtyInput : function($tag,data)	{
+			var $input = $("<input \/>",{'type':'number','name':'qty','size':4,'step':'0.01','min':0}).val(data.value.qty).css('width',35);
+			if(data.value.stid.charAt(0) == '%')	{$input.attr('readonly','readonly').css('border-width','0');} //make field not-editable and not look editable.
+			$tag.append($input);
+			},
+
+		orderEditPriceInput : function($tag,data)	{
+			var $input = $("<input \/>",{'type':'number','name':'price','size':4,'step':'0.01','min':0}).val(data.value.price).css('width',50);
+			if(data.value.stid.charAt(0) == '%')	{$input.attr('readonly','readonly').css('border-width','0');} //make field not-editable and not look editable.
+			$tag.append($input);
+			},
+
 		
 		paystatusDetailed : function($tag,data){
 //			app.u.dump("BEGIN admin_orders.renderFormats.paystatusDetailed");
@@ -1226,12 +1245,13 @@ see the renderformat paystatus for a quick breakdown of what the first integer r
 				else if (pref['tender'] == 'PAYPALEC') {
 					// PAYPALEC is a separate tender type (but short term it's basically a credit card)
 					// long term it will have some specialized actions that are unique exclusively to paypal
+					// old orders may have a payment type of PAYPAL (IPN) but those are old and these actions are not applicable. no actions are.
 					if (pref['ps'] == '189') {	actions.push('capture') }
 					if (pref['ps'] == '199') {	actions.push('capture') }
 					if (pref['ps'] == '259') { actions.push('retry') }
 					if (pref['ps'].substring(0,1) == '0' || pref['ps'].substring(0,1) == '4') { 
-						actions.push('refund') 
-						actions.push('void')
+						actions.push('refund');
+						actions.push('void');
 						}
 					}
 				else if (pref['tender'] == 'CREDIT') {
@@ -1267,9 +1287,6 @@ see the renderformat paystatus for a quick breakdown of what the first integer r
 				else if (pref['tender'] == 'LAYAWAY') {
 					actions.push('layaway')
 					actions.push('void')
-					}
-				else if (pref['tender'] == 'PAYPALEC') {
-					if (pref['ps'] == '199') { actions.push('capture') };
 					}
 				else{
 					app.u.dump(" -> no tender conditions met.");
@@ -1712,46 +1729,51 @@ $('.editable',$container).each(function(){
 				
 
 			"orderItemUpdate" : function($btn)	{
-				$btn.button();
-				$btn.button({icons: {primary: "ui-icon-arrowrefresh-1-e"},text: false});
-				$btn.off('click.orderItemUpdate').on('click.orderItemUpdate',function(){
-					var $parent = $btn.closest("[data-order-view-parent]"),
-					orderID = $parent.data('order-view-parent'),
-					$row = $btn.closest('tr'),
-					uuid = $row.data('uuid'),
-					qty = $("[name='qty']",$row).val(),
-					price = $("[name='price']",$row).val();
-					
-					if(uuid && orderID && qty && price)	{
-						app.ext.admin.calls.adminOrderUpdate.init(orderID,["ITEMUPDATE?uuid="+uuid+"&qty="+qty+"&price="+price]);
-						$parent.empty();
-						app.ext.admin_orders.a.showOrderView(orderID,app.data['adminOrderDetail|'+orderID].customer.cid,$parent.attr('id'),'immutable');
-						app.model.dispatchThis('immutable');
-						}
-					else	{
-						app.u.throwGMessage("in admin_orders.buttonActions.orderItemUpdate, unable to determine orderID ["+orderID+"], uuid ["+uuid+"], price ["+price+"], OR qty ["+qty+"]");
-						}
-					});
+				var $row = $btn.closest('tr');
+				if($row.data('stid') && $row.data('stid').charAt(0) == '%')	{$btn.hide()} //coupons can't be removed this way.
+				else	{
+					$btn.button();
+					$btn.button({icons: {primary: "ui-icon-arrowrefresh-1-e"},text: false});
+					$btn.off('click.orderItemUpdate').on('click.orderItemUpdate',function(){
+						var $parent = $btn.closest("[data-order-view-parent]"),
+						orderID = $parent.data('order-view-parent'),
+						uuid = $row.data('uuid'),
+						qty = $("[name='qty']",$row).val(),
+						price = $("[name='price']",$row).val();
+						if(uuid && orderID && qty && price)	{
+							app.ext.admin.calls.adminOrderUpdate.init(orderID,["ITEMUPDATE?uuid="+uuid+"&qty="+qty+"&price="+price]);
+							$parent.empty();
+							app.ext.admin_orders.a.showOrderView(orderID,app.data['adminOrderDetail|'+orderID].customer.cid,$parent.attr('id'),'immutable');
+							app.model.dispatchThis('immutable');
+							}
+						else	{
+							app.u.throwGMessage("in admin_orders.buttonActions.orderItemUpdate, unable to determine orderID ["+orderID+"], uuid ["+uuid+"], price ["+price+"], OR qty ["+qty+"]");
+							}
+						});
+					}
 				}, //orderItemUpdate
 
 			"orderItemRemove" : function($btn)	{
-				$btn.button();
-				$btn.button({icons: {primary: "ui-icon-trash"},text: false});
-				$btn.off('click.orderItemRemove').on('click.orderItemRemove',function(){
-					var $parent = $btn.closest("[data-order-view-parent]"),
-					orderID = $parent.data('order-view-parent'),
-					$row = $(this).closest('tr'),
-					stid = $row.data('stid');
-					if(stid && orderID)	{
-						app.ext.admin.calls.adminOrderUpdate.init(orderID,["ITEMREMOVE?stid="+stid]);
-						$parent.empty();
-						app.ext.admin_orders.a.showOrderView(orderID,app.data['adminOrderDetail|'+orderID].customer.cid,$parent.attr('id'),'immutable');
-						app.model.dispatchThis('immutable');
-						}
-					else	{
-						app.u.throwGMessage("in admin_orders.buttonActions.orderItemRemove, unable to determine orderID ["+orderID+"] or pid ["+json.pid+"]");
-						}
-					});
+				var $row = $btn.closest('tr');
+				if($row.data('stid') && $row.data('stid').charAt(0) == '%')	{$btn.hide()} //coupons can't be removed this way.
+				else	{
+					$btn.button();
+					$btn.button({icons: {primary: "ui-icon-trash"},text: false});
+					$btn.off('click.orderItemRemove').on('click.orderItemRemove',function(){
+						var $parent = $btn.closest("[data-order-view-parent]"),
+						orderID = $parent.data('order-view-parent'),
+						stid = $row.data('stid');
+						if(stid && orderID)	{
+							app.ext.admin.calls.adminOrderUpdate.init(orderID,["ITEMREMOVE?stid="+stid]);
+							$parent.empty();
+							app.ext.admin_orders.a.showOrderView(orderID,app.data['adminOrderDetail|'+orderID].customer.cid,$parent.attr('id'),'immutable');
+							app.model.dispatchThis('immutable');
+							}
+						else	{
+							app.u.throwGMessage("in admin_orders.buttonActions.orderItemRemove, unable to determine orderID ["+orderID+"] or pid ["+json.pid+"]");
+							}
+						});
+					}
 				}, //orderItemRemove
 
 			"orderItemAddStructured" : function($btn)	{
@@ -2293,6 +2315,11 @@ app.ext.admin.calls.adminOrderSearch.init(query,{'callback':'listOrders','extens
 										delete formJSON[index]; //clean out invalid params
 										}
 									}
+								}
+							else if(formJSON.tender.substr(0,7) == 'WALLET:')	{
+								CMD = "ADDPROCESSPAYMENT";
+//								formJSON.PN = 'WALLET';
+								formJSON.WI = formJSON.tender.split(':')[1]; //WI is what is after : in the wallet ID.
 								}
 							else if(formJSON.flagAsPaid && formJSON.flagAsPaid.toLowerCase() == 'on')	{
 								CMD = "ADDPAIDPAYMENT";

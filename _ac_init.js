@@ -160,6 +160,11 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 	setTimeout(carouselHPSearchPaginationTitleBottom, 2000);
 }]);
 
+
+
+
+
+
 app.rq.push(['templateFunction','categoryTemplate','onInits',function(P) 
 {
 //Checks to see if the #recentlyViewedItemsContainer exists and creates it if it doesnn't
@@ -171,6 +176,10 @@ app.rq.push(['templateFunction','categoryTemplate','onInits',function(P)
 		$('.recentlyViewedBuildContainer').append("<div id='recentlyViewedItemsContainer'> <ul data-bind=\"var: session(recentlyViewedItems); format: productList; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; hide_pagination:1; withReviews:1;\" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul></div>");
 	}
 }]);	
+	
+	
+	
+	
 	
 	
 app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) 
