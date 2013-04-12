@@ -32,7 +32,7 @@ body{
 }
 .centeringContainerHeaderBottomThird{
 	position:relative;
-	width:1350px;
+	width:1370px;
 	margin-left:auto;
 	margin-right:auto;
 }
@@ -160,6 +160,8 @@ body{
 	line-height:62px;
 	float:left;
 	font-family: 'Special Elite', cursive;
+	font-size: 21px;
+	font-weight: 200;
 }
 .navBarBrands:active{
 	color:#000000;
@@ -181,6 +183,8 @@ body{
 	line-height:62px;
 	float:left;
 	font-family: 'Special Elite', cursive;
+	font-size: 21px;
+	font-weight: 200;
 }
 .navBarEyes:active{
 	color:#000000;
@@ -202,6 +206,8 @@ body{
 	line-height:62px;
 	float:left;
 	font-family: 'Special Elite', cursive;
+	font-size: 21px;
+	font-weight: 200;
 }
 .navBarLips:active{
 	color:#000000;
@@ -223,6 +229,8 @@ body{
 	line-height:62px;
 	float:left;
 	font-family: 'Special Elite', cursive;
+	font-size: 21px;
+	font-weight: 200;
 }
 .navBarFace:active{
 	color:#000000;
@@ -244,6 +252,8 @@ body{
 	line-height:62px;
 	float:left;
 	font-family: 'Special Elite', cursive;
+	font-size: 21px;
+	font-weight: 200;
 }
 .navBarAccess:active{
 	color:#000000;
@@ -265,6 +275,9 @@ body{
 	line-height:62px;
 	float:left;
 	font-family: 'Special Elite', cursive;
+	font-size: 21px;
+	font-weight: 200;
+	margin-left:20px;
 }
 .navBarSkin:active{
 	color:#000000;
@@ -274,7 +287,7 @@ body{
 	color:#000000;
 }
 .navBarSkin ul{
-	left: 419px;
+	left: 440px;
 	top: 40px;
 }
 .navBarNails{
@@ -286,6 +299,8 @@ body{
 	line-height:62px;
 	float:left;
 	font-family: 'Special Elite', cursive;
+	font-size: 21px;
+	font-weight: 200;
 }
 .navBarNails:active{
 	color:#000000;
@@ -307,6 +322,8 @@ body{
 	line-height:62px;
 	float:left;
 	font-family: 'Special Elite', cursive;
+	font-size: 21px;
+	font-weight: 200;
 }
 .navBarFragrance:active{
 	color:#000000;
@@ -328,6 +345,8 @@ body{
 	line-height:62px;
 	float:left;
 	font-family: 'Special Elite', cursive;
+	font-size: 21px;
+	font-weight: 200;
 }
 .navBarHair:active{
 	color:#000000;
@@ -337,7 +356,7 @@ body{
 	color:#000000;
 }
 .navBarHair ul{
-	left: 779px;
+	left: 800px;
 	top: 40px;
 }
 .navBarJewel{
@@ -349,6 +368,8 @@ body{
 	line-height:62px;
 	float:left;
 	font-family: 'Special Elite', cursive;
+	font-size: 21px;
+	font-weight: 200;
 }
 .navBarJewel:active{
 	color:#000000;
@@ -374,6 +395,8 @@ body{
 	line-height:62px;
 	float:left;
 	font-family: 'Special Elite', cursive;
+	font-size: 21px;
+	font-weight: 200;
 }
 .navBarSale:active{
 	color:#000000;
