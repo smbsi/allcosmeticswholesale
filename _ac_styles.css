@@ -444,6 +444,7 @@ body{
 	text-decoration:none;
 	color:white;
 	font-family: 'Montserrat', sans-serif;
+	font-size:16px;
 }
 .headerDropdownLink2 a{
 	text-decoration:none;
@@ -1043,6 +1044,13 @@ div .catListingCat:hover{
 	height: 200px;
 	margin-bottom:10px;
 }
+.prodThumbContainerCart{
+	border:solid 6px rgba(200, 200, 200, .2);
+	width:278px;
+	height: 200px;
+	margin-bottom:10px;
+	clear:left;
+}
 .prodListDetails h5{
 	color:#b4b5b4;
 	font-family: 'Montserrat', sans-serif;
@@ -1528,6 +1536,18 @@ h2 .cents{
 	border-radius:0px;
 	background-color:#3fb8af;
 	font-size:14px !important;
+}
+#cartStuffList li{
+	width:295px !important;
+}
+.productListTemplateCart h4{
+	float:left;
+	color: #FFFFFF;
+}
+.prodThumbContainer{
+	float:left;
+}
+.cartQuantity{
 }
 
 /*************************************************************************************************************************/
