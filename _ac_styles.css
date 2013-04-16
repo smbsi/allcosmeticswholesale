@@ -1044,13 +1044,7 @@ div .catListingCat:hover{
 	height: 200px;
 	margin-bottom:10px;
 }
-.prodThumbContainerCart{
-	border:solid 6px rgba(200, 200, 200, .2);
-	width:278px;
-	height: 200px;
-	margin-bottom:10px;
-	clear:left;
-}
+
 .prodListDetails h5{
 	color:#b4b5b4;
 	font-family: 'Montserrat', sans-serif;
@@ -1131,7 +1125,8 @@ div .moreDetailsButton span{
 .mpControlContainer{
 	height:45px;
 	clear:both;
-	width:100%;
+	width:1230px;
+	margin-left:50px;
 }
 .mpControls{
 	background-color:black;
@@ -1140,14 +1135,24 @@ div .moreDetailsButton span{
 	border:none;
 	height:45px;
 	line-height:43px;
-	padding-right: 570px;
 	width:100%;
 }
-.mpControls div{
+div .mpControlsPagination{
 	line-height: 43px;
+	width:130px;
+	float:right;
+}
+.mpControlsPagination ul li a span{
+	float:left;
+	margin-right:0px;
+}
+.mpControlsPagination ul{
+	height:40px;
 }
 .mpControlContainer span{
 	color:white;
+	float:right;
+	margin-right:20px;
 }
 .mpPaginationColor span{
 	color:#3fb8af;
@@ -1155,11 +1160,21 @@ div .moreDetailsButton span{
 .mpControlContainer span:hover{
 	color:#ff3d7f;
 }
+
 ul .mpControlJumpToPage{
-	line-height:15px;
+	line-height:20px;
 	margin-left: 3px !important;
 	margin-bottom: 7px !important;
+	float:left;
 }
+
+.ddUlMenu li ul{
+	height:auto;
+}
+.prodViewerAddToCartForm button span{
+	padding-top:4px !important;
+}
+
 
 /*************************************************************************************************************************/
 /**categoryListTemplate**/
@@ -1537,17 +1552,100 @@ h2 .cents{
 	background-color:#3fb8af;
 	font-size:14px !important;
 }
+
+.prodThumbContainerCart{
+	border:solid 6px rgba(200, 200, 200, .2);
+	width:248px;
+	height: 200px;
+	margin-bottom:10px;
+	clear:left;
+}
+#cartStuffList{
+	width:604px;
+}
 #cartStuffList li{
-	width:295px !important;
+	width:255px !important;
+	float:left;
+	margin-left:35px;
 }
 .productListTemplateCart h4{
 	float:left;
 	color: #FFFFFF;
+	height:70px;
 }
 .prodThumbContainer{
 	float:left;
 }
 .cartQuantity{
+	border: 6px solid rgba(200, 200, 200, 0.2);
+    clear: left;
+    height: 30px;
+    margin-bottom: 10px;
+    width: 248px;
+}
+.cartQuantity input{
+	height: 29px;
+    width: 50%;
+	 float: left;
+	 border:none;
+}
+.cartQuantity button{
+    width: 50%;
+	height: 31px;
+	 float: left;
+	 border:none;
+	 font-family: 'Special Elite', cursive;
+	 background-color:#349890;
+	 font-size:16px;
+	 padding-top:5px;
+}
+
+.cartPrice{
+	
+    clear: left;
+    height: 40px;
+    margin-bottom: 10px;
+    width: 260px;
+}
+.cartPrice div{
+	height: 40px;
+    width: 50%;
+	 float: left;
+	 border:none;
+	 background-color:rgba(200, 200, 200, 0.2);
+	 font-family: 'Special Elite', cursive;
+}
+.cartPrice div span{
+	padding-left:43px;
+	color:white;
+	font-size:24px;
+	padding-top:6px;
+	display:inline-block;
+}
+div span .cents{
+	padding-left:0px;
+	font-size:14px;
+	vertical-align:super;
+}
+.cartPrice button{
+	height: 40px;
+    width: 50%;
+	 float: left;
+	 border:none;
+	 background-color: black;
+	 color:white;
+	 font-family: 'Special Elite', cursive;
+}
+.cartPrice button:hover{
+	background-color:#FF3D7F;
+}
+.cartRemove{
+}
+.cartRemove h5{
+	color:#999999;
+}
+.cartRemove button{
+	float:right;
 }
 
 /*************************************************************************************************************************/

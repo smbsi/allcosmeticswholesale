@@ -1834,7 +1834,7 @@ So the cart template should contain these two elements and the extension should 
 <table class='cartContainer'>
 <tr>
 	<td class='cartStuffContainer'>
-		<ul id='cartStuffList' data-bind="var: cart(@ITEMS); format:stuffList; loadsTemplate:productListTemplateCart;" class='listStyleNone fluidList clearfix noPadOrMargin productList lineItemProdlist'></ul>
+		<ul id='cartStuffList' data-bind="var: cart(@ITEMS); format:stuffList; loadsTemplate:productListTemplateCart;" class='listStyleNone fluidList clearfix noPadOrMargin lineItemProdlist'></ul>
 		<div class="addToWishlistForm displayNone">
         	<div>
             	<h1>SAVE ITEM FOR LATER&#63;</h1>
@@ -1955,14 +1955,13 @@ So the cart template should contain these two elements and the extension should 
 
 <!-- cart line-item template -->
 <ul>
-	<li id='productListTemplateCart' class='padMargBorderBottom clearfix productListTemplateCart'>
+	<li id='productListTemplateCart' class='padMargBorderBottom productListTemplateCart'>
 
-		<button class='floatRight moveToWishlist marginRight' data-bind='format:moveToWishlistButton; extension:myRIA; useParentData:true;' >Move to Wishlist</button>
 
 		<h4 data-bind='var: product(prod_name); format:text; '></h4>
 
 		<div class='prodThumbContainerCart'>
-            <div class='floatLeft'><img src='blank.gif' class='prodThumb' alt='' data-bind='var: product(zoovy:prod_image1); defaultVar: product(%attribs.zoovy:prod_image1); format:imageURL;' width='278' height='200' /></div>
+            <div class='floatLeft'><img src='blank.gif' class='prodThumb' alt='' data-bind='var: product(zoovy:prod_image1); defaultVar: product(%attribs.zoovy:prod_image1); format:imageURL;' width='248' height='200' /></div>
 		</div>
 		
 
@@ -1970,16 +1969,22 @@ So the cart template should contain these two elements and the extension should 
 
 		<div class="floatLeft cartQuantity">
             <input type='number' class='qtyInput numberInput' onChange="app.ext.store_cart.u.updateCartQty($(this)); app.model.dispatchThis('immutable');"  data-bind='format:cartItemQty;extension:store_cart;useParentData:true;' />
-            <button class=''>update</button><!-- here to stop 'enter' in input above from closing modal -->
-            <span data-bind='var: product(price); format:money; currencySign: $;  hideZero:false;' ></span>
-            <!--<span data-bind='var: product(extended); format:money; currencySign: $; hideZero:false; pretext: = ;'></span>-->
-            <button>NEXT TIME</button>
-            <h6 class="displayNone" data-bind='var: product(zoovy:prod_msrp); format:showIfSet;'>MSRP</h4>
+            <button class=''>UPDATE QTY</button><!-- here to stop 'enter' in input above from closing modal -->
 		</div>
-
-		<div class='ztable_row_small prodOptions' data-bind='var: variations(%options); format:selectedOptionsDisplay;'></div>
-        <button class='floatRight removeButton' data-bind='format:removeItemBtn; extension:store_cart; useParentData:true;' >Remove Item From Cart</button>
-	</li>
+        <div class="cartPrice">
+        	<div>
+            	<span data-bind='var: product(price); format:money; currencySign: $;  hideZero:false;' ></span>
+            </div>
+            <button class='floatRight moveToWishlist marginRight' data-bind='format:moveToWishlistButton; extension:myRIA; useParentData:true;' >NEXT TIME</button>
+            <!--<span data-bind='var: product(extended); format:money; currencySign: $; hideZero:false; pretext: = ;'></span>-->
+		</div>
+        
+        <div class="cartRemove">
+            <h5 class="floatLeft" data-bind='var: product(zoovy:prod_msrp);'>MSRP</h5>
+            <!--<div class='ztable_row_small prodOptions' data-bind='var: variations(%options); format:selectedOptionsDisplay;'></div>-->
+            <button class='floatLeft removeButton' data-bind='format:removeItemBtn; extension:store_cart; useParentData:true;' >Remove Item From Cart</button>
+		</div>
+    </li>
 </ul>
 
 
