@@ -439,6 +439,7 @@ body{
 	background-image:url(images/header_nav_bar/dropdownbackground.png);
 	background-repeat:no-repeat;
 	background-size:cover;
+	z-index:3;
 }
 .headerDropdownLink{
 	line-height:25px;
@@ -1908,6 +1909,32 @@ div span .cents{
     font-weight: 600;
 }
 .checkoutSummarySidebar{
+	float: right;
+    width: 350px;
+}
+.couponEntryContainer input{
+	width:120px;
+}
+.placeOrderButton{
+	background-color: #3FB8AF;
+    background-image: none;
+    color: black;
+    height: 50px !important;
+    width: 200px;
+	padding-top:10px;
+	margin-left:75px !important;
+}
+.placeOrderButton span{
+	font-size:24px !important;
+	font-family: 'Special Elite', cursive;
+}
+.chkoutCartSummaryTemplate div{
+	margin-left:75px;
+}
+
+/*************************************************************************************************************************/
+/**Shipping Section**/
+.checkoutShipSidebar{
 	float: right;
     width: 350px;
 }
