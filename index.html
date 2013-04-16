@@ -240,17 +240,22 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
                   </div>
               </div>
               <div class="navBarEyes" href='#top' onClick="return showContent('category',{'navcat':'.acw.200eyes'});" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a>Eyes</a>
-                  <ul class="dropdown headerDropdown alignLeft">
-                      <div class="dropdownSpacer"></div>
-                      <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.brows'});" class="pointer">Brows</a></li>
-                      <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.eye-shadow'});" class="pointer">Eye Shadow</a></li>
-                      <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.eye-shadow-refills'});" class="pointer">Eye Shadow Refills</a></li>
-                      <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.eyelashes'});" class="pointer">Eyelashes</a></li>
-                      <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.eyeliner'});" class="pointer">Eyeliner</a></li>
-                      <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.mascara'});" class="pointer">Mascara</a></li>
-                      <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.pigments'});" class="pointer">Pigments</a></li>
-                      <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.primer'});" class="pointer">Primer</a></li>
-                  </ul>
+                  <div class="dropdown headerDropdownEyes alignLeft">
+                      <ul class="floatLeft">
+                          <div class="dropdownSpacerEyes"></div>
+                          <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.brows'});" class="pointer">Brows</a></li>
+                          <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.eye-shadow'});" class="pointer">Eye Shadow</a></li>
+                          <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.eye-shadow-refills'});" class="pointer">Eye Shadow Refills</a></li>
+                          <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.eyelashes'});" class="pointer">Eyelashes</a></li>
+                          <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.eyeliner'});" class="pointer">Eyeliner</a></li>
+                          <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.mascara'});" class="pointer">Mascara</a></li>
+                      </ul>
+                      <ul class="floatLeft">
+                          <div class="dropdownSpacerEyes"></div>
+                           <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.pigments'});" class="pointer">Pigments</a></li>
+                           <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.primer'});" class="pointer">Primer</a></li>
+                      </ul>
+                  </div>
               </div>
               <div class="navBarLips" href='#top' onClick="return showContent('category',{'navcat':'.acw.300lips'});" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a>Lips</a>
                   <ul class="dropdown headerDropdown alignLeft">
@@ -975,7 +980,7 @@ container ul should have lineItemProdlist class on it instead of productList
 
 			<fieldset data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></fieldset>
 
-			<input type='submit' value='Add to Cart' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' class='displayNone ui-button ui-button-text ui-corner-all ui-state-default addToCartButton atcButton' />
+			<input type='submit' value='BAG IT!' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' class='displayNone ui-button ui-button-text ui-corner-all ui-state-default addToCartButton atcButton' />
 
 			<input type='hidden' value='1' size='3' name='quantity' />
 
@@ -1188,7 +1193,7 @@ this will likely become more flexible in the future. ###
             <input type="button" value="ENTER" class="quantityButton" />
         </div>
 
-		<input type='submit' value='Add to Cart' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;'  />
+		<input type='submit' value='BAG IT!' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;'  />
 	</form>
     
     <span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
@@ -2006,7 +2011,7 @@ used on a product layout. Some product have 'children' which may represent the s
 		<fieldset data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></fieldset>
 		<fieldset data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; pretext:Quantity: ; defaultValue:0;' class='borderNone'></fieldset>
 
-		<input type='submit' value='Add to Cart' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;'  />
+		<input type='submit' value='BAG IT!' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;'  />
 	</form>
 	</td>
 </tr>

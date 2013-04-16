@@ -354,7 +354,7 @@ app.rq.push(['templateFunction','cartTemplate','onCompletes',function(P)
 //Header dropdown menus
 var showDropdown = function ($tag) {
 	var $dropdown = $(".dropdown", $tag);
-	var height = 330;
+	var height = 270;
 	/*$dropdown.children().each(function(){
 		height += $(this).outerHeight(true);
 	});*/
