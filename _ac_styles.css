@@ -1811,4 +1811,35 @@ div span .cents{
 }
 
 
-	
+/*************************************************************************************************************************/
+/*************************************************************************************************************************/
+/**CHECKOUT TEMPLATE**/
+.checkoutFormContainer fieldset legend{
+	color:#ff3d7f;
+	font-size:28px;
+	font-family: 'Special Elite', cursive;
+	font-weight:100;
+}
+
+/*************************************************************************************************************************/
+/**Login Section**/
+.accountCreateContainer span{
+	color:white;
+}
+.accountCreateContainer span:first-child{
+	border:thin solid;
+}
+.checkoutPWInput div{
+	color:white;
+}
+/*************************************************************************************************************************/
+/**Account Creation Section**/
+.hint{
+	color:white;
+}
+.panelContent{
+	color:white;
+}
+.checkoutBillToShip span{
+	color:white;
+}
