@@ -1820,6 +1820,10 @@ div span .cents{
 	font-family: 'Special Elite', cursive;
 	font-weight:100;
 }
+.checkoutContainer{
+	float: left;
+    width: 950px;
+}
 
 /*************************************************************************************************************************/
 /**Login Section**/
@@ -1842,4 +1846,29 @@ div span .cents{
 }
 .checkoutBillToShip span{
 	color:white;
+}
+
+/*************************************************************************************************************************/
+/**Cart Contents Section**/
+.CheckoutContents tr td span span.cents{
+	display: inline-block;
+    font-size: 12px;
+	vertical-align: top;
+	 line-height: 19px;
+}
+.CheckoutContents tr td span{
+	font-size:22px;
+	display: inline-block;
+}
+/*************************************************************************************************************************/
+/**Summary Section**/
+.orderTotal2{
+	color: #FF3D7F;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+}
+.checkoutSummarySidebar{
+	float: right;
+    width: 350px;
 }
