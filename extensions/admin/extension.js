@@ -25,7 +25,7 @@ An extension for working within the Zoovy UI.
 var admin = function() {
 // theseTemplates is it's own var because it's loaded in multiple places.
 // here, only the most commonly used templates should be loaded. These get pre-loaded. Otherwise, load the templates when they're needed or in a separate extension (ex: admin_orders)
-	var theseTemplates = new Array('adminProdStdForList','adminProdSimpleForList','adminElasticResult','adminProductFinder','adminMultiPage','domainPanelTemplate','pageSetupTemplate','pageUtilitiesTemplate','adminChooserElasticResult','productTemplateChooser','pageSyndicationTemplate','pageTemplateSetupAppchooser','dashboardTemplate','recentNewsItemTemplate','quickstatReportTemplate','achievementsListTemplate','helpPageTemplate','helpDocumentTemplate','helpSearchResultsTemplate'); 
+	var theseTemplates = new Array('adminProdStdForList','adminProdSimpleForList','adminElasticResult','adminProductFinder','adminMultiPage','domainPanelTemplate','pageSetupTemplate','pageUtilitiesTemplate','adminChooserElasticResult','productTemplateChooser','pageSyndicationTemplate','pageTemplateSetupAppchooser','dashboardTemplate','recentNewsItemTemplate','quickstatReportTemplate','achievementsListTemplate','helpPageTemplate','helpDocumentTemplate','messageListTemplate','messageDetailTemplate','helpSearchResultsTemplate'); 
 	var r = {
 		
 		vars : {
@@ -147,9 +147,6 @@ if no handler is in place, then the app would use legacy compatibility mode.
 				app.model.addDispatchToQ({"_cmd":"adminBatchJobCleanup","jobid":jobid,"_tag":_tag},Q);	
 				}
 			}, //adminBatchJobStatus
-			
-
-
 
 
 		adminCustomerDetail : {
@@ -203,7 +200,6 @@ if no handler is in place, then the app would use legacy compatibility mode.
 				app.model.addDispatchToQ({"_cmd":"adminCustomerSearch","email":email,"_tag" : _tag},Q || 'mutable');	
 				}
 			}, //adminCustomerSearch
-
 //email is required in macro
 		adminCustomerCreate : {
 			init : function(updates,_tag)	{
@@ -227,7 +223,6 @@ if no handler is in place, then the app would use legacy compatibility mode.
 				app.model.addDispatchToQ(obj,'immutable');
 				}
 			}, //adminCustomerSet
-
 		adminCustomerUpdate : {
 			init : function(CID,updates,_tag)	{
 				var r = 0;
@@ -318,9 +313,6 @@ if no handler is in place, then the app would use legacy compatibility mode.
 				app.model.addDispatchToQ(obj,Q || 'mutable');
 				}			
 			}, //adminEmailList
-
-
-
 		adminEmailSave : {
 			init : function(obj,_tag,Q)	{
 				var r = 0;
@@ -339,6 +331,29 @@ if no handler is in place, then the app would use legacy compatibility mode.
 			}, //adminDataQuery
 
 
+
+		adminMessagesList : {
+//ID will be 0 to start.
+			init : function(MESSAGEID,_tag,Q)	{
+				var r = 0;
+				if(MESSAGEID || MESSAGEID === 0)	{
+					this.dispatch(MESSAGEID,_tag,Q);
+					r = 1;
+					}
+				else	{
+					app.u.throwGMessage("In admin.calls.adminEmailSave, ID not passed and is required.");
+					}
+				return r;
+				},
+			dispatch : function(MESSAGEID,_tag,Q)	{
+				var obj = {};
+				obj._cmd = 'adminMessagesList';
+				obj.MESSAGEID = MESSAGEID;
+				obj._tag = _tag || {};
+				obj._tag.datapointer = 'adminMessagesList|'+MESSAGEID;
+				app.model.addDispatchToQ(obj,Q || 'passive');
+				}
+			},
 
 
 //get a list of newsletter subscription lists.
@@ -380,9 +395,6 @@ if no handler is in place, then the app would use legacy compatibility mode.
 				app.model.addDispatchToQ(obj,Q);
 				}
 			}, //adminPrivateSearch
-
-
-
 
 
 
@@ -457,7 +469,7 @@ if giftcard is on there, no paypal will appear.
 				app.model.addDispatchToQ(obj,Q || 'immutable');
 				}
 			
-			},
+			}, //adminOrderPaymentMethods
 			
 //updating an order is a critical function and should ALWAYS be immutable.
 		adminOrderUpdate : {
@@ -700,8 +712,6 @@ if giftcard is on there, no paypal will appear.
 			
 			}, //adminSupplierCreate
 
-			
-
 		adminTaskList : {
 			init : function(_tag,q)	{
 				var r = 0; //what is returned. a 1 or a 0 based on # of dispatched entered into q.
@@ -766,6 +776,102 @@ if giftcard is on there, no paypal will appear.
 				app.model.addDispatchToQ(obj,q);	
 				}
 			}, //adminTaskUpdate
+
+
+//obj accepts the following params: disposition, body, subject, callback, private and/or priority [low, med, warn]
+		adminTicketCreate : {
+			init : function(obj,_tag,Q)	{
+				var r = 0;
+				if(obj && obj.body && obj.subject && obj.priority)	{
+					this.dispatch(obj,_tag,Q);
+					}
+				else if(obj)	{
+					$('#globalMessaging').anymessage({"message":"In admin.calls.adminTicketCreate, a required param was left blank. body: ["+typeof obj.body+"]<br>subject: ["+obj.subject+"]<br>priority: ["+obj.priority+"]","gMessage":true});
+					}
+				else	{
+					$('#globalMessaging').anymessage({"message":"In admin.calls.adminTicketCreate, no variables/obj passed","gMessage":true});
+					}
+				
+				return r;
+				},
+			dispatch : function(obj,_tag,Q)	{
+				obj._cmd = "adminTicketCreate"
+				obj._tag = _tag || {};
+				obj._tag.datapointer = "adminTicketCreate";
+				app.model.addDispatchToQ(obj,Q || 'immutable');	
+				}
+			}, //adminTicketCreate
+		adminTicketDetail : {
+			init : function(ticketid,_tag,Q)	{
+				var r = 0;
+				if(ticketid)	{
+					this.dispatch(ticketid,_tag,Q);
+					}
+				else	{
+					r = 0;
+					$('#globalMessaging').anymessage({"message":"In admin.calls.adminTicketDetail, no ticketID passed","gMessage":true});
+					}
+				return r;
+				},
+			dispatch : function(ticketid,_tag,Q)	{
+				obj = {};
+				obj._tag = _tag || {};
+				obj._tag.datapointer = "adminTicketDetail|"+ticketid;
+				obj._cmd = "adminTicketDetail";
+				obj.ticketid = ticketid;
+				app.model.addDispatchToQ(obj,Q || 'mutable');	
+				}
+			}, //adminTicketDetail
+// !!!! THIS CALL IS NOT DONE ON THE API SIDE. the params here are placeholders and will need to be updated, most likely.
+// @updates holds the macros.
+// CLOSE -> no params
+// APPEND -> pass note.
+
+		adminTicketMacro : {
+			init : function(ticketid,macro,_tag,Q)	{
+				var r = 0;
+				if(ticketid && typeof macro === 'object')	{
+					r = 1;
+					this.dispatch(ticketid,macro,_tag,Q);
+					}
+				else	{
+					$('#gloobjbalMessaging').anymessage({"message":"In admin.calls.adminTicketCreate, either ticketid ["+ticketid+"] or macro ["+typeof macro+"] not defined.","gMessage":true});
+					}
+				return r;
+				},
+			dispatch : function(ticketid,macro,_tag,Q)	{
+				var obj = {};
+				obj._cmd = "adminTicketMacro"
+				obj.ticketid = ticketid
+				obj['@updates'] = macro;
+				obj._tag = _tag || {};
+				obj._tag.datapointer = "adminTicketMacro";
+				app.model.addDispatchToQ(obj,Q || 'immutable');	
+				}
+			}, //adminTicketUpdate
+
+//obj could contain a 'detail' level. values are open, all or waiting.
+		adminTicketList : {
+			init : function(obj,_tag,Q)	{
+				var r = 0; //what is returned. a 1 or a 0 based on # of dispatched entered into q.
+				_tag = _tag || {};
+				_tag.datapointer = "adminTicketList";
+				if(app.model.fetchData(_tag.datapointer) == false)	{
+					r = 1;
+					this.dispatch(obj,_tag,Q);
+					}
+				else	{
+					app.u.handleCallback(_tag);
+					}
+				return r;
+				},
+			dispatch : function(obj,_tag,Q)	{
+				obj = obj || {};
+				obj._tag = _tag;
+				obj._cmd = "adminTicketList";
+				app.model.addDispatchToQ(obj,Q);	
+				}
+			}, //adminTicketList
 
 
 //obj requires panel and pid and sub.  sub can be LOAD or SAVE
@@ -878,8 +984,6 @@ if giftcard is on there, no paypal will appear.
 
 
 
-
-
 		adminWholesaleScheduleList : {
 			init : function(_tag,q)	{
 				var r = 0; //what is returned. a 1 or a 0 based on # of dispatched entered into q.
@@ -898,8 +1002,6 @@ if giftcard is on there, no paypal will appear.
 				app.model.addDispatchToQ({"_cmd":"adminWholesaleScheduleList","_tag":_tag},q);	
 				}
 			}, //adminWholesaleScheduleList
-
-
 		adminWholesaleScheduleDetail : {
 			init : function(scheduleID,_tag,q)	{
 				var r = 0; //what is returned. a 1 or a 0 based on # of dispatched entered into q.
@@ -918,8 +1020,6 @@ if giftcard is on there, no paypal will appear.
 				app.model.addDispatchToQ({"_cmd":"adminWholesaleScheduleDetail","schedule":scheduleID,"_tag":_tag},q);	
 				}
 			}, //adminWholesaleScheduleList
-
-
 
 
 //This will get a copy of the config.js file.
@@ -996,7 +1096,6 @@ if giftcard is on there, no paypal will appear.
 				app.model.addDispatchToQ({"_cmd":"appResource","filename":filename,"_tag" : _tag},Q);
 				}
 			}, //appResource
-
 
 
 		authNewAccountCreate : {
@@ -1223,13 +1322,13 @@ if giftcard is on there, no paypal will appear.
 					var r = 0;
 					_tag = _tag || {};
 					_tag.datapointer = 'helpDocumentGet|'+docid;
-					if(app.model.fetchData(_tag.datapointer) == false)	{
+//					if(app.model.fetchData(_tag.datapointer) == false)	{
 						this.dispatch(docid,_tag,Q);
-						r = 1;
-						}
-					else	{
-						app.u.handleCallback(_tag);
-						}
+//						r = 1;
+//						}
+//					else	{
+//						app.u.handleCallback(_tag);
+//						}
 					}
 				else	{
 					app.u.throwGMessage("In admin.calls.helpDocumentGet, docid not specified.");
@@ -1239,7 +1338,7 @@ if giftcard is on there, no paypal will appear.
 			dispatch : function(docid,_tag,Q)	{
 				app.model.addDispatchToQ({_cmd : 'helpDocumentGet','_tag':_tag,'docid':docid},Q || 'immutable');
 				}
-			} //bossRoleList
+			} //helpDocumentGet
 		}, //calls
 
 
@@ -1265,7 +1364,7 @@ app.model.fetchNLoadTemplates(app.vars.baseURL+'extensions/admin/templates.html'
 
 
 //SANITY - loading this file async causes a slight pop. but loading it inline caused the text to not show up till the file was done.
-//this is the leser of two weevils.
+//this is the lesser of two weevils.
 app.rq.push(['css',0,'https://fonts.googleapis.com/css?family=PT+Sans:400,700','google_pt_sans']);
 app.rq.push(['script',0,app.vars.baseURL+'extensions/admin/resources/legacy_compat.js']);
 
@@ -1304,7 +1403,10 @@ if(app.u.getBrowserInfo().substr(0,4) == 'msie' && parseFloat(navigator.appVersi
 	app.u.throwMessage("<p>In an effort to provide the best user experience for you and to also keep our development team sane, we've opted to optimize our user interface for webkit based browsers. These include; Safari, Chrome and FireFox. Each of these are free and provide a better experience, including more diagnostics for us to maintain our own app framework.<\/p><p><b>Our store apps support IE8+<\/b><\/p>");
 	}
 //app.ext.admin.u.buildDomainTiles4Launchpad(); //uh oh. this breaks login.
+app.ext.admin.calls.adminMessagesList.init(app.ext.admin.u.getLastMessageID(),{'callback':'handleMessaging','extension':'admin'},'passive');
 app.ext.admin.calls.appResource.init('shipcodes.json',{},'passive'); //get this for orders.
+
+				app.ext.admin.u.initLaunchpad();
 
 //get list of domains and show chooser.
 				var $domainChooser = $("<div \/>").attr({'id':'domainChooserDialog','title':'Choose a domain to work on'}).addClass('displayNone').appendTo('body');
@@ -1424,6 +1526,11 @@ else	{
 		$('#appLogin').css({'left':'1000px','position':'relative'}).removeClass('displayNone').animate({'left':'0'},'slow');
 		});
 	}
+
+
+
+
+
 				}
 			}, //initExtension
 
@@ -1517,7 +1624,7 @@ else	{
 				app.u.throwMessage(msg);
 
 				if(app.ext.admin.vars.tab)	{
-					app.u.dump("GOT HERE! app.ext.admin.vars.tab: "+app.ext.admin.vars.tab);
+//					app.u.dump("GOT HERE! app.ext.admin.vars.tab: "+app.ext.admin.vars.tab);
 					$(app.u.jqSelector('#',app.ext.admin.vars.tab+'Content')).empty().append(app.data[tagObj.datapointer].html)
 					}			
 				}
@@ -1746,9 +1853,37 @@ app.ext.admin.u.changeFinderButtonsState('enable'); //make buttons clickable
 						}
 					})
 				}
-			} //filterFinderSearchResults
+			}, //filterFinderSearchResults
 
-
+		handleMessaging : {
+			onSuccess : function(_rtag)	{
+//				app.u.dump("BEGIN admin.callbacks.handleMessaging");
+				if(app.data[_rtag.datapointer] && app.data[_rtag.datapointer]['@MSGS'] && app.data[_rtag.datapointer]['@MSGS'].length)	{
+					
+					var L = app.data[_rtag.datapointer]['@MSGS'].length,
+					$tbody = $("[data-app-role='messagesContainer']",'#messagesContent');
+					
+					for(var i = 0; i < L; i += 1)	{
+						$tbody.anycontent({
+							'templateID':'messageListTemplate',
+							'dataAttribs':{'index':i,'datapointer':_rtag.datapointer}, //used in detail view to find data src
+							'data':app.data[_rtag.datapointer]['@MSGS'][i]
+							});
+						}
+					app.u.handleAppEvents($tbody);
+					}
+				else	{} //no new messages.
+				
+				app.ext.admin.u.updateMessageCount(); //update count whether new messages or not, in case the count is off.
+				
+				//add another request. this means with each immutable dispatch, messages get updated.
+				app.ext.admin.calls.adminMessagesList.init(app.ext.admin.u.getLastMessageID(),{'callback':'handleMessaging','extension':'admin'},'immutable');
+				},
+			onError : function()	{
+				//no error display.
+				//should we add another dispatch? Let's see what happens. ???
+				}		
+			}
 
 		}, //callbacks
 
@@ -2408,6 +2543,8 @@ var chart = new Highcharts.Chart({
 
 				$('#appView').show();
 				
+				$("#closePanelButton",'#appView').button({icons: {primary: "ui-icon-triangle-1-n"},text: false});
+				
 				$('body').hideLoading(); //make sure this gets turned off or it will be a layer over the content.
 				$('.username','#appView').text(app.vars.userid);
 				var domain = this.getDomain();
@@ -2445,12 +2582,94 @@ var chart = new Highcharts.Chart({
 				return page;
 				}, //whatPageToShow
 
+			
+			updateMessageCount : function()	{
+				var messageCount = $("[data-app-role='messagesContainer']",'#messagesContent').children().length,
+				$MC = $('.messageCount');
+				
+				$MC.text(messageCount);
+				if(messageCount > 0)	{
+					$MC.show();
+					}
+				else	{
+					$MC.hide();
+					}
+				},
+
+			getMessageDetail : function(datapointer,index)	{
+				var $r = $("<div \/>");
+				if(datapointer && (index || index === 0))	{
+					$r.anycontent({'templateID':'messageDetailTemplate','data':app.data[datapointer]['@MSGS'][index]});
+					}
+				else	{
+					$r.anymessage({'message':'In admin.u.getMessageDetail, both datapointer ['+datapointer+'] and index ['+index+'] are required','gMessage':true});
+					}
+				return $r;
+				},
+
+			getLastMessageID : function()	{
+				var r = 0; //default to zero if no past messageid is present.
+				if(app.model.fetchData('adminMessagesList'))	{
+//					app.u.dump("adminMessagesList WAS IN LOCAL");
+					if(app.data['adminMessagesList']['@MSGS'] && app.data['adminMessagesList']['@MSGS'].length)	{
+						r = app.data['adminMessagesList']['@MSGS'][(app.data['adminMessagesList']['@MSGS'].length - 1)].id;
+						}
+					}
+				return r;
+				},
+/*
+			handleMessagesInit : function()	{
+//				app.ext.admin.calls.adminMessagesList.init(app.ext.admin.u.getLastMessageID(),{'callback':'handleMessaging','extension':'admin'},'passive');
+				app.ext.admin.vars.messageListInterval = setInterval(function(){
+					app.ext.admin.calls.adminMessagesList.init(app.ext.admin.u.getLastMessageID(),{'callback':'handleMessaging','extension':'admin'},'passive');
+					},30000);
+				},
+*/
+
+			initLaunchpad : function()	{
+				app.u.dump("BEGIN admin.u.initLaunchpad");
+				var $LPI = $('#launchpadInner'),
+				$LP = $('#launchpad'),
+				$lastCol = $('.launchpadTileGroup:last','#launchpadInner'),
+				width = 0;
+				
+				//make sure the UL's dont wrap.
+				$('ul',$LPI).each(function(){
+					width += $(this).outerWidth(true);
+					});
+				$LPI.width(width); //extra for margin.
+			
+				$LP.bind('mousewheel', function(event, delta, deltaX, deltaY) {
+//		console.log("delta:"+delta+" deltaX: "+deltaX+" deltaY: "+deltaY);
+//		console.log($LPI.position().left);
+					$LP.css('overflow','hidden'); //once mousescroll is used to slide content, ditch the scroll bar. wheel and scroll don't play well together in chrome.
+//					app.u.dump(" -> $LPI.position().left: "+$LPI.position().left);
+					if(delta > 0)	{ //mouse wheel is going up. move the CONTENT element from right to left.
+						if($LPI.position().left > 0) { //already left-most. don't move it.
+							$LPI.css('left',0); //position correctly in case it's a negative #.
+							}
+						else	{
+							$LPI.css({'left':"+=20"}); //move inner div.
+							}
+						}
+					else	{
+//						app.u.dump('going down '+deltaY);
+			//mouse wheel is going down. move the content from left to right.
+						if((($LPI.width() - $LP.width()) * -1) > $LPI.position().left) {
+							//already right-most. no more scrolling.
+							}
+						else	{
+							$LPI.css({'left':"-=30"}); //to achieve same movement as +left, a larger step needs to occur. not sure why.
+							}
+						}
+					});
+
+				},
 
 			addTileToLaunchpad : function($content)	{
 				$content.css({height:120,width:120,overflow:'hidden','float':'left','border':'1px solid #666','position':'relative','margin':'0 12px 12px 0'})
 				$content.appendTo($('#launchpadTiles'));
 				},
-
 
 			buildDomainTiles4Launchpad : function()	{
 				
@@ -2543,6 +2762,14 @@ var chart = new Highcharts.Chart({
 				else if(path == '#!userManager')	{app.ext.admin_user.a.showUserManager();}
 				else if(path == '#!batchManager')	{app.ext.admin_batchJob.a.showBatchJobManager();}
 				else if(path == '#!customerManager')	{app.ext.admin_customer.a.showCustomerManager();}
+				else if(path == '#!support')	{
+					$('#supportContent').empty(); //here just for testing. won't need at deployment.
+					this.bringTabIntoFocus('support');
+					this.bringTabContentIntoFocus($('#supportContent'));
+					app.ext.admin.u.uiHandleBreadcrumb({}); //make sure previous breadcrumb does not show up.
+					app.ext.admin.u.uiHandleNavTabs({}); //make sure previous navtabs not show up.
+					app.ext.admin_support.a.showTicketManager($('#supportContent'));
+					}
 				else if(path == '#!eBayListingsReport')	{app.ext.admin_reports.a.showeBayListingsReport();}
 				else if(path == '#!orderPrint')	{app.ext.convertSessionToOrder.a.printOrder(opts.data.oid,opts);}
 				else if(path == '#!supplierManager')	{app.ext.admin_wholesale.a.showSupplierManager($(app.u.jqSelector('#',app.ext.admin.vars.tab+"Content")).empty())}
@@ -2584,6 +2811,23 @@ var chart = new Highcharts.Chart({
 				return false;
 				},
 
+//should only get run if NOT in dialog mode. This will bring a tab content into focus and hide all the rest.
+//this will replace handleShowSection
+			bringTabContentIntoFocus : function($target){
+				if($target.is('visible'))	{
+					//target is already visible. do nothing.
+					}
+				else if($target.attr('id') == 'messagesContent')	{
+					this.toggleMessagePane(); //message tab is handled separately.
+					}
+				else	{
+					app.ext.admin.u.toggleMessagePane('hide'); //make sure messages pane hides itself.
+					$('.tabContent').hide();
+					$target.show();
+					}
+				},
+
+
 
 			toggleMessagePane : function(state){
 
@@ -2601,23 +2845,6 @@ var chart = new Highcharts.Chart({
 					}
 
 				}, //toggleMessagePane
-
-//should only get run if NOT in dialog mode. This will bring a tab content into focus and hide all the rest.
-//this will replace handleShowSection
-			bringTabContentIntoFocus : function($target){
-				if($target.is('visible'))	{
-					//target is already visible. do nothing.
-					}
-				else if($target.attr('id') == 'messagesContent')	{
-					this.toggleMessagePane(); //message tab is handled separately.
-					}
-				else	{
-					app.ext.admin.u.toggleMessagePane('hide'); //make sure messages pane hides itself.
-					$('.tabContent').hide();
-					$target.show();
-					}
-				},
-
 
 //will create the dialog if it doesn't already exist.
 //will also open the dialog. does not handle content population.
@@ -3579,7 +3806,7 @@ just lose the back button feature.
 						$target.dialog({width:500, height:500});
 						$target.anycontent({'templateID':'helpDocumentTemplate','showLoadingMessage':'Fetching help documentation...'});
 
-						app.ext.admin.calls.helpDocumentGet.init('prodmgr_detail_ogoverview',{'callback':'anycontent','jqObj':$target},'mutable');
+						app.ext.admin.calls.helpDocumentGet.init(docid,{'callback':'anycontent','jqObj':$target},'mutable');
 						app.model.dispatchThis('mutable');
 						}
 					}
@@ -3685,23 +3912,51 @@ just lose the back button feature.
 				},
 
 
-
-			appChooserAppPreview : function($btn)	{
-				$btn.button();
-				$btn.off('click.appChooserAppChoose').on('click.appChooserAppChoose',function(event){
+//$ele is probably an li.
+			appChooserAppPreview : function($ele)	{
+				$ele.off('click.appChooserAppChoose').on('click.appChooserAppChoose',function(event){
+					
 					event.preventDefault();
-					var $parent = $btn.closest("[data-appid]"),
-					appID = $parent.data('appid');
-					app.u.dump("$parent.length: "+$parent.length);
-					$("<div \/>").append("<img src='https://static.zoovy.com/graphics/wrappers/2011_"+appID+"/preview.jpg' width='500' height='500' alt='Fashion' />").dialog({
-						title: 'Preview of '+appID,
-						width: '90%',
-						height: 600,
-						close: function(event, ui){$(this).dialog('destroy').remove()} //no need to keep content. destroy when done.
+					var appID = $ele.data('appid'),
+					$panel = $('#appChooserDetailPanel');
+
+					app.u.dump("Show preview for: "+appID);
+					//set all preview li's to default state then the new active one to active.
+					$ele.closest('ul').find('li').each(function(){$(this).removeClass('ui-state-active').addClass('ui-state-default')});
+					$ele.addClass('ui-state-active').removeClass('ui-state-default');
+					
+//hide the current preview and show the new one.					
+					$("section:visible",$panel).first().hide('scale',function(){
+						$("section[data-appid='"+appID+"']:first",$panel).show('scale')
 						});
 					});
 				},
 
+
+			execDialogClose : function($btn)	{
+				$btn.button({icons: {primary: "ui-icon-circle-close"}});
+				$btn.off('click.execDialogClose').on('click.execDialogClose',function(event){
+					event.preventDefault();
+					$btn.closest(".ui-dialog-content").dialog('close');
+					});
+				},
+
+			execMessageClear : function($btn)	{
+				$btn.button({icons: {primary: "ui-icon-circle-close"},text: false});
+				$btn.off('click.execMessageClear').on('click.execMessageClear',function(event){
+					event.preventDefault();
+					$btn.closest('tr').empty().remove();
+					})
+				},
+
+			showMessageDetail : function($btn)	{
+				$btn.button({icons: {primary: "ui-icon-arrowthick-1-e"}});
+				$btn.off('click.showMessageDetail').on('click.showMessageDetail',function(event){
+					event.preventDefault();
+					var $tr = $btn.closest('tr');
+					$(".messageDetail","#messagesContent").empty().append(app.ext.admin.u.getMessageDetail($tr.data('datapointer'),$tr.data('index')));
+					});
+				},
 
 /* login and create account */
 

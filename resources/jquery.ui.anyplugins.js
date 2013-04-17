@@ -443,9 +443,13 @@ either templateID or (data or datapointer) are required.
 				}
 			else if(o.templateID && o.data)	{
 //				app.u.dump(" -> template and data present. transmogrify.");
+//				app.u.dump(" -> element.tagname: "+this.element.prop("tagName"));
 				if(typeof jQuery().hideLoading == 'function'){this.element.hideLoading().removeClass('loadingBG')}
+//				app.u.dump(" -> hideLoading has run.");
 				this.element.append(app.renderFunctions.transmogrify(o.dataAttribs,o.templateID,o.data));
+//				app.u.dump(" -> transmogrified");
 				this.element.data('isTranslated',true);
+//				app.u.dump(" -> data.isTranslated set to true.");
 				}
 //a templateID was specified, just add the instance. This likely means some process outside this plugin itself is handling translation.
 			else if(o.templateID)	{
@@ -708,25 +712,27 @@ and it'll turn the cb into an ios-esque on/off switch.
 			else if(self.element.is(':checkbox'))	{$label = self.element.closest('label')}
 			else	{}
 			
-			
+		
 			if($label.data('anycb') === true)	{app.u.dump(" -> already anycb-ified");} //do nothing, already anycb-ified
+			else if($.browser && $.browser.msie && Number($.browser.version.substring(0, 1)) <= 8)	{} //ie 8 not supported. didn't link binding.
 			else if($label.length)	{
 				var $input = $("input",$label).first(),
-				$container = $("<span \/>").addClass('ui-widget ui-widget-content ui-corner-all ui-widget-header').css({'position':'relative','display':'inline-block','width':'55px','margin-right':'6px','height':'20px','z-index':1,'padding':0,'float':'left'}),
-				$span = $("<span \/>").css({'padding':'0px','width':'30px','text-align':'center','height':'20px','line-height':'20px','position':'absolute','top':-1,'z-index':2,'font-size':'.75em'});
+				$container = $("<span \/>").addClass('ui-widget ui-widget-content ui-corner-all ui-widget-header').css({'position':'relative','display':'block','width':'55px','margin-right':'6px','height':'20px','z-index':1,'padding':0,'float':'left','cursor':'pointer'}),
+				$span = $("<span \/>").css({'padding':'0px','width':'30px','text-align':'center','height':'20px','line-height':'20px','position':'absolute','top':-1,'z-index':2,'font-size':'.75em','cursor':'pointer'});
 	
-				$label.data('anycb',true);
+				$label.data('anycb',true); // allows for plugin to check if it's already been run on this element.
 				self.span = $span; //global (within instance) for easy reference.
 
 				$label.contents().filter(function() {
 					return this.nodeType === 3 && $.trim(this.nodeValue) !== '';
-					}).wrap("<span class='label anycb-label' style='display:inline-block; height:24px; line-height:24px; float:left;'></span>"); //wrap around just the text. text().wrap() didn't work.
+					}).wrap("<span class='label anycb-label' style='display:block; height:24px; line-height:24px; float:left;'></span>"); //wrap around just the text. text().wrap() didn't work. don't use inline-block or ie8 doesn't work.
 				$input.hide();
 				$container.append($span);
 				$label.prepend($container);
-				$input.is(':checked') ? self._turnOn() :self._turnOff(); //set default
-		
-				$input.on('change.anycb',function(){
+				$input.is(':checked') ? self._turnOn() : self._turnOff(); //set default
+				
+				$input.on('click.anycb',function(){
+					app.u.dump(" -> anycb is toggled");
 					if($input.is(':checked')){self._turnOn();}
 					else	{self._turnOff();}
 					});

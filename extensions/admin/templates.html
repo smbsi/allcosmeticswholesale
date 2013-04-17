@@ -1,5 +1,28 @@
 
 
+<table>
+<tr id='messageListTemplate'>
+	<td class='valignTop'>ICON</td>
+	<td class='valignTop'>
+	<h5 data-bind="var:message(author); format:text;"></h5>
+	<p data-bind="var:message(txt); format:truncText; numCharacters: 75;"></p>
+	<button data-app-event='admin|showMessageDetail'>Details</button>
+	</td>
+	<td class='valignTop'>
+	<button data-app-event='admin|execMessageClear' class='smallButton'>Clear this message</button>
+	</td>
+</tr>
+</table>
+
+
+<div id='messageDetailTemplate'>
+	<h5 data-bind="var:message(author); format:text;"></h5>
+	<p data-bind="var:message(txt); format:text;"></p>
+	<hr />
+	More actions/buttons based on message type.
+</div>
+
+
 <!--
 
 ########################################################
@@ -459,10 +482,10 @@ SETUP PAGE TEMPLATE
 			<a href="#" onClick="navigateTo('/biz/setup/private/index.cgi'); return false;" title="/biz/setup/private/index.cgi">Private Files</a><br />
 			<div class="helper">Private files include diagnostic logs, reports, and ticket attachments.</div>
 			
-			<a href="https://github.com/zoovy/Zoovy-MVC-Framework-JQuery-Plugin/index.cgi" >Developer SDK</a><br />
+			<a href="https://github.com/zoovy/AnyCommerce-Development/" target='_blank'>Developer SDK</a><br />
 			<div class="helper">Use this to easily custom integrations or apps</div>
 			
-			<a href="https://github.com/zoovy/Zoovy-MVC-Framework-JQuery-Plugin/wiki/index.cgi" >Dev Wiki</a><br />
+			<a href="https://github.com/zoovy/AnyCommerce-Development/wiki" target='_blank'>Dev Wiki</a><br />
 			<div class="helper">Learn more about what is possible, and what is included in the SDK.</div>
 
 			<div class='showForZoovyOnly'>
@@ -485,44 +508,81 @@ SETUP PAGE TEMPLATE
 
 
 <div id='pageTemplateSetupAppchooser' class='page pageSetup pageSetupAppchooser clearfix'>
+	
+	<div class='ui-widget ui-widget-content ui-corner-all stdPadding marginBottom alignCenter'>
+		<ul class='alignCenter noPadOrMargin listStyleNone clearfix'>
+			
+			<li class='floatLeft marginRight ui-state-active ui-corner-bottom pointer' data-app-event='admin|appChooserAppPreview' data-appid='avalanche'>
+			<img src='https://static.zoovy.com/graphics/wrappers/2011_avalanche/preview.jpg' width='120' height='100' alt='Fashion' />
+			<div>Avalanche</div>
+			</li>
+			
+			<li class='floatLeft marginRight ui-state-default ui-corner-bottom pointer' data-app-event='admin|appChooserAppPreview' data-appid='crispnclean'>
+			<img src='https://static.zoovy.com/graphics/wrappers/2011_crispnclean/preview.jpg' width='120' height='100' alt='crisp n clean' />
+			<div>Crisp n Clean</div>
+			</li>
+			
+			<li class='floatLeft marginRight ui-state-default ui-corner-bottom pointer' data-app-event='admin|appChooserAppPreview' data-appid='shadow'>
+			<img src='https://static.zoovy.com/graphics/wrappers/2011_shadow/preview.jpg' width='120' height='100' alt='Shadow' />
+			<div>Shadow</div>
+			</li>
 
-	<div class='floatLeft marginRight marginBottom ui-widget alignCenter' data-appid='avalanche' data-app-repo='https://github.com/zoovy/AnyCommerce-Development/'>
-		<div class='ui-widget-header ui-corner-top spacedLetters uppercase smallPadding'>avalanche</div>
-		<div class='ui-widget-content ui-corner-bottom stdPadding'>
-			<div class='marginBottom'><img src='https://static.zoovy.com/graphics/wrappers/2011_avalanche/preview.jpg' width='280' height='200' alt='Fashion' /></div>
-			<div >
-				<button class='smallButton' data-app-event="admin|appChooserAppPreview">Preview</button>
-				<button class='smallButton' data-app-event="admin|appChooserAppChoose">Choose</button>
-				<button class='smallButton' data-app-event="admin|appChooserFork">Fork</button>
-				<button class='smallButton' data-app-event="admin|appChooserAppDownload">Download</button>
-			</div>
-		</div>
-	</div>
+		</ul>
+	</div>	
+	
+	<div class='ui-widget ui-widget-content ui-corner-all stdPadding' id='appChooserDetailPanel'>
 
-	<div class='floatLeft marginRight marginBottom ui-widget alignCenter' data-appid='shadow' data-app-repo='https://github.com/zoovy/AnyCommerce-Development/'>
-		<div class='ui-widget-header ui-corner-top spacedLetters uppercase smallPadding'>Shadow</div>
-		<div class='ui-widget-content ui-corner-bottom stdPadding'>
-			<div class='marginBottom'><img src='https://static.zoovy.com/graphics/wrappers/2011_shadow/preview.jpg' width='280' height='200' alt='shadow' /></div>
-			<div>
-				<button class='smallButton' data-app-event="admin|appChooserAppPreview">Preview</button>
-				<button class='smallButton' data-app-event="admin|appChooserAppChoose">Choose</button>
-				<button class='smallButton' data-app-event="admin|appChooserFork">Fork</button>
-				<button class='smallButton' data-app-event="admin|appChooserAppDownload">Download</button>
-			</div>
-		</div>
-	</div>
+		<section id='details_avalanche' data-app-role='appPreviewPanel'  data-appid='avalanche' data-app-repo='https://github.com/zoovy/AnyCommerce-Development/'>
 
-	<div class='floatLeft marginRight marginBottom ui-widget alignCenter' data-appid='crispnclean' data-app-repo='https://github.com/zoovy/AnyCommerce-Development/'>
-		<div class='ui-widget-header ui-corner-top spacedLetters uppercase smallPadding'>Crisp &amp; Clean</div>
-		<div class='ui-widget-content ui-corner-bottom stdPadding'>
-			<div class='marginBottom'><img src='https://static.zoovy.com/graphics/wrappers/2011_crispnclean/preview.jpg' width='280' height='200' alt='crisp n clean' /></div>
-			<div>
-				<button class='smallButton' data-app-event="admin|appChooserAppPreview">Preview</button>
-				<button class='smallButton' data-app-event="admin|appChooserAppChoose">Choose</button>
-				<button class='smallButton' data-app-event="admin|appChooserFork">Fork</button>
-				<button class='smallButton' data-app-event="admin|appChooserAppDownload">Download</button>
+			<div class='marginBottom clearfix'>
+				<div class='floatRight alignRight'>
+					<button class='smallButton' data-app-event="admin|appChooserAppChoose">Choose</button>
+					<button class='smallButton' data-app-event="admin|appChooserFork">Fork</button>
+					<button class='smallButton' data-app-event="admin|appChooserAppDownload">Download</button>
+				</div>
+				<h2>Avalanche</h2>
 			</div>
-		</div>
+<img src='https://static.zoovy.com/graphics/wrappers/2011_avalanche/preview.jpg' width='500' height='500' alt='Fashion' class='floatLeft marginRight' />
+			<p class='clearfix'>
+		Integer hendrerit nulla sem, sed placerat est. Praesent rhoncus iaculis massa. Aenean a orci ut tortor commodo rhoncus. Praesent ut quam purus. Phasellus rhoncus sagittis varius. Ut posuere iaculis lectus, sed pulvinar tortor euismod a. Integer mollis leo ac felis tristique elementum venenatis ante lobortis. Proin tincidunt, lorem et ornare luctus, magna ipsum feugiat turpis, at posuere orci nulla nec lectus. Cras ut magna eros, ac tristique nisi. Curabitur eu ante dui. Duis a ipsum arcu. Nunc aliquam rutrum libero, a mollis mi mollis ut. 
+			</p>
+		</section>
+
+
+		<section id='details_crispnclean' data-app-role='appPreviewPanel' class='displayNone' data-appid='crispnclean' data-app-repo='https://github.com/zoovy/AnyCommerce-Development/'>
+
+			<div class='marginBottom clearfix'>
+				<div class='floatRight alignRight'>
+					<button class='smallButton' data-app-event="admin|appChooserAppChoose">Choose</button>
+					<button class='smallButton' data-app-event="admin|appChooserFork">Fork</button>
+					<button class='smallButton' data-app-event="admin|appChooserAppDownload">Download</button>
+				</div>
+				<h2>Crisp n Clean</h2>
+			</div>
+<img src='https://static.zoovy.com/graphics/wrappers/2011_crispnclean/preview.jpg' width='500' height='500' alt='Fashion' class='floatLeft marginRight' />
+			<p class='clearfix'>
+		Integer hendrerit nulla sem, sed placerat est. Praesent rhoncus iaculis massa. Aenean a orci ut tortor commodo rhoncus. Praesent ut quam purus. Phasellus rhoncus sagittis varius. Ut posuere iaculis lectus, sed pulvinar tortor euismod a. Integer mollis leo ac felis tristique elementum venenatis ante lobortis. Proin tincidunt, lorem et ornare luctus, magna ipsum feugiat turpis, at posuere orci nulla nec lectus. Cras ut magna eros, ac tristique nisi. Curabitur eu ante dui. Duis a ipsum arcu. Nunc aliquam rutrum libero, a mollis mi mollis ut. 
+			</p>
+		</section>
+
+
+		<section id='details_shadow' data-app-role='appPreviewPanel' class='displayNone' data-appid='shadow' data-app-repo='https://github.com/zoovy/AnyCommerce-Development/'>
+
+			<div class='marginBottom clearfix'>
+				<div class='floatRight alignRight'>
+					<button class='smallButton' data-app-event="admin|appChooserAppChoose">Choose</button>
+					<button class='smallButton' data-app-event="admin|appChooserFork">Fork</button>
+					<button class='smallButton' data-app-event="admin|appChooserAppDownload">Download</button>
+				</div>
+				<h2>Shadow</h2>
+			</div>
+<img src='https://static.zoovy.com/graphics/wrappers/2011_shadow/preview.jpg' width='500' height='500' alt='Fashion' class='floatLeft marginRight' />
+			<p class='clearfix'>
+		Integer hendrerit nulla sem, sed placerat est. Praesent rhoncus iaculis massa. Aenean a orci ut tortor commodo rhoncus. Praesent ut quam purus. Phasellus rhoncus sagittis varius. Ut posuere iaculis lectus, sed pulvinar tortor euismod a. Integer mollis leo ac felis tristique elementum venenatis ante lobortis. Proin tincidunt, lorem et ornare luctus, magna ipsum feugiat turpis, at posuere orci nulla nec lectus. Cras ut magna eros, ac tristique nisi. Curabitur eu ante dui. Duis a ipsum arcu. Nunc aliquam rutrum libero, a mollis mi mollis ut. 
+			</p>
+		</section>
+
+
 	</div>
 
 </div>

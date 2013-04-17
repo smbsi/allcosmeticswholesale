@@ -13,82 +13,82 @@ item list and summary are separate just to give more control over location.
 	<input type='hidden' name='bill/shortcut' data-bind="var: cart(bill/shortcut); format:popVal;" />
 	<input type='hidden' name='ship/shortcut' data-bind="var: cart(ship/shortcut); format:popVal;" />
 
-	<div class="checkoutContainer">
-        <!-- define panel order -->
-        <fieldset data-app-role='chkoutPreflight' class='marginBottom'>
-            <legend class='headerPadding' >Email / Account Login</legend>
-            <div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutPreflightTemplate; useParentData:true;'></div>
-        </fieldset>
-    
-    
-    
-        <fieldset data-app-role='chkoutAccountCreate' class='displayNone marginBottom'>
-            <legend class='headerPadding' >Account Creation</legend>
-            <div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutAccountCreateTemplate; '></div>
-        </fieldset>
-    
-    
-    
-        <fieldset data-app-role='chkoutAddressBill' data-app-addresstype='bill' class='marginBottom'>
-            <legend class='headerPadding' >Billing Address</legend>
-            <p data-app-role='addressExists' class='displayNone clearfix'>Click the checkmark of the address you would like to use</p>
-            
-            <div class='panelContent displayNone addressList' data-app-role='addressExists' data-bind='var: buyer(@bill); format:processList; loadsTemplate: chkoutBuyerAddressTemplate;'></div><!-- for return customers -->
-            
-            <div class='clearfix marginBottom' data-app-role='addressExists'><button data-app-event='orderCreate|showBuyerAddressAdd' data-app-addresstype='bill'>Add New Address</button></div>
-            
-            <div class='panelContent' data-app-role='addressNew' data-bind='format:loadsTemplate; loadsTemplate: chkoutAddressBillTemplate;'></div><!-- for new customers -->
-            
-            <div class="checkoutBillToShip" data-app-role='billToShipContainer' >
-            <label>
-            <input type='checkbox' name='want/bill_to_ship' data-bind="var: cart(want/bill_to_ship); format:popCheckbox; hideZero:false;" checked='checked' data-app-event='orderCreate|tagAsBillToShip' />
-            ship to billing address
-            </label>
-            </div>
-        </fieldset>
-    
-    
-    
-        <fieldset data-app-role='chkoutAddressShip'  data-app-addresstype='ship' class='displayNone marginBottom'>
-            <legend class='headerPadding' >Shipping Address</legend>
-            <div class='panelContent displayNone addressList' data-app-role='addressExists' data-bind='var: buyer(@ship); format:processList; loadsTemplate: chkoutBuyerAddressTemplate;'></div><!-- for return customers -->
-            <div class='panelContent' data-app-role='addressNew' data-bind='format:loadsTemplate; loadsTemplate: chkoutAddressShipTemplate;'></div><!-- for new customers -->
-            <div class='clearfix' data-app-role='addressExists'><button data-app-event='orderCreate|showBuyerAddressAdd' data-app-addresstype='ship'>Add New Shipping Address</button></div>
-        </fieldset>
-    
-    
-        
-        <fieldset data-app-role='chkoutMethodsPay' class='marginBottom'>
-            <legend class='headerPadding' >Payment Choices</legend>
-            <div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutMethodsPayTemplate;'></div>
-        </fieldset>
-    
-    
-    
-    <!-- totals et all -->
-        <fieldset data-app-role='chkoutNotes' class='marginBottom'>
-            <legend class='headerPadding' >Order Notes/Special Instructions</legend>
-            <div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutNotesTemplate;'></div>
-        </fieldset>
-    
-    
-    
-    <!-- line items -->	
-        <fieldset data-app-role='chkoutCartItemsList' class='marginBottom'>
-            <legend class='headerPadding' >Contents</legend>
-            <div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutCartContentsTemplate;'></div>
-        </fieldset>
-    </div>
-    
-    
-    <fieldset class="checkoutShipSidebar" data-app-role='chkoutMethodsShip' class='marginBottom'>
-            <legend class='headerPadding' >Shipping Methods</legend>
-            <div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutMethodsShipTemplate;'></div>
-        </fieldset>
+<!-- define panel order -->
+	<fieldset data-app-role='chkoutPreflight' class='marginBottom'>
+		<legend class='headerPadding' >Email / Account Login</legend>
+		<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutPreflightTemplate; useParentData:true;'></div>
+	</fieldset>
+
+
+
+	<fieldset data-app-role='chkoutAccountCreate' class='displayNone marginBottom'>
+		<legend class='headerPadding' >Account Creation</legend>
+		<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutAccountCreateTemplate; '></div>
+	</fieldset>
+
+
+
+	<fieldset data-app-role='chkoutAddressBill' data-app-addresstype='bill' class='marginBottom'>
+		<legend class='headerPadding' >Billing Address</legend>
+		<p data-app-role='addressExists' class='displayNone clearfix'>Click the checkmark of the address you would like to use</p>
+		
+		<div class='panelContent displayNone addressList' data-app-role='addressExists' data-bind='var: buyer(@bill); format:processList; loadsTemplate: chkoutBuyerAddressTemplate;'></div><!-- for return customers -->
+		
+		<div class='clearfix marginBottom' data-app-role='addressExists'><button data-app-event='orderCreate|showBuyerAddressAdd' data-app-addresstype='bill'>Add New Address</button></div>
+		
+		<div class='panelContent' data-app-role='addressNew' data-bind='format:loadsTemplate; loadsTemplate: chkoutAddressBillTemplate;'></div><!-- for new customers -->
+		
+		<div data-app-role='billToShipContainer' >
+		<label>
+		<input type='checkbox' name='want/bill_to_ship' data-bind="var: cart(want/bill_to_ship); format:popCheckbox; hideZero:false;" checked='checked' data-app-event='orderCreate|tagAsBillToShip' />
+		ship to billing address
+		</label>
+		</div>
+	</fieldset>
+
+
+
+	<fieldset data-app-role='chkoutAddressShip'  data-app-addresstype='ship' class='displayNone marginBottom'>
+		<legend class='headerPadding' >Shipping Address</legend>
+		<div class='panelContent displayNone addressList' data-app-role='addressExists' data-bind='var: buyer(@ship); format:processList; loadsTemplate: chkoutBuyerAddressTemplate;'></div><!-- for return customers -->
+		<div class='panelContent' data-app-role='addressNew' data-bind='format:loadsTemplate; loadsTemplate: chkoutAddressShipTemplate;'></div><!-- for new customers -->
+		<div class='clearfix' data-app-role='addressExists'><button data-app-event='orderCreate|showBuyerAddressAdd' data-app-addresstype='ship'>Add New Shipping Address</button></div>
+	</fieldset>
+
+
+
+	<fieldset data-app-role='chkoutMethodsShip' class='marginBottom'>
+		<legend class='headerPadding' >Shipping Methods</legend>
+		<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutMethodsShipTemplate;'></div>
+	</fieldset>
+
+
+	
+	<fieldset data-app-role='chkoutMethodsPay' class='marginBottom'>
+		<legend class='headerPadding' >Payment Choices</legend>
+		<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutMethodsPayTemplate;'></div>
+	</fieldset>
+
 
 
 <!-- totals et all -->
-	<fieldset class="checkoutSummarySidebar" data-app-role='chkoutCartSummary' class='marginBottom'>
+	<fieldset data-app-role='chkoutNotes' class='marginBottom'>
+		<legend class='headerPadding' >Order Notes/Special Instructions</legend>
+		<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutNotesTemplate;'></div>
+	</fieldset>
+
+
+
+<!-- line items -->	
+	<fieldset data-app-role='chkoutCartItemsList' class='marginBottom'>
+		<legend class='headerPadding' >Contents</legend>
+		<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutCartContentsTemplate;'></div>
+	</fieldset>
+
+
+
+<!-- totals et all -->
+	<fieldset data-app-role='chkoutCartSummary' class='marginBottom'>
 		<legend class='headerPadding' >Summary</legend>
 		<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutCartSummaryTemplate;'></div>
 	</fieldset>
@@ -106,13 +106,13 @@ item list and summary are separate just to give more control over location.
 
 <div data-app-role='login'>
 
-	<div class="checkoutPWInput" data-app-role='loginPasswordContainer' class='displayNone floatRight'>
+	<div data-app-role='loginPasswordContainer' class='displayNone floatRight'>
 		<div>If you have an account with us, please enter your password below to login</div>
 		<input type='password' placeholder='password' size='30' name='password' /><button data-app-event='orderCreate|execBuyerLogin'>login</button>
 	</div>
 
 	<input type='email' name='bill/email' size='30' placeholder="email address" data-bind="var:cart(bill/email); defaultVar:cart(customer/login); format:popVal;" data-app-event='orderCreate|execBuyerEmailUpdate' /><br />
-	<label class='accountCreateContainer'><input type='checkbox' name='want/create_customer' data-app-event='orderCreate|tagAsAccountCreate' />Create a new account</label>
+	<label class='accountCreateContainer'><input type='checkbox' name='want/create_customer' data-app-event='orderCreate|tagAsAccountCreate' />Create customer account</label>
 	
 
 
@@ -301,7 +301,7 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
 	<th class='alignRight'>item total</th>
 </tr>
 </thead>
-<tbody class="CheckoutContents" data-bind='var: cart(@ITEMS); format:processList; loadsTemplate:chkoutCartItemTemplate;'></tbody>
+<tbody data-bind='var: cart(@ITEMS); format:processList; loadsTemplate:chkoutCartItemTemplate;'></tbody>
 </table>
 </section>
 
@@ -312,14 +312,13 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
 
 
 
-<section class="chkoutCartSummaryTemplate" id='chkoutCartSummaryTemplate'>
+<section id='chkoutCartSummaryTemplate'>
 	
-	<div data-bind='var: cart(sum/order_total); format:money; className:orderTotal2; hideZero:false; currencySign: $; '></div>
-    <div><h3>YOUR TOTAL</h3></div>
-    <div data-bind="var: cart(sum/items_total); format:money; className:orderSubtotal; hideZero:false; currencySign: $; pretext:Subtotal: ; "></div>
+	<div data-bind="var: cart(sum/items_total); format:money; className:orderSubtotal; hideZero:false; currencySign: $; pretext:Subtotal: ; "></div>
 	<div data-bind='var: cart(sum/tax_total); format:money; className:orderTax; hideZero:true;currencySign: $; pretext:Tax: ; '></div>
 	<div data-bind='var: cart(want/shipping_id); format:shipInfoById; className:orderShipping; hideZero:false; extension:cco;'></div>
 	<div data-bind='var: cart(sum/hnd_total); format:money; className:hndTotal; currencySign: $; pretext:Handling: ; '></div>
+	<div data-bind='var: cart(sum/order_total); format:money; className:orderTotal; hideZero:false; currencySign: $; pretext:Order Total: ; '></div>
 	<div data-bind='var: cart(sum/gfc_total); format:money; className:orderGiftcardTotal; currencySign: $; pretext:Giftcard(s): ; '></div>
 	<div data-bind='var: cart(sum/pnt_total); format:money; className:rewardPointsTotal; currencySign: $; pretext:Reward Points: ; '></div>
 	<div data-bind='var: cart(sum/rmc_total); format:money; className:returnsCreditTotal; currencySign: $; pretext:Returns Credit: ; '></div>
@@ -328,12 +327,12 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
 	<div data-bind='var: cart(sum/balance_due_total); format:orderBalance; className:orderBalanceDue; hideZero:false; currencySign: $; pretext:Balance Due: ; extension:cco;'></div>
 
 	<div class='couponEntryContainer' data-app-role='couponContainer'>
-		<!--<label for='coupon'>Coupon/Promo Code:</label>-->
-		<input type='text' name='coupon' size='8' value="Coupon Code"  data-app-event='orderCreate|addTriggerButtonClick' />
+		<label for='coupon'>Coupon/Promo Code:</label>
+		<input type='text' name='coupon' size='8'  data-app-event='orderCreate|addTriggerButtonClick' />
 		<button data-app-event="orderCreate|execCouponAdd" >add</button>
 	</div>
 
-	<button class="placeOrderButton" data-app-event="orderCreate|execCartOrderCreate">
+	<button data-app-event="orderCreate|execCartOrderCreate">
 		Place Order
 	</button>
 

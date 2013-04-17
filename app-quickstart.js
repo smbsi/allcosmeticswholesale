@@ -2676,7 +2676,7 @@ buyer to 'take with them' as they move between  pages.
 				else	{
 					if(infoObj.templateID){
 						//templateID 'forced'. use it.
-					}
+						}
 						
 					else if(catSafeID == zGlobals.appSettings.rootcat || infoObj.pageType == 'homepage')	{
 						infoObj.templateID = 'homepageTemplate'

@@ -185,10 +185,20 @@ app.u.loadScript(app.vars.baseURL+"app-admin-init.js");
 			<li class='reportsTab' onClick="navigateTo('#:reports');"><span class='text'>Reports</span><span class='icon'></span></li>
 			<li class='kpiTab' onClick="navigateTo('#:kpi');"><span class='text'>KPI</span><span class='icon'></span></li>
 			<li class='utilitiesTab' onClick="navigateTo('#:utilities');"><span class='text'>Utilities</span><span class='icon'></span></li>
-			<li class='supportTab' onClick="navigateTo('/biz/support/index.cgi');"><span class='text'>Support</span><span class='icon'></span></li>
-<!--			<li class='messagesTab' onClick="navigateTo('#:messages');"><span class='text'>Messages</span><span class='messageCount'></span></li>-->
+<!--			<li class='supportTab' onClick="navigateTo('/biz/support/index.cgi');"><span class='text'>Support</span><span class='icon'></span></li> -->
+			<li class='supportTab' onClick="navigateTo('#!support');"><span class='text'>Support</span><span class='icon'></span></li>
+			<li class='messagesTab' onClick="app.ext.admin.u.toggleMessagePane();"><span class='text'>Messages</span><span class='messageCount'></span></li>
 		</ul>
-		<div id='messagesContent' class='displayNone'></div>
+		<div id='messagesContent' class='displayNone'>
+			<button onClick="app.ext.admin.u.toggleMessagePane();" class='floatRight' id='closePanelButton'>Close Message Panel</button>
+			<div class='messagesList'>
+			<table>
+			<tbody data-app-role='messagesContainer'></tbody>
+			</table>
+			</div>
+			
+			<div class='messageDetail'></div>
+		</div>
 		</div>
 		<div id='navTabs'></div>
 		<div id='breadcrumb'></div>
@@ -210,18 +220,52 @@ app.u.loadScript(app.vars.baseURL+"app-admin-init.js");
 		<div id='reportsContent' class='displayNone tabContent' data-section='reports'></div>
 		<div id='kpiContent' class='displayNone tabContent' data-section='kpi'></div>
 		<div id='utilitiesContent' class='displayNone tabContent' data-section='utilities'></div>
+		<div id='supportContent' class='displayNone tabContent' data-section='support'></div><!-- used for new support app -->
 		<div id='launchpadContent' class='displayNone tabContent' data-section='launchpad'>
-			<section id='launchpadTiles'>
 
-			</section>
-<!--
-				<li class='tileAdmin'><span class='tilename'>Admin</span></li>
-				<li class='tileDomainAdd' onClick="navigateTo('/biz/setup/domain/index.cgi?VERB=NEW');"><span class='tilename'>Add a New Domain</span></li>
-				<li class='tileProjectAdd'><span class='tilename'>Add a Project</span></li>
-				<li class='tileHelp' onClick="app.ext.admin.a.showHelpInterface($('#setupContent'));"><span class='tilename'>A little help here please?</span></li>
-				<li class='tileZoovyLive'></li>
-				<li class='tileZoovyCommunity' onClick="window.open('https://plus.google.com/communities/108928399105730273026');"></li>
--->
+
+
+<section id='launchpad'>
+	<div id='launchpadInner'><!-- this is what's moved -->
+
+		<ul class='launchpadTileGroup' id='tilesMarketing'>
+<!--			<li class='tile_2x2 blue' onClick="window.open('https://plus.google.com/communities/108928399105730273026');"><img src='https://s3-us-west-1.amazonaws.com/admin-ui/ads/join_zcmnty-300x250.gif' width='300' height='250' alt='' /></li>-->
+			<li class='blue'><span class='iconFont icon-newspaper icon'></span><span class='tilename'>blue</span></li>
+			<li class='blueLight'><span class='iconFont icon-pencil icon'></span><span class='tilename'>blue light</span></li>
+			<li class='blueDark'><span class='iconFont icon-droplet icon'></span><span class='tilename'>blue dark</span></li>
+			<li class='green'><span class='iconFont icon-home icon'></span><span class='tilename'>green</span></li>
+		</ul>
+		<ul class='launchpadTileGroup'>
+			<li class='red'><span class='iconFont icon-help icon'></span><span class='tilename'>red</span></li>
+			<li class='greenLight'><span class='iconFont icon-camera icon'></span><span class='tilename'>greenLight</span></li>
+			<li class='tile_2x1 greenDark'><span class='iconFont icon-music icon'></span><span class='tilename'>greenDark</span></li>
+			<li class='redLight'><span class='iconFont icon-film icon'></span><span class='tilename'>redLight</span></li>
+		</ul>
+		<ul class='launchpadTileGroup' id='tilesDomain'>
+			<li class='yellow tile_2x1'><span class='iconFont icon-file icon'></span><span class='tilename'>yellow</span></li>
+			<li class='orange'><span class='iconFont icon-new icon'></span><span class='tilename'>orange</span></li>
+			<li class='orangeDark'><span class='iconFont icon-copy icon'></span><span class='tilename'>orangeDark</span></li>
+			<li class='pink'><span class='iconFont icon-folder icon'></span><span class='tilename'>pink</span></li>
+		</ul>
+		<ul class='launchpadTileGroup'>
+			<li class='pinkDark tile_2x2'><span class='iconFont icon-support icon'></span><span class='tilename'>pinkDark</span></li>
+			<li class='purple tile_2x1'><span class='iconFont icon-phone icon'></span><span class='tilename'>purple</span></li>
+		</ul>
+		<ul class='launchpadTileGroup'>
+			<li class='white'><span class='iconFont icon-mail icon'></span><span class='tilename'>white</span></li>
+			<li class='grayLight'><span class='iconFont icon-location icon'></span><span class='tilename'>greyLight</span></li>
+			<li class='grayDark'><span class='iconFont icon-comments icon'></span><span class='tilename'>grayDark</span></li>
+		</ul>
+		<ul class='launchpadTileGroup'>
+			<li class='magenta tile_2x2'><span class='iconFont icon-user icon'></span><span class='tilename'>magenta</span></li>
+			<li class='teal'><span class='iconFont icon-busy icon'></span><span class='tilename'>teal</span></li>
+			<li><span class='iconFont icon-loading icon'></span><span class='tilename'>no color specified</span></li>
+		</ul>
+
+	</div>
+</section>
+
+
 		</div>
 		<div id='jtContent' class='displayNone tabContent' data-section='jt'></div><!-- for testing -->
 	
@@ -340,12 +384,14 @@ These two pieces of data are used for mapping after the uploads to set what fold
 		<li><a href='#' onClick="navigateTo('#!batchManager');">batchjobs</a></li>
 		<li><a href='#' onClick="navigateTo('#!supplierManager');">Supplier Manager</a></li>
 		<li><a href='#' onClick="navigateTo('#!appChooser');">App Chooser</a></li>
+		<li><a href='#' onClick="navigateTo('#!support');">support</a></li>
 		<li><a href='#' onClick="$('#setupContent').empty(); app.ext.admin.a.showAchievementList($('#setupContent'));">showAchievementList (in setup)</a></li>
 		<li><a href='#' onClick="$('#setupContent').empty(); app.ext.admin.a.showHelpInterface($('#setupContent'));">showHelpInterface (in setup)</a></li>
 	</ul>
 	</li>
 	<li><a href='#'>Test</a>
 	<ul>
+		<li><a href='#' onClick="app.ext.admin.calls.adminMessagesList.init(0,{},'mutable'); app.model.dispatchThis('mutable');">adminMessagesList</a></li>
 		<li><a href='#' onClick="app.model.addDispatchToQ({'_cmd':'adminUIExecuteCGI','uri':'/biz/syndication/buycom/index.cgi'},'mutable'); app.model.dispatchThis('mutable');">UIExecCGI addDispatchToQ</a></li>
 		<li><a href='#' onClick="app.ext.admin.calls.adminUIExecuteCGI.init('/biz/syndication/buycom/index.cgi'); app.model.dispatchThis('mutable');">adminUIExecuteCGI call</a></li>
 		<li><a href='#' onClick="app.u.throwMessage('Something Wicked This Way Comes');">throwMessage</a></li>
