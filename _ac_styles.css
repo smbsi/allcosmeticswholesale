@@ -1412,6 +1412,9 @@ h2 .cents{
 	vertical-align:top;
 	line-height: 26px;
 }
+.priceReviewContainer span.reviewSprite{
+	margin-left:73px;
+}
 
 /*************************************************************************************************************************/
 /**Search Categories**/
