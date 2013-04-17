@@ -1,0 +1,21 @@
+quickstart.js:
+- Add templates to list:
+	- 'categoryProductListTemplate',
+- Add custom template handling for cat pages to this line:
+	-	 }
+					else	{
+						infoObj.templateID = 'categoryTemplate'
+						}
+becomes
+						app.u.dump("homepage selected");
+             		}
+	  	
+            		else if(app.ext.store_acw.vars.catTemplates[catSafeID]){
+             			app.u.dump("category list template option selected");
+              			infoObj.templateID = app.ext.store_acw.vars.catTemplates[catSafeID]
+            		}
+          			else{
+              			app.u.dump("category default template option selected");
+              			infoObj.templateID = 'categoryTemplate'
+					}
+
