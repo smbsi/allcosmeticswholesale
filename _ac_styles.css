@@ -1851,6 +1851,7 @@ div span .cents{
     height: 25px;
     margin-bottom: 2px;
     margin-left: -4px;
+	 margin-top: -1px;
 }
 .panelContent input{
 	height:23px;
@@ -1911,12 +1912,42 @@ div span .cents{
     font-size: 40px;
     font-weight: 600;
 }
+.orderTotal2 span.cents{
+	font-size: 20px;
+    line-height: 36px;
+    vertical-align: top;
+}
+.orderShipAmount{
+	color: #3FB8AF;
+    font-size: 26px;
+	font-family: 'Montserrat',sans-serif;
+	font-weight: 600;
+}
+.orderShipMethod{
+	font-size: 14px;
+	font-weight: 400;
+}
+.orderShipping{
+	font-weight: 600;
+	font-size: 18px;
+}
+.orderSubtotal{
+	color: #3FB8AF;
+    font-size: 26px;
+	font-family: 'Montserrat',sans-serif;
+	font-weight: 600;
+}
+.orderSubtotal  span.cents{
+    font-size: 14px;
+    line-height: 26px;
+    vertical-align: top;
+}
 .checkoutSummarySidebar{
 	float: right;
     width: 350px;
 }
 .couponEntryContainer input{
-	width:120px;
+	width:140px;
 }
 .placeOrderButton{
 	background-color: #3FB8AF;
@@ -1926,13 +1957,51 @@ div span .cents{
     width: 200px;
 	padding-top:10px;
 	margin-left:75px !important;
+	margin-top:15px !important;
 }
 .placeOrderButton span{
 	font-size:24px !important;
 	font-family: 'Special Elite', cursive;
 }
 .chkoutCartSummaryTemplate div{
-	margin-left:75px;
+	margin-left: 75px;
+    margin-right: 72px;
+    text-align: center;
+}
+.chkoutCartSummaryTemplate h4{
+	margin-left: 75px;
+    margin-right: 75px;
+	margin-top: 15px;
+    text-align: center;
+}
+
+.checkoutLinks{
+	margin-top:75px;
+	width: 305px;
+}
+.checkoutLinks div{
+	width:100px;
+	height:30px;
+	background-color:#ff3d7f;
+	width: 240px;
+}
+.checkoutLinks h4{
+	text-align:center;
+	line-height: 30px;
+	font-family: 'Montserrat', sans-serif;
+}
+.checkoutLinks a{
+	color:white;
+	float:left;
+	clear:left;
+	font-family: 'Montserrat', sans-serif;
+	margin-top:15px;
+	margin-left: 10px;
+	font-weight: 600;
+	text-decoration:none;
+}
+.checkoutLinks a:hover{
+	color:#3fb8af;
 }
 
 /*************************************************************************************************************************/
@@ -1940,4 +2009,8 @@ div span .cents{
 .checkoutShipSidebar{
 	float: right;
     width: 350px;
+}
+.checkoutShipSidebar div div h4{
+	margin-left: 40px;
+    margin-right: 40px;
 }

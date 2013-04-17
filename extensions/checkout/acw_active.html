@@ -95,6 +95,17 @@ item list and summary are separate just to give more control over location.
 		<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutCartSummaryTemplate;'></div>
 	</fieldset>
 
+	<div class="floatRight checkoutLinks">
+    	<div>
+        	<h4>HELPFUL LINKS</h4>
+        </div>
+        <a href='#top' onClick="return showContent('company',{'show':'return'});">PRODUCT WARRANTY</a>
+        <a href='#top' onClick="return showContent('company',{'show':'return'});">RETURN POLICY</a>
+        <a href='#top' onClick="return showContent('company',{'show':'return'});">EXCHANGE POLICY</a>
+        <a href='#top' onClick="return showContent('company',{'show':'shipping'});">SHIPPING POLICY</a>
+        <a href='#top' onClick="return showContent('company',{'show':'contact'});">CUSTOMER SERVICE</a>
+    </div>
+
 	</form>
 	
 </div>
@@ -219,6 +230,7 @@ messaging are hidden by default, then displayed if needed. keeps panel from bein
 
 <div id='chkoutMethodsShipTemplate'>
 	<ul class='noPadOrMargin listStyleNone' data-bind='var: cart(@SHIPMETHODS); format:shipMethodsAsRadioButtons; extension: orderCreate;' data-app-event='orderCreate|addTriggerShipMethodUpdate'></ul>
+	<h4>SHIPPING MAY TAKE 8-12 WEEKS DEPENDING ON YOUR LOCATION</h4>
 </div>
 
 
@@ -297,7 +309,7 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
 <table class='fullWidth gridTable'>
 <thead>
 <tr>
-	<th colspan='2' class='alignLeft'>product information</th>
+	<th colspan='2' class='alignLeft'></th>
 	<th class='alignRight'>qty</th>
 	<th class='alignRight'>price</th>
 	<th class='alignRight'>item total</th>
@@ -315,35 +327,36 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
 
 
 <section class="chkoutCartSummaryTemplate" id='chkoutCartSummaryTemplate'>
-	
-    <div data-bind='var: cart(sum/order_total); format:money; className:orderTotal2; hideZero:false; currencySign: $; '></div>
-    <div><h3>YOUR TOTAL</h3></div>
-    <div data-bind="var: cart(sum/items_total); format:money; className:orderSubtotal; hideZero:false; currencySign: $; pretext:Subtotal: ; "></div>
+
+	<div><h3>SubTotal: </h3></div>
+	<div data-bind="var: cart(sum/items_total); format:money; className:orderSubtotal; hideZero:false; currencySign: $;"></div>
 	<div data-bind='var: cart(sum/tax_total); format:money; className:orderTax; hideZero:true;currencySign: $; pretext:Tax: ; '></div>
-	<div data-bind='var: cart(want/shipping_id); format:shipInfoById; className:orderShipping; hideZero:false; extension:cco;'></div>
+	<div data-bind='var: cart(want/shipping_id); format:shipInfoById; className:orderShipping; hideZero:false; extension:cco; pretext:Shipping: ;'></div>
 	<div data-bind='var: cart(sum/hnd_total); format:money; className:hndTotal; currencySign: $; pretext:Handling: ; '></div>
 	<div data-bind='var: cart(sum/gfc_total); format:money; className:orderGiftcardTotal; currencySign: $; pretext:Giftcard(s): ; '></div>
 	<div data-bind='var: cart(sum/pnt_total); format:money; className:rewardPointsTotal; currencySign: $; pretext:Reward Points: ; '></div>
 	<div data-bind='var: cart(sum/rmc_total); format:money; className:returnsCreditTotal; currencySign: $; pretext:Returns Credit: ; '></div>
 	<div data-bind='var: cart(sum/spc_total); format:money; className:spcTotal; currencySign: $; pretext:Specialty: ; '></div>
-
-	<div data-bind='var: cart(sum/balance_due_total); format:orderBalance; className:orderBalanceDue; hideZero:false; currencySign: $; pretext:Balance Due: ; extension:cco;'></div>
+    <div><h3>YOUR TOTAL</h3></div>
+    <div data-bind='var: cart(sum/order_total); format:money; className:orderTotal2; hideZero:false; currencySign: $; '></div>
+    
+	<!--<div data-bind='var: cart(sum/balance_due_total); format:orderBalance; className:orderBalanceDue; hideZero:false; currencySign: $; pretext:Balance Due: ; extension:cco;'></div>-->
 
 	<div class='couponEntryContainer' data-app-role='couponContainer'>
-		<!--<label for='coupon'>Coupon/Promo Code:</label>
-		<input type='text' name='coupon' size='8'  data-app-event='orderCreate|addTriggerButtonClick' />-->
+		<!--<label for='coupon'>Coupon/Promo Code:</label>-->
+		<input type='text' name='coupon' size='8'  data-app-event='orderCreate|addTriggerButtonClick' />
 		<button data-app-event="orderCreate|execCouponAdd" >add</button>
 	</div>
 
 	<button class="placeOrderButton" data-app-event="orderCreate|execCartOrderCreate">
 		Place Order
 	</button>
+    <h4>FREE SHIPPING ON U.S. ORDERS ABOVE &#36;100</h4>
 
-<div data-app-role='referenceNumber' class='displayNone'>
-	<label>Purchase Order/Reference #: </label>
-	<input type'text' name='want/reference_number' size='12' />
-</div>
-
+    <div data-app-role='referenceNumber' class='displayNone'>
+        <label>Purchase Order/Reference #: </label>
+        <input type'text' name='want/reference_number' size='12' />
+    </div>
 
 </section>
 
