@@ -19,3 +19,4 @@ becomes
               			infoObj.templateID = 'categoryTemplate'
 					}
 
+

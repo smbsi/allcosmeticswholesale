@@ -16,6 +16,12 @@ body{
 	margin-left: auto;
     margin-right: auto;
 }
+label{
+	color:white;
+}
+h3, h2{
+	color:white;
+}
 .clear{
 	clear:both;
 }
@@ -44,6 +50,15 @@ body{
 	margin-left:120px;
 	line-height: 140px;
 }
+
+span.ui-state-highlight{
+	background-color:#ff3d7f !important;
+	background-image:none !important;
+	color:black !important;
+}
+
+
+/*STRAYS - PLEASE FIND A HOME FOR BEFORE DEPLOYMENT*/
 
 
 /*************************************************************************************************************************/
@@ -1866,8 +1881,6 @@ div span .cents{
 	font-family: 'Special Elite', cursive;
 	margin-bottom:2px;
 }
-.panelContent select{
-}
 
 /*************************************************************************************************************************/
 /**Login Section**/
@@ -1892,6 +1905,12 @@ div span .cents{
 	color:white;
 }
 
+/*************************************************************************************************************************/
+/**Cart Contents Section**/
+ .checkoutBillToShip label span{
+	 border: thin solid;
+ }
+ 
 /*************************************************************************************************************************/
 /**Cart Contents Section**/
 .CheckoutContents tr td span span.cents{
@@ -2013,4 +2032,30 @@ div span .cents{
 .checkoutShipSidebar div div h4{
 	margin-left: 40px;
     margin-right: 40px;
+}
+
+
+/*************************************************************************************************************************/
+/*************************************************************************************************************************/
+/**CUSTOMER TEMPLATE**/
+
+/*************************************************************************************************************************/
+/**Subscribe section**/
+.subscribeListItem label span:first-child{
+	border:thin solid white;
+}
+.subscribeListItem label span.label{
+	color:white;
+}
+
+/*************************************************************************************************************************/
+/**Login Modal**/
+.loginOption p{
+	color:white;
+}
+
+/*************************************************************************************************************************/
+/**Wishlist Container**/
+#listsContainer{
+	color:white;
 }
