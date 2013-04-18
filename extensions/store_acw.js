@@ -198,6 +198,38 @@ var store_acw = function() {
 			}
 		},
 		
+		
+		////////////////////////////////////   ACTION    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+//actions are functions triggered by a user interaction, such as a click/tap.
+//these are going the way of the do do, in favor of app events. new extensions should have few (if any) actions.
+		a : {
+			showInterShipWarning : function(){
+				if ($('#countrySelectorBilling').val() === "US"){
+					$('#shippingWarning').hide();
+					if ($('#countrySelectorShipping').val() === "US"){
+					}
+					else{
+						$('#shippingWarning').show();
+						$('#interShippingModal').dialog({'modal':'true', 'title':'','width':940, height:700});
+					}
+				}
+				else{
+					$('#shippingWarning').show();
+					$('#interShippingModal').dialog({'modal':'true', 'title':'','width':940, height:700});
+				}
+				},
+			interShipWarningAcceptClick : function(){
+				if($('#interShipAgreeCheck').is(':checked')){
+					$('#interShippingModal').dialog('close');
+				}
+				else
+				{
+					$('#noCheckWarning').show();
+				}
+			}
+		},
+		
 		renderFormats : {
 			//Identical to the showIFSet render format but sets to inline instead of block.
 			showIfSetInline : function($tag,data)	{

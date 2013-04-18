@@ -85,8 +85,9 @@ item list and summary are separate just to give more control over location.
             <legend class='headerPadding' >Shipping Methods</legend>
             <div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutMethodsShipTemplate;'></div>
         </fieldset>
-
-
+        
+        <br />
+        <h4 class="displayNone" id="shippingWarning">SHIPPING MAY TAKE 8-12 WEEKS DEPENDING ON YOUR LOCATION</h4>
 
 
 <!-- totals et all -->
@@ -108,6 +109,28 @@ item list and summary are separate just to give more control over location.
 
 	</form>
 	
+    <!--**MODAL FOR INTERNATIONAL SHIPPING WARNING**-->
+    <div class="displayNone" id="interShippingModal">
+        <div class="interShippingModalCont">
+        	<h2>INTERNATIONAL SHIPPING NOTICE</h2>
+            <br />
+            <H3>IT'S A BIT MORE EXPENSIVE...</H3>
+            <p>All domestic orders qualify for free standard shipping. Applicable only to address in the continental United States (HI and AK are not included). Free shipping does not apply to orders shipped to PO Boxes or international destinations. Not applicable to eBay or Amazon purchases.</p>
+        	<br />
+            <h3>MIGHT TAKE A BIT LONGER TO GET TO YOU...</h3>
+            <p>All preorders paid with a credit card will be charged at the time of shipment. All preorders paid with Google Checkout, Paypal or Amazon Payments will be charged when your order is placed. If you do not wish to pay for your preorder until it ships then you must use the checkout button and pay with a credit card. Orders that have both preorder and instock items we be shipped at the same time in one shipment. We recommend that you do not order in stock items with preorder items.</p>
+            <br />
+            <p>Additional information will be available to you under Return Policy, Exchange Policy, Shipping Policy. Questions or Concerns? Contact Us or visit our Customer Service page.</p>
+            <br /><br />
+            <h4 id="noCheckWarning" class="displayNone">You must accept the terms of agreement in order to proceed with this checkout.</h4>
+            <form id="interShippingForm">
+             	<input class="floatLeft" id="interShipAgreeCheck" type="checkbox" />
+                <p class="floatLeft">I agree with the above Terms and Conditions regarding All Cosmetics Wholesale Shipping Policies.</p>
+                <br />
+                <button class="clear floatLeft" id="interShipAgreeButton" onclick="app.ext.store_acw.a.interShipWarningAcceptClick(); return false;">ACCEPT</button>
+            </form>
+        </div>	
+    </div>
 </div>
 
 
@@ -148,7 +171,7 @@ This template is also used in the myAccount page, which is why a default using _
 
 <section id='chkoutAddressBillTemplate'>
 
-	<div class='billCountry' data-app-role='billCountry'><select name='bill/countrycode' data-bind='var: cart(bill/countrycode); defaultVar: cart(bill/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;' required='required' data-app-event="orderCreate|execCountryUpdate" ></select></div>
+	<div class='billCountry' data-app-role='billCountry'><select id="countrySelectorBilling" name='bill/countrycode' data-bind='var: cart(bill/countrycode); defaultVar: cart(bill/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;' required='required' data-app-event="orderCreate|execCountryUpdate" onchange="app.ext.store_acw.a.showInterShipWarning(); return false;"></select></div>
 
 	<div><input type='text' placeholder='first name' name='bill/firstname' required='required' value='' data-bind='var: cart(bill/firstname); defaultVar: cart(bill/firstname); format:popVal;'  /></div>
 	<div><input type='text' placeholder='last name' name='bill/lastname' required='required' value='' data-bind='var: cart(bill/lastname); defaultVar: cart(bill/lastname); format:popVal;'  /></div>
@@ -181,6 +204,8 @@ don't add required to any inputs because if bill to ship is checked, NONE of the
 
 <section id='chkoutAddressShipTemplate'>
 
+	<div class='shipCountry' data-app-role='shipCountry'><select id="countrySelectorShipping" name='ship/countrycode' data-bind='var: cart(ship/countrycode); defaultVar: cart(ship/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;'  data-app-event="orderCreate|execCountryUpdate" onchange="app.ext.store_acw.a.showInterShipWarning(); return false;" ></select></div>
+
 	<div><input type='text' placeholder='first name' name='ship/firstname' required='required' value='' data-bind='var: cart(ship/firstname); defaultVar: cart(ship/firstname); format:popVal;'  /></div>
 	<div><input type='text' placeholder='last name' name='ship/lastname' required='required' value='' data-bind='var: cart(ship/lastname); defaultVar: cart(ship/lastname); format:popVal;'  /></div>
 
@@ -196,8 +221,6 @@ don't add required to any inputs because if bill to ship is checked, NONE of the
 
 	
 	<div><input type='text'  name='ship/postal' placeholder='zip/postal code' required='required' size='14' value='' data-bind='var: cart(ship/postal); defaultVar: cart(ship/postal); format:popVal;' maxlength='10' data-app-event='orderCreate|execAddressUpdate'/></div>
-
-	<div class='shipCountry' data-app-role='shipCountry'><select name='ship/countrycode' data-bind='var: cart(ship/countrycode); defaultVar: cart(ship/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;'  data-app-event="orderCreate|execCountryUpdate" ></select></div>
 
 </section>
 
@@ -230,7 +253,6 @@ messaging are hidden by default, then displayed if needed. keeps panel from bein
 
 <div id='chkoutMethodsShipTemplate'>
 	<ul class='noPadOrMargin listStyleNone' data-bind='var: cart(@SHIPMETHODS); format:shipMethodsAsRadioButtons; extension: orderCreate;' data-app-event='orderCreate|addTriggerShipMethodUpdate'></ul>
-	<h4>SHIPPING MAY TAKE 8-12 WEEKS DEPENDING ON YOUR LOCATION</h4>
 </div>
 
 
