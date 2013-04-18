@@ -1327,7 +1327,7 @@ P.listID (buyer list id)
 				app.u.dump("BEGIN myria.a.add2BuyerList: "+P.listid);
 				var authState = app.u.determineAuthentication();
 				app.u.dump("authState: "+authState);
-				if(typeof P != 'object' || !P.sku || !P.listid)	{
+				if(typeof P != 'object' || !P.pid || !P.listid)	{
 					app.u.throwMessage("Uh Oh! Something went wrong. Please try that again or contact the site administrator if error persists. err: required param for add2buyerList was missing. see console for details.");
 					app.u.dump("ERROR! params missing for add2BuyerList. listid and pid required. params: "); app.u.dump(P);
 					}

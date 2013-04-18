@@ -169,7 +169,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 
 app.rq.push(['templateFunction','categoryTemplate','onInits',function(P) 
 {
-//Checks to see if the #recentlyViewedItemsContainer exists and creates it if it doesnn't
+//Checks to see if the #recentlyViewedItemsContainer exists and creates it if it doesn't
 	if($('#recentlyViewedItemsContainer').length === 0)
 	{app.u.dump("recently viewed container exists, aborting create");}
 	else

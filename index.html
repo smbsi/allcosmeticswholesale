@@ -617,9 +617,9 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             </div>
             <div class="clear"></div>
         	<div class="carouselHPSearchList">
-                	<ul id='homeProdSearchSale' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_SALE"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
                     <ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
                     <ul id='homeProdSearchDiscontinued' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_DISCONTINUED"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+            		<ul id='homeProdSearchSale' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_SALE"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
             </div>
             <div class="clear"></div>
             <div class="carouselHPSearchPagination">
@@ -1200,11 +1200,11 @@ this will likely become more flexible in the future. ###
     <h4 class="displayNone" data-bind='var: reviews(reviews.average); format:showIfSet;'>product rating</h4>
     <br class="displayNone" data-bind='var: reviews(reviews.average); format:showIfSetInline; extension:store_acw;' />
     
-    <input type="button" class="reviewButton pointer" value="PRODUCT REVIEWS" />
+    <input type="button" class="reviewButton pointer" value="PRODUCT REVIEWS"  onClick="app.ext.store_acw.a.showReviewsModal(); return false;" />
     
-    <input type="button" class="writeReviewButton pointer" value="WRITE A REVIEW" onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).parent().attr("data-pid"),"templateID":"reviewFrmTemplate"}); return false;' />
+    <input type="button" class="writeReviewButton pointer" value="WRITE A REVIEW" onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' />
 
-	<input type="button" class="wishlistButton pointer" value="ADD TO WISHLIST" onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;" />
+	<input type="button" class="wishlistButton pointer" value="ADD TO WISHLIST" onClick='app.ext.myRIA.a.add2BuyerList({"pid":$(this).attr("data-pid"),"listid":"wishlist"}); return false;' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' />
 
 	<div data-bind='var:product(zoovy:qty_price);format:quantityDiscounts; extension:store_product; pretext:Quantity Discounts:; className:marginBottom;'></div>
 
@@ -1225,7 +1225,7 @@ this will likely become more flexible in the future. ###
 </div>
 
 
-<div class="carouselProdSearchCont displayNone" data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_FRESH"}}}); format:showIfSet;'>
+<div class="carouselProdSearchCont displayNone" data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_DISCONTINUED"}}}); format:showIfSet;'>
     <div class="carouselProdTitleCont">
        <div class="displayNone" data-bind='var: product(zoovy:related_products); format:showIfSet;'>
            <h2>You'll Love These</h2>
@@ -1236,8 +1236,12 @@ this will likely become more flexible in the future. ###
         <div class="carouselYouMightLikeCont" data-bind='var: product(zoovy:related_products); format:showIfSet;'>
             <ul class='listStyleNone fluidList clearfix noPadOrMargin productList youMIghtLikeUL' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateProgPG;hide_pagination:true;hide_summary:true; withReviews:1;"></ul>
         </div>
-        <ul data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_FRESH"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList prodSearchBestSellers'></ul>
+        <ul data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_DISCONTINUED"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList prodSearchBestSellers'></ul>
     </div>
+</div>
+
+<div class="displayNone" id="reviewModalContent">
+	<ul class='listStyleNone clearfix productReviewsList' id='prodViewerReviews' data-bind="var: reviews(reviews.@reviews); format:processList; loadsTemplate:productReviewsTemplateDetail;"></ul>
 </div>
 <!--
 <div class="carouselProdSearchCont">
@@ -1624,17 +1628,20 @@ if you change these, you should move them above this comment so that when you (o
 <div id='customerTemplate' class='clearfix'>
 
 	<div class='sideline' >
-	<nav id='customerNav'>
-	<ul class='listStyleNone noPadOrMargin'>
-<!-- before restoring this, test cuz news form on left was causing some conflicts -->
-		<li><a href='#customer?show=subscriberLists'>Newsletter Subscription</a></li>
-		<li><a href='#customer?show=myaccount'>My Account</a></li>
-		<li><a href='#customer?show=changepassword'>Change Password</a></li>
-		<li><a href='#customer?show=orders'>Order History</a></li>
-		<li><a href='#customer?show=lists'>Manage Lists</a></li>
-		<li class='hideIfLoggedOut'><a href="#" onClick="app.ext.myRIA.u.handleLogoutActions(); return false;">Log Out</a></li>
-	</ul>
-	</nav>
+    	<div class="sidelineTitle">
+        	<h3>QUICK LINKS</h3>
+        </div>
+        <nav id='customerNav'>
+            <ul class='listStyleNone noPadOrMargin'>
+        <!-- before restoring this, test cuz news form on left was causing some conflicts -->
+                <li><a href='#customer?show=subscriberLists'>Newsletter Subscription</a></li>
+                <li><a href='#customer?show=myaccount'>My Account</a></li>
+                <li><a href='#customer?show=changepassword'>Change Password</a></li>
+                <li><a href='#customer?show=orders'>Order History</a></li>
+                <li><a href='#customer?show=lists'>Manage Lists</a></li>
+                <li class='hideIfLoggedOut'><a href="#" onClick="app.ext.myRIA.u.handleLogoutActions(); return false;">Log Out</a></li>
+            </ul>
+        </nav>
 	</div>
 
 	<div class='mainColumn'>
@@ -1645,8 +1652,17 @@ newsletterArticle is used for buyers who are not logged in or do not have an acc
 subscribeListsArticle is used for authenticated buyers
 -->
 		<div id='newsletterArticle' class='displayNone textContentArea'>
-			<h1>Subscribe to our Newsletter and Save!</h1>
-			<div data-bind="format:loadsTemplate; loadsTemplate:subscribeFormTemplate;"></div>
+            <div class="existingUserLogin">
+            	<div>
+                	<h1>Welcome back!</h1>
+                    <h5>Click here to sign in.</h5>
+                    <button onclick="return showContent('customer',{'show':'myaccount'});">SIGN IN!</button>
+                </div>
+            </div>
+            <div>
+            <h1>Don't have an account?</h1>
+				<div data-bind="format:loadsTemplate; loadsTemplate:subscribeFormTemplate;"></div>
+            </div>
 		</div>
 
 		<div id='subscriberListsArticle' class='displayNone textContentArea'>
@@ -2130,7 +2146,7 @@ used for store_crm.js
 
 <fieldset data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;" class='borderNone subscriberLists'></fieldset>
 
-<input type='submit' class='ui-button-text ui-button ui-state-default ui-corner-all' value='Subscribe' />
+<input type='submit' class='ui-button-text ui-button ui-state-default ui-corner-all createAccountButton' value='Subscribe' />
 
 </form>
 </div>

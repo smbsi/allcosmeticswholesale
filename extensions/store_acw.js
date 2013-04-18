@@ -204,6 +204,9 @@ var store_acw = function() {
 //actions are functions triggered by a user interaction, such as a click/tap.
 //these are going the way of the do do, in favor of app events. new extensions should have few (if any) actions.
 		a : {
+			showReviewsModal : function(){
+				$('#reviewModalContent').dialog({'modal':'true', 'title':'Product Reviews','width':940, height:500});
+			},
 			showInterShipWarning : function(){
 				if ($('#countrySelectorBilling').val() === "US"){
 					$('#shippingWarning').hide();
