@@ -2222,3 +2222,103 @@ div span .cents{
 #listsContainer{
 	color:white;
 }
+#listsContainer div div div ul{
+	width:950px;
+	clear: none;
+}
+#listsContainer ul.ui-tabs-nav{
+	height: 43px;
+}
+.productListTemplateBuyerList div h5{
+	color:#c0c0c0;
+	height:50px;
+	text-align:center;
+}
+div div ul li.productListTemplateBuyerList{
+	height: 390px !important;
+    width: 300px !important;
+	float:left;
+	display:block;
+	margin-left: 15px;
+}
+#prodlistBuyerList_wishlist li div div.prodThumbContainer div{
+	border:none;
+}
+#prodlistBuyerList_wishlist li div div.prodThumbContainer div div.buttonList{
+	border:none;
+	float:left;
+}
+.buttonList div h6{
+	color:white;
+	font-family: 'Special Elite',cursive;
+	font-size: 26px;
+    line-height: 55px;
+}
+.buttonList div h6 span.cents{
+	line-height: 45px;
+    vertical-align: top;
+}
+.buttonList div{
+	width:145px;
+	height:45px;
+	background-color:rgba(200, 200, 200, 0.2);
+	float:left;
+}
+div.buttonList .bagItButtonWishlist{
+	border: medium none;
+    border-radius: 0 0 0 0;
+    height: 45px;
+    margin-right: 10px;
+    width: 145px;
+	background-image:none;
+	background-color:#3fb8af;
+	color:white;
+	font-family: 'Special Elite',cursive;
+	padding-top: 5px;
+}
+div.buttonList .bagItButtonWishlist:hover{
+	background-color:#ff3d7f;
+	color:black;
+}
+div.buttonList .infoButtonWishlist{
+	font-family: 'Special Elite',cursive;
+	padding-top: 5px;
+	margin-top:10px;
+	margin-bottom:10px;
+	border: medium none;
+    border-radius: 0 0 0 0;
+	color:white;
+	background-image:none;
+	background-color:#3fb8af;
+}
+div.buttonList .infoButtonWishlist:hover{
+	background-color:#ff3d7f;
+	color:black;
+}
+div.buttonList .reviewButtonWishlist{
+	font-family: 'Special Elite',cursive;
+	padding-top: 5px;
+	border: medium none;
+    border-radius: 0 0 0 0;
+	color:white;
+	background-image:none;
+	background-color:#3fb8af;
+	margin-left: -10px;
+}
+div.buttonList .reviewButtonWishlist:hover{
+	background-color:#ff3d7f;
+	color:black;
+}
+div.buttonList .removeButtonWishlist{
+	font-family: 'Special Elite',cursive;
+	padding-top: 5px;
+	border: medium none;
+    border-radius: 0 0 0 0;
+	color:white;
+	background-image:none;
+	background-color:#3fb8af;
+}
+div.buttonList .removeButtonWishlist:hover{
+	background-color:#ff3d7f;
+	color:black;
+}

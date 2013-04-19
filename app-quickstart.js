@@ -1327,7 +1327,7 @@ P.listID (buyer list id)
 				app.u.dump("BEGIN myria.a.add2BuyerList: "+P.listid);
 				var authState = app.u.determineAuthentication();
 				app.u.dump("authState: "+authState);
-				if(typeof P != 'object' || !P.pid || !P.listid)	{
+				if(typeof P != 'object' || !P.sku || !P.listid)	{
 					app.u.throwMessage("Uh Oh! Something went wrong. Please try that again or contact the site administrator if error persists. err: required param for add2buyerList was missing. see console for details.");
 					app.u.dump("ERROR! params missing for add2BuyerList. listid and pid required. params: "); app.u.dump(P);
 					}
@@ -1348,14 +1348,14 @@ P.listID (buyer list id)
 						$parent.dialog({'autoOpen':false});
 						}
 					$parent.dialog('open');
-					var msg = app.u.statusMsgObject('adding item '+P.pid+' to list: '+P.listid);
+					var msg = app.u.statusMsgObject('adding item '+P.sku+' to list: '+P.listid);
 					msg.parentID = parentID;
 					app.u.throwMessage(msg);
 					app.model.destroy('buyerProductListDetail|'+P.listid);
-					app.calls.buyerProductListAppendTo.init(P,{'parentID':parentID,'callback':'showMessaging','message':'Item '+P.pid+' successfully added to list: '+P.listid},'immutable');
+					app.calls.buyerProductListAppendTo.init(P,{'parentID':parentID,'callback':'showMessaging','message':'Item '+P.sku+' successfully added to list: '+P.listid},'immutable');
 					app.calls.buyerProductListDetail.init(P.listid,{},'immutable')
 					app.model.dispatchThis('immutable');
-					_gaq.push(['_trackEvent','Manage buyer list','User Event','item added',P.pid]);
+					_gaq.push(['_trackEvent','Manage buyer list','User Event','item added',P.sku]);
 					}
 				},
 

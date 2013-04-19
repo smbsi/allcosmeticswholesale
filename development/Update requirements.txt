@@ -21,5 +21,3 @@ becomes
 
 
 
-- in the add2BuyerList function:
-	- replace every P.sku with P.pid . 

@@ -990,38 +990,37 @@ container ul should have lineItemProdlist class on it instead of productList
 </li>
 
 
-<li id='productListTemplateBuyerList' class='loadingBG clearfix' >
+<li id='productListTemplateBuyerList' class='loadingBG productListTemplateBuyerList' >
 	<div data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' >
-
+		
+        <h5 data-bind='var: product(zoovy:prod_name); format:truncText; numCharacters: 70;'></h5>
 		<div class='prodThumbContainer floatLeft'>
 			<div class='ui-widget ui-widget-content ui-corner-all'>
-				<img src='blank.gif' class='prodThumb' alt='' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='160' height='160' />
-				<div class='buttonList ui-widget ui-widget-header ui-corner-all alignCenter'>
-
-<button class='ui-state-default ui-corner-all' title='add item to cart' onClick="showContent('product',{'pid':$(this).closest('[data-pid]').attr('data-pid')});">
-<span class="ui-icon ui-icon-cart"></span>
-</button>
-
-<button class='ui-state-default ui-corner-all' title='more information' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">
-<span class="ui-icon ui-icon-info"></span>
-</button>
-
-<button class='ui-state-default ui-corner-all' title='write a review for this item' onClick="app.ext.store_crm.u.showReviewFrmInModal({'pid':$(this).closest('[data-pid]').attr('data-pid'),'templateID':'reviewFrmTemplate'});">
-<span class="ui-icon ui-icon-star"></span>
-</button>
-
-<button class='ui-state-default ui-corner-all' title='remove item from list' onClick="app.ext.myRIA.a.removeItemFromBuyerList({'stid':$(this).closest('[data-pid]').attr('data-pid'),'listID':$(this).closest('[data-buyerlistid]').attr('data-buyerlistid')},{'parentID':$(this).closest('li').attr('id')});">
-<span class="ui-icon ui-icon-trash"></span>
-</button>
-
-				</div>
+				<img src='blank.gif' class='prodThumb' alt='' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='277' height='200' />
 			</div>
 		</div>
+        <div class='buttonList ui-widget ui-widget-header ui-corner-all alignCenter'>
+				<div>
+					<h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price;'></h6>
+                </div>
+                <button class='ui-state-default ui-corner-all bagItButtonWishlist' title='add item to cart' onClick="showContent('product',{'pid':$(this).closest('[data-pid]').attr('data-pid')});">
+                BAG IT!
+                </button>
+                
+                <button class='ui-state-default ui-corner-all infoButtonWishlist' title='more information' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">
+                MORE INFORMATION
+                </button>
+                
+                <button class='ui-state-default ui-corner-all reviewButtonWishlist' title='write a review for this item' onClick="app.ext.store_crm.u.showReviewFrmInModal({'pid':$(this).closest('[data-pid]').attr('data-pid'),'templateID':'reviewFrmTemplate'});">
+                WRITE A REVIEW
+                </button>
+                
+                <button class='ui-state-default ui-corner-all removeButtonWishlist' title='remove item from list' onClick="app.ext.myRIA.a.removeItemFromBuyerList({'stid':$(this).closest('[data-pid]').attr('data-pid'),'listID':$(this).closest('[data-buyerlistid]').attr('data-buyerlistid')},{'parentID':$(this).closest('li').attr('id')});">
+                REMOVE ITEM
+                </button>
+
+			</div>
 		<span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite floatRight' ></span>
-
-		<h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
-
-		<h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
 
 
 	</div>
@@ -1203,10 +1202,11 @@ this will likely become more flexible in the future. ###
     <input type="button" class="reviewButton pointer" value="PRODUCT REVIEWS"  onClick="app.ext.store_acw.a.showReviewsModal(); return false;" />
     
     <input type="button" class="writeReviewButton pointer" value="WRITE A REVIEW" onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' />
-
-	<input type="button" class="wishlistButton pointer" value="ADD TO WISHLIST" onClick='app.ext.myRIA.a.add2BuyerList({"pid":$(this).attr("data-pid"),"listid":"wishlist"}); return false;' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' />
-
-	<div data-bind='var:product(zoovy:qty_price);format:quantityDiscounts; extension:store_product; pretext:Quantity Discounts:; className:marginBottom;'></div>
+	
+    <div data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='CRMButtonMenu'>
+		<button type="button" class="wishlistButton pointer" onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;">ADD TO WISHLIST</button>
+    </div>
+    <div data-bind='var:product(zoovy:qty_price);format:quantityDiscounts; extension:store_product; pretext:Quantity Discounts:; className:marginBottom;'></div>
 
 	<section class='marginBottom'>
 		<!--<span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
