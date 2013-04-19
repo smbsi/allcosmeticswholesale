@@ -1348,14 +1348,14 @@ P.listID (buyer list id)
 						$parent.dialog({'autoOpen':false});
 						}
 					$parent.dialog('open');
-					var msg = app.u.statusMsgObject('adding item '+P.sku+' to list: '+P.listid);
+					var msg = app.u.statusMsgObject('adding item '+P.pid+' to list: '+P.listid);
 					msg.parentID = parentID;
 					app.u.throwMessage(msg);
 					app.model.destroy('buyerProductListDetail|'+P.listid);
-					app.calls.buyerProductListAppendTo.init(P,{'parentID':parentID,'callback':'showMessaging','message':'Item '+P.sku+' successfully added to list: '+P.listid},'immutable');
+					app.calls.buyerProductListAppendTo.init(P,{'parentID':parentID,'callback':'showMessaging','message':'Item '+P.pid+' successfully added to list: '+P.listid},'immutable');
 					app.calls.buyerProductListDetail.init(P.listid,{},'immutable')
 					app.model.dispatchThis('immutable');
-					_gaq.push(['_trackEvent','Manage buyer list','User Event','item added',P.sku]);
+					_gaq.push(['_trackEvent','Manage buyer list','User Event','item added',P.pid]);
 					}
 				},
 
