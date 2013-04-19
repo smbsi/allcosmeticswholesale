@@ -1659,8 +1659,8 @@ subscribeListsArticle is used for authenticated buyers
                     <button onclick="return showContent('customer',{'show':'myaccount'});">SIGN IN!</button>
                 </div>
             </div>
-            <div>
-            <h1>Don't have an account?</h1>
+            <div class="createAccountForm">
+            	<h1>Don't have an account?</h1>
 				<div data-bind="format:loadsTemplate; loadsTemplate:subscribeFormTemplate;"></div>
             </div>
 		</div>
@@ -2146,7 +2146,7 @@ used for store_crm.js
 
 <fieldset data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;" class='borderNone subscriberLists'></fieldset>
 
-<input type='submit' class='ui-button-text ui-button ui-state-default ui-corner-all createAccountButton' value='Subscribe' />
+<input type='submit' class='ui-button-text ui-button ui-state-default ui-corner-all createAccountButton' value='CREATE AN ACCOUNT' />
 
 </form>
 </div>

@@ -166,7 +166,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 
 
 
-
+/*
 app.rq.push(['templateFunction','categoryTemplate','onInits',function(P) 
 {
 //Checks to see if the #recentlyViewedItemsContainer exists and creates it if it doesn't
@@ -178,7 +178,7 @@ app.rq.push(['templateFunction','categoryTemplate','onInits',function(P)
 		$('.recentlyViewedBuildContainer').append("<div id='recentlyViewedItemsContainer'> <ul data-bind=\"var: session(recentlyViewedItems); format: productList; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; hide_pagination:1; withReviews:1;\" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul></div>");
 	}
 }]);	
-	
+*/	
 	
 	
 	
@@ -256,14 +256,14 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P)
 
 
 
-
+/*
 app.rq.push(['templateFunction','categoryTemplate','onDeparts',function(P) 
 {
 	app.u.dump("Destroying recently created container.");
 	//Destroys the recently viewed element so that it can be used in other cat pages.
 	$(".recentlyViewedBuildContainer").empty();
 	}]);
-
+*/
 
 
 
@@ -343,7 +343,7 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P)
 
 app.rq.push(['templateFunction','cartTemplate','onCompletes',function(P) 
 {
-	//selector function for filtered search that displays appropriate wood menu options when wood is selected.	
+		
 		$('.wlAddCloseButton').click(function() {
 				$(".addToWishlistForm").hide();
 			}
