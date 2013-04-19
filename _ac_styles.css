@@ -2102,6 +2102,30 @@ div span .cents{
 /*************************************************************************************************************************/
 /**CUSTOMER TEMPLATE**/
 
+#subscriberListsArticle h1{
+	font-family: 'Special Elite', cursive;
+	color:#ff3d7f;
+}
+#myaccountArticle h1{
+	font-family: 'Special Elite', cursive;
+	color:#ff3d7f;
+}
+#changepasswordArticle h1{
+	font-family: 'Special Elite', cursive;
+	color:#ff3d7f;
+}
+#myaccountArticle h1{
+	font-family: 'Special Elite', cursive;
+	color:#ff3d7f;
+}
+#ordersArticle h1{
+	font-family: 'Special Elite', cursive;
+	color:#ff3d7f;
+}
+#listsArticle h1{
+	font-family: 'Special Elite', cursive;
+	color:#ff3d7f;
+}
 #newsletterArticle{
     padding-top: 30px;
 }
@@ -2197,7 +2221,7 @@ div span .cents{
 /*************************************************************************************************************************/
 /**My Account Section**/
 #myaccountArticle h4{
-	color:#FF3D7F;
+	color:#3fb8af;
 	text-align:center;
 	margin-top: 10px;
 }
@@ -2218,7 +2242,7 @@ div span .cents{
 }
 
 /*************************************************************************************************************************/
-/**Wishlist Container**/
+/**Wishlist Section**/
 #listsContainer{
 	color:white;
 }
@@ -2321,4 +2345,41 @@ div.buttonList .removeButtonWishlist{
 div.buttonList .removeButtonWishlist:hover{
 	background-color:#ff3d7f;
 	color:black;
+}
+/*************************************************************************************************************************/
+/**Order History Section**/
+#ordersArticle h2{
+	margin-bottom: 250px;
+    margin-top: 20px;
+    text-align: center;
+}
+#ordersArticle h3{
+	color: #7FC7AF;
+	font-size: 22px;
+}
+#ordersArticle h5{
+	color: white;
+	font-size: 14px;
+}
+#ordersArticle span{
+	color: #349790;
+}
+#ordersArticle a{
+	color: #349790;
+}
+#ordersArticle a:hover{
+	color:#ff3d7f;
+}
+
+
+/*************************************************************************************************************************/
+/*************************************************************************************************************************/
+/**SEARCH TEMPLATE**/
+.searchResultsPage a {
+	color:white;
+}
+.resultsHeader{
+	color:white;
+}
+.resultsMenuContainer div{
 }

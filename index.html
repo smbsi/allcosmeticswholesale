@@ -1638,7 +1638,7 @@ if you change these, you should move them above this comment so that when you (o
                 <li><a href='#customer?show=myaccount'>My Account</a></li>
                 <li><a href='#customer?show=changepassword'>Change Password</a></li>
                 <li><a href='#customer?show=orders'>Order History</a></li>
-                <li><a href='#customer?show=lists'>Manage Lists</a></li>
+                <li><a href='#customer?show=lists'>View Wishlistf</a></li>
                 <li class='hideIfLoggedOut'><a href="#" onClick="app.ext.myRIA.u.handleLogoutActions(); return false;">Log Out</a></li>
             </ul>
         </nav>
@@ -1706,8 +1706,25 @@ subscribeListsArticle is used for authenticated buyers
 
 		<div id='ordersArticle' class='displayNone textContentArea'>
 			<h1>Order History</h1>
+            <h2 data-bind='var: orders(@orders); format:hideIfSet;'>You have not placed any orders yet.</h2>
 			<div data-bind="var: orders(@orders); format:processList; loadsTemplate:orderLineItemTemplate;" data-app-role='orderList' class='ui-accordion ui-widget ui-helper-reset ui-accordion-icons '></div>
-		</div>
+			<h3>Order Status</h3>
+            <h5>If you'd like to check the status of an order, (or
+			cancel one that hasn't been processed), please
+			<a href='#top' onClick="return showContent('customer',{'show':'newsletter'});">sign in</a> to your customer account.</h5>
+            <br />
+            <h3>Phone</h3>
+            <h5>To place an order over the phone call
+			<span>+1 (123) 456-7890</span> between 8:00am to 5:00pm PST.
+
+			If you have a specific question about an
+			existing product or order please email us at <span>help@allcosmeticswholesale.com</span>.</h5>
+            <br />
+            <h3>Email</h3>
+            <h5>For general product questions and order
+			inquiries you can also email us at <span>help@allcosmeticswholesale.com</span>.</h5>
+            <br /><br />
+        </div>
 
 
 		<div id='invoiceArticle' class='displayNone textContentArea'>
