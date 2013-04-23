@@ -315,16 +315,24 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
                       <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.450hair.stylingproducts'});" class="pointer">Styling Products</a></li>
                   </ul>
               </div>
-              <div class="navBarJewel" href='#top' onClick="return showContent('category',{'navcat':'.acw.brands.jewelry'});"><a>Jewelry</a><!--**ADD BACK WHEN DROPDOWN CATS AVAILABLE**--><!-- onClick="return showContent('category',{'navcat':''});" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"-->
-                  <!--**ADD BACK WHEN DROPDOWN CATS AVAILABLE**--><!--<ul class="dropdown headerDropdown alignLeft">
-                      <div class="dropdownSpacer"></div>
-                      <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':''});" class="pointer"></a></li>
-                  </ul>-->
-              </div>
-              <div class="navBarSale" href='#top' onClick="return showContent('category',{'navcat':''});" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a>Sale</a>
+              <div class="navBarJewel" href='#top' onClick="return showContent('category',{'navcat':'.acw.brands.jewelry'});" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a>Jewelry</a>
                   <ul class="dropdown headerDropdown alignLeft">
                       <div class="dropdownSpacer"></div>
-                      <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':''});" class="pointer"></a></li>
+                      <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.brands.jewelry.bracelet'});" class="pointer">Bracelets</a></li>
+                      <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.brands.jewelry.earrings'});" class="pointer">Earrings</a></li>
+                      <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.brands.jewelry.necklace'});" class="pointer">Necklaces</a></li>
+                      <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.brands.jewelry.rings'});" class="pointer">Rings</a></li>
+                  </ul>
+              </div>
+              <div class="navBarSale" href='#top' onClick="return showContent('category',{'navcat':'.acw.sale'});" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a>Sale</a>
+                  <ul class="dropdown headerDropdown alignLeft">
+                      <div class="dropdownSpacer"></div>
+                      <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.sale.accessories'});" class="pointer">Accessories</a></li>
+                      <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.sale.eyes'});" class="pointer">Eyes</a></li>
+                      <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.sale.face'});" class="pointer">Face</a></li>
+                      <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.sale.lips'});" class="pointer">Lips</a></li>
+                      <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.sale.nails'});" class="pointer">Nails</a></li>
+                      <li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('category',{'navcat':'.acw.sale.skincare'});" class="pointer">Skincare</a></li>
                   </ul>
               </div>
            </div>
@@ -1084,7 +1092,11 @@ SANITY -> if you change the height and width of this image, change the .minimalM
 
 <div id='categoryProductListTemplate' class='loadingBG productListTemplate' data-app-role='productListPage'>
 	<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
-    
+    <!--ADDED FOR TESTING. REMOVE WHEN FINISHED-->
+    <div class="catListingCont">
+    	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
+    </div>
+    <!--END TESTING SECTION-->
     <ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
 </div>
 

@@ -89,7 +89,6 @@ var store_acw = function() {
 				".acw.brands.iso" : "categoryProductListTemplate",
 				".acw.brands.jane" : "categoryProductListTemplate",
 				".acw.brands.japonesque" : "categoryProductListTemplate",
-				".acw.brands.jewelry" : "categoryProductListTemplate",
 				".acw.brands.kiehls" : "categoryProductListTemplate",
 				".acw.brands.korres" : "categoryProductListTemplate",
 				".acw.brands.kryolan" : "categoryProductListTemplate",
@@ -174,8 +173,17 @@ var store_acw = function() {
 				".acw.450hair.shampoo" : "categoryProductListTemplate",
 				".acw.450hair.stylingproducts" : "categoryProductListTemplate",
 				//JEWELRY
-				".acw.brands.jewelry" : "categoryProductListTemplate",
+				".acw.brands.jewelry.bracelet" : "categoryProductListTemplate",
+				".acw.brands.jewelry.earrings" : "categoryProductListTemplate",
+				".acw.brands.jewelry.necklace" : "categoryProductListTemplate",
+				".acw.brands.jewelry.rings" : "categoryProductListTemplate",
 				//SALE
+				".acw.sale.accessories" : "categoryProductListTemplate",
+				".acw.sale.eyes" : "categoryProductListTemplate",
+				".acw.sale.face" : "categoryProductListTemplate",
+				".acw.sale.lips" : "categoryProductListTemplate",
+				".acw.sale.nails" : "categoryProductListTemplate",
+				".acw.sale.skincare" : "categoryProductListTemplate"
 			},
 		},
 		
