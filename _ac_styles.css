@@ -1231,7 +1231,7 @@ ul .mpControlJumpToPage{
 	height:auto;
 }
 .prodViewerAddToCartForm button span{
-	padding-top:4px !important;
+	padding-top:10px !important;
 }
 
 
@@ -1881,6 +1881,59 @@ div span .cents{
 	font-size:16px;
 }
 
+/*************************************************************************************************************************/
+/**Contact Us Template**/
+#contactForm fieldset legend{
+	color:white;
+}
+#contactArticle h1{
+	font-family: 'Special Elite', cursive;
+	font-weight:200;
+	color:#ff3d7f;
+}
+
+/*************************************************************************************************************************/
+/**Shipping Template**/
+#shippingArticle h1{
+	font-family: 'Special Elite', cursive;
+	font-weight:200;
+	color:#ff3d7f;
+}
+
+/*************************************************************************************************************************/
+/**Return Policy Template**/
+#returnArticle h1{
+	font-family: 'Special Elite', cursive;
+	font-weight:200;
+	color:#ff3d7f;
+}
+
+/*************************************************************************************************************************/
+/**Payment Policy Template**/
+#paymentArticle h1{
+	font-family: 'Special Elite', cursive;
+	font-weight:200;
+	color:#ff3d7f;
+}
+
+/*************************************************************************************************************************/
+/**Privacy Policy Template**/
+#privacyArticle{
+	color:white;
+}
+#privacyArticle h1{
+	font-family: 'Special Elite', cursive;
+	font-weight:200;
+	color:#ff3d7f;
+}
+
+/*************************************************************************************************************************/
+/**FAQ Template**/
+#faqArticle h1{
+	font-family: 'Special Elite', cursive;
+	font-weight:200;
+	color:#ff3d7f;
+}
 
 /*************************************************************************************************************************/
 /*************************************************************************************************************************/

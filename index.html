@@ -475,7 +475,7 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
                         <a href='#top' onClick="return showContent('customer',{'show':'lists'});">Wishlist Items</a>
                     </li>
                     <li>
-                        <a href='#top' onClick="return showContent('customer',{'show':'orders'});">Order tracking</a>
+                        <a href="#customer?show=orders">Order tracking</a>
                     </li>
                     <li>
                         <a href="#top" onclick="app.ext.myRIA.u.handleLogoutActions(); return false;">Sign Out</a>
@@ -1506,11 +1506,11 @@ if you change these, you should move them above this comment so that when you (o
         <h3>QUICK LINKS</h3>
     </div>
     <ul class='listStyleNone noPadOrMargin'>
-    	<li><a href=''>Sale</a></li>
+    	<li><a onclick="return showContent('category',{'navcat':'.acw.sale'});" href="#top">Sale</a></li>
         <li><a href=''>New Items</a></li>
         <li><a href=''>Shop Suite7Beauty</a></li>
         <li><a href='#top' onClick="return showContent('company',{'show':'contact'});">Contact Us</a></li>
-        <li><a href=''>Newsletter</a></li>
+        <li><a href='#top' onClick="return showContent('company',{'show':'faq'});">Newsletter</a></li>
     </ul>
 </div>
 <div>
@@ -1535,7 +1535,7 @@ if you change these, you should move them above this comment so that when you (o
     	<li><a href='#top' onClick="return showContent('customer',{'show':'myaccount'});">Log-in or Sign-up</a></li>
         <li><a href='#top' onClick="return showContent('customer',{'show':'orders'});">Order Tracking</a></li>
         <li><a href='#top' onClick="return showContent('company',{'show':'return'});">Return a Product</a></li>
-        <li><a href=''>Join our Newsletter</a></li>
+        <li><a href='#top' onClick="return showContent('customer',{'show':'newsletter'});">Join our Newsletter</a></li>
         <li><a href='#top' onClick="return showContent('company',{'show':'faq'});">FAQs</a></li>
     </ul>
 </div>
@@ -1555,7 +1555,7 @@ if you change these, you should move them above this comment so that when you (o
 
 
 		<div id='contactArticle' class='displayNone textContentArea'>
-			<h1>Contact Information</h1>
+			<h1>Contact Us</h1>
 			<form action='#' onSubmit="app.calls.appSendMessage.init($(this).serializeJSON(),{'callback':'showMessaging','parentID':'contactFormMessaging','message':'Thank you, your message has been sent'},'immutable'); app.model.dispatchThis('immutable');  return false;" id='contactForm' name='contactForm'>
 			<fieldset>
 				<legend>Contact Us</legend>
@@ -1587,7 +1587,7 @@ if you change these, you should move them above this comment so that when you (o
 
 
 		<div class='displayNone textContentArea' id='privacyArticle'>
-			<h1>Privacy Statement</h1>
+			<h1>Privacy Policy</h1>
 	<h4>About this Privacy Policy:</h4>
 	<p>The entire site, or at least specific portions of this site are assisted by Zoovy technology. Zoovy has created this privacy policy as a template for customers who are using Zoovy technology with their websites. Zoovy in no way takes responsibility for the accuracy or enforcement of this policy. For a copy of Zoovy's privacy policy (which does not necessarily apply to the customers of its customers) visit http://www.zoovy.com/legal</p>
 
@@ -1662,7 +1662,7 @@ if you change these, you should move them above this comment so that when you (o
                 <li><a href='#customer?show=myaccount'>My Account</a></li>
                 <li><a href='#customer?show=changepassword'>Change Password</a></li>
                 <li><a href='#customer?show=orders'>Order History</a></li>
-                <li><a href='#customer?show=lists'>View Wishlistf</a></li>
+                <li><a href='#customer?show=lists'>View Wishlist</a></li>
                 <li class='hideIfLoggedOut'><a href="#" onClick="app.ext.myRIA.u.handleLogoutActions(); return false;">Log Out</a></li>
             </ul>
         </nav>
