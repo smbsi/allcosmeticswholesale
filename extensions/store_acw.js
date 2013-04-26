@@ -238,7 +238,15 @@ var store_acw = function() {
 				{
 					$('#noCheckWarning').show();
 				}
+			},
+			closeDropdownOnClick : function($tag){
+				//$('.dropdownOnClick').css({'height':'0px'});
+				//$('.dropdownOnClick2').css({'height':'0px'});
+				//$('.dropdownOnClick3').css({'height':'0px'});
+				//$('.dropdownOnClick4').css({'height':'0px'});
+				$(".dropdown", $tag).stop().animate({"height":"0px"}, 0);
 			}
+			
 		},
 		
 		renderFormats : {

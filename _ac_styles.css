@@ -165,6 +165,12 @@ span.ui-state-highlight{
 /**Bottom third**/
 .headerBottomThird{
 }
+.navTopCat{
+	height: 100%;
+    position: absolute;
+    top:0px !important;
+    width: 100%;
+}
 .navBarBrands{
 	background-size:cover;
 	width:120px;
@@ -177,6 +183,7 @@ span.ui-state-highlight{
 	font-family: 'Special Elite', cursive;
 	font-size: 21px;
 	font-weight: 200;
+	position:relative;
 }
 .navBarBrands:active{
 	color:#000000;
@@ -189,6 +196,17 @@ span.ui-state-highlight{
 	left:5px;
 	top:250px;
 }
+.headerDropdownBrand{
+	height: 0px;
+	width: 990px;
+	float:left;
+	background-image:url(images/header_nav_bar/dropdownbackground.png);
+	background-repeat:no-repeat;
+	background-size:cover;
+	z-index:3;
+	left: -45px;
+    top: 60px;
+}
 .navBarEyes{
 	background-size:cover;
 	width:120px;
@@ -200,6 +218,7 @@ span.ui-state-highlight{
 	font-family: 'Special Elite', cursive;
 	font-size: 21px;
 	font-weight: 200;
+	position:relative;
 }
 .navBarEyes:active{
 	color:#000000;
@@ -212,8 +231,8 @@ span.ui-state-highlight{
 	list-style:none;
 }
 .navBarEyes div{
-	left: -3px;
-    top: 54px;
+	 left: -153px;
+    top: 50px;
 }
 .navBarLips{
 	background-size:cover;
@@ -226,6 +245,7 @@ span.ui-state-highlight{
 	font-family: 'Special Elite', cursive;
 	font-size: 21px;
 	font-weight: 200;
+	position:relative;
 }
 .navBarLips:active{
 	color:#000000;
@@ -235,7 +255,7 @@ span.ui-state-highlight{
 	color:#000000;
 }
 .navBarLips ul{
-	left: 107px;
+	left: -163px;
     top: 28px;
 }
 .navBarFace{
@@ -250,6 +270,7 @@ span.ui-state-highlight{
 	font-size: 21px;
 	font-weight: 200;
 	margin-right:5px;
+	position:relative;
 }
 .navBarFace:active{
 	color:#000000;
@@ -259,7 +280,7 @@ span.ui-state-highlight{
 	color:#000000;
 }
 .navBarFace ul{
-	left: 225px;
+	left: -160px;
     top: 30px;
 }
 .navBarAccess{
@@ -273,6 +294,7 @@ span.ui-state-highlight{
 	font-family: 'Special Elite', cursive;
 	font-size: 21px;
 	font-weight: 200;
+	position:relative;
 }
 .navBarAccess:active{
 	color:#000000;
@@ -283,7 +305,7 @@ span.ui-state-highlight{
 	font-size: 18px;
 }
 .navBarAccess ul{
-	left: 350px;
+	left: -160px;
     top: 33px;
 }
 .navBarSkin{
@@ -298,6 +320,7 @@ span.ui-state-highlight{
 	font-size: 21px;
 	font-weight: 200;
 	margin-left:20px;
+	position:relative;
 }
 .navBarSkin:active{
 	color:#000000;
@@ -307,7 +330,7 @@ span.ui-state-highlight{
 	color:#000000;
 }
 .navBarSkin ul{
-	left: 490px;
+	left: -160px;
     top: 30px;
 }
 .navBarNails{
@@ -321,6 +344,7 @@ span.ui-state-highlight{
 	font-family: 'Special Elite', cursive;
 	font-size: 21px;
 	font-weight: 200;
+	position:relative;
 }
 .navBarNails:active{
 	color:#000000;
@@ -344,6 +368,7 @@ span.ui-state-highlight{
 	font-family: 'Special Elite', cursive;
 	font-size: 21px;
 	font-weight: 200;
+	position:relative;
 }
 .navBarFragrance:active{
 	color:#000000;
@@ -367,6 +392,7 @@ span.ui-state-highlight{
 	font-family: 'Special Elite', cursive;
 	font-size: 21px;
 	font-weight: 200;
+	position:relative;
 }
 .navBarHair:active{
 	color:#000000;
@@ -376,7 +402,7 @@ span.ui-state-highlight{
 	color:#000000;
 }
 .navBarHair ul{
-	left: 850px;
+	left: -160px;
     top: 30px;
 }
 .navBarJewel{
@@ -390,6 +416,7 @@ span.ui-state-highlight{
 	font-family: 'Special Elite', cursive;
 	font-size: 21px;
 	font-weight: 200;
+	position:relative;
 }
 .navBarJewel:active{
 	color:#000000;
@@ -399,11 +426,11 @@ span.ui-state-highlight{
 	color:#000000;
 }
 .navBarJewel ul{
-	left: 915px;
+	left: -220px;
 	top: 30px;
 }
 .navBarSale ul{
-	left: 920px;
+	left: -330px;
     top: 30px;
 }
 .navBarSale{
@@ -417,6 +444,7 @@ span.ui-state-highlight{
 	font-family: 'Special Elite', cursive;
 	font-size: 21px;
 	font-weight: 200;
+	position:relative;
 }
 .navBarSale:active{
 	color:#000000;
@@ -446,15 +474,6 @@ span.ui-state-highlight{
 	background-image:url(images/header_nav_bar/dropdownbackground.png);
 	background-repeat:no-repeat;
 	background-size:cover;
-}
-.headerDropdownBrand{
-	height: 0px;
-	width: 990px;
-	float:left;
-	background-image:url(images/header_nav_bar/dropdownbackground.png);
-	background-repeat:no-repeat;
-	background-size:cover;
-	z-index:3;
 }
 .headerDropdownLink{
 	line-height:25px;
