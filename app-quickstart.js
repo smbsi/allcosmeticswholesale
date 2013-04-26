@@ -2980,9 +2980,14 @@ else	{
 						if(cartObj)	{
 							app.calls.cartItemAppend.init(cartObj,{},'immutable');
 							app.model.destroy('cartDetail');
-							app.calls.cartDetail.init({'callback':function(rd){
-								showContent('cart',obj);
-								}},'immutable');
+							//app.calls.cartDetail.init({'callback':function(rd){
+							//	showContent('cart',obj);
+							//	}},'immutable');
+							$('.prodAddToCart').show();
+							app.u.throwGMessage("Product has been added to your cart!");
+							function hideATC(){$('.prodAddToCart').hide();}
+							var hideAddToCart = hideATC;
+							setTimeout(hideAddToCart, 5000);	
 							app.model.dispatchThis('immutable');
 							}
 						}
