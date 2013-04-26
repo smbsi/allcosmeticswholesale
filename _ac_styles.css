@@ -57,6 +57,10 @@ span.ui-state-highlight{
 	color:black !important;
 }
 
+#globalMessaging div p{
+	color:white;
+}
+
 
 /*STRAYS - PLEASE FIND A HOME FOR BEFORE DEPLOYMENT*/
 
@@ -1456,6 +1460,14 @@ h2 .cents{
 .priceReviewContainer span.reviewSprite{
 	margin-left:73px;
 }
+.prodAddToCart{
+	color:#FF3D7F;
+	font-family: 'Special Elite', cursive;
+	font-weight:200;
+	margin-left: 15px;
+    text-align: center;
+}
+
 
 /*************************************************************************************************************************/
 /**Search Categories**/

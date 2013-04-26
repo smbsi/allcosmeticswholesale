@@ -19,5 +19,25 @@ becomes
               			infoObj.templateID = 'categoryTemplate'
 					}
 
+- Add the following commits to to the project IF they aren't already part of the framework:
+https://github.com/zoovy/AnyCommerce-Development/commit/f9f1717cc4c9740e9a3c9a787adb5140908eaf2f
+https://github.com/zoovy/AnyCommerce-Development/commit/96f1e0a455a93ac3472fe775ecf1a50a7a3ee882
+
+- After the commits are added, change: 
+app.u.throwMessage(rd);
+to
+app.u.throwMessage("Product successfully added to cart");
+
+below app.model.destroy('cartDetail');
+$('.prodAddToCart').show();
+function hideATC(){$('.prodAddToCart').hide();}
+var hideAddToCart = hideATC;
+setTimeout(hideAddToCart, 10000);	
 
 
+
+prodAddToCart{
+
+color:#FF3D7F;
+	font-family: 'Special Elite', cursive;
+	font-weight:200;
