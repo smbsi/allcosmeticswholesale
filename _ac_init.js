@@ -192,7 +192,7 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P)
 	function foo5(){ $(".carouselCatSearchList").carouFredSel
 	({
 		width   : 1300,
-		height	: 1000,
+		height	: 1165,
 		items   : 1,
 		scroll: 1,
 		auto : false
