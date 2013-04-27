@@ -1180,7 +1180,7 @@ this will likely become more flexible in the future. ###
 <div class="priceReviewContainer">
 	
     <h4>FREE SHIPPING ON ALL U.S.</h4>
-    <h4>ORDERS ABOVE &#36;100</h4>
+    <h4>ORDERS OVER &#36;100</h4>
     <br /><br /> 
 
     <div class='priceContainer'>
@@ -2044,7 +2044,7 @@ So the cart template should contain these two elements and the extension should 
 		</div>
         
         <div class="cartRemove">
-            <h5 class="floatLeft" data-bind='var: product(zoovy:prod_msrp);'>MSRP</h5>
+            <h5 class="floatLeft displayNone" data-bind='var: product(zoovy:prod_msrp); format:showIfSet;'>MSRP</h5>
             <!--<div class='ztable_row_small prodOptions' data-bind='var: variations(%options); format:selectedOptionsDisplay;'></div>-->
             <button class='floatLeft removeButton' data-bind='format:removeItemBtn; extension:store_cart; useParentData:true;' >Remove Item From Cart</button>
 		</div>
