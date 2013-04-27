@@ -1386,6 +1386,8 @@ form .prodQuantity{
 	height:30px;
 	border-radius:0px;
 	border:none;
+	font-size: 20px;
+	text-align: center;
 }
 div .quantityButton{
 	width:40%;
@@ -1396,6 +1398,8 @@ div .quantityButton{
 	background-color:#3fb8af;
 	font-family: 'Special Elite', cursive;
 	font-size: 16px;
+}
+.quantityButton span{
 }
 
 form .addToCartButton{
@@ -2096,6 +2100,7 @@ div span .cents{
 }
 .chkoutCartSummaryTemplate h3{
 	color:white;
+	margin-top: 5px;
 }
 .chkoutCartSummaryTemplate h4{
 	margin-left: 75px;
@@ -2135,6 +2140,12 @@ div span .cents{
 }
 .checkoutLinks a:hover{
 	color:#3fb8af;
+}
+#shippingWarning{
+	float: right;
+    margin-left: 0;
+    margin-top: 20px;
+    width: 295px;
 }
 
 /*************************************************************************************************************************/
