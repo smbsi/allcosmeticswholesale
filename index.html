@@ -971,6 +971,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
             <input type='hidden' name='qty' value='1' />
             <button data-bind='format:addToCartButton; extension:myRIA; useParentData:true;'>more details</button>
         </form>
+        
         <h4 data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true; pretext: MSRP ;'></h4>
     </div>
     
@@ -1105,9 +1106,9 @@ SANITY -> if you change the height and width of this image, change the .minimalM
 <div id='categoryProductListTemplate' class='loadingBG productListTemplate' data-app-role='productListPage'>
 	<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
     <!--ADDED FOR TESTING. REMOVE WHEN FINISHED-->
-    <div class="catListingCont">
+    <!--<div class="catListingCont">
     	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
-    </div>
+    <!--</div>
     <!--END TESTING SECTION-->
     <ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
 </div>

@@ -270,12 +270,12 @@ do NOT change any div id's or messaging will not work properly.
 
 <div id='chkoutMethodsPayTemplate'>
 
-	<div class='giftCardContainer' data-app-role="giftcardContainer">
+	<!--<div class='giftCardContainer' data-app-role="giftcardContainer">
 	<label for='giftcardCode'>Gift Certificate Code:</label>
 	<input type='text' name='giftcard' size='16'  data-app-event='orderCreate|addTriggerButtonClick' />
 	<button data-app-event='orderCreate|execGiftcardAdd'>add</button> 
 	<small data-app-role='giftcardHint' class='zhint hint displayNone'>if you wish to combine gift cards with another payment method, enter them here</small>
-	</div>
+	</div>-->
 
 	<div data-app-role='paymentQContainer' class='marginBottom'>
 		<ul class='noPadOrMargin listStyleNone' data-bind='var: cart(@PAYMENTQ); format:processList; loadsTemplate:cartPaymentQTemplate;'></ul>
@@ -365,8 +365,8 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
 	<!--<div data-bind='var: cart(sum/balance_due_total); format:orderBalance; className:orderBalanceDue; hideZero:false; currencySign: $; pretext:Balance Due: ; extension:cco;'></div>-->
 
 	<div class='couponEntryContainer' data-app-role='couponContainer'>
-		<!--<label for='coupon'>Coupon/Promo Code:</label>-->
-		<input type='text' name='coupon' size='8'  data-app-event='orderCreate|addTriggerButtonClick' />
+		<label for='coupon'>Coupon/Promo Code:</label>
+		<input type='text' name='coupon' size='8' placeholder="  Enter Coupon Code" data-app-event='orderCreate|addTriggerButtonClick' />
 		<button data-app-event="orderCreate|execCouponAdd" >add</button>
 	</div>
 
