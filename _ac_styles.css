@@ -544,6 +544,13 @@ span.ui-state-highlight{
 	 margin-left: 10px;
 }
 
+.headerAdBar{
+	background-color: blue;
+    float: left;
+    height: 80px;
+    margin-left: 50px;
+    width: 1290px;
+}
 
 
 /*************************************************************************************************************************/
@@ -1254,9 +1261,81 @@ ul .mpControlJumpToPage{
 	text-align: center;
 	line-height: 130px;
 }
-.catName span:hover{
-}
 
+
+
+/*************************************************************************************************************************/
+/*************************************************************************************************************************/
+/**Quickview**/
+.quickviewImageContainer{
+	 border: medium none !important;
+}
+.quickviewImageContainer div{
+	 width: 240px !important;
+}
+.priceContainer{
+	float:right;
+}
+.priceContainer h6{
+	color:white;
+	text-align: center;
+	margin-bottom: 20px;
+	margin-left: 0px;
+}
+.priceContainer h5{
+	color: #ff9e9d;
+    font-size: 29px;
+    text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	margin-left: 0px;
+}
+.priceContainer h5 span.cents{
+	font-size: 14px;
+    vertical-align: super;
+}
+.priceContainer h4{
+	color: #FF3D7F;
+    font-size: 36px;
+    text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	margin-left: 0px;
+	clear:right;
+}
+.priceContainer h4 span.cents{
+	font-size: 16px;
+    vertical-align: super;
+}
+.priceContainer span.savings{
+	color: #3FB8AF;
+    text-align: center;
+	font-family: 'Montserrat', sans-serif;
+    margin-left: 10px;
+}
+.prodPriceSummaryContainer{
+	float:left;
+	width: 300px;
+}
+.prodSummaryContainer h6{
+	color:#ff9e9d;
+	margin-top: 10px;
+	margin-left: 0px;
+	font-size: 14px;
+	font-family: 'Montserrat', sans-serif;
+}
+.prodSummaryContainer h6.qvSKU{
+	margin-left:0px;
+}
+.prodViewerAddToCartForm{
+	
+}
+.prodViewerAddToCartForm button.qvAddToCart{
+	border: medium none;
+    border-radius: 0 0 0 0;
+    width: 170px;
+	margin-left: 60px;
+	font-family: 'Special Elite', cursive;
+}
 
 /*************************************************************************************************************************/
 /*************************************************************************************************************************/
