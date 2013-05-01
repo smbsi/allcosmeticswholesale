@@ -215,7 +215,17 @@ var store_acw = function() {
 			showReviewsModal : function(){
 				$('#reviewModalContent').dialog({'modal':'true', 'title':'Product Reviews','width':940, height:500});
 			},
-			showInterShipWarning : function(){
+			showInterShipWarning : function(val){
+				//countrySelectorShipping
+				console.debug(val);
+				
+				$("#countrySelectorShipping").val(val);
+				//$("#countrySelectorBilling").val(val);
+				
+				//var $options = $("#countrySelectorBilling > option").clone();
+				//$('#countrySelectorShipping').append($options);
+				//app.u.dump('Here is what is stored in countrySelectorBilling ' + abcd);
+				
 				if ($('#countrySelectorBilling').val() === "US"){
 					$('#shippingWarning').hide();
 					if ($('#countrySelectorShipping').val() === "US"){
@@ -233,6 +243,7 @@ var store_acw = function() {
 			interShipWarningAcceptClick : function(){
 				if($('#interShipAgreeCheck').is(':checked')){
 					$('#interShippingModal').dialog('close');
+					$('#noCheckWarning').hide();
 				}
 				else
 				{

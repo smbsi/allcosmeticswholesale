@@ -171,7 +171,7 @@ This template is also used in the myAccount page, which is why a default using _
 
 <section id='chkoutAddressBillTemplate'>
 
-	<div class='billCountry' data-app-role='billCountry'><select id="countrySelectorBilling" name='bill/countrycode' data-bind='var: cart(bill/countrycode); defaultVar: cart(bill/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;' required='required' data-app-event="orderCreate|execCountryUpdate" onchange="app.ext.store_acw.a.showInterShipWarning(); return false;"></select></div>
+	<div class='billCountry' data-app-role='billCountry'><select id="countrySelectorBilling" name='bill/countrycode' data-bind='var: cart(bill/countrycode); defaultVar: cart(bill/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;' required='required' data-app-event="orderCreate|execCountryUpdate" onchange="app.ext.store_acw.a.showInterShipWarning($(this).val()); return false;"></select></div>
 
 	<div><input type='text' placeholder='first name' name='bill/firstname' required='required' value='' data-bind='var: cart(bill/firstname); defaultVar: cart(bill/firstname); format:popVal;'  /></div>
 	<div><input type='text' placeholder='last name' name='bill/lastname' required='required' value='' data-bind='var: cart(bill/lastname); defaultVar: cart(bill/lastname); format:popVal;'  /></div>
@@ -204,7 +204,7 @@ don't add required to any inputs because if bill to ship is checked, NONE of the
 
 <section id='chkoutAddressShipTemplate'>
 
-	<div class='shipCountry' data-app-role='shipCountry'><select id="countrySelectorShipping" name='ship/countrycode' data-bind='var: cart(ship/countrycode); defaultVar: cart(ship/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;'  data-app-event="orderCreate|execCountryUpdate" onchange="app.ext.store_acw.a.showInterShipWarning(); return false;" ></select></div>
+	<div class='shipCountry' data-app-role='shipCountry'><select id="countrySelectorShipping" name='ship/countrycode' disabled="disabled" data-bind='var: cart(ship/countrycode); defaultVar: cart(ship/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;'  data-app-event="orderCreate|execCountryUpdate" onchange="app.ext.store_acw.a.showInterShipWarning(); return false;" ></select></div>
 
 	<div><input type='text' placeholder='first name' name='ship/firstname' required='required' value='' data-bind='var: cart(ship/firstname); defaultVar: cart(ship/firstname); format:popVal;'  /></div>
 	<div><input type='text' placeholder='last name' name='ship/lastname' required='required' value='' data-bind='var: cart(ship/lastname); defaultVar: cart(ship/lastname); format:popVal;'  /></div>
@@ -276,7 +276,7 @@ do NOT change any div id's or messaging will not work properly.
 	<button data-app-event='orderCreate|execGiftcardAdd'>add</button> 
 	<small data-app-role='giftcardHint' class='zhint hint displayNone'>if you wish to combine gift cards with another payment method, enter them here</small>
 	</div>-->
-
+	<h5 class="wireTransferWarning">&#42;&#42;All wire transfer payments will require a &#36;30 dollar processing fee&#42;&#42;</h5>
 	<div data-app-role='paymentQContainer' class='marginBottom'>
 		<ul class='noPadOrMargin listStyleNone' data-bind='var: cart(@PAYMENTQ); format:processList; loadsTemplate:cartPaymentQTemplate;'></ul>
 	</div>
