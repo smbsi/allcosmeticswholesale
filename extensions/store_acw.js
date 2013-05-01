@@ -191,6 +191,23 @@ var store_acw = function() {
 			init : {
 				onSuccess : function(){
 					app.u.dump('BEGIN app.ext.ext._acw.callbacks.init.onSuccess');
+					app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
+						//make a call to get a search
+						var $context = $(app.u.jqSelector('#',P.parentID));
+						var _tag = {"callback" : "productElasticSearchList", "extension":"store_acw", "$context" : $context, "datapointer":"ProdPageElastic"};
+						
+						
+						if(app.model.fetchData(_tag.datapointer)){
+							app.u.handleCallback(_tag);
+							}
+						else {
+							var obj = {'filter':{'term':{'tags':'IS_FRESH'}}};
+							obj = app.ext.store_search.u.buildElasticRaw(obj);
+							obj.size = 10;
+							app.ext.store_search.calls.appPublicSearch.init(obj, _tag);
+							}
+						//callback will call anycontent and append to product
+						}]);
 				},
 				onError : function() {
 					app.u.dump('BEGIN app.ext.ext._acw.callbacks.init.onError');
@@ -203,7 +220,17 @@ var store_acw = function() {
 				onError : function (){
 					app.u.dump('BEGIN app.ext._acw.callbacks.startExtension.onError');
 				}
-			}
+			},
+			productElasticSearchList : {
+				onSuccess : function(responseData){
+					//alert("holy crap");
+					app.u.dump(responseData, "debug");
+					
+					$('.elasticlist', responseData.$context).anycontent({"templateID":"prodPageElasticTemplate","datapointer":"ProdPageElastic"});
+					},
+				onError : function(){
+					}
+				}
 		},
 		
 		

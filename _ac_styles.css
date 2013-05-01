@@ -1376,8 +1376,8 @@ div .socialLinks{
 
 .prodSummaryContainer{
 	float:left;
-	width:40%;
-	height:800px;
+	width: 590px;
+	height:750px;
 	margin-right:10px;
 }
 .prodSummaryContainer h1{
@@ -1578,10 +1578,16 @@ h2 .cents{
 	overflow: hidden;
 	 height: 27px;
 }
+.carouselProdTitleCont h2{
+	font-family: 'Special Elite', cursive;
+	color:#3fb8af;
+	font-weight:200;
+}
+
 .carouselProdListCont{
 	clear:both;
 	overflow:hidden;
-	height:1000px;
+	height:1020px;
 	width:1300px;
 }
 
@@ -2566,4 +2572,10 @@ div.buttonList .removeButtonWishlist:hover{
 	color:white;
 }
 .resultsMenuContainer div{
+}
+.searchResultsProduct{
+	float: left;
+    height: 340px;
+    margin-right: 20px;
+    width: 290px;
 }

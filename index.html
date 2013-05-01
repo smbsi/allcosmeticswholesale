@@ -554,6 +554,11 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
 <div id='appTemplates' class='displayNone'>
 
 
+
+<div id="prodPageElasticTemplate">
+	<ul data-bind="useParentData:true; format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsProdTemp;' class='listStyleNone fluidList clearfix noPadOrMargin productList'";></ul>
+</div>
+
 <!--
 
 ############################
@@ -1089,6 +1094,33 @@ SANITY -> if you change the height and width of this image, change the .minimalM
 	
 </li>
 
+<li id='productListTemplateResultsProdTemp' class='loadingBG searchResultsProduct ' >
+ <div data-bind="var:product(pid); format:assignAttribute; attribute:data-pid;">
+	<div onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});" class='pointer prodListDetails'>
+    	<h5 class='hideInMinimalMode pointer' data-bind='var: product(prod_name); format:truncText; numCharacters: 70;'></h5>
+		<div class='prodThumbContainer'>
+			<img src='blank.gif' class='prodThumb' alt='' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='278' height='200' />
+		</div>
+        
+        <div class="prodListPriceBuyCont">
+    		<div>
+        		<h1 class='hideInMinimalMode' data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price;'></h1>
+        	</div>
+            <!--<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm' action='#'>
+                <button data-bind='format:addToCartButton; extension:myRIA; useParentData:true;'>more details</button>
+            </form>-->
+            <div class="moreDetailsButton" data-bind="var:product(pid); format:assignAttribute; attribute:data-pid;">
+            	<div class='hideInMinimalMode pointer moreDetails prodViewerAddToCartForm' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});"><span>more details</span></div>
+            </div>
+        </div>
+        <h4 data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true; pretext: MSRP ;'></h4>
+		
+		<!--<h6 class='hideInMinimalMode' data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>-->
+	</div>
+  </div>
+	
+</li>
+
 <li id='productListTemplateResultsNoPreview' class='loadingBG searchResultsProduct ' >
 	<div onClick="return showContent('product', {'pid' : $(this).parent().attr('data-pid')});" class='pointer'>
 		<div class='prodThumbContainer'>
@@ -1140,7 +1172,6 @@ this will likely become more flexible in the future. ###
 
 
 <div id='productTemplate'>
-
 <ul class='clearfix noPadOrMargin fluidList breadcrumb' data-bind='var: session(session.recentCategories.0); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
 <br /><br />
 
@@ -1253,7 +1284,7 @@ this will likely become more flexible in the future. ###
 </div>
 
 
-<div class="carouselProdSearchCont displayNone" data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_DISCONTINUED"}}}); format:showIfSet;'>
+<div class="carouselProdSearchCont"> <!--<div class="carouselProdSearchCont" data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_DISCONTINUED"}}}); format:showIfSet;'>-->
     <div class="carouselProdTitleCont">
        <div class="displayNone" data-bind='var: product(zoovy:related_products); format:showIfSet;'>
            <h2>You'll Love These</h2>
@@ -1264,7 +1295,7 @@ this will likely become more flexible in the future. ###
         <div class="carouselYouMightLikeCont" data-bind='var: product(zoovy:related_products); format:showIfSet;'>
             <ul class='listStyleNone fluidList clearfix noPadOrMargin productList youMIghtLikeUL' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateProgPG;hide_pagination:true;hide_summary:true; withReviews:1;"></ul>
         </div>
-        <ul data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_DISCONTINUED"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList prodSearchBestSellers'></ul>
+        <div class="elasticlist"></div>
     </div>
 </div>
 
