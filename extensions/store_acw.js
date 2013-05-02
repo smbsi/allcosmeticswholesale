@@ -240,7 +240,7 @@ var store_acw = function() {
 //these are going the way of the do do, in favor of app events. new extensions should have few (if any) actions.
 		a : {
 			showReviewsModal : function(){
-				$('#reviewModalContent').dialog({'modal':'true', 'title':'Product Reviews','width':940, height:500});
+				$('#reviewModalContent').dialog({'modal':'true', 'title':'Product Reviews','width':950, height:500});
 			},
 			showInterShipWarning : function(val){
 				//countrySelectorShipping
