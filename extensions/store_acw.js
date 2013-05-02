@@ -197,15 +197,15 @@ var store_acw = function() {
 						var _tag = {"callback" : "productElasticSearchList", "extension":"store_acw", "$context" : $context, "datapointer":"ProdPageElastic"};
 						
 						
-						if(app.model.fetchData(_tag.datapointer)){
+						/*if(app.model.fetchData(_tag.datapointer)){
 							app.u.handleCallback(_tag);
 							}
-						else {
-							var obj = {'filter':{'term':{'tags':'IS_FRESH'}}};
+						else {*/
+							var obj = {'filter':{'term':{'tags':'IS_BESTSELLER'}}};
 							obj = app.ext.store_search.u.buildElasticRaw(obj);
-							obj.size = 10;
+							obj.size = 12;
 							app.ext.store_search.calls.appPublicSearch.init(obj, _tag);
-							}
+							//}
 						//callback will call anycontent and append to product
 						}]);
 				},
