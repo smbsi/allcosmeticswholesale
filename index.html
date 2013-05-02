@@ -704,7 +704,12 @@ don't modify the 'data-templateid' unless you are changing template names and up
     
     <div class="carouselCatSearchCont">
         <div class="clear"></div>
-        	<div class="carouselCatSearchPagination">
+        <h2>Featured Items</h2>
+        <!--<ul id='catProdSearchSale' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_DISCONTINUED"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList floatLeft'></ul>-->
+        <ul id='catProdSearch' data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 12;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
+        
+        	<!--   **UNCOMMENT TO INCORPORATE IN CAROUSELS**
+        	<!--    <div class="carouselCatSearchPagination">
                 <a style="left:380px; top:30px;" id="prevCatSearchCaro" class="prevCatSearchCaro pointer"><img class="pointer" src="images/homepage/carousel_arrow_left.png" /></a>
                 <a style="right:340px; top:30px;" id="nextCatSearchCaro" class="nextCatSearchCaro pointer"><img class="pointer" src="images/homepage/carousel_arrow_right.png" /></a>
             	<ul class="carouselCatSearchPaginTitle">
@@ -716,7 +721,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
             <div class="clear"></div>
         	<div class="carouselCatSearchList">
                 	<ul id='catProdSearch' data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 12;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
-                    <ul id='catProdSearchSale' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_SALE"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList floatLeft'></ul>
+               <!--     <ul id='catProdSearchSale' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_SALE"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList floatLeft'></ul>
                     <div class="recentlyViewedBuildContainer">
                         <div id='recentlyViewedItemsContainer'>
                             <ul data-bind="var: session(recentlyViewedItems); format: productList; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; hide_pagination:1; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
@@ -974,7 +979,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
     	<div>
         	<h1 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price;'></h1>
         </div>
-        <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm' action='#' onSubmit="app.ext.myRIA.u.addItemToCart($(this),{'action':'modal'}); return false;">
+        <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm' action='#' onSubmit="app.ext.myRIA.u.addItemToCart($(this), {'action':'message'}); return false;">
             <input type='hidden' name='qty' value='1' />
             <button data-bind='format:addToCartButton; extension:myRIA; useParentData:true;'>more details</button>
         </form>

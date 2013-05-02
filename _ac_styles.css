@@ -965,6 +965,8 @@ div .catListingCat:hover{
 	margin-bottom:20px;
     padding-top: 15px;
 	clear:both;
+	text-align: center;
+    width: 90%;
 }
 .categoryTemplate h3{
 	color:#ff3d7f;
@@ -1105,7 +1107,7 @@ div .catListingCat:hover{
 	padding-right: 20px;
 }
 .productList li{
-	width: 290px;
+	width: 289px;
 	height:330px;
 	margin-bottom:20px;
 }
@@ -1210,7 +1212,7 @@ div .moreDetailsButton span{
 }
 div .mpControlsPagination{
 	line-height: 43px;
-	width:130px;
+	width:141px;
 	float:right;
 }
 .mpControlsPagination ul li a span{
@@ -1223,7 +1225,7 @@ div .mpControlsPagination{
 .mpControlContainer span{
 	color:white;
 	float:right;
-	margin-right:20px;
+	margin-right:30px;
 }
 .mpPaginationColor span{
 	color:#3fb8af;
