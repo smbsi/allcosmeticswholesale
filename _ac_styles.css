@@ -548,11 +548,11 @@ span.ui-state-highlight{
 }
 
 .headerAdBar{
-	background-color: blue;
+    border: medium none;
     float: left;
     height: 80px;
     margin-left: 50px;
-    width: 1290px;
+    width: 940px;
 }
 
 
@@ -749,7 +749,7 @@ margin-left:20px;
 #paginCaro{
 	bottom: 0;
     height: 20px;
-    left: 340px;
+    left: 335px;
     overflow: visible;
     position: absolute;
     width: 100px;
