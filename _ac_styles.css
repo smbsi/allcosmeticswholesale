@@ -871,23 +871,23 @@ margin-left:20px;
 /*************************************************************************************************************************/
 /**homepageBottomSec**/
 #homeProdSearchSale{
-	width:1300px;
-	height:1000px;
+	width:950px;
+	height:900px;
 }
 #homeProdSearchBestSellers{
-	width:1300px;
-	height:1000px;
+	width:950px;
+	height:900px;
 }
 #homeProdSearchDiscontinued{
 	width:950px;
-	height:1000px;
+	height:900px;
 }
 .carouselHPSearchCont{
 	margin-left:30px;
 }
 .carouselHPSearchList{
-	width:1300px;
-	height:1000px;
+	width:950px;
+	height:900px;
 }
 .carouselHPSearchPagination{
 	float:left;

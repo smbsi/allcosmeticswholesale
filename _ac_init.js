@@ -100,7 +100,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 	function foo2(){ $(".carouselHPSearchList").carouFredSel
 	({
 		width   : 1000,
-		height	: 1000,
+		height	: 900,
 		items   : 1,
 		scroll: 1,
 		auto : false
