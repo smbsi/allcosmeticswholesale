@@ -927,6 +927,9 @@ margin-left:20px;
 /*************************************************************************************************************************/
 /**Category Page**/
 
+.categoryTemplate{
+	width:1020px;
+}
 .breadcrumb{
 	text-align:center;
 	width: 500px;
@@ -951,12 +954,12 @@ margin-left:20px;
 }
 div .catListingCat{
 	width:19% !important;
-	height:150px !important;
+	height:120px !important;
 	background:url(images/category_page/category_listing_norm.png);
 	background-repeat:no-repeat;
 	background-size:contain;
 	float:left;
-	margin-left:60px;
+	margin-left:43px;
 }
 div .catListingCat:hover{
 	background:url(images/category_page/category_listing_hover.png);
@@ -1073,7 +1076,7 @@ div .catListingCat:hover{
 	padding-left: 20px;
 }
 .brandList ul{
-	width:22%;
+	width:20%;
 	float:left;
 }
 .brandList li{
@@ -1094,7 +1097,7 @@ div .catListingCat:hover{
 	padding-left: 20px;
 }
 .suite7List ul{
-	width:22%;
+	width:20%;
 	float:left;
 }
 .suite7List li{
@@ -1122,7 +1125,7 @@ div .catListingCat:hover{
 .productList li{
 	width: 210px;
 	height:330px;
-	margin-bottom:20px;
+	margin-bottom:10px;
 }
 .prodThumbContainer{
 	border:solid 6px rgba(200, 200, 200, .2);
@@ -1185,7 +1188,7 @@ div .moreDetailsButton span{
 .prodListPriceBuyCont button{
 	width:100%;
 	float:left;
-	height:50px;
+	height:40px;
 	font-family: 'Special Elite', cursive;
 	font-size: 20px;
 	border-radius: 0 0 0 0;
@@ -1211,8 +1214,8 @@ div .moreDetailsButton span{
 .mpControlContainer{
 	height:45px;
 	clear:both;
-	width:1230px;
-	margin-left:50px;
+	width:960px;
+	margin-left:5px;
 }
 .mpControls{
 	background-color:black;
@@ -1274,7 +1277,7 @@ ul .mpControlJumpToPage{
 	font-size: 18px;
 	width: 23%;
 	text-align: center;
-	line-height: 130px;
+	line-height: 100px;
 }
 
 
@@ -1355,13 +1358,16 @@ ul .mpControlJumpToPage{
 /*************************************************************************************************************************/
 /*************************************************************************************************************************/
 /**Product Page**/
+.productTemplate{
+	width:1020px;
+}
 /*************************************************************************************************************************/
 /**Product Image section**/
 .imageContainer{
 	padding-right:0px;
 	margin-right:24px;
 	float:left;
-	width:25%;
+	width:305px;
 	height:735px;
 	margin-left:45px;
 }
@@ -1370,7 +1376,7 @@ div .tagsContainer{
 }
 .imageContainer div{
 	border:solid 6px rgba(200, 200, 200, .2);
-	width: 340px;
+	width: 290px;
 	float:left;
 }
 .prodViewerContainer .prodThumbs div{
@@ -1382,6 +1388,8 @@ div .prodThumbs{
 }
 div .socialLinks{
 	border:none;
+	height: 50px;
+    width: 100%;
 }
 
 .someClassYouWant .ui-dialog-titlebar-close {display:none;}
@@ -1391,8 +1399,8 @@ div .socialLinks{
 
 .prodSummaryContainer{
 	float:left;
-	width: 590px;
-	height:785px;
+	width: 400px;
+	height:835px;
 	margin-right:10px;
 }
 .prodSummaryContainer h1{
@@ -1408,6 +1416,7 @@ div .socialLinks{
 .prodSummaryContainer div {
 	color:white;
 	font-family: 'Montserrat', sans-serif;
+	font-size:14px;
 }
 
 /*************************************************************************************************************************/
@@ -1416,7 +1425,7 @@ div .socialLinks{
 	width:20%;
 	float:left;
 	height:735px;
-	margin-left: 40px;
+	margin-left: 0px;
 }
 .priceReviewContainer h4{
 	color:white;
@@ -1451,7 +1460,7 @@ div .socialLinks{
     vertical-align: text-top;
 }
 .savingsDifference{
-	margin-left:100px;
+	margin-left:65px;
 }
 
 .prodViewerAddToCartForm{
@@ -1464,42 +1473,42 @@ div .socialLinks{
 	width:60%;
 }
 form .prodQuantity{
-	width:60%;
+	width:180px;
 	height:32px;
 	background-color:rgba(200, 200, 200, .2);
 	border: medium none;
 	padding: 10px;
-	margin-left: 50px;
+	margin-left: 0px;
 	margin-bottom: 10px;
 }
 .prodQuantity fieldset{
-	width:60%;
+	width:120px;
 	float:left;
 }
 .prodQuantity input{
 	width:100%;
-	height:30px;
+	height:28px;
 	border-radius:0px;
 	border:none;
 	font-size: 20px;
 	text-align: center;
 }
 div .quantityButton{
-	width:40%;
-	height:32px;
+	width:60px;
+	height:30px;
 	float:left;
 	border-radius:0px;
 	border:medium none;
 	background-color:#3fb8af;
 	font-family: 'Special Elite', cursive;
-	font-size: 16px;
+	font-size: 12px;
 }
 .quantityButton span{
 }
 
 form .addToCartButton{
-	margin-left:50px;
-	width: 67%;
+	margin-left:0px;
+	width: 200px;
 	border: medium none;
     border-radius: 0 0 0 0;
 	height: 50px;
@@ -1508,8 +1517,8 @@ form .addToCartButton{
 }
 
 .reviewButton{
-	margin-left:50px;
-	width: 67%;
+	margin-left:0px;
+	width: 200px;
 	border: medium none;
     border-radius: 0 0 0 0;
 	height: 50px;
@@ -1519,8 +1528,8 @@ form .addToCartButton{
 	background-color:#ff3d7f;
 }
 .writeReviewButton{
-	margin-left:50px;
-	width: 67%;
+	margin-left:0px;
+	width: 200px;
 	border: medium none;
     border-radius: 0 0 0 0;
 	height: 50px;
@@ -1531,8 +1540,8 @@ form .addToCartButton{
 	margin-bottom:20px;
 }
 .wishlistButton{
-	margin-left:50px;
-	width: 67%;
+	margin-left:0px;
+	width: 200px;
 	border: medium none;
     border-radius: 0 0 0 0;
 	height: 50px;

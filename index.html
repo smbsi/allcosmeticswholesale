@@ -706,7 +706,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
         <div class="clear"></div>
         <h2>Featured Items</h2>
         <!--<ul id='catProdSearchSale' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_DISCONTINUED"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList floatLeft'></ul>-->
-        <ul id='catProdSearch' data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 12;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
+        <ul id='catProdSearch' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
         
         	<!--   **UNCOMMENT TO INCORPORATE IN CAROUSELS**
         	<!--    <div class="carouselCatSearchPagination">
@@ -811,9 +811,9 @@ don't modify the 'data-templateid' unless you are changing template names and up
             <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.rocket-city'});">Rocket City</a></li>
             <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.sally_hansen'});">Sally Hansen</a></li>
             <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.sigma'});">Sigma</a></li>
-            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.smashbox'});">Smashbox</a></li>
         </ul>
         <ul>
+        	<li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.smashbox'});">Smashbox</a></li>
             <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.smh'});">SMH</a></li>
             <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.stila'});">Stila</a></li>
             <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.suite_7_beauty'});">Suite 7 Beauty</a></li>
@@ -968,7 +968,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
         <h5 data-bind='var: product(zoovy:prod_name); format:truncText; numCharacters: 70;'></h5>
 		
         <div class='prodThumbContainer' data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'>
-			<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='278' height='200' />
+			<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='210' height='170' />
 	</div>
         
 <!--	<span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>-->
@@ -1176,7 +1176,7 @@ this will likely become more flexible in the future. ###
 -->
 
 
-<div id='productTemplate'>
+<div id='productTemplate' class="productTemplate">
 <ul class='clearfix noPadOrMargin fluidList breadcrumb' data-bind='var: session(session.recentCategories.0); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
 <br /><br />
 
@@ -1187,7 +1187,7 @@ this will likely become more flexible in the future. ###
 <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).attr("data-pid")});' class='pointer clearfix'  data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>
 
 	<!--***Removed to match design***<!--<div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='tagsContainer'></div>-->
-	<img src='blank.gif' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='340' height='340' />
+	<img src='blank.gif' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='290' height='290' />
 
 </div>
 

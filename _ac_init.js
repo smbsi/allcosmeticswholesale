@@ -23,6 +23,7 @@ app.rq.push(['extension',0,'store_product','extensions/store_product.js']);
 app.rq.push(['extension',0,'store_cart','extensions/store_cart.js']);
 app.rq.push(['extension',0,'store_crm','extensions/store_crm.js']);
 app.rq.push(['extension',0,'myRIA','app-quickstart.js','startMyProgram']);
+app.rq.push(['extension',0,'prodlist_infinite','extensions/prodlist_infinite.js']);
 
 app.rq.push(['extension',0,'store_acw','extensions/store_acw.js','startExtension']);
 
