@@ -81,8 +81,8 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 	var carouselHPBanner;
 	function foo1(){ $(".carouselHPBannerList").carouFredSel
 	({
-		width   : 940,
-		height	: 500,
+		width   : 710,
+		height	: 390,
 		items   : 1,
 		scroll: 1,
 		auto : true,
@@ -99,7 +99,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 	var carouselHPSearch;
 	function foo2(){ $(".carouselHPSearchList").carouFredSel
 	({
-		width   : 1300,
+		width   : 1000,
 		height	: 1000,
 		items   : 1,
 		scroll: 1,
@@ -113,7 +113,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 	var carouselHPSearchPaginationTitle;
 	function foo3(){ $(".carouselSearchPaginTitle").carouFredSel
 	({
-		width   : 1300,
+		width   : 1000,
 		height	: 50,
 		align: "left",
 		items   : 3,
@@ -129,12 +129,13 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 	var carouselHPSearchPaginationTitleBottom;
 	function foo4(){ $(".carouselSearchPaginTitleBottom").carouFredSel
 	({
-		width   : 1300,
+		width   : 1000,
 		height	: 50,
 		align: "left",
 		items   : 3,
 		scroll: 1,
 		auto : false,
+		overflow: "hidden",
 		items: {minimum: 1}
 	});
 	$("#nextHPSearchCaro").click(function() {
