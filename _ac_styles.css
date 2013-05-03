@@ -10,9 +10,8 @@ body{
 	margin:0px;
 }
 .container{
-	min-width:1350px;
+	min-width:900px;
 	overflow:hidden;
-	
 	margin-left: auto;
     margin-right: auto;
 }
@@ -32,13 +31,13 @@ h3, h2{
 	text-decoration:none;
 }
 .centeringContainer{
-	width:1350px;
+	width:1020px;
 	margin-left:auto;
 	margin-right:auto;
 }
 .centeringContainerHeaderBottomThird{
 	position:relative;
-	width:1370px;
+	width:1020px;
 	margin-left:auto;
 	margin-right:auto;
 }
@@ -183,18 +182,18 @@ span.ui-state-highlight{
 	left:0 !important;
 }
 .navBarBrands{
-	background-size:cover;
-	width:120px;
-	height:60px;
-	margin-left:30px;
-	color:#ffffff;
-	text-align:center;
-	line-height:62px;
-	float:left;
-	font-family: 'Special Elite', cursive;
-	font-size: 21px;
-	font-weight: 200;
-	position:relative;
+	background-size: cover;
+    color: #FFFFFF;
+    float: left;
+    font-family: 'Special Elite',cursive;
+    font-size: 18px;
+    font-weight: 200;
+    height: 42px;
+    line-height: 47px;
+    margin-left: 30px;
+    position: relative;
+    text-align: center;
+    width: 85px;
 }
 .navBarBrands:active{
 	color:#000000;
@@ -220,16 +219,17 @@ span.ui-state-highlight{
 }
 .navBarEyes{
 	background-size:cover;
-	width:120px;
-	height:60px;
+	width:85px;
+	height:42px;
 	color:#ffffff;
 	text-align:center;
-	line-height:62px;
+	line-height: 47px;
 	float:left;
 	font-family: 'Special Elite', cursive;
-	font-size: 21px;
+	font-size: 18px;
 	font-weight: 200;
 	position:relative;
+	margin-left:-10px;
 }
 .navBarEyes:active{
 	color:#000000;
@@ -242,21 +242,22 @@ span.ui-state-highlight{
 	list-style:none;
 }
 .navBarEyes div{
-	 left: -153px;
-    top: 50px;
+	     left: -171px;
+    top: 34px;
 }
 .navBarLips{
 	background-size:cover;
-	width:115px;
-	height:55px;
+	width:85px;
+	height:42px;
 	color:#ffffff;
 	text-align:center;
-	line-height:62px;
+	line-height: 47px;
 	float:left;
 	font-family: 'Special Elite', cursive;
-	font-size: 21px;
+	font-size: 18px;
 	font-weight: 200;
 	position:relative;
+	margin-left: -20px;
 }
 .navBarLips:active{
 	color:#000000;
@@ -266,22 +267,22 @@ span.ui-state-highlight{
 	color:#000000;
 }
 .navBarLips ul{
-	left: -163px;
-    top: 28px;
+	left: -178px;
+    top: 15px;
 }
 .navBarFace{
 	background-size:cover;
-	width:120px;
-	height:60px;
+	width:85px;
+	height:42px;
 	color:#ffffff;
 	text-align:center;
-	line-height:62px;
+	line-height: 47px;
 	float:left;
 	font-family: 'Special Elite', cursive;
-	font-size: 21px;
+	font-size: 18px;
 	font-weight: 200;
-	margin-right:5px;
 	position:relative;
+	margin-left: -20px;
 }
 .navBarFace:active{
 	color:#000000;
@@ -291,69 +292,70 @@ span.ui-state-highlight{
 	color:#000000;
 }
 .navBarFace ul{
-	left: -160px;
-    top: 30px;
+	 left: -177px;
+    top: 14px;
 }
 .navBarAccess{
 	background-size:cover;
-	width:120px;
-	height:60px;
+	width:129px;
+	height:42px;
 	color:#ffffff;
 	text-align:center;
-	line-height:62px;
+	line-height: 45px;
 	float:left;
 	font-family: 'Special Elite', cursive;
-	font-size: 21px;
+	font-size: 18px;
 	font-weight: 200;
 	position:relative;
+	margin-left:-5px;
 }
 .navBarAccess:active{
 	color:#000000;
 }
 .navBarAccess:hover{
-	background-image:url(images/header_nav_bar/brands.png);
+	background-image:url(images/header_nav_bar/accessories.png);
 	color:#000000;
-	font-size: 18px;
+	font-size: 16px;
 }
 .navBarAccess ul{
-	left: -160px;
-    top: 33px;
+	 left: -155px;
+    top: 15px;
 }
 .navBarSkin{
 	background-size:cover;
-	width:120px;
-	height:60px;
+	width:99px;
+	height:42px;
 	color:#ffffff;
 	text-align:center;
-	line-height:62px;
+	line-height: 47px;
 	float:left;
 	font-family: 'Special Elite', cursive;
-	font-size: 21px;
+	font-size: 18px;
 	font-weight: 200;
-	margin-left:20px;
+	margin-left:5px;
 	position:relative;
 }
 .navBarSkin:active{
 	color:#000000;
 }
 .navBarSkin:hover{
-	background-image:url(images/header_nav_bar/brands.png);
+	background-image:url(images/header_nav_bar/skincare.png);
 	color:#000000;
 }
 .navBarSkin ul{
-	left: -160px;
-    top: 30px;
+	  left: -171px;
+    top: 14px;
 }
 .navBarNails{
 	background-size:cover;
-	width:120px;
-	height:60px;
+	width:85px;
+	height:42px;
 	color:#ffffff;
 	text-align:center;
-	line-height:62px;
+	line-height: 47px;
 	float:left;
 	font-family: 'Special Elite', cursive;
-	font-size: 21px;
+	font-size: 18px;
 	font-weight: 200;
 	position:relative;
 }
@@ -370,14 +372,14 @@ span.ui-state-highlight{
 }
 .navBarFragrance{
 	background-size:cover;
-	width:120px;
-	height:60px;
+	width:111px;
+	height:42px;
 	color:#ffffff;
 	text-align:center;
-	line-height:62px;
+	line-height: 47px;
 	float:left;
 	font-family: 'Special Elite', cursive;
-	font-size: 21px;
+	font-size: 18px;
 	font-weight: 200;
 	position:relative;
 }
@@ -385,7 +387,7 @@ span.ui-state-highlight{
 	color:#000000;
 }
 .navBarFragrance:hover{
-	background-image:url(images/header_nav_bar/brands.png);
+	background-image:url(images/header_nav_bar/fragrance.png);
 	color:#000000;
 }
 .navBarFragrance ul{
@@ -394,16 +396,17 @@ span.ui-state-highlight{
 }
 .navBarHair{
 	background-size:cover;
-	width:120px;
-	height:60px;
+	width:85px;
+	height:42px;
 	color:#ffffff;
 	text-align:center;
-	line-height:62px;
+	line-height: 47px;
 	float:left;
 	font-family: 'Special Elite', cursive;
-	font-size: 21px;
+	font-size: 18px;
 	font-weight: 200;
 	position:relative;
+	margin-left:10px;
 }
 .navBarHair:active{
 	color:#000000;
@@ -413,19 +416,19 @@ span.ui-state-highlight{
 	color:#000000;
 }
 .navBarHair ul{
-	left: -160px;
-    top: 30px;
+	  left: -177px;
+    top: 14px;
 }
 .navBarJewel{
 	background-size:cover;
-	width:120px;
-	height:60px;
+	width:85px;
+	height:42px;
 	color:#ffffff;
 	text-align:center;
-	line-height:62px;
+	line-height: 47px;
 	float:left;
 	font-family: 'Special Elite', cursive;
-	font-size: 21px;
+	font-size: 18px;
 	font-weight: 200;
 	position:relative;
 }
@@ -437,23 +440,23 @@ span.ui-state-highlight{
 	color:#000000;
 }
 .navBarJewel ul{
-	left: -220px;
-	top: 30px;
+	 left: -177px;
+    top: 14px;
 }
 .navBarSale ul{
 	left: -330px;
-    top: 30px;
+    top: 20px;
 }
 .navBarSale{
 	background-size:cover;
-	width:120px;
-	height:60px;
+	width:85px;
+	height:42px;
 	color:#ffffff;
 	text-align:center;
-	line-height:62px;
+	line-height: 47px;
 	float:left;
 	font-family: 'Special Elite', cursive;
-	font-size: 21px;
+	font-size: 18px;
 	font-weight: 200;
 	position:relative;
 }
