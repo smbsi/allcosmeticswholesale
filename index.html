@@ -1149,7 +1149,147 @@ SANITY -> if you change the height and width of this image, change the .minimalM
     	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
     <!--</div>
     <!--END TESTING SECTION-->
-    <ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
+    <ul data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
+    
+    <h2>BRANDS</h2>
+    <div class="brandList">
+    	<ul>
+        	<li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.adoro'});">Adoro</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.almay'});">Almay</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.balmshell'});">Balmshell</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.becca'});">Becca</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.benefit'});">Benefit</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.bobbi-brown'});">Bobbi Brown</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.bourjois_paris'});">Bourjois Paris</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.china-glaze'});">China Glaze</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.claudio_riaz'});">Claudio Riaz</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.clean'});">Clean</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.clinique'});">Clinique</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.covergirl'});">Covergirl</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.dermablend'});">Dermablend</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.covergirl'});">Covergirl</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.dermablend'});">Dermablend</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.dior'});">Dior</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.duwop'});">Duwop</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.edward_bess'});">Edward Bess</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.estee-lauder'});">Estee Lauder</a></li>
+			<li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.eyes-by-design'});">Eyes By Design</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.face-front'});">Face Front</a></li>
+        </ul>
+        <ul>
+        	<li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.factory-blems'});">Factory Blems</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.flirt'});">Flirt</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.fusion-beauty'});">Fusion Beauty</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.goody'});">Goody</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.guerlain'});">Guerlain</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.hard_candy'});">Hard Candy</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.iso'});">ISO</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.jane'});">Jane</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.japonesque'});">Japonesque</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.jewelry'});">Jewelry</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.kiehls'});">Kiehl's</a></li> 
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.korres'});">Korres</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.kryolan'});">Kryolan</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.lancome'});">Lancome</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.laura-mercier'});">Laura Mercier</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.lola'});">Lola</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.loreal'});">L'oreal</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.lotta_luv'});">Lotta Luv</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.mac'});">Mac</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.make-up-forever'});">Make Up Forever</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.mary-kate___ashley'});">Mary-Kate Ashley</a></li>
+
+        </ul>
+        <ul>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.max-factor'});">Max Factor</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.maybelline'});">Maybelline</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.me-me-me'});">Me Me Me</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.model_co'});">Model Co</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.nars'});">Nars</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.obsessive_compulsive_cosmetics'});">Obsessive Compulsive Cosmetics</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.ojon-hair'});">Ojon Hair</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.on10'});">On10</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.other-brands'});">Other Brands</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.paula-dorf'});">Paula Dorf</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.pop-pixi'});">Pop Pixi</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.prescriptives'});">Prescriptives</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.proraso'});">Proraso</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.pupa_milano'});">Pupa Milano</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.red_cherry'});">Red Cherry</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.revlon'});">Revlon</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.rimmel_london'});">Rimmel London</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.rocket-city'});">Rocket City</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.sally_hansen'});">Sally Hansen</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.sigma'});">Sigma</a></li>
+        </ul>
+        <ul>
+        	<li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.smashbox'});">Smashbox</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.smh'});">SMH</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.stila'});">Stila</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.suite_7_beauty'});">Suite 7 Beauty</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.tarte'});">Tarte</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.too-faced'});">Too Faced</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.twilight'});">Twilight</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.ultraflesh'});">Ultraflesh</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.urban-decay'});">Urban Decay</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.victorias-secret'});">Victoria's Secret</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.wet_n_wild'});">Wet n Wild</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.yr_nails'});">YR Nails</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.ysl'});">YSL</a></li>
+
+        </ul>
+    </div>
+    
+    <h3>SUITE 7 BRANDS</h3>
+    <div class="suite7List">
+    	<ul>
+        	<li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.100pure'});">100% Pure</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.abbe_taintor_-_coming_soon_'});">Anne Taintor <span>&#45; NEW&#33;</span></a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.alvaro_avila'});">Alvaro Avila</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.bdellium'});">Bdellium</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.beauty_spoon'});">Beauty Spoon</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.blossom_accessories'});">Blossom Accessories</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.blue_q_-__coming_soon_'});">Blue Q <span>&#45; NEW&#33;</span></a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.blum_naturals'});">Blum Naturals</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.crazy_rumors_-_coming_soon_'});">Crazy Rumors</a></li>
+
+        </ul>
+        <ul>
+        	  <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.elf_-_coming_soon_'});">E.L.F. <span>&#45; NEW&#33;</span></a></li>
+              <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.embelish_-_coming_soon_'});">Embellish <span>&#45; NEW&#33;</span></a></li>
+              <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.eos'});">EOS</a></li>
+              <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.face-front'});">Face Front</a></li>
+              <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.face_lace'});">Face Lace</a></li>
+              <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.featherheads'});">Featherheads</a></li>
+              <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.japonesque'});">Japonesque</a></li>
+              <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.jewelry'});">Jewelry</a></li>
+              <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.kleancolor'});">Kleancolor</a></li>
+
+        </ul>
+        <ul>
+              <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.kryolan'});">Kryolan</a></li>
+              <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.laqa___co'});">LAQA &#38; Co.</a></li>
+              <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.lime-crime'});">Lime Crime</a></li>
+              <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.medusa_s_make_up'});">Medusa&#44;s Make Up</a></li>
+              <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.morgana_cryptoria'});">Morgana Cryptoria</a></li>
+              <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.natural_products_-_coming_soon_'});">NPW <span>&#45; NEW&#33;</span></a></li>
+              <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.nuturing_force'});">Nuturing Force</a></li>
+              <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.nyx'});">NYX</a></li>
+              <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.occ'});">Obsessive Compulsive</a></li>
+        </ul>
+        <ul>
+        	<li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.palladio_-_coming_soon_'});">Palladio</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.rosebud'});">Rosebud</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.sugarpill'});">Sugarpill</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.suite_7_beauty'});">Suite 7 Beauty</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.sweetpea___fay'});">Sweetpea &#38; Fay</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.towel_treats'});">Towel Treats</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.violent_lips'});">Violent Lips</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.yr_nails'});">YR Nails</a></li>
+            <li><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.brands.z-palette'});">Z Palette</a></li>
+
+        </ul>
+    </div>
 </div>
 
 

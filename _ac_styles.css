@@ -207,15 +207,15 @@ span.ui-state-highlight{
 	top:250px;
 }
 .headerDropdownBrand{
-	height: 0px;
-	width: 990px;
+	height:0px;
+	width:990px;
 	float:left;
 	background-image:url(images/header_nav_bar/dropdownbackground.png);
 	background-repeat:no-repeat;
 	background-size:cover;
 	z-index:3;
-	left: -45px;
-    top: 60px;
+	left:-30px;
+    top:40px;
 }
 .navBarEyes{
 	background-size:cover;
@@ -561,7 +561,7 @@ span.ui-state-highlight{
 /**main content area**/
 #mainContentArea{
 	float:left;
-	width:1350px;
+	width:1020px;
 }
 
 
@@ -994,6 +994,8 @@ div .catListingCat:hover{
 	margin-bottom:20px;
     padding-top: 15px;
 	clear:both;
+	text-align: center;
+    width: 90%;
 }
 /*************************************************************************************************************************/
 /**Search Categories**/
@@ -1281,6 +1283,38 @@ ul .mpControlJumpToPage{
 }
 
 
+/*************************************************************************************************************************/
+/*************************************************************************************************************************/
+/**categoryProductListTemplate**/
+.productListTemplate{
+	width:1020px;
+}
+
+.productListTemplate h2{
+	color:#3fb8af;
+	float: left;
+	font-family: 'Special Elite', cursive;
+	font-weight: 200;
+    margin-left:60px;
+	margin-bottom:20px;
+    padding-top: 15px;
+	clear:both;
+	text-align: center;
+    width: 90%;
+}
+.productListTemplate h3{
+	color:#ff3d7f;
+	font-size:24px;
+	float: left;
+	font-family: 'Special Elite', cursive;
+	font-weight: 200;
+    margin-left:60px;
+	margin-bottom:20px;
+    padding-top: 15px;
+	clear:both;
+	text-align: center;
+    width: 90%;
+}
 
 /*************************************************************************************************************************/
 /*************************************************************************************************************************/
@@ -2064,6 +2098,9 @@ div span .cents{
 /*************************************************************************************************************************/
 /*************************************************************************************************************************/
 /**CHECKOUT TEMPLATE**/
+..checkoutFormContainer{
+	width:1020px;
+}
 .checkoutFormContainer fieldset legend{
 	color:#ff3d7f;
 	font-size:28px;
@@ -2075,7 +2112,7 @@ div span .cents{
 }
 .checkoutContainer{
 	float: left;
-    width: 950px;
+    width: 630px;
 }
 .panelContent button{
 	border: medium none;
