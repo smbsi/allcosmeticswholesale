@@ -1029,20 +1029,22 @@ container ul should have lineItemProdlist class on it instead of productList
         <h5 data-bind='var: product(zoovy:prod_name); format:truncText; numCharacters: 70;'></h5>
 		<div class='prodThumbContainer floatLeft'>
 			<div class='ui-widget ui-widget-content ui-corner-all'>
-				<img src='blank.gif' class='prodThumb' alt='' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='277' height='200' />
+				<img src='blank.gif' class='prodThumb' alt='' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='210' height='170' />
 			</div>
 		</div>
         <div class='buttonList ui-widget ui-widget-header ui-corner-all alignCenter'>
 				<div>
 					<h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price;'></h6>
                 </div>
-                <button class='ui-state-default ui-corner-all bagItButtonWishlist' title='add item to cart' onClick="showContent('product',{'pid':$(this).closest('[data-pid]').attr('data-pid')});">
+                <button class='ui-state-default ui-corner-all bagItButtonWishlist' title='add item to cart' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">
                 BAG IT!
                 </button>
                 
+                <!--
                 <button class='ui-state-default ui-corner-all infoButtonWishlist' title='more information' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">
                 MORE INFORMATION
                 </button>
+                -->
                 
                 <button class='ui-state-default ui-corner-all reviewButtonWishlist' title='write a review for this item' onClick="app.ext.store_crm.u.showReviewFrmInModal({'pid':$(this).closest('[data-pid]').attr('data-pid'),'templateID':'reviewFrmTemplate'});">
                 WRITE A REVIEW

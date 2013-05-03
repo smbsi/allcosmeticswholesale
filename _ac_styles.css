@@ -2385,7 +2385,7 @@ div span .cents{
     height: 40px;
     margin-bottom: 15px;
     margin-top: 30px;
-    width: 250px;
+    width: 100%;
 }
 .sidelineTitle h3{
 	 font-family: 'Montserrat',sans-serif;
@@ -2506,12 +2506,12 @@ div span .cents{
 }
 .productListTemplateBuyerList div h5{
 	color:#c0c0c0;
-	height:50px;
+	height:60px;
 	text-align:center;
 }
 div div ul li.productListTemplateBuyerList{
-	height: 390px !important;
-    width: 300px !important;
+	height: 370px !important;
+    width: 225px !important;
 	float:left;
 	display:block;
 	margin-left: 15px;
@@ -2534,7 +2534,7 @@ div div ul li.productListTemplateBuyerList{
     vertical-align: top;
 }
 .buttonList div{
-	width:145px;
+	width:50%;
 	height:45px;
 	background-color:rgba(200, 200, 200, 0.2);
 	float:left;
@@ -2543,8 +2543,8 @@ div.buttonList .bagItButtonWishlist{
 	border: medium none;
     border-radius: 0 0 0 0;
     height: 45px;
-    margin-right: 10px;
-    width: 145px;
+    margin-right: 0px;
+    width: 50%;
 	background-image:none;
 	background-color:#3fb8af;
 	color:white;
@@ -2578,7 +2578,8 @@ div.buttonList .reviewButtonWishlist{
 	color:white;
 	background-image:none;
 	background-color:#3fb8af;
-	margin-left: -10px;
+	margin-left: -5px;
+	margin-top:10px;
 }
 div.buttonList .reviewButtonWishlist:hover{
 	background-color:#ff3d7f;
@@ -2592,6 +2593,8 @@ div.buttonList .removeButtonWishlist{
 	color:white;
 	background-image:none;
 	background-color:#3fb8af;
+	margin-top:10px;
+	margin-left:-5px;
 }
 div.buttonList .removeButtonWishlist:hover{
 	background-color:#ff3d7f;
