@@ -35,6 +35,11 @@ h3, h2{
 	margin-left:auto;
 	margin-right:auto;
 }
+.centeringContainerFooter{
+	width:1020px;
+	margin-left:auto;
+	margin-right:auto;
+}
 .centeringContainerHeaderBottomThird{
 	position:relative;
 	width:1020px;
@@ -569,9 +574,13 @@ span.ui-state-highlight{
 /*************************************************************************************************************************/
 /**Footer**/
 .footer{
-	float:left;
-	width: 100%;
-	margin-top:10px;
+    float: left;
+    margin-top: 10px;
+    width: 100%;
+}
+.footer div.centeringContainerFooter{
+	padding-top: 15px;
+	border-top: medium double #3FB8AF;
 }
 
 /*************************************************************************************************************************/
@@ -582,6 +591,7 @@ span.ui-state-highlight{
 	height:65px;
 	background-color:#3fb8af;
 	border-bottom:solid 5px #7fc7af;
+	float:left;
 }
 .footerTopThird H5{
 	float:right;
@@ -1028,9 +1038,23 @@ div .catListingCat:hover{
 	height:1075px;
 }
 #recentlyViewedItemsContainer{
-	float:left;
-	width:1300px;
-	height:1000px;
+	float: left;
+    height: 350px;
+    overflow: hidden;
+    width: 985px;
+}
+#recentlyViewedItemsContainer h2{
+	font-family: 'Special Elite', cursive;
+	font-weight:200;
+	color:#3fb8af;
+	text-align:center;
+}
+#recentlyViewedItemsContainer h4{
+	font-family: 'Special Elite', cursive;
+	font-weight:200;
+	color:#3fb8af;
+	text-align:center;
+	margin-top:50px;
 }
 .carouselCatSearchPagination{
 	float:left;

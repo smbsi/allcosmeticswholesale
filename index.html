@@ -360,6 +360,15 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
 </div>
 <!--Begin Footer Area-->
 <div class="footer">
+	<div class="centeringContainerFooter">
+        <div id='recentlyViewedItemsContainer'>
+        	<h2>Previously Viewed Items</h3>
+            <div class="displayNone" data-bind='var: session(recentlyViewedItems); format:showIfSet;'>
+            	<ul data-bind="var: session(recentlyViewedItems); format: productList; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; hide_pagination:1; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+			</div>
+            <h4>Start browsing products to add to this list!</h4>
+        </div>
+    </div>
 	<div class="footerTopThird">
     	<div class="centeringContainer">  	
             <a class="pointer" href="https://twitter.com/@ACWcosmetics" target="_blank"><img class="footerTwit" src="images/footer/twitter.png" /></a>
