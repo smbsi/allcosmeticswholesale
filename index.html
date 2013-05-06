@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130503150000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130505174000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "acw_active",//can be passive, active or required
@@ -1089,7 +1089,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
 
 SANITY -> if you change the height and width of this image, change the .minimalMode .searchResultsProduct in qs_styles.css to match
 -->
-<li id='productListTemplateResults' class='loadingBG searchResultsProduct ' >
+<li id='productListTemplateResults' class='loadingBG searchResultsProduct' >
 	<div onClick="app.ext.myRIA.a.handleProdPreview($(this).parent().attr('data-pid'));" class='pointer prodListDetails'>
     	<h5 class='hideInMinimalMode pointer' data-bind='var: product(prod_name); format:truncText; numCharacters: 70;'></h5>
 		<div class='prodThumbContainer'>
@@ -1104,7 +1104,8 @@ SANITY -> if you change the height and width of this image, change the .minimalM
                 <button data-bind='format:addToCartButton; extension:myRIA; useParentData:true;'>more details</button>
             </form>-->
             <div class="moreDetailsButton">
-            	<div class='hideInMinimalMode pointer moreDetails prodViewerAddToCartForm' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});"><span>more details</span></div>
+            	<div class='hideInMinimalMode pointer moreDetails'><span>more details</span></div>
+                <!--<div class='hideInMinimalMode pointer moreDetails prodViewerAddToCartForm' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});"><span>more details</span></div>-->
             </div>
         </div>
         <h4 data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true; pretext: MSRP ;'></h4>

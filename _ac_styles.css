@@ -556,7 +556,7 @@ span.ui-state-highlight{
     border: medium none;
     float: left;
     height: 80px;
-    margin-left: 50px;
+    margin-left: 43px;
     width: 940px;
 }
 
@@ -1145,7 +1145,7 @@ div .catListingCat:hover{
 /*************************************************************************************************************************/
 /**productListTemplate**/
 .productList{
-	padding-left:25px;
+	padding-left:30px;
 	padding-right: 20px;
 }
 .productList li{
