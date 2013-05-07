@@ -1337,7 +1337,7 @@ this will likely become more flexible in the future. ###
 <br /><br />
 
 <div class='prodViewerContainer'>
-	<div class='imageContainer'>
+	<div class='imageContainer3'>
 <!--	<img src='blank.gif' id='bobWasHere' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format: magicZoomPlus; extension: magicToolBox_mzp;' width='340' height='340' /> -->
 
 <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).attr("data-pid")});' class='pointer clearfix'  data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>
@@ -1362,7 +1362,7 @@ this will likely become more flexible in the future. ###
 </div>
 
 
-<div class='prodSummaryContainer marginBottom no_underline'>
+<div class='prodSummaryContainer3 marginBottom no_underline'>
 	<h1 data-bind='var: product(zoovy:prod_name); format:text;'></h1>
 	<br />
 	<h5 style="display:inline-block; color:white;">Item No.</h5>&nbsp;<h5 class='stid' data-bind='var: product(pid); format:text;' style="color:#ff3d7f; display:inline-block; margin-left:0px;"></h5>
@@ -1612,13 +1612,15 @@ It's done this way because ID's hard coded into template are bad mojo (templates
         <div class='priceContainer'>
             <h4 class='basePrice' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true;'></h4>
             <h6>Our Price</h6>
+            <div class="displayNone" data-bind='var: product(zoovy:prod_msrp); format:showIfSet;'>
             <h5 class='prodMSRP' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true;'></h5>
             <h6> MSRP</h6>
+            </div>
             <span class='savings'>
                 <span class='savingsDifference' data-bind='var: product(pid); format:priceRetailSavingsDifference; extension:myRIA;'></span>
-                <span class='savingsPercentage' data-bind='var: product(pid); format:priceRetailSavingsPercentage; extension:myRIA; pretext: (; posttext:);'></span>
+                <span class='savingsPercentage' data-bind='var: product(pid); format:priceRetailSavingsPercentage; extension:myRIA; pretext: (; posttext:); posttext: You saved'></span>
             </span>
-            <h6>You Save</h6>
+            <h6 class="displayNone" data-bind='var: product(zoovy:prod_msrp); format:showIfSet;'>You Save</h6>
         </div>
     	<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm' action='#' onSubmit="app.ext.myRIA.u.addItemToCart($(this),{'action':'modal'}); return false;">
             <input type='hidden' name='qty' value='1' />

@@ -33,8 +33,7 @@ below app.model.destroy('cartDetail');
 $('.prodAddToCart').show();
 function hideATC(){$('.prodAddToCart').hide();}
 var hideAddToCart = hideATC;
-setTimeout(hideAddToCart, 10000);	
-
+setTimeout(hideAddToCart, 10000);
 
 
 prodAddToCart{
@@ -42,3 +41,8 @@ prodAddToCart{
 color:#FF3D7F;
 	font-family: 'Special Elite', cursive;
 	font-weight:200;
+
+
+
+store-product.js:
+- Go to the prodDataInModal function. Change width:'86%' to width:'74%'
