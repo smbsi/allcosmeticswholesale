@@ -1403,6 +1403,13 @@ ul .mpControlJumpToPage{
 	font-size: 14px;
 	font-family: 'Montserrat', sans-serif;
 }
+.prodSummaryContainer2 h6{
+	color:#ff9e9d;
+	margin-top: 10px;
+	margin-left: 0px;
+	font-size: 14px;
+	font-family: 'Montserrat', sans-serif;
+}
 .prodSummaryContainer h6.qvSKU{
 	margin-left:0px;
 }
@@ -1413,14 +1420,14 @@ ul .mpControlJumpToPage{
 	border: medium none;
     border-radius: 0 0 0 0;
     width: 140px;
-	margin-left: 60px;
+	margin-left: 30px;
 	font-family: 'Special Elite', cursive;
 }
 .prodViewerAddToCartForm button.qvAddToCart2{
 	border: medium none;
     border-radius: 0 0 0 0;
     width: 170px;
-	margin-left: 60px;
+	margin-left: 70px;
 	font-family: 'Special Elite', cursive;
 }
 
@@ -1490,6 +1497,7 @@ div .socialLinks{
 	width: 400px;
 	height:835px;
 	margin-right:10px;
+	margin-left: 30px;
 }
 .prodSummaryContainer h1{
 	font-size:22px;
@@ -1502,6 +1510,21 @@ div .socialLinks{
 	font-family: 'Montserrat', sans-serif;
 }
 .prodSummaryContainer div {
+	color:white;
+	font-family: 'Montserrat', sans-serif;
+	font-size:14px;
+}
+.prodSummaryContainer2 h1{
+	font-size:22px;
+	font-family: 'Montserrat', sans-serif;
+	text-align:left;
+	line-height: 20px;
+}
+.prodSummaryContainer2 h5{
+	color:white;
+	font-family: 'Montserrat', sans-serif;
+}
+.prodSummaryContainer2 div {
 	color:white;
 	font-family: 'Montserrat', sans-serif;
 	font-size:14px;
@@ -1549,6 +1572,9 @@ div .socialLinks{
 }
 .savingsDifference{
 	margin-left:65px;
+}
+.prodPriceSummaryContainer2 div span.savings span.savingsDifference{
+	margin-left: 110px;
 }
 
 .prodViewerAddToCartForm{
