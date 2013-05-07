@@ -1390,6 +1390,10 @@ ul .mpControlJumpToPage{
 }
 .prodPriceSummaryContainer{
 	float:left;
+	width: 200px;
+}
+.prodPriceSummaryContainer2{
+	float:left;
 	width: 300px;
 }
 .prodSummaryContainer h6{
@@ -1408,6 +1412,13 @@ ul .mpControlJumpToPage{
 .prodViewerAddToCartForm button.qvAddToCart{
 	border: medium none;
     border-radius: 0 0 0 0;
+    width: 140px;
+	margin-left: 60px;
+	font-family: 'Special Elite', cursive;
+}
+.prodViewerAddToCartForm button.qvAddToCart2{
+	border: medium none;
+    border-radius: 0 0 0 0;
     width: 170px;
 	margin-left: 60px;
 	font-family: 'Special Elite', cursive;
@@ -1422,12 +1433,25 @@ ul .mpControlJumpToPage{
 /*************************************************************************************************************************/
 /**Product Image section**/
 .imageContainer{
+	 float: left;
+    height: 735px;
+    margin-left: 0;
+    margin-right: 0;
+    padding-right: 0;
+    width: 252px;
+}
+.imageContainer2{
 	padding-right:0px;
 	margin-right:24px;
 	float:left;
 	width:305px;
 	height:735px;
 	margin-left:45px;
+}
+.imageContainer2 div{
+	border:solid 6px rgba(200, 200, 200, .2);
+	width: 290px;
+	float:left;
 }
 div .tagsContainer{
 	border:none;
@@ -1456,6 +1480,12 @@ div .socialLinks{
 /**Product Summary Section**/
 
 .prodSummaryContainer{
+	float:left;
+	width: 200px;
+	height:835px;
+	margin-right:0px;
+}
+.prodSummaryContainer2{
 	float:left;
 	width: 400px;
 	height:835px;

@@ -39,6 +39,7 @@ var myRIA = function() {
 			'productListTemplateResults',
 			'productTemplate',
 			'productTemplateQuickView',
+			'productTemplateQuickViewAlternate',
 			'pageNotFoundTemplate',
 //the list of templates that, in most cases, are left alone. Also in the same order as appTemplates
 			'breadcrumbTemplate',
