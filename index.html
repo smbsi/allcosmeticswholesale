@@ -657,9 +657,9 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             </div>
             <div class="clear"></div>
         	<div class="carouselHPSearchList">
-                    <ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-                    <ul id='homeProdSearchDiscontinued' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_DISCONTINUED"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-            		<ul id='homeProdSearchSale' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_SALE"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+                    <ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsNoPreview;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+                    <ul id='homeProdSearchDiscontinued' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_DISCONTINUED"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsNoPreview;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+            		<ul id='homeProdSearchSale' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_SALE"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsNoPreview;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
             </div>
             <div class="clear"></div>
             <div class="carouselHPSearchPagination">
@@ -1142,17 +1142,32 @@ SANITY -> if you change the height and width of this image, change the .minimalM
 	
 </li>
 
-<li id='productListTemplateResultsNoPreview' class='loadingBG searchResultsProduct ' >
-	<div onClick="return showContent('product', {'pid' : $(this).parent().attr('data-pid')});" class='pointer'>
-		<div class='prodThumbContainer'>
-		<img src='blank.gif' class='prodThumb' alt='' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='120' height='120' />
-		</div>
-
-		<h5 class='hideInMinimalMode' data-bind='var: product(prod_name); format:text;'></h5>
-
-		<h6 class='hideInMinimalMode' data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
+<li id='productListTemplateResultsNoPreview' class='loadingBG searchResultsProduct' >
+	<div data-bind="var:product(pid); format:assignAttribute; attribute:data-pid;">
+		<div onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});" class='pointer prodListDetails'>
+    		<h5 class='hideInMinimalMode pointer' data-bind='var: product(prod_name); format:truncText; numCharacters: 70;'></h5>
+			<div class='prodThumbContainer'>
+				<img src='blank.gif' class='prodThumb' alt='' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='210' height='170' />
+			</div>
+        </div>
+  
+        <div class="prodListPriceBuyCont">
+            <div>
+                <h1 class='hideInMinimalMode' data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price;'></h1>
+            </div>
+            <!--<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm' action='#'>
+                <button data-bind='format:addToCartButton; extension:myRIA; useParentData:true;'>more details</button>
+            </form>-->
+            <div class="moreDetailsButton" onClick="quickView('product',{'templateID':'productTemplateQuickViewAlternate','pid':$(this).closest('[data-pid]').attr('data-pid')});">
+                <div class='hideInMinimalMode pointer moreDetails'><span>more details</span></div>
+                <!--<div class='hideInMinimalMode pointer moreDetails prodViewerAddToCartForm' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});"><span>more details</span></div>-->
+            </div>
+        </div>        
+        <h4 data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true; pretext: MSRP ;'></h4>
+		
+		<!--<h6 class='hideInMinimalMode' data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>-->
 	</div>
-	<div class='hideInMinimalMode pointer moreDetails' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">more details</div>
+	
 </li>
 </ul>
 
@@ -1460,9 +1475,9 @@ this will likely become more flexible in the future. ###
     </div>
 </div>
 
-<div class="displayNone" id="reviewModalContent">
+<!--<div class="displayNone" id="reviewModalContent">
 	<ul class='listStyleNone clearfix productReviewsList' id='prodViewerReviews' data-bind="var: reviews(reviews.@reviews); format:processList; loadsTemplate:productReviewsTemplateDetail;"></ul>
-</div>
+</div>-->
 <!--
 <div class="carouselProdSearchCont">
     <div class="clear"></div>
@@ -1613,8 +1628,8 @@ It's done this way because ID's hard coded into template are bad mojo (templates
             <h4 class='basePrice' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true;'></h4>
             <h6>Our Price</h6>
             <div class="displayNone" data-bind='var: product(zoovy:prod_msrp); format:showIfSet;'>
-            <h5 class='prodMSRP' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true;'></h5>
-            <h6> MSRP</h6>
+                <h5 class='prodMSRP' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true;'></h5>
+                <h6> MSRP</h6>
             </div>
             <span class='savings'>
                 <span class='savingsDifference' data-bind='var: product(pid); format:priceRetailSavingsDifference; extension:myRIA;'></span>
@@ -1672,13 +1687,15 @@ It's done this way because ID's hard coded into template are bad mojo (templates
         <div class='priceContainer'>
             <h4 class='basePrice' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true;'></h4>
             <h6>Our Price</h6>
-            <h5 class='prodMSRP' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true;'></h5>
-            <h6> MSRP</h6>
+            <div class="displayNone" data-bind='var: product(zoovy:prod_msrp); format:showIfSet;'>
+                <h5 class='prodMSRP' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true;'></h5>
+                <h6> MSRP</h6>
+            </div>
             <span class='savings'>
                 <span class='savingsDifference' data-bind='var: product(pid); format:priceRetailSavingsDifference; extension:myRIA;'></span>
                 <span class='savingsPercentage' data-bind='var: product(pid); format:priceRetailSavingsPercentage; extension:myRIA; pretext: (; posttext:);'></span>
             </span>
-            <h6>You Save</h6>
+            <h6 class="displayNone" data-bind='var: product(zoovy:prod_msrp); format:showIfSet;'>You Save</h6>
         </div>
     	<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm' action='#' onSubmit="app.ext.myRIA.u.addItemToCart($(this),{'action':'modal'}); return false;">
             <input type='hidden' name='qty' value='1' />

@@ -2,6 +2,7 @@ quickstart.js:
 - Add templates to list:
 	- 'categoryProductListTemplate',
 	- 'productTemplateQuickViewAlternate',
+	- 'productListTemplateResultsNoPreview',
 - Add custom template handling for cat pages to this line:
 	-	 }
 					else	{

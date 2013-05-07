@@ -37,6 +37,7 @@ var myRIA = function() {
 			'productListTemplateATC',
 			'productListTemplateBuyerList',
 			'productListTemplateResults',
+			'productListTemplateResultsNoPreview',
 			'productTemplate',
 			'productTemplateQuickView',
 			'productTemplateQuickViewAlternate',
