@@ -566,7 +566,8 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
 
 
 <div id="prodPageElasticTemplate">
-	<ul data-bind="useParentData:true; format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsProdTemp;' class='listStyleNone fluidList clearfix noPadOrMargin productList'";></ul>
+	<!--<ul data-bind="useParentData:true; format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsProdTemp;' class='listStyleNone fluidList clearfix noPadOrMargin productList'";></ul>-->
+	<ul data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_DISCONTINUED"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsNoPreview;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
 </div>
 
 <!--
@@ -592,10 +593,11 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 	</ul>-->
     
     <div class="homepageTopSec">
+    <div class="elasticlist"></div>
     
     	<div class="carouselHPBannerCont">
-        	<a class="prevHPCaro"><img class="carouselHPButton pointer" style="left:40px; top: 16px;" src="images/homepage/arrow_bar_left.png" /></a>
-            <a class="nextHPCaro"><img class="carouselHPButton pointer" style="right:0px; top: 16px;" src="images/homepage/arrow_bar_right.png" /></a>
+        	<a class="prevHPCaro"><img class="carouselHPButton pointer" style="left:0px; top:0px;" src="images/homepage/arrow_bar_left.png" /></a>
+            <a class="nextHPCaro"><img class="carouselHPButton pointer" style="right:0px; top:0px;" src="images/homepage/arrow_bar_right.png" /></a>
             <div id="paginCaro">
             </div>
         	<ul class="carouselHPBannerList">
@@ -634,7 +636,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             	<hr><h3>FOLLOW US</h3><hr>
             </div>
             <div class="socMed">
-            	<div style="width:60px; height:100%; float:left;"></div>
+            	<div style="width:40px; height:100%; float:left;"></div>
                 <a class="pointer" href="https://www.facebook.com/pages/ACW-Cosmetics/148431235211409" target="_blank"><img class="floatLeft pointer" src="images/homepage/facebook.png" /></a>
                 <a class="pointer" href="https://twitter.com/@ACWcosmetics" target="_blank"><img class="floatLeft pointer" src="images/homepage/twitter.png" /></a>
             </div>
@@ -652,7 +654,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             	<ul class="carouselSearchPaginTitle">
                    <li><h2>What's the Deal</h2></li>
                    <li><h2>What's Hot</h2></li>
-                   <li><h2>What's R.I.P.</h2></li>
+                   <li><h2>Great Gifts Ideas</h2></li>
                 </ul>
             </div>
             <div class="clear"></div>
@@ -668,7 +670,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             	<ul class="carouselSearchPaginTitleBottom">
                    <li><h2>What's the Deal</h2></li>
                    <li><h2>What's Hot</h2></li>
-                   <li><h2>What's R.I.P.</h2></li>
+                   <li><h2>Great Gift Ideas</h2></li>
                 </ul>
             </div>
             <!--<div class="pagination" id="carouselHPSearchPag"></div>-->

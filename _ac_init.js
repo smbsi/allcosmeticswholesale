@@ -86,7 +86,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 		height	: 390,
 		items   : 1,
 		scroll: 1,
-		auto : true,
+		auto : false,
 		pagination  : "#paginCaro",
 		prev : ".prevHPCaro",
 		next : ".nextHPCaro"
