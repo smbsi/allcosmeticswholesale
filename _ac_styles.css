@@ -87,7 +87,7 @@ span.ui-state-highlight{
 /*************************************************************************************************************************/
 /**header**/
 .header{
-	height:260px;
+	height:325px;
 }
 /**Top Third**/
 
@@ -728,7 +728,7 @@ margin-left:20px;
 	position:relative;
 	height:390px;
 	width:710px;
-	margin-left:43px;
+	margin-left:40px;
 	float:left;
 	top:15px;
 }
@@ -786,7 +786,7 @@ margin-left:20px;
 
 .homepageSignUp{
 	height:390px;
-	width:270px;
+	width:240px;
 	background-image:url(images/homepage/newsletterbg.png);
 	float:left;
 	margin-top: 16px;
@@ -948,7 +948,7 @@ margin-left:20px;
 .breadcrumb{
 	text-align:center;
 	width: 500px;
-	margin-left: auto;
+	margin-left: 350px;
 	margin-right: auto;
 }
 .breadcrumb a{
@@ -1150,8 +1150,17 @@ div .catListingCat:hover{
 /*************************************************************************************************************************/
 /**productListTemplate**/
 .productList{
-	padding-left:30px;
+	padding-left:5px;
 	padding-right: 20px;
+}
+.productList2{
+	padding-left:40px;
+	padding-right: 20px;
+}
+.productList2 li{
+	width: 210px;
+	height:330px;
+	margin-bottom:10px;
 }
 .productList li{
 	width: 210px;
