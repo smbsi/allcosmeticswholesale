@@ -43,6 +43,7 @@ app.rq.push(['script',0,app.vars.baseURL+'controller.js']);
 app.rq.push(['script',1,app.vars.baseURL+'resources/jquery.ui.jeditable.js']); //used for making text editable (customer address). non-essential. loaded late.
 app.rq.push(['script',0,app.vars.baseURL+'resources/jquery.showloading-v1.0.jt.js']); //used for making text editable (customer address). non-essential. loaded late.
 app.rq.push(['script',0,app.vars.baseURL+'resources/jquery.ui.anyplugins.js']); //in zero pass in case product page is first page.
+app.rq.push(['script',0,app.vars.baseURL+'resources/jquery.image-gallery.jt.js']);
 
 //Third party plugins
 app.rq.push(['script',0,app.vars.baseURL+'_jquery_cycle_plugin.js']);
@@ -61,7 +62,26 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 			  }
 		  }
 	  else	{} //couldn't find the tab to tabificate.
-  }]);
+}]);
+
+app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
+
+	$('.gallery a[data-gallery]',app.u.jqSelector('#',P.parentID)).each(function(){
+		if($('img',$(this)).length < 1)	{
+			$(this).empty().remove(); //nuke any hrefs with no images. otherwise next/previous in gallery will show an empty spot
+			}
+		else	{
+			$(this).attr('title',app.data[P.datapointer]['%attribs']['zoovy:prod_name']); //title is used in gallery modal.
+			}
+		});
+//init gallery.
+	$('.gallery',app.u.jqSelector('#',P.parentID)).imagegallery({
+		show: 'fade',
+		hide: 'fade',
+		fullscreen: false,
+		slideshow: false
+		});
+}]);
   
   
   app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) {
