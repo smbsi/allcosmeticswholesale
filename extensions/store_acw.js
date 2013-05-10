@@ -201,7 +201,7 @@ var store_acw = function() {
 							app.u.handleCallback(_tag);
 							}
 						else {*/
-							var obj = {'filter':{'term':{'tags':'IS_BESTSELLER'}}};
+							var obj = {'filter':{'term':{'whats_hot':'1'}}};
 							obj = app.ext.store_search.u.buildElasticRaw(obj);
 							obj.size = 12;
 							app.ext.store_search.calls.appPublicSearch.init(obj, _tag);

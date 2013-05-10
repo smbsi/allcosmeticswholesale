@@ -1746,6 +1746,9 @@ h2 .cents{
 	margin-left: 15px;
     text-align: center;
 }
+.prodViewerAddToCartForm span.notAvailableForPurchase{
+	color:white;
+}
 
 
 /*************************************************************************************************************************/
