@@ -730,6 +730,22 @@ margin-left:20px;
 .homepageTopSec{
 	position:relative;
 }
+.prevHPSearchCaro{
+	top: 22px; 
+	left: 260px;
+}
+.nextHPSearchCaro{
+	right: 265px;
+    top: 22px;
+}
+.prevHPSearchCaro2{
+	top: 22px; 
+	left: 270px;
+}
+.nextHPSearchCaro2{
+	right: 260px;
+    top: 22px;
+}
 .carouselHPBannerCont{
 	position:relative;
 	height:390px;
@@ -1130,7 +1146,7 @@ div .catListingCat:hover{
 }
 .suite7List{
 	width:100%;
-	height:400px;
+	height:270px;
 	float:left;
 	padding-left: 20px;
 }
@@ -1161,7 +1177,7 @@ div .catListingCat:hover{
 	padding-right: 20px;
 }
 .productList2{
-	padding-left:40px;
+	padding-left:55px;
 	padding-right: 20px;
 }
 .productList2 li{
@@ -1169,6 +1185,7 @@ div .catListingCat:hover{
 	height:330px;
 	margin-bottom:10px;
 	margin-left: 6px;
+	position:relative;
 }
 .productList li{
 	width: 210px;
@@ -2031,8 +2048,8 @@ div span .cents{
 	color:white;
 	float:left;
 	font-family: 'Montserrat', sans-serif;
-	margin-left:20px;
-	margin-right:80px;
+	margin-left:35px;
+	margin-right:50px;
 	text-align:center;
 }
 .cartSummaryTotalsContainer h2{
@@ -2539,6 +2556,7 @@ div div.mainColumn div#privacyArticle h4, h3{
 #listsArticle h1{
 	font-family: 'Special Elite', cursive;
 	color:#ff3d7f;
+	font-weight:200;
 }
 #newsletterArticle{
     padding-top: 30px;
@@ -2556,6 +2574,7 @@ div div.mainColumn div#privacyArticle h4, h3{
     font-weight: 600;
     line-height: 40px;
     text-align: center;
+	color:black;
 }
 #customerNav a{
 	color: white;
@@ -2659,9 +2678,10 @@ div div.mainColumn div#privacyArticle h4, h3{
 /**Wishlist Section**/
 #listsContainer{
 	color:white;
+	width:785px;
 }
 #listsContainer div div div ul{
-	width:950px;
+	width:725px;
 	clear: none;
 }
 #listsContainer ul.ui-tabs-nav{
@@ -2797,6 +2817,7 @@ div.buttonList .removeButtonWishlist:hover{
 }
 .resultsHeader{
 	color:white;
+	padding-left:50px;
 }
 .resultsMenuContainer div{
 }
@@ -2805,4 +2826,8 @@ div.buttonList .removeButtonWishlist:hover{
     height: 340px;
     margin-right: 15px;
     width: 222px;
+	position:relative;
+}
+#resultsProductListContainer{
+	 padding-left:40px;
 }

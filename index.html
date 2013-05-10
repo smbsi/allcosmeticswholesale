@@ -648,8 +648,8 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     	<div class="carouselHPSearchCont">
         <div class="clear"></div>
         	<div class="carouselHPSearchPagination">
-                <a style="left:270px; top:22px;" id="prevHPSearchCaro" class="prevHPSearchCaro pointer"><img class="pointer" src="images/homepage/carousel_arrow_left.png" /></a>
-                <a style="right:280px; top:22px;" id="nextHPSearchCaro" class="nextHPSearchCaro pointer"><img class="pointer" src="images/homepage/carousel_arrow_right.png" /></a>
+                <a id="prevHPSearchCaro" class="prevHPSearchCaro pointer"><img class="pointer" src="images/homepage/carousel_arrow_left.png" /></a>
+                <a id="nextHPSearchCaro" class="nextHPSearchCaro pointer"><img class="pointer" src="images/homepage/carousel_arrow_right.png" /></a>
             	<ul class="carouselSearchPaginTitle">
                    <li><h2>What's the Deal</h2></li>
                    <li><h2>What's Hot</h2></li>
@@ -664,8 +664,8 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             </div>
             <div class="clear"></div>
             <div class="carouselHPSearchPagination">
-                <a style="left:275px; top:22px;" id="prevHPSearchCaro2" class="prevHPSearchCaro2 pointer"><img class="pointer" src="images/homepage/carousel_arrow_left.png" /></a>
-                <a style="right:270px; top:22px;" id="nextHPSearchCaro2" class="nextHPSearchCaro2 pointer"><img class="pointer" src="images/homepage/carousel_arrow_right.png" /></a>
+                <a id="prevHPSearchCaro2" class="prevHPSearchCaro2 pointer"><img class="pointer" src="images/homepage/carousel_arrow_left.png" /></a>
+                <a id="nextHPSearchCaro2" class="nextHPSearchCaro2 pointer"><img class="pointer" src="images/homepage/carousel_arrow_right.png" /></a>
             	<ul class="carouselSearchPaginTitleBottom">
                    <li><h2>What's the Deal</h2></li>
                    <li><h2>What's Hot</h2></li>
@@ -1144,7 +1144,9 @@ SANITY -> if you change the height and width of this image, change the .minimalM
 	
 </li>
 
-<li id='productListTemplateResultsNoPreview' class='loadingBG searchResultsProduct' >
+<li id='productListTemplateResultsNoPreview' class='loadingBG searchResultsProduct' onMouseOver="$('.quickView',$(this)).show();" onMouseOut="$('.quickView').hide();" >
+
+	<button class='floatRight pointer quickView displayNone' onClick="quickView('product',{'templateID':'productTemplateQuickViewAlternate','pid':$(this).closest('[data-pid]').attr('data-pid')});">Quickview</button> >
 	<div data-bind="var:product(pid); format:assignAttribute; attribute:data-pid;">
 		<div onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});" class='pointer prodListDetails'>
     		<h5 class='hideInMinimalMode pointer' data-bind='var: product(prod_name); format:truncText; numCharacters: 70;'></h5>
@@ -2282,7 +2284,7 @@ So the cart template should contain these two elements and the extension should 
 <div class="cartStaticText">
 	<div>
     	<h3>FREE SHIPPING ON ALL DOMESTIC ORDERS ABOVE &#36;100</h3>
-        <p>All domestic orders qualify for free standard shippinG&#46; Applicable only to address in the continental United States &#40;HI and AK are not included&#41;&#46; Free shipping does not apply to orders shipped to PO Boxes or international destinations&#46; Not applicable to eBay or Amazon purchases&#46;</p>
+        <p>All domestic orders qualify for free standard shipping&#46; Applicable only to address in the continental United States &#40;HI and AK are not included&#41;&#46; Free shipping does not apply to orders shipped to PO Boxes or international destinations&#46; Not applicable to eBay or Amazon purchases&#46;</p>
     </div>
     <div>
     	<h3>PREORDERS</h3>
