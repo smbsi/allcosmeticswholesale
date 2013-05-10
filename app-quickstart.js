@@ -705,7 +705,7 @@ fallback is to just output the value.
 				if(data.value.stid[0] == '%')	{$tag.remove()} //coupon.
 				else if(data.value.asm_master)	{$tag.remove()} //assembly 'child'.
 				else if(app.u.buyerIsAuthenticated())	{
-					$tag.show().button({icons: {primary: "ui-icon-heart"},text: false});
+					//$tag.show().button({icons: {primary: "ui-icon-heart"},text: false});
 					$tag.off('click.moveToWishlist').on('click.moveToWishList',function(){
 						app.ext.myRIA.a.moveItemFromCartToWishlist(data.value);
 						});

@@ -1533,7 +1533,7 @@ div .socialLinks{
     width: 100%;
 }
 
-.someClassYouWant .ui-dialog-titlebar-close {display:none;}
+.intShippingModal .ui-dialog-titlebar {display:none;}
 
 /*************************************************************************************************************************/
 /**Product Summary Section**/
@@ -1541,7 +1541,7 @@ div .socialLinks{
 .prodSummaryContainer{
 	float:left;
 	width: 200px;
-	height:835px;
+	height:auto;
 	margin-right:0px;
 }
 .prodSummaryContainer2{
@@ -2029,6 +2029,7 @@ div span .cents{
 }
 .cartPrice button:hover{
 	background-color:#FF3D7F;
+	color:black;
 }
 .cartRemove{
 }
@@ -2487,27 +2488,33 @@ div div.mainColumn div#privacyArticle h4, h3{
 #interShippingModal{
 	clear:both;
 	float:left;
-	
-	width:840px !important;
+	width:857px !important;
 	height:500px !important;
 	border: 5px solid rgba(200, 200, 200, 0.2);
 	padding:0px !important
 }
 .interShippingModalCont{
 	width:800px !important;
-	 height: 1025px !important;
+	 height: 1045px;
 	padding-left: 20px;
     padding-right: 20px;
 	background-color:#ffcc00;
+	color:black;
 }
 .interShippingModalCont h4{
 	color:red;
 }
-.interShippingModalCont h2, h3, h4{
+.interShippingModalCont h2{
 	color:black;
 	font-family: 'Special Elite', cursive;
 	font-weight: 200;
     margin-bottom: 5px;
+}
+.interShippingModalCont h3{
+	color:black;
+}
+.interShippingModalCont p{
+	color:black;
 }
 div div.mainColumn div#privacyArticle h4, h3{
 	color:white;
@@ -2830,4 +2837,8 @@ div.buttonList .removeButtonWishlist:hover{
 }
 #resultsProductListContainer{
 	 padding-left:40px;
+}
+.minimalMode .searchResultsProduct{
+	height: 183px;
+	width: 223px;
 }

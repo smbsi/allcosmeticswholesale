@@ -1395,7 +1395,7 @@ this will likely become more flexible in the future. ###
 	
     <h4>FREE SHIPPING ON ALL U.S.</h4>
     <h4>ORDERS OVER &#36;100</h4>
-    <br /><br /> 
+    <br />
 
     <div class='priceContainer'>
         <h1 class='basePrice' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true;'></h1>
@@ -2322,12 +2322,14 @@ So the cart template should contain these two elements and the extension should 
         	<div>
             	<span data-bind='var: product(price); format:money; currencySign: $;  hideZero:false;' ></span>
             </div>
-            <button class='floatRight moveToWishlist marginRight' data-bind='format:moveToWishlistButton; extension:myRIA; useParentData:true;' >NEXT TIME</button>
+            <button class='floatRight moveToWishlist' data-bind='format:moveToWishlistButton; extension:myRIA; useParentData:true;' >NEXT TIME</button>
             <!--<span data-bind='var: product(extended); format:money; currencySign: $; hideZero:false; pretext: = ;'></span>-->
 		</div>
         
         <div class="cartRemove">
-            <h5 class="floatLeft displayNone" data-bind='var: product(zoovy:prod_msrp); format:showIfSet;'>MSRP</h5>
+        	<div class="displayNone" data-bind='var: product(zoovy:prod_msrp); format:showIfSet;'>
+            	<h5 class="floatLeft" data-bind="var: product(zoovy:prod_msrp); format:money; currencySign: $; hideZero:true;"></h5>
+            </div>
             <!--<div class='ztable_row_small prodOptions' data-bind='var: variations(%options); format:selectedOptionsDisplay;'></div>-->
             <button class='floatLeft removeButton' data-bind='format:removeItemBtn; extension:store_cart; useParentData:true;' >Remove Item From Cart</button>
 		</div>

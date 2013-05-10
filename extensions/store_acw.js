@@ -259,22 +259,24 @@ var store_acw = function() {
 					}
 					else{
 						$('#shippingWarning').show();
-						$('#interShippingModal').dialog({'modal':'true', 'title':'','width':940, height:700, closeOnEscape: false, "dialogClass" : "someClassYouWant"});
+						$('#interShippingModal').dialog({'modal':'true', 'title':'','width':868, height:700, closeOnEscape: false, "dialogClass" : "intShippingModal"});
 					}
 				}
 				else{
 					$('#shippingWarning').show();
-					$('#interShippingModal').dialog({'modal':'true', 'title':'','width':940, height:700, closeOnEscape: false, "dialogClass" : "someClassYouWant"});
+					$('#interShippingModal').dialog({'modal':'true', 'title':'','width':868, height:700, closeOnEscape: false, "dialogClass" : "intShippingModal"});
 				}
 				},
 			interShipWarningAcceptClick : function(){
 				if($('#interShipAgreeCheck').is(':checked')){
-					$('#interShippingModal').dialog('close');
 					$('#noCheckWarning').hide();
+					$('#interShippingModal').dialog('close');
+					$('.interShippingModalCont').css('height','1045px');
 				}
 				else
 				{
 					$('#noCheckWarning').show();
+					$('.interShippingModalCont').css('height','1070px');
 				}
 			},
 			closeDropdownOnClick : function($tag){

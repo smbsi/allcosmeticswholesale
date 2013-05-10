@@ -3,6 +3,8 @@ quickstart.js:
 	- 'categoryProductListTemplate',
 	- 'productTemplateQuickViewAlternate',
 	- 'productListTemplateResultsNoPreview',
+- Comment out this line: $tag.show().button({icons: {primary: "ui-icon-heart"},text: false});
+in the moveToWishlist function
 - Add custom template handling for cat pages to this line:
 	-	 }
 					else	{
@@ -47,3 +49,7 @@ color:#FF3D7F;
 
 store-product.js:
 - Go to the prodDataInModal function. Change width:'86%' to width:'74%'
+
+store-cart.js:
+- go to showCartInModal function. Change width:'65%' to 66%
+- height to height:$(window).height() - 225});
