@@ -57,6 +57,7 @@ h3, h2{
 	margin-right:120px;
 	margin-left:30px;
 	line-height: 140px;
+	color:black;
 }
 
 span.ui-state-highlight{
@@ -2461,9 +2462,10 @@ div div.mainColumn div#privacyArticle h4, h3{
 }
 #shippingWarning{
 	float: right;
-    margin-left: 0;
+    margin-right: 25px;
     margin-top: 20px;
     width: 295px;
+	color:#3FB8AF;
 }
 
 /*************************************************************************************************************************/
