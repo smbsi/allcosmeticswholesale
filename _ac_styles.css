@@ -7,6 +7,7 @@
 /**Globals**/
 h1, h2, h3, h4, h5, h6, p{
 	font-family: 'Montserrat', sans-serif;
+	color:white;
 }
 body{
 	background:url(images/background.gif) repeat;
@@ -250,7 +251,7 @@ span.ui-state-highlight{
 	list-style:none;
 }
 .navBarEyes div{
-	     left: -171px;
+	left: -115px;
     top: 34px;
 }
 .navBarLips{
@@ -599,11 +600,13 @@ span.ui-state-highlight{
 .footerTopThird H5{
 	float:right;
 	font-family: 'Montserrat', sans-serif;
+	color:black;
 	
 }
 .footerTopThird H6{
 	float:right;
 	font-family: 'Montserrat', sans-serif;
+	color:black;
 }
 .footerNewsLabel{
 	margin-left:40px;
@@ -734,6 +737,7 @@ margin-left:20px;
 	margin-left:40px;
 	float:left;
 	top:15px;
+	overflow:hidden;
 }
 .carouselHPBannerCont div.caroufredsel_wrapper{
 	clear: both;
@@ -1164,6 +1168,7 @@ div .catListingCat:hover{
 	width: 210px;
 	height:330px;
 	margin-bottom:10px;
+	margin-left: 6px;
 }
 .productList li{
 	width: 210px;
@@ -1777,7 +1782,7 @@ h2 .cents{
 .carouselProdListCont{
 	clear:both;
 	overflow:hidden;
-	height:500px;
+	height:990px;
 	width:1020px;
 }
 
@@ -2141,6 +2146,7 @@ div span .cents{
 	font-family: 'Montserrat', sans-serif;
 	font-size:16px;
 	font-weight:600;
+	color:black;
 }
 
 #companyNav a{
@@ -2186,6 +2192,9 @@ div span .cents{
 	font-weight:200;
 	color:#ff3d7f;
 }
+#contactContent p{
+	color:white;
+}
 
 /*************************************************************************************************************************/
 /**Shipping Template**/
@@ -2193,6 +2202,7 @@ div span .cents{
 	font-family: 'Special Elite', cursive;
 	font-weight:200;
 	color:#ff3d7f;
+	margin-bottom:10px;
 }
 
 /*************************************************************************************************************************/
@@ -2221,6 +2231,12 @@ div span .cents{
 	font-weight:200;
 	color:#ff3d7f;
 }
+div div.mainColumn div#privacyArticle h4, h3{
+	color:white;
+	font-family: 'Montserrat', sans-serif;
+	font-weight:400;
+	margin-bottom:0px;
+}
 
 /*************************************************************************************************************************/
 /**FAQ Template**/
@@ -2228,6 +2244,9 @@ div span .cents{
 	font-family: 'Special Elite', cursive;
 	font-weight:200;
 	color:#ff3d7f;
+}
+#faqArticle div{
+	color:white; text-align:center;
 }
 
 /*************************************************************************************************************************/
@@ -2470,6 +2489,12 @@ div span .cents{
 	font-weight: 200;
     margin-bottom: 5px;
 }
+div div.mainColumn div#privacyArticle h4, h3{
+	color:white;
+	font-family: 'Montserrat', sans-serif;
+	font-weight:400;
+	margin-bottom:0px;
+}
 #interShipAgreeCheck{
 }
 #interShipAgreeButton{
@@ -2545,7 +2570,7 @@ div span .cents{
 	width:275px;
 	height:180px;
 	border: 5px solid rgba(200, 200, 200, 0.2);
-    margin-left: 150px;
+    margin-left: 10px;
 }
 .existingUserLogin div{
 	width:275px;
@@ -2583,7 +2608,7 @@ div span .cents{
 	float:left;
 	width:375px;
 	height:195px;
-    margin-left: 100px;
+    margin-left: 70px;
 }
 .createAccountForm h1{
 	color:#FF3D7F;
@@ -2775,6 +2800,6 @@ div.buttonList .removeButtonWishlist:hover{
 .searchResultsProduct{
 	float: left;
     height: 340px;
-    margin-right: 20px;
-    width: 290px;
+    margin-right: 15px;
+    width: 222px;
 }

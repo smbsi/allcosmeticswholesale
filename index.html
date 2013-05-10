@@ -566,8 +566,7 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
 
 
 <div id="prodPageElasticTemplate">
-	<!--<ul data-bind="useParentData:true; format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsProdTemp;' class='listStyleNone fluidList clearfix noPadOrMargin productList'";></ul>-->
-	<ul data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_DISCONTINUED"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsNoPreview;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+	<ul data-bind="useParentData:true; format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsProdTemp;' class='listStyleNone fluidList clearfix noPadOrMargin productList'";></ul>
 </div>
 
 <!--
@@ -659,9 +658,9 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             </div>
             <div class="clear"></div>
         	<div class="carouselHPSearchList">
-                    <ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsNoPreview;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-                    <ul id='homeProdSearchDiscontinued' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_DISCONTINUED"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsNoPreview;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-            		<ul id='homeProdSearchSale' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_SALE"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsNoPreview;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+                    <ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"12","mode":"elastic-native","filter":{"term":{"tags":"whats_hot"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsNoPreview;' class='listStyleNone clearfix noPadOrMargin'></ul>
+                    <ul id='homeProdSearchDiscontinued' data-bind='var: elastic-native({"size":"12","mode":"elastic-native","filter":{"term":{"tags":"gift_idea"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsNoPreview;' class='listStyleNone clearfix noPadOrMargin'></ul>
+            		<ul id='homeProdSearchSale' data-bind='var: elastic-native({"size":"12","mode":"elastic-native","filter":{"term":{"tags":"whats_the_deal"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsNoPreview;' class='listStyleNone clearfix noPadOrMargin'></ul>
             </div>
             <div class="clear"></div>
             <div class="carouselHPSearchPagination">
@@ -1119,28 +1118,29 @@ SANITY -> if you change the height and width of this image, change the .minimalM
 
 <li id='productListTemplateResultsProdTemp' class='loadingBG searchResultsProduct ' >
  <div data-bind="var:product(pid); format:assignAttribute; attribute:data-pid;">
-	<div onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});" class='pointer prodListDetails'>
-    	<h5 class='hideInMinimalMode pointer' data-bind='var: product(prod_name); format:truncText; numCharacters: 70;'></h5>
-		<div class='prodThumbContainer'>
-			<img src='blank.gif' class='prodThumb' alt='' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='278' height='200' />
-		</div>
-        
+		<div onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});" class='pointer prodListDetails'>
+    		<h5 class='hideInMinimalMode pointer' data-bind='var: product(prod_name); format:truncText; numCharacters: 70;'></h5>
+			<div class='prodThumbContainer'>
+				<img src='blank.gif' class='prodThumb' alt='' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='210' height='170' />
+			</div>
+        </div>
+  
         <div class="prodListPriceBuyCont">
-    		<div>
-        		<h1 class='hideInMinimalMode' data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price;'></h1>
-        	</div>
+            <div>
+                <h1 class='hideInMinimalMode' data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price;'></h1>
+            </div>
             <!--<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm' action='#'>
                 <button data-bind='format:addToCartButton; extension:myRIA; useParentData:true;'>more details</button>
             </form>-->
-            <div class="moreDetailsButton" data-bind="var:product(pid); format:assignAttribute; attribute:data-pid;">
-            	<div class='hideInMinimalMode pointer moreDetails prodViewerAddToCartForm' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});"><span>more details</span></div>
+            <div class="moreDetailsButton" onClick="quickView('product',{'templateID':'productTemplateQuickViewAlternate','pid':$(this).closest('[data-pid]').attr('data-pid')});">
+                <div class='hideInMinimalMode pointer moreDetails'><span>more details</span></div>
+                <!--<div class='hideInMinimalMode pointer moreDetails prodViewerAddToCartForm' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});"><span>more details</span></div>-->
             </div>
-        </div>
+        </div>        
         <h4 data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true; pretext: MSRP ;'></h4>
 		
 		<!--<h6 class='hideInMinimalMode' data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>-->
 	</div>
-  </div>
 	
 </li>
 
@@ -1351,7 +1351,7 @@ this will likely become more flexible in the future. ###
 
 <div id='productTemplate' class="productTemplate">
 <ul class='clearfix noPadOrMargin fluidList breadcrumb' data-bind='var: session(session.recentCategories.0); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
-<br /><br />
+<br />
 
 <div class='prodViewerContainer'>
 	<div class='imageContainer3'>
@@ -1791,8 +1791,8 @@ if you change these, you should move them above this comment so that when you (o
     <ul class='listStyleNone noPadOrMargin'>
     	<li><a onclick="return showContent('category',{'navcat':'.acw.sale'});" href="#top">Sale</a></li>
         <li><a href="#" onClick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/','vstore'); return false;" title="Suite 7 beauty" target="_blank">Shop Suite7Beauty</a></li>
-        <li><a href='#top' onClick="return showContent('company',{'show':'contact'});">Contact Us</a></li>
-        <li><a href='#top' onClick="return showContent('company',{'show':'faq'});">Newsletter</a></li>
+        <li><a href="#company?show=contact" class="bindByAnchor">Contact Us</a></li>
+        <li><a href="#customer?show=newsletter" class="bindByAnchor">Newsletter</a></li>
     </ul>
 </div>
 <div>
@@ -1800,13 +1800,13 @@ if you change these, you should move them above this comment so that when you (o
         <h3>HELPFUL LINKS</h3>
     </div>
     <ul class='listStyleNone noPadOrMargin'>
-    	<li><a href='#top' onClick="return showContent('company',{'show':'contact'});">Contact Us</a></li>
-        <li><a href='#top' onClick="return showContent('company',{'show':'shipping'});">Shipping policy</a></li>
-        <li><a href='#top' onClick="return showContent('company',{'show':'return'});">Return Policy</a></li>
-        <li><a href='#top' onClick="return showContent('company',{'show':'payment'});">Payment Policy</a></li>
-        <li><a href='#top' onClick="return showContent('company',{'show':'privacy'});">Privacy Policy</a></li>
-        <li><a href='#top' onClick="return showContent('company',{'show':'about'});">About Us</a></li>
-        <li><a href='#top' onClick="return showContent('company',{'show':'faq'});">FAQs</a></li>
+    	<li><a href="#company?show=contact" class="bindByAnchor">Contact Us</a></li>
+        <li><a href="#company?show=shipping" class="bindByAnchor">Shipping policy</a></li>
+        <li><a href="#company?show=return" class="bindByAnchor">Return Policy</a></li>
+        <li><a href="#company?show=payment" class="bindByAnchor">Payment Policy</a></li>
+        <li><a href="#company?show=privacy" class="bindByAnchor">Privacy Policy</a></li>
+        <li><a href="#company?show=about" class="bindByAnchor">About Us</a></li>
+        <li><a href="#company?show=faq" class="bindByAnchor">FAQs</a></li>
     </ul>
 </div>
 <div>
@@ -1814,11 +1814,11 @@ if you change these, you should move them above this comment so that when you (o
         <h3>MY ACCOUNT</h3>
     </div>
     <ul class='listStyleNone noPadOrMargin'>
-    	<li><a href="#customer?show=myaccount">Log-in or Sign-up</a></li>
-        <li><a href="#customer?show=orders">Order Tracking</a></li>
-        <li><a href='#top' onClick="return showContent('company',{'show':'return'});">Return a Product</a></li>
-        <li><a href="#customer?show=newsletter">Join our Newsletter</a></li>
-        <li><a href='#top' onClick="return showContent('company',{'show':'faq'});">FAQs</a></li>
+    	<li><a href="#customer?show=myaccount" class="bindByAnchor">Log-in or Sign-up</a></li>
+        <li><a href="#customer?show=orders" class="bindByAnchor">Order Tracking</a></li>
+        <li><a href="#company?show=return" class="bindByAnchor">Return a Product</a></li>
+        <li><a href="#customer?show=newsletter" class="bindByAnchor">Join our Newsletter</a></li>
+        <li><a href="#company?show=faq" class="bindByAnchor">FAQs</a></li>
     </ul>
 </div>
 </nav>
