@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130509124500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130510092500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "acw_active",//can be passive, active or required
@@ -658,9 +658,9 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             </div>
             <div class="clear"></div>
         	<div class="carouselHPSearchList">
-                    <ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"12","mode":"elastic-native","filter":{"term":{"tags":"whats_hot"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsNoPreview;' class='listStyleNone clearfix noPadOrMargin'></ul>
-                    <ul id='homeProdSearchDiscontinued' data-bind='var: elastic-native({"size":"12","mode":"elastic-native","filter":{"term":{"tags":"gift_idea"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsNoPreview;' class='listStyleNone clearfix noPadOrMargin'></ul>
-            		<ul id='homeProdSearchSale' data-bind='var: elastic-native({"size":"12","mode":"elastic-native","filter":{"term":{"tags":"whats_the_deal"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsNoPreview;' class='listStyleNone clearfix noPadOrMargin'></ul>
+                    <ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"12","mode":"elastic-native","filter":{"term":{"whats_hot":"1"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsNoPreview;' class='listStyleNone clearfix noPadOrMargin'></ul>
+                    <ul id='homeProdSearchDiscontinued' data-bind='var: elastic-native({"size":"12","mode":"elastic-native","filter":{"term":{"gift_idea":"1"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsNoPreview;' class='listStyleNone clearfix noPadOrMargin'></ul>
+            		<ul id='homeProdSearchSale' data-bind='var: elastic-native({"size":"12","mode":"elastic-native","filter":{"term":{"whats_the_deal":"1"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsNoPreview;' class='listStyleNone clearfix noPadOrMargin'></ul>
             </div>
             <div class="clear"></div>
             <div class="carouselHPSearchPagination">
