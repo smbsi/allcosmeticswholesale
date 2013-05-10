@@ -162,9 +162,11 @@ span.ui-state-highlight{
 	border: medium none;
 }
 #searchBarInput{
-	width:200px;
-	float:left;
-	height:26px;
+	border: 0 none;
+    float: left;
+    height: 32px;
+    padding: 0;
+    width: 200px;
 }
 #searchBarButton{
 	color:#000000;
@@ -659,7 +661,7 @@ span.ui-state-highlight{
 	font-size:18px;
 }
 .subscriberLists{
-	float:left;
+	float:right;
 }
 
 /*************************************************************************************************************************/
@@ -787,7 +789,7 @@ margin-left:20px;
 #paginCaro{
 	bottom: 20px;
     height: 20px;
-    left: 335px;
+    left: 315px;
     overflow: visible;
     position: absolute;
     width: 100px;
