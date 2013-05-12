@@ -54,7 +54,7 @@ h3, h2{
 }
 .centeringContainerH4 h4{
 	display:inline;
-	margin-right:120px;
+	margin-right:119px;
 	margin-left:30px;
 	line-height: 140px;
 	color:black;
@@ -661,7 +661,7 @@ span.ui-state-highlight{
 	font-size:18px;
 }
 .subscriberLists{
-	float:right;
+	padding:0px;
 }
 
 /*************************************************************************************************************************/
@@ -897,7 +897,7 @@ margin-left:20px;
 }
 
 .socMed img{
-	margin-left:30px;
+	margin-left:35px;
 }
 
 .homepageSignUp div.homepageSignUpBottom{
@@ -2119,6 +2119,7 @@ div span .cents{
 	text-align:center;
 	line-height: 30px;
 	font-family: 'Montserrat', sans-serif;
+	color:black;
 }
 .cartLinks a{
 	color:white;
