@@ -174,7 +174,7 @@ span.ui-state-highlight{
 	border:none;
 	float:left;
 	height:32px;
-	width:95px;
+	width:92px;
 }
 /*************************************************************************************************************************/
 /**Bottom third**/
@@ -2107,6 +2107,9 @@ div span .cents{
 }
 .checkoutSuccess div{
 	color:white;
+}
+.formValidationError, .zwarn {
+	color: #C00;
 }
 .orderConfText{
 	color:white;
