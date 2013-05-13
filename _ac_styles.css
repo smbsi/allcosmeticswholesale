@@ -174,7 +174,7 @@ span.ui-state-highlight{
 	border:none;
 	float:left;
 	height:32px;
-	width:85px;
+	width:95px;
 }
 /*************************************************************************************************************************/
 /**Bottom third**/
@@ -1436,7 +1436,7 @@ ul .mpControlJumpToPage{
 }
 .prodPriceSummaryContainer2{
 	float:left;
-	width: 300px;
+	width: 240px;
 }
 .prodSummaryContainer h6{
 	color:#ff9e9d;
@@ -1469,7 +1469,7 @@ ul .mpControlJumpToPage{
 	border: medium none;
     border-radius: 0 0 0 0;
     width: 170px;
-	margin-left: 70px;
+	margin-left:40px;
 	font-family: 'Special Elite', cursive;
 }
 
@@ -1551,7 +1551,7 @@ div .socialLinks{
 	float:left;
 	width: 400px;
 	height:auto;
-	margin-right:10px;
+	margin-right:0px;
 	margin-left: 30px;
 }
 .prodSummaryContainer3{
@@ -1651,7 +1651,7 @@ div .socialLinks{
 	margin-left:65px;
 }
 .prodPriceSummaryContainer2 div span.savings span.savingsDifference{
-	margin-left: 110px;
+	75px;
 }
 
 .prodViewerAddToCartForm{
@@ -2212,6 +2212,9 @@ div span .cents{
 #contactForm fieldset legend{
 	color:white;
 }
+#contactArticle{
+	margin-top:20px;
+}
 #contactArticle h1{
 	font-family: 'Special Elite', cursive;
 	font-weight:200;
@@ -2223,6 +2226,9 @@ div span .cents{
 
 /*************************************************************************************************************************/
 /**Shipping Template**/
+#shippingArticle{
+	margin-top:20px;
+}
 #shippingArticle h1{
 	font-family: 'Special Elite', cursive;
 	font-weight:200;
@@ -2232,6 +2238,9 @@ div span .cents{
 
 /*************************************************************************************************************************/
 /**Return Policy Template**/
+#returnArticle{
+	margin-top:20px;
+}
 #returnArticle h1{
 	font-family: 'Special Elite', cursive;
 	font-weight:200;
@@ -2240,6 +2249,10 @@ div span .cents{
 
 /*************************************************************************************************************************/
 /**Payment Policy Template**/
+#paymentArticle{
+	margin-top:20px;
+}
+
 #paymentArticle h1{
 	font-family: 'Special Elite', cursive;
 	font-weight:200;
@@ -2250,6 +2263,7 @@ div span .cents{
 /**Privacy Policy Template**/
 #privacyArticle{
 	color:white;
+	margin-top:20px;
 }
 #privacyArticle h1{
 	font-family: 'Special Elite', cursive;
@@ -2264,7 +2278,16 @@ div div.mainColumn div#privacyArticle h4, h3{
 }
 
 /*************************************************************************************************************************/
+/**About Us Template**/
+#aboutArticle{
+	margin-top:20px;
+}
+
+/*************************************************************************************************************************/
 /**FAQ Template**/
+#faqArticle{
+	margin-top:20px;
+}
 #faqArticle h1{
 	font-family: 'Special Elite', cursive;
 	font-weight:200;
@@ -2544,14 +2567,23 @@ div div.mainColumn div#privacyArticle h4, h3{
 /*************************************************************************************************************************/
 /*************************************************************************************************************************/
 /**CUSTOMER TEMPLATE**/
+#subscriberListsArticle{
+	margin-top:20px;
+}
 
 #subscriberListsArticle h1{
 	font-family: 'Special Elite', cursive;
 	color:#ff3d7f;
 }
+#myaccountArticle{
+	margin-top:20px;
+}
 #myaccountArticle h1{
 	font-family: 'Special Elite', cursive;
 	color:#ff3d7f;
+}
+#changepasswordArticle{
+	margin-top:20px;
 }
 #changepasswordArticle h1{
 	font-family: 'Special Elite', cursive;
@@ -2561,9 +2593,15 @@ div div.mainColumn div#privacyArticle h4, h3{
 	font-family: 'Special Elite', cursive;
 	color:#ff3d7f;
 }
+#ordersArticle{
+	margin-top:20px;
+}
 #ordersArticle h1{
 	font-family: 'Special Elite', cursive;
 	color:#ff3d7f;
+}
+#listsArticle{
+	margin-top:20px;
 }
 #listsArticle h1{
 	font-family: 'Special Elite', cursive;
