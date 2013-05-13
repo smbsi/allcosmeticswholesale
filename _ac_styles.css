@@ -2114,6 +2114,9 @@ div span .cents{
 .orderConfText{
 	color:white;
 }
+.billingAddressSection div address div{
+	color:white;
+}
 
 /*************************************************************************************************************************/
 /**Helpful Links Section**/

@@ -15,7 +15,7 @@ app.rq.push(['extension',0,'cco','extensions/cart_checkout_order.js']);
 //app.rq.push(['extension',0,'convertSessionToOrder','extensions/checkout_mobile/extension.js']);
 //app.rq.push(['extension',0,'cco','extensions/cart_checkout_order.js']);
 
-
+app.rq.push(['extension',0,'store_checkout','extensions/store_checkout.js']);
 app.rq.push(['extension',0,'store_prodlist','extensions/store_prodlist.js']);
 app.rq.push(['extension',0,'store_navcats','extensions/store_navcats.js']);
 app.rq.push(['extension',0,'store_search','extensions/store_search.js']);
