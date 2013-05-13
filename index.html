@@ -2263,7 +2263,7 @@ So the cart template should contain these two elements and the extension should 
 		
 		<span id='googleCheckoutButton' class='pointer' data-bind='var: cart(sum/items_total); format:googleCheckoutButton;'></span>
 		
-		<span id='amazonCheckoutButton' class='pointer' data-bind='var: cart(cart/cartid); format:amazonCheckoutButton;'></span>
+		<!--**RE-ADD THIS ONCE AMAZON CHECKOUT IS FIXED**<span id='amazonCheckoutButton' class='pointer' data-bind='var: cart(cart/cartid); format:amazonCheckoutButton;'></span>-->
 		
 	</div>
     <h5>FREE SHIPPING ON ALL U.S. ORDERS ABOVE &#36;100</h5>
@@ -2325,7 +2325,7 @@ So the cart template should contain these two elements and the extension should 
 
 		<div class="floatLeft cartQuantity">
             <input type='number' class='qtyInput numberInput' onChange="app.ext.store_cart.u.updateCartQty($(this)); app.model.dispatchThis('immutable');"  data-bind='format:cartItemQty;extension:store_cart;useParentData:true;' />
-            <button class=''>UPDATE QTY</button><!-- here to stop 'enter' in input above from closing modal -->
+            <button>UPDATE QTY</button><!-- here to stop 'enter' in input above from closing modal -->
 		</div>
         <div class="cartPrice">
         	<div>
@@ -2547,13 +2547,13 @@ The 'data-action' attribute is used to assign an onclick.
 		<span data-bind="var: address(bill_lastname);format:text;"  title='last name'></span>
 	</div>
 	<div class='address'>
-		<div data-bind="var: address(bill_address1);format:text;"  title='address'></div>
-		<div data-bind="var: address(bill_address2);format:text;"  title='address 2'></div>
+		<div data-bind="var: address(bill/address1);format:text;"  title='address'></div>
+    <div data-bind="var: address(bill/address2);format:text;"  title='address 2'></div>
 
-		<span data-bind="var: address(bill_city);format:text;"  title='city'></span>,
-		<span data-bind="var: address(bill_region);format:text;"  title='state'></span>.
-		<span data-bind="var: address(bill_postal);format:text;"  title='zip'></span>
-		<div data-bind="var: address(bill_countrycode);format:text;" title='country'></div>
+    <span data-bind="var: address(bill/city);format:text;"  title='city'></span>,
+    <span data-bind="var: address(bill/region);format:text;"  title='state'></span>.
+    <span data-bind="var: address(bill/postal);format:text;"  title='zip'></span>
+    <div data-bind="var: address(bill/countrycode);format:text;" title='country'></div>
 
 	</div>
 
@@ -2568,13 +2568,14 @@ The 'data-action' attribute is used to assign an onclick.
 		<span data-bind="var: address(ship_lastname);format:text;"  title='last name'></span>
 	</div>
 	<div class='address'>
-		<div data-bind="var: address(ship_address1);format:text;"  title='address'></div>
-		<div data-bind="var: address(ship_address2);format:text;"  title='address 2'></div>
+				<div data-bind="var: address(ship/address1);format:text;"  title='address'></div>
+		<div data-bind="var: address(ship/address2);format:text;"  title='address 2'></div>
 
-		<span data-bind="var: address(ship_city);format:text;"  title='city'></span>,
-		<span data-bind="var: address(ship_region);format:text;"  title='state'></span>.
-		<span data-bind="var: address(ship_postal);format:text;"  title='zip'></span>
-		<div data-bind="var: address(ship_countrycode);format:text;" title='country'></div>
+		<span data-bind="var: address(ship/city);format:text;"  title='city'></span>,
+		<span data-bind="var: address(ship/region);format:text;"  title='state'></span>.
+		<span data-bind="var: address(ship/postal);format:text;"  title='zip'></span>
+		<div data-bind="var: address(ship/countrycode);format:text;" title='country'></div>
+
 
 	</div>
 

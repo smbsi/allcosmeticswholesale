@@ -1984,14 +1984,15 @@ h2 .cents{
     width: 248px;
 }
 .cartQuantity input{
-	height: 29px;
-    width: 50%;
+	height: 30px;
+    width: 124px;
 	 float: left;
 	 border:none;
+	 padding:0px;
 }
 .cartQuantity button{
-    width: 50%;
-	height: 31px;
+    width: 124px;
+	height: 30px;
 	 float: left;
 	 border:none;
 	 font-family: 'Special Elite', cursive;
@@ -2047,6 +2048,9 @@ div span .cents{
 }
 .cartRemove button{
 	float:right;
+}
+#paypalECButton{
+	margin-left:20px;
 }
 
 /*************************************************************************************************************************/
@@ -2592,6 +2596,12 @@ div div.mainColumn div#privacyArticle h4, h3{
 #subscriberListsArticle h1{
 	font-family: 'Special Elite', cursive;
 	color:#ff3d7f;
+}
+.address div{
+	color:white;
+}
+.address span{
+	color:white;
 }
 #myaccountArticle{
 	margin-top:20px;
