@@ -61,7 +61,9 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 3a. change any of these variables to match your project:
-var TESTING_DOMAIN = "www.zoovy.com";
+var TESTING_DOMAIN = "www.8185f9.dagobah.zoovy.net";
+//var PROJECT_DIRECTORY = process.cwd() + "C:/Users/Krista's/My Documents/GitHub/allcosmeticswholesale/";		// the root directory where your project files are located
+//var TESTING_DOMAIN = "www.zoovy.com";
 var PROJECT_DIRECTORY = process.cwd() + "/../..";		// the root directory where your project files are located
 
 // 3b. run: node nodeproxy.js

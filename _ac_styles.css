@@ -697,6 +697,9 @@ span.ui-state-highlight{
 .footerMidThird a:hover{
 	color:#ff3d7f;
 }
+.footerNewsLabel div{
+	clear:right;
+}
 
 /*************************************************************************************************************************/
 /**Bottom Third**/
