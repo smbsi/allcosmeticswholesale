@@ -157,7 +157,10 @@ span.ui-state-highlight{
 	color:rgba(.1, .1, .1, .5);
 }**/
 .searchArea{
-	padding-top:12px;
+	padding-bottom: 12px;
+    padding-left: 12px;
+    padding-top: 12px;
+	background-color:rgb(40, 40, 40);
 	background-color:rgba(200, 200, 200, .2);
 	border: medium none;
 }
@@ -216,6 +219,9 @@ span.ui-state-highlight{
 .navBarBrands:hover{
 	background-image:url(images/header_nav_bar/brands.png);
 	color:#000000;
+filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/header_nav_bar/brands.png',
+sizingMethod='scale');
 }
 .navBarBrands ul{
 	left:5px;
@@ -228,6 +234,9 @@ span.ui-state-highlight{
 	background-image:url(images/header_nav_bar/dropdownbackground.png);
 	background-repeat:no-repeat;
 	background-size:cover;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+		src='images/header_nav_bar/dropdownbackground.png',
+		sizingMethod='scale');
 	z-index:3;
 	left:-30px;
     top:40px;
@@ -252,6 +261,13 @@ span.ui-state-highlight{
 .navBarEyes:hover{
 	background-image:url(images/header_nav_bar/brands.png);
 	color:#000000;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/header_nav_bar/brands.png',
+sizingMethod='image');
+
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/header_nav_bar/brands.png',
+sizingMethod='image')";
 }
 .navBarEyes ul{
 	list-style:none;
@@ -280,6 +296,13 @@ span.ui-state-highlight{
 .navBarLips:hover{
 	background-image:url(images/header_nav_bar/brands.png);
 	color:#000000;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/header_nav_bar/brands.png',
+sizingMethod='image');
+
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/header_nav_bar/brands.png',
+sizingMethod='image')";
 }
 .navBarLips ul{
 	left: -178px;
@@ -305,6 +328,13 @@ span.ui-state-highlight{
 .navBarFace:hover{
 	background-image:url(images/header_nav_bar/brands.png);
 	color:#000000;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/header_nav_bar/brands.png',
+sizingMethod='image');
+
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/header_nav_bar/brands.png',
+sizingMethod='image')";
 }
 .navBarFace ul{
 	 left: -177px;
@@ -331,6 +361,13 @@ span.ui-state-highlight{
 	background-image:url(images/header_nav_bar/accessories.png);
 	color:#000000;
 	font-size: 16px;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/header_nav_bar/accessories.png',
+sizingMethod='image');
+
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/header_nav_bar/accessories.png',
+sizingMethod='image')";
 }
 .navBarAccess ul{
 	 left: -155px;
@@ -356,6 +393,13 @@ span.ui-state-highlight{
 .navBarSkin:hover{
 	background-image:url(images/header_nav_bar/skincare.png);
 	color:#000000;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/header_nav_bar/skincare.png',
+sizingMethod='image');
+
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/header_nav_bar/skincare.png',
+sizingMethod='image')";
 }
 .navBarSkin ul{
 	  left: -171px;
@@ -380,6 +424,13 @@ span.ui-state-highlight{
 .navBarNails:hover{
 	background-image:url(images/header_nav_bar/brands.png);
 	color:#000000;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/header_nav_bar/brands.png',
+sizingMethod='image');
+
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/header_nav_bar/brands.png',
+sizingMethod='image')";
 }
 .navBarNails ul{
 	left: 539px;
@@ -404,6 +455,13 @@ span.ui-state-highlight{
 .navBarFragrance:hover{
 	background-image:url(images/header_nav_bar/fragrance.png);
 	color:#000000;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/header_nav_bar/fragrance.png',
+sizingMethod='image');
+
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/header_nav_bar/fragrance.png',
+sizingMethod='image')";
 }
 .navBarFragrance ul{
 	left: 659px;
@@ -429,6 +487,13 @@ span.ui-state-highlight{
 .navBarHair:hover{
 	background-image:url(images/header_nav_bar/brands.png);
 	color:#000000;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/header_nav_bar/brands.png',
+sizingMethod='image');
+
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/header_nav_bar/brands.png',
+sizingMethod='image')";
 }
 .navBarHair ul{
 	  left: -177px;
@@ -453,6 +518,13 @@ span.ui-state-highlight{
 .navBarJewel:hover{
 	background-image:url(images/header_nav_bar/brands.png);
 	color:#000000;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/header_nav_bar/brands.png',
+sizingMethod='image');
+
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/header_nav_bar/brands.png',
+sizingMethod='image')";
 }
 .navBarJewel ul{
 	 left: -240px;
@@ -481,6 +553,13 @@ span.ui-state-highlight{
 .navBarSale:hover{
 	background-image:url(images/header_nav_bar/brands.png);
 	color:#000000;
+		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/header_nav_bar/brands.png',
+sizingMethod='image');
+
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/header_nav_bar/brands.png',
+sizingMethod='image')";
 }
 
 .dropdown {
@@ -741,10 +820,10 @@ margin-left:20px;
 }
 .prevHPSearchCaro{
 	top: 22px; 
-	left: 260px;
+	left: 265px;
 }
 .nextHPSearchCaro{
-	right: 265px;
+	right: 270px;
     top: 22px;
 }
 .prevHPSearchCaro2{
