@@ -2342,9 +2342,10 @@ div div.mainColumn div#privacyArticle h4, h3{
 	border: medium none;
     border-radius: 0 0 0 0;
     height: 25px;
-    margin-bottom: 2px;
-    margin-left: -4px;
-	 margin-top: -1px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+	 margin-top: 0px;
+	 float:left;
 }
 .panelContent input{
 	height:23px;
@@ -2362,14 +2363,35 @@ div div.mainColumn div#privacyArticle h4, h3{
 
 /*************************************************************************************************************************/
 /**Login Section**/
+.accountCreateContainer{
+	clear: left;
+    float: left;
+}
 .accountCreateContainer span{
 	color:white;
 }
 .accountCreateContainer span:first-child{
 	border:thin solid;
 }
+.checkoutPWInput{
+	float:left;
+	clear:left;
+}
 .checkoutPWInput div{
 	color:white;
+}
+.checkoutPWInput input{
+	float: left;
+    height: 25px;
+    margin: 0;
+    padding: 0;
+    width: 203px !important;
+}
+.checkoutPWInput button{
+	float: left;
+}
+.loginEmailCheckout{
+	float:left;
 }
 /*************************************************************************************************************************/
 /**Account Creation Section**/
@@ -2378,6 +2400,10 @@ div div.mainColumn div#privacyArticle h4, h3{
 }
 .panelContent{
 	color:white;
+}
+.checkoutBillToShip label{
+	clear: left;
+    float: left;
 }
 .checkoutBillToShip span{
 	color:white;
@@ -2448,6 +2474,7 @@ div div.mainColumn div#privacyArticle h4, h3{
     margin: 0;
     padding: 0;
     width: 140px;
+	float:left;
 }
 .placeOrderButton{
 	background-color: #3FB8AF;
