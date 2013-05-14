@@ -2444,7 +2444,10 @@ div div.mainColumn div#privacyArticle h4, h3{
     width: 350px;
 }
 .couponEntryContainer input{
-	width:140px;
+	height: 25px;
+    margin: 0;
+    padding: 0;
+    width: 140px;
 }
 .placeOrderButton{
 	background-color: #3FB8AF;
