@@ -1093,13 +1093,13 @@ margin-left:20px;
 	width:100%;
 }
 div .catListingCat{
-	width:19% !important;
+	width:22% !important;
 	height:120px !important;
 	background:url(images/category_page/category_listing_norm.png);
 	background-repeat:no-repeat;
 	background-size:contain;
 	float:left;
-	margin-left:43px;
+	margin-left:15px;
 }
 div .catListingCat:hover{
 	background:url(images/category_page/category_listing_hover.png);
@@ -1438,6 +1438,7 @@ ul .mpControlJumpToPage{
 /**categoryListTemplate**/
 .categoryList{
 	margin-bottom:40px;
+	margin-left:10px;
 }
 .categoryList > li{
 	height: 30px;
@@ -1446,7 +1447,7 @@ ul .mpControlJumpToPage{
 	font-size: 18px;
 	width: 23%;
 	text-align: center;
-	line-height: 100px;
+	line-height: 115px;
 }
 
 
@@ -1767,6 +1768,7 @@ div .socialLinks{
 form .prodQuantity{
 	width:180px;
 	height:32px;
+	background-color:rgb(40, 40, 40);
 	background-color:rgba(200, 200, 200, .2);
 	border: medium none;
 	padding: 10px;
@@ -2108,6 +2110,7 @@ h2 .cents{
     width: 50%;
 	 float: left;
 	 border:none;
+	 background-color:rgb(40, 40, 40);
 	 background-color:rgba(200, 200, 200, 0.2);
 	 font-family: 'Special Elite', cursive;
 }
@@ -2167,6 +2170,7 @@ div span .cents{
 	font-family: 'Montserrat', sans-serif;
 	font-size: 14px;
 	padding-right:60px;
+	background-color:transparent;
 }
 .checkoutButton{
 	font-family: 'Special Elite', cursive !important;
@@ -2909,6 +2913,9 @@ div div ul li.productListTemplateBuyerList{
 	border:none;
 	float:left;
 }
+.buttonList{
+	background-color:transparent;
+}
 .buttonList div h6{
 	color:white;
 	font-family: 'Special Elite',cursive;
@@ -2922,6 +2929,7 @@ div div ul li.productListTemplateBuyerList{
 .buttonList div{
 	width:50%;
 	height:45px;
+	background-color:rgb(40, 40, 40);
 	background-color:rgba(200, 200, 200, 0.2);
 	float:left;
 }
