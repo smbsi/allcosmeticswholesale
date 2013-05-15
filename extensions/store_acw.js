@@ -285,7 +285,8 @@ var store_acw = function() {
 				//$('.dropdownOnClick3').css({'height':'0px'});
 				//$('.dropdownOnClick4').css({'height':'0px'});
 				$(".dropdown", $tag).stop().animate({"height":"0px"}, 0);
-			}
+			},
+			
 			
 		},
 		
@@ -294,6 +295,17 @@ var store_acw = function() {
 			showIfSetInline : function($tag,data)	{
 			if(data.value)	{
 				$tag.show().css('display','inline'); //IE isn't responding to the 'show', so the display:inline is added as well.
+				}
+			},
+			
+			hideIfSetAlt : function($tag){
+				app.u.dump('Hide if set function running');
+				if($('.orderHistoryList').length() > 0){
+					app.u.dump('Hiding .ordersNoOrdersMess');
+					$('.ordersNoOrdersMess').hide();
+				}
+				else{
+					app.u.dump('Not hiding .ordersNoOrdersMess. Length is =< 0');
 				}
 			}
 			

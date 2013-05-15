@@ -397,6 +397,20 @@ var hideDropdown = function ($tag) {
 }
 
 
+/*app.rq.push(['templateFunction','customerTemplate','onCompletes',function(P) {
+	
+				app.u.dump('Hide if set function running');
+				if($('.orderHistoryList').length > 0){
+					app.u.dump('Hiding .ordersNoOrdersMess');
+					$('.ordersNoOrdersMess').hide();
+				}
+				else{
+					app.u.dump('Showing .ordersNoOrdersMess. Length is =< 0');
+					$('.ordersNoOrdersMess').show().css('display','block');
+				}
+	}]);>*/
+
+
 
 
 

@@ -42,8 +42,8 @@ css files should be included before any .js file to ensure they are downloaded i
 -->
 <link rel="stylesheet" type="text/css" href="app-quickstart.css" />
 <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/ui-lightness/jquery-ui.css" />
-<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Special+Elite'>
-<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Montserrat:400,700'>
+<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Special+Elite'>
+<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Montserrat:400,700'>
 <link rel="stylesheet" type="text/css" href="Theme/jquery-ui-1.10.1.custom/css/ac_theme/jquery-ui-1.10.1.custom.css" />
 <link rel="stylesheet" type="text/css" href="_ac_styles.css" />
 
@@ -2022,8 +2022,8 @@ subscribeListsArticle is used for authenticated buyers
 
 		<div id='ordersArticle' class='displayNone textContentArea'>
 			<h1>Order History</h1>
-            <h2 data-bind='var: orders(@orders); format:hideIfSet;'>You have not placed any orders yet.</h2>
-			<div data-bind="var: orders(@orders); format:processList; loadsTemplate:orderLineItemTemplate;" data-app-role='orderList' class='ui-accordion ui-widget ui-helper-reset ui-accordion-icons '></div>
+            <h2 class="ordersNoOrdersMess" data-bind='var: orders(@orders); format:hideIfSetAlt; extension:store_acw;'>You have not placed any orders yet.</h2>
+			<div data-bind="var: orders(@orders); format:processList; loadsTemplate:orderLineItemTemplate;" data-app-role='orderList' class='ui-accordion ui-widget ui-helper-reset ui-accordion-icons orderHistoryList'></div>
 			<h3>Order Status</h3>
             <h5>If you'd like to check the status of an order, (or
 			cancel one that hasn't been processed), please
