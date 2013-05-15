@@ -2429,6 +2429,7 @@ div div.mainColumn div#privacyArticle h4, h3{
 	font-size:28px;
 	font-family: 'Special Elite', cursive;
 	font-weight:100;
+	background-color:transparent;
 }
 .checkoutFormContainer h4{
 	color:white;
