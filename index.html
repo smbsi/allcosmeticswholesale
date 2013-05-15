@@ -2022,7 +2022,7 @@ subscribeListsArticle is used for authenticated buyers
 
 		<div id='ordersArticle' class='displayNone textContentArea'>
 			<h1>Order History</h1>
-            <h2 class="ordersNoOrdersMess" data-bind='var: orders(@orders); format:hideIfSetAlt; extension:store_acw;'>You have not placed any orders yet.</h2>
+            <h2 class="ordersNoOrdersMess">You have not placed any orders yet.</h2>
 			<div data-bind="var: orders(@orders); format:processList; loadsTemplate:orderLineItemTemplate;" data-app-role='orderList' class='ui-accordion ui-widget ui-helper-reset ui-accordion-icons orderHistoryList'></div>
 			<h3>Order Status</h3>
             <h5>If you'd like to check the status of an order, (or

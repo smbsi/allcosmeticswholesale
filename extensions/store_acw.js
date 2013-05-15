@@ -298,9 +298,9 @@ var store_acw = function() {
 				}
 			},
 			
-			hideIfSetAlt : function($tag){
+			hideIfSetAlt : function($tag,data){
 				app.u.dump('Hide if set function running');
-				if($('.orderHistoryList').length() > 0){
+				if(data.value){
 					app.u.dump('Hiding .ordersNoOrdersMess');
 					$('.ordersNoOrdersMess').hide();
 				}
