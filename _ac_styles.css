@@ -201,21 +201,21 @@ span.ui-state-highlight{
 	left:0 !important;
 }
 .navBarBrands{
-	background-size: cover;
     color: #FFFFFF;
     float: left;
     font-family: 'Special Elite',cursive;
     font-size: 18px;
     font-weight: 200;
-    height: 42px;
-    line-height: 47px;
-    margin-left: 30px;
+    height: 40px;
+    line-height: 43px;
+    margin-left: 50px;
     position: relative;
     text-align: center;
-    width: 85px;
+    width: 80px;
 }
 .navBarBrands a{
-	width:85px;
+	width:80px;
+	margin-left:5px;
 }
 .navBarBrands:active{
 	color:#000000;
@@ -238,26 +238,22 @@ sizingMethod='scale');
 	background-image:url(images/header_nav_bar/dropdownbackground.png);
 	background-repeat:no-repeat;
 	background-size:cover;
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
-		src='images/header_nav_bar/dropdownbackground.png',
-		sizingMethod='scale');
 	z-index:3;
 	left:-30px;
     top:40px;
 }
 .navBarEyes{
-	background-size:cover;
-	width:85px;
-	height:42px;
+	width:80px;
+	height:40px;
 	color:#ffffff;
 	text-align:center;
-	line-height: 47px;
+	line-height: 43px;
 	float:left;
 	font-family: 'Special Elite', cursive;
 	font-size: 18px;
 	font-weight: 200;
 	position:relative;
-	margin-left:-10px;
+	margin-left:-5px;
 }
 .navBarEyes:active{
 	color:#000000;
@@ -265,13 +261,9 @@ sizingMethod='scale');
 .navBarEyes:hover{
 	background-image:url(images/header_nav_bar/brands.png);
 	color:#000000;
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/header_nav_bar/brands.png',
-sizingMethod='image');
-
--ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/header_nav_bar/brands.png',
-sizingMethod='image')";
+}
+.navBarEyes a{
+	margin-left:5px;
 }
 .navBarEyes ul{
 	list-style:none;
@@ -281,18 +273,17 @@ sizingMethod='image')";
     top: 34px;
 }
 .navBarLips{
-	background-size:cover;
-	width:85px;
-	height:42px;
+	width:80px;
+	height:40px;
 	color:#ffffff;
 	text-align:center;
-	line-height: 47px;
+	line-height: 43px;
 	float:left;
 	font-family: 'Special Elite', cursive;
 	font-size: 18px;
 	font-weight: 200;
 	position:relative;
-	margin-left: -20px;
+	margin-left: -15px;
 }
 .navBarLips:active{
 	color:#000000;
@@ -309,22 +300,21 @@ src='images/header_nav_bar/brands.png',
 sizingMethod='image')";
 }
 .navBarLips ul{
-	left: -178px;
+	left: -180px;
     top: 15px;
 }
 .navBarFace{
-	background-size:cover;
-	width:85px;
-	height:42px;
+	width:80px;
+	height:40px;
 	color:#ffffff;
 	text-align:center;
-	line-height: 47px;
+	line-height: 43px;
 	float:left;
 	font-family: 'Special Elite', cursive;
 	font-size: 18px;
 	font-weight: 200;
 	position:relative;
-	margin-left: -20px;
+	margin-left: -15px;
 }
 .navBarFace:active{
 	color:#000000;
@@ -341,22 +331,23 @@ src='images/header_nav_bar/brands.png',
 sizingMethod='image')";
 }
 .navBarFace ul{
-	 left: -177px;
+	 left: -180px;
     top: 14px;
 }
 .navBarAccess{
-	background-size:cover;
-	width:129px;
-	height:42px;
+	width:123px;
+	height:40px;
 	color:#ffffff;
 	text-align:center;
-	line-height: 45px;
+	line-height: 43px;
 	float:left;
 	font-family: 'Special Elite', cursive;
 	font-size: 18px;
 	font-weight: 200;
 	position:relative;
 	margin-left:-5px;
+}
+.navBarAccess a{
 }
 .navBarAccess:active{
 	color:#000000;
@@ -374,16 +365,15 @@ src='images/header_nav_bar/accessories.png',
 sizingMethod='image')";
 }
 .navBarAccess ul{
-	 left: -155px;
+	 left: -158px;
     top: 15px;
 }
 .navBarSkin{
-	background-size:cover;
-	width:99px;
-	height:42px;
+	width:95px;
+	height:40px;
 	color:#ffffff;
 	text-align:center;
-	line-height: 47px;
+	line-height: 43px;
 	float:left;
 	font-family: 'Special Elite', cursive;
 	font-size: 18px;
@@ -406,21 +396,23 @@ src='images/header_nav_bar/skincare.png',
 sizingMethod='image')";
 }
 .navBarSkin ul{
-	  left: -171px;
+	  left: -173px;
     top: 14px;
 }
 .navBarNails{
-	background-size:cover;
-	width:85px;
-	height:42px;
+	width:80px;
+	height:40px;
 	color:#ffffff;
 	text-align:center;
-	line-height: 47px;
+	line-height: 43px;
 	float:left;
 	font-family: 'Special Elite', cursive;
 	font-size: 18px;
 	font-weight: 200;
 	position:relative;
+}
+.navBarNails a{
+	margin-left:5px;
 }
 .navBarNails:active{
 	color:#000000;
@@ -428,25 +420,17 @@ sizingMethod='image')";
 .navBarNails:hover{
 	background-image:url(images/header_nav_bar/brands.png);
 	color:#000000;
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/header_nav_bar/brands.png',
-sizingMethod='image');
-
--ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/header_nav_bar/brands.png',
-sizingMethod='image')";
 }
 .navBarNails ul{
 	left: 539px;
 	top: 40px;
 }
 .navBarFragrance{
-	background-size:cover;
-	width:111px;
-	height:42px;
+	width:106px;
+	height:40px;
 	color:#ffffff;
 	text-align:center;
-	line-height: 47px;
+	line-height: 43px;
 	float:left;
 	font-family: 'Special Elite', cursive;
 	font-size: 18px;
@@ -472,18 +456,17 @@ sizingMethod='image')";
 	top: 40px;
 }
 .navBarHair{
-	background-size:cover;
-	width:85px;
-	height:42px;
+	width:80px;
+	height:40px;
 	color:#ffffff;
 	text-align:center;
-	line-height: 47px;
+	line-height: 43px;
 	float:left;
 	font-family: 'Special Elite', cursive;
 	font-size: 18px;
 	font-weight: 200;
 	position:relative;
-	margin-left:10px;
+	margin-left:0px;
 }
 .navBarHair:active{
 	color:#000000;
@@ -500,16 +483,15 @@ src='images/header_nav_bar/brands.png',
 sizingMethod='image')";
 }
 .navBarHair ul{
-	  left: -177px;
+	  left: -180px;
     top: 14px;
 }
 .navBarJewel{
-	background-size:cover;
-	width:85px;
-	height:42px;
+	width:80px;
+	height:40px;
 	color:#ffffff;
 	text-align:center;
-	line-height: 47px;
+	line-height: 43px;
 	float:left;
 	font-family: 'Special Elite', cursive;
 	font-size: 18px;
@@ -539,17 +521,19 @@ sizingMethod='image')";
     top: 15px;
 }
 .navBarSale{
-	background-size:cover;
-	width:85px;
-	height:42px;
+	width:80px;
+	height:40px;
 	color:#ffffff;
 	text-align:center;
-	line-height: 47px;
+	line-height: 43px;
 	float:left;
 	font-family: 'Special Elite', cursive;
 	font-size: 18px;
 	font-weight: 200;
 	position:relative;
+}
+.navBarSale a{
+	margin-left:5px;
 }
 .navBarSale:active{
 	color:#000000;
@@ -592,13 +576,14 @@ sizingMethod='image')";
 }
 .headerDropdownLink2{
 	line-height:13px;
-	margin-top: 13px;
+	margin-top: 11px;
 }
 .headerDropdownLink2 a{
 	text-decoration:none;
 	color:white;
 	font-family: 'Montserrat', sans-serif;
 	font-size:12px;
+	line-height:10px;
 }
 .headerDropdownLink a{
 	text-decoration:none;
@@ -633,7 +618,7 @@ sizingMethod='image')";
 	float:left;
 	height:100%;
 	width:90px;
-	margin-left:20px;
+	margin-left:40px;
 	margin-top: 40px;
 	list-style:none;
 }
@@ -2731,6 +2716,7 @@ div div.mainColumn div#privacyArticle h4, h3{
 #subscriberListsArticle h1{
 	font-family: 'Special Elite', cursive;
 	color:#ff3d7f;
+	font-weight:200;
 }
 .address div{
 	color:white;
@@ -2744,6 +2730,7 @@ div div.mainColumn div#privacyArticle h4, h3{
 #myaccountArticle h1{
 	font-family: 'Special Elite', cursive;
 	color:#ff3d7f;
+	font-weight:200;
 }
 #changepasswordArticle{
 	margin-top:20px;
@@ -2751,10 +2738,12 @@ div div.mainColumn div#privacyArticle h4, h3{
 #changepasswordArticle h1{
 	font-family: 'Special Elite', cursive;
 	color:#ff3d7f;
+	font-weight:200;
 }
 #myaccountArticle h1{
 	font-family: 'Special Elite', cursive;
 	color:#ff3d7f;
+	font-weight:200;
 }
 #ordersArticle{
 	margin-top:20px;
@@ -2762,6 +2751,7 @@ div div.mainColumn div#privacyArticle h4, h3{
 #ordersArticle h1{
 	font-family: 'Special Elite', cursive;
 	color:#ff3d7f;
+	font-weight:200;
 }
 #listsArticle{
 	margin-top:20px;
@@ -2944,12 +2934,13 @@ div.buttonList .bagItButtonWishlist{
     border-radius: 0 0 0 0;
     height: 45px;
     margin-right: 0px;
-    width: 50%;
+    width: 49%;
 	background-image:none;
 	background-color:#3fb8af;
 	color:white;
 	font-family: 'Special Elite',cursive;
 	padding-top: 5px;
+	float:left;
 }
 div.buttonList .bagItButtonWishlist:hover{
 	background-color:#ff3d7f;
@@ -2973,6 +2964,8 @@ div.buttonList .infoButtonWishlist:hover{
 div.buttonList .reviewButtonWishlist{
 	font-family: 'Special Elite',cursive;
 	padding-top: 5px;
+	padding-left:5px;
+	padding-right:5px;
 	border: medium none;
     border-radius: 0 0 0 0;
 	color:white;
@@ -2988,6 +2981,8 @@ div.buttonList .reviewButtonWishlist:hover{
 div.buttonList .removeButtonWishlist{
 	font-family: 'Special Elite',cursive;
 	padding-top: 5px;
+	padding-left:5px;
+	padding-right:5px;
 	border: medium none;
     border-radius: 0 0 0 0;
 	color:white;
