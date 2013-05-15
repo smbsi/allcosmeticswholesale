@@ -2223,7 +2223,12 @@ div span .cents{
 .billingAddressSection div address div{
 	color:white;
 }
-
+.chkoutPreflightTemplate div label span{
+	float:left;
+}
+.chkoutPreflightTemplate div div label span{
+	float:left;
+}
 /*************************************************************************************************************************/
 /**Helpful Links Section**/
 .cartLinks{
