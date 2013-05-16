@@ -385,7 +385,7 @@ var showDropdown = function ($tag) {
 
 var showDropdownBrand = function ($tag) {
 	var $dropdown = $(".dropdown", $tag);
-	var height = 620;
+	var height = 548;
 	/*$dropdown.children().each(function(){
 		height += $(this).outerHeight(true);
 	});*/
@@ -393,8 +393,43 @@ var showDropdownBrand = function ($tag) {
 }
 	
 var hideDropdown = function ($tag) {
-	$(".dropdown", $tag).stop().animate({"height":"0px"}, 100);
+	$(".dropdown", $tag).stop().animate({"height":"0px"}, 200);
 }
+
+//IE8 dropdown alterate images
+var hideIEBorderImg = function ($tag) {
+	app.u.dump("Begin IE border alt image switching");
+	if($(".dropdownLeftBorderBrandImg").length){
+		$(".dropdownLeftBorderBrandImg2").hide().css("visibility","hidden");
+		$(".headerDropdownBrand").css("top","10px");
+		app.u.dump('removing left border');
+	}
+	else{
+		app.u.dump('leaving left border');
+	}
+	if($(".dropdownTopBorderBrandImg").length){
+		$(".dropdownTopBorderBrandImg2").hide().css("visibility","hidden");
+		app.u.dump('removing left border');
+	}
+	else{
+		app.u.dump('leaving top border');
+	}
+	if($(".dropdownRightBorderBrandImg").length){
+		$(".dropdownRightBorderBrandImg2").hide().css("visibility","hidden");
+		app.u.dump('removing left border');
+	}
+	else{
+		app.u.dump('leaving top border');
+	}
+	if($(".dropdownBottomBorderBrandImg").length){
+		$(".dropdownBottomBorderBrandImg2").hide().css("visibility","hidden");
+		app.u.dump('removing left border');
+	}
+	else{
+		app.u.dump('leaving top border');
+	}
+}
+setTimeout(hideIEBorderImg, 1000);
 
 
 app.rq.push(['templateFunction','customerTemplate','onCompletes',function(P) {
