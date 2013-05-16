@@ -409,27 +409,27 @@ var hideIEBorderImg = function ($tag) {
 	}
 	if($(".dropdownTopBorderBrandImg").length){
 		$(".dropdownTopBorderBrandImg2").hide().css("visibility","hidden");
-		app.u.dump('removing left border');
+		app.u.dump('removing top border');
 	}
 	else{
 		app.u.dump('leaving top border');
 	}
 	if($(".dropdownRightBorderBrandImg").length){
 		$(".dropdownRightBorderBrandImg2").hide().css("visibility","hidden");
-		app.u.dump('removing left border');
+		app.u.dump('removing right border');
 	}
 	else{
-		app.u.dump('leaving top border');
+		app.u.dump('leaving right border');
 	}
 	if($(".dropdownBottomBorderBrandImg").length){
 		$(".dropdownBottomBorderBrandImg2").hide().css("visibility","hidden");
-		app.u.dump('removing left border');
+		app.u.dump('removing bottom border');
 	}
 	else{
-		app.u.dump('leaving top border');
+		app.u.dump('leaving bottom border');
 	}
 }
-setTimeout(hideIEBorderImg, 1000);
+setTimeout(hideIEBorderImg, 1500);
 
 
 app.rq.push(['templateFunction','customerTemplate','onCompletes',function(P) {
