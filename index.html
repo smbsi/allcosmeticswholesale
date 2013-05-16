@@ -150,7 +150,7 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
                           <![endif]-->                
                           <img class="dropdownLeftBorderBrandImg2" src="images/header_nav_bar/dropdowns/left_border2.png" />
                            <!--[if IE 8 ]>
-                          	<img class="dropdownRightBorderBrandImg" src="images/header_nav_bar/dropdowns/right_border2.png" />
+                          	<img class="dropdownRightBorderBrandImg" src="images/header_nav_bar/dropdowns/right_border.png" />
                           <![endif]--> 
                           <img class="dropdownRightBorderBrandImg2" src="images/header_nav_bar/dropdowns/right_border2.png" />
                           <!--[if IE 8 ]>
@@ -158,7 +158,7 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
                           <![endif]--> 
                           <img class="dropdownTopBorderBrandImg2" src="images/header_nav_bar/dropdowns/top_border2.png" />
                           <!--[if IE 8 ]>
-                          	<img class="dropdownBottomBorderBrandImg" src="images/header_nav_bar/dropdowns/bottom_border2.png" />
+                          	<img class="dropdownBottomBorderBrandImg" src="images/header_nav_bar/dropdowns/bottom_border.png" />
                           <![endif]--> 
                           <img class="dropdownBottomBorderBrandImg2" src="images/header_nav_bar/dropdowns/bottom_border2.png" />
                             <div class="dropdownContainerBrand">
@@ -2043,7 +2043,7 @@ subscribeListsArticle is used for authenticated buyers
 		<div id='ordersArticle' class='displayNone textContentArea'>
 			<h1>Order History</h1>
             <h2 class="ordersNoOrdersMess">You have not placed any orders yet.</h2>
-			<div data-bind="var: orders(@orders); format:processList; loadsTemplate:orderLineItemTemplate;" data-app-role='orderList' class='ui-accordion ui-widget ui-helper-reset ui-accordion-icons orderHistoryList'></div>
+			<div data-bind="var: orders(@orders); format:processListAlt; extension:store_acw; loadsTemplate:orderLineItemTemplate;" data-app-role='orderList' class='ui-accordion ui-widget ui-helper-reset ui-accordion-icons orderHistoryList'></div>
 			<h3>Order Status</h3>
             <h5>If you'd like to check the status of an order, (or
 			cancel one that hasn't been processed), please

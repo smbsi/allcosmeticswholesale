@@ -432,23 +432,6 @@ var hideIEBorderImg = function ($tag) {
 setTimeout(hideIEBorderImg, 1500);
 
 
-app.rq.push(['templateFunction','customerTemplate','onCompletes',function(P) {
-	
-				app.u.dump('Hide if set function running');
-				if($('.orderHistoryList').children().length > 0){
-					app.u.dump('Showing .ordersNoOrdersMess. Length is =< 0');
-					$('.ordersNoOrdersMess').show().css('display','block');
-				}
-				else{
-					app.u.dump('Hiding .ordersNoOrdersMess');
-					$('.ordersNoOrdersMess').hide();
-				}
-	}]);
-
-
-
-
-
 //sample of an onDeparts. executed any time a user leaves this page/template type.
 app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.u.dump("just left the homepage")}]);
 
