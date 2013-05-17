@@ -318,7 +318,7 @@ span.ui-state-highlight{
 	font-size: 18px;
 	font-weight: 200;
 	position:relative;
-	margin-left:-5px;
+	margin-left:5px;
 }
 .headerDropdownEyes{
 	 float: left;
@@ -419,7 +419,7 @@ span.ui-state-highlight{
 	font-size: 18px;
 	font-weight: 200;
 	position:relative;
-	margin-left: -15px;
+	margin-left: 0px;
 }
 .headerDropdownLips{
 	 float: left;
@@ -444,15 +444,15 @@ span.ui-state-highlight{
     right: 0;
     z-index: 1;
 }
+.navBarLips ul{
+	list-style:none;
+}
 .navBarLips:active{
 	color:#000000;
 }
 .navBarLips:hover{
 	background-image:url(images/header_nav_bar/brands.png);
 	color:#000000;
-}
-.navBarLips ul{
-	list-style:none;
 }
 .navBarFace{
 	width:80px;
@@ -465,7 +465,7 @@ span.ui-state-highlight{
 	font-size: 18px;
 	font-weight: 200;
 	position:relative;
-	margin-left: -15px;
+	margin-left: 0px;
 }
 .navBarFace:active{
 	color:#000000;
@@ -473,17 +473,32 @@ span.ui-state-highlight{
 .navBarFace:hover{
 	background-image:url(images/header_nav_bar/brands.png);
 	color:#000000;
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/header_nav_bar/brands.png',
-sizingMethod='image');
-
--ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/header_nav_bar/brands.png',
-sizingMethod='image')";
+}
+.headerDropdownFace{
+	 float: left;
+    height: 0px;
+    left: -273px;
+    top: 30px;
+    width: 634px;
+}
+.dropdownContainerFace{
+	background-color: black;
+    border: 5px solid #3FB8AF;
+    box-shadow: 0 0 20px 15px #000000;
+    height: 240px;
+    margin-left: 43px;
+    margin-top: 52px;
+    position: absolute;
+    width: 540px;
+}
+.dropdownContainerFace img{
+	 bottom: 0;
+    position: absolute;
+    right: 0;
+    z-index: 1;
 }
 .navBarFace ul{
-	 left: -180px;
-    top: 14px;
+	list-style:none;
 }
 .navBarAccess{
 	width:123px;
@@ -496,7 +511,7 @@ sizingMethod='image')";
 	font-size: 18px;
 	font-weight: 200;
 	position:relative;
-	margin-left:-5px;
+	margin-left:0px;
 }
 .navBarAccess a{
 }
@@ -507,18 +522,34 @@ sizingMethod='image')";
 	background-image:url(images/header_nav_bar/accessories.png);
 	color:#000000;
 	font-size: 16px;
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/header_nav_bar/accessories.png',
-sizingMethod='image');
-
--ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/header_nav_bar/accessories.png',
-sizingMethod='image')";
+}
+.headerDropdownAccess{
+	 float: left;
+    height: 0px;
+    left: -251px;
+    top: 30px;
+    width: 634px;
+}
+.dropdownContainerAccess{
+	background-color: black;
+    border: 5px solid #3FB8AF;
+    box-shadow: 0 0 20px 15px #000000;
+    height: 240px;
+    margin-left: 43px;
+    margin-top: 52px;
+    position: absolute;
+    width: 540px;
+}
+.dropdownContainerAccess img{
+	 bottom: 0;
+    position: absolute;
+    right: 0;
+    z-index: 1;
 }
 .navBarAccess ul{
-	 left: -158px;
-    top: 15px;
+	list-style:none;
 }
+
 .navBarSkin{
 	width:95px;
 	height:40px;
@@ -529,7 +560,7 @@ sizingMethod='image')";
 	font-family: 'Special Elite', cursive;
 	font-size: 18px;
 	font-weight: 200;
-	margin-left:5px;
+	margin-left:15px;
 	position:relative;
 }
 .navBarSkin:active{
@@ -538,18 +569,34 @@ sizingMethod='image')";
 .navBarSkin:hover{
 	background-image:url(images/header_nav_bar/skincare.png);
 	color:#000000;
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/header_nav_bar/skincare.png',
-sizingMethod='image');
-
--ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/header_nav_bar/skincare.png',
-sizingMethod='image')";
+}
+.headerDropdownSkin{
+	 float: left;
+    height: 0px;
+    left: -265px;
+    top: 30px;
+    width: 634px;
+}
+.dropdownContainerSkin{
+	background-color: black;
+    border: 5px solid #3FB8AF;
+    box-shadow: 0 0 20px 15px #000000;
+    height: 240px;
+    margin-left: 43px;
+    margin-top: 52px;
+    position: absolute;
+    width: 540px;
+}
+.dropdownContainerSkin img{
+	 bottom: 0;
+    position: absolute;
+    right: 0;
+    z-index: 1;
 }
 .navBarSkin ul{
-	  left: -173px;
-    top: 14px;
+	list-style:none;
 }
+
 .navBarNails{
 	width:80px;
 	height:40px;
@@ -561,6 +608,7 @@ sizingMethod='image')";
 	font-size: 18px;
 	font-weight: 200;
 	position:relative;
+	margin-left:5px;
 }
 .navBarNails a{
 	margin-left:5px;
@@ -587,6 +635,7 @@ sizingMethod='image')";
 	font-size: 18px;
 	font-weight: 200;
 	position:relative;
+	margin-left:10px;
 }
 .navBarFragrance:active{
 	color:#000000;
@@ -617,7 +666,7 @@ sizingMethod='image')";
 	font-size: 18px;
 	font-weight: 200;
 	position:relative;
-	margin-left:0px;
+	margin-left:10px;
 }
 .navBarHair:active{
 	color:#000000;
@@ -625,17 +674,34 @@ sizingMethod='image')";
 .navBarHair:hover{
 	background-image:url(images/header_nav_bar/brands.png);
 	color:#000000;
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/header_nav_bar/brands.png',
-sizingMethod='image');
-
--ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/header_nav_bar/brands.png',
-sizingMethod='image')";
+	
+}
+.headerDropdownHair{
+	 float: left;
+    height: 0px;
+    left: -440px;
+    top: 30px;
+    width: 634px;
+}
+.dropdownContainerHair{
+	background-color: black;
+    border: 5px solid #3FB8AF;
+    box-shadow: 0 0 20px 15px #000000;
+    height: 240px;
+    margin-left: 43px;
+    margin-top: 52px;
+    position: absolute;
+    width: 540px;
+}
+.dropdownContainerHair img{
+	 bottom: 0;
+    position: absolute;
+    right: 0;
+    z-index: 1;
 }
 .navBarHair ul{
-	  left: -180px;
-    top: 14px;
+	list-style:none;
+}
 }
 .navBarJewel{
 	width:80px;
@@ -692,13 +758,32 @@ sizingMethod='image')";
 .navBarSale:hover{
 	background-image:url(images/header_nav_bar/brands.png);
 	color:#000000;
-		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/header_nav_bar/brands.png',
-sizingMethod='image');
-
--ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/header_nav_bar/brands.png',
-sizingMethod='image')";
+}
+.headerDropdownSale{
+	 float: left;
+    height: 0px;
+    left: -505px;
+    top: 30px;
+    width: 634px;
+}
+.dropdownContainerSale{
+	background-color: black;
+    border: 5px solid #3FB8AF;
+    box-shadow: 0 0 20px 15px #000000;
+    height: 240px;
+    margin-left: 43px;
+    margin-top: 52px;
+    position: absolute;
+    width: 540px;
+}
+.dropdownContainerSale img{
+	 bottom: 0;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+}
+.navBarSale ul{
+	list-style:none;
 }
 
 .dropdown {
