@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130516123000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130517113000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "acw_active",//can be passive, active or required
@@ -258,7 +258,7 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
 					</div>
                 </div>
               </div>
-              <div class="navBarEyes dropdownOnClick">  <!--onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"-->
+              <div class="navBarEyes dropdownOnClick" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">  <!--onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"-->
               	  <div class="navTopCat2" href='#top' onClick="return showContent('category',{'navcat':'.acw.200eyes'});"><a>Eyes</a>
                   </div>
                   <div class="dropdown headerDropdownEyes alignLeft dropdownOnClick">
