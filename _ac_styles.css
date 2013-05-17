@@ -239,6 +239,7 @@ span.ui-state-highlight{
     margin-top: 52px;
     position: absolute;
     width: 685px;
+	overflow:hidden;
 }
 .dropdownContainerBrand img{
 	bottom: 0;
@@ -336,6 +337,7 @@ span.ui-state-highlight{
     margin-top: 52px;
     position: absolute;
     width: 540px;
+	overflow:hidden;
 }
 .dropdownContainerEyes img{
 	 bottom: 0;
@@ -437,6 +439,7 @@ span.ui-state-highlight{
     margin-top: 52px;
     position: absolute;
     width: 540px;
+	overflow:hidden;
 }
 .dropdownContainerLips img{
 	 bottom: 0;
@@ -490,6 +493,7 @@ span.ui-state-highlight{
     margin-top: 52px;
     position: absolute;
     width: 540px;
+	overflow:hidden;
 }
 .dropdownContainerFace img{
 	 bottom: 0;
@@ -539,6 +543,7 @@ span.ui-state-highlight{
     margin-top: 52px;
     position: absolute;
     width: 540px;
+	overflow:hidden;
 }
 .dropdownContainerAccess img{
 	 bottom: 0;
@@ -586,6 +591,7 @@ span.ui-state-highlight{
     margin-top: 52px;
     position: absolute;
     width: 540px;
+	overflow:hidden;
 }
 .dropdownContainerSkin img{
 	 bottom: 0;
@@ -643,13 +649,6 @@ span.ui-state-highlight{
 .navBarFragrance:hover{
 	background-image:url(images/header_nav_bar/fragrance.png);
 	color:#000000;
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/header_nav_bar/fragrance.png',
-sizingMethod='image');
-
--ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/header_nav_bar/fragrance.png',
-sizingMethod='image')";
 }
 .navBarFragrance ul{
 	left: 659px;
@@ -692,6 +691,7 @@ sizingMethod='image')";
     margin-top: 52px;
     position: absolute;
     width: 540px;
+	overflow:hidden;
 }
 .dropdownContainerHair img{
 	 bottom: 0;
@@ -721,13 +721,6 @@ sizingMethod='image')";
 .navBarJewel:hover{
 	background-image:url(images/header_nav_bar/brands.png);
 	color:#000000;
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/header_nav_bar/brands.png',
-sizingMethod='image');
-
--ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/header_nav_bar/brands.png',
-sizingMethod='image')";
 }
 .navBarJewel ul{
 	 left: -240px;
@@ -775,6 +768,7 @@ sizingMethod='image')";
     margin-top: 52px;
     position: absolute;
     width: 540px;
+	overflow:hidden;
 }
 .dropdownContainerSale img{
 	 bottom: 0;
