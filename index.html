@@ -141,10 +141,10 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
         <div class="centeringContainerHeaderBottomThird">
             <div class="headerBottomThird">
               <div class="navBarBrands" onMouseOver="showDropdownBrand($(this))" onMouseOut="hideDropdown($(this))"> <!--onMouseOver="showDropdownBrand($(this))" onMouseOut="hideDropdown($(this))"-->
-              <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.acw.brands'});"><a>Brands</a>
+                  <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.acw.brands'});"><a>Brands</a>
               </div>
                   <div class="dropdown headerDropdownBrand alignLeft dropdownOnClick">
-                       <div class="dropdownWindowBrand">
+                       <div class="dropdownWindow">
                        	  <!--[if IE 8 ]>
                           	<img class="dropdownLeftBorderBrandImg" src="images/header_nav_bar/dropdowns/left_border.png" />
                           <![endif]-->                
@@ -258,24 +258,43 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
 					</div>
                 </div>
               </div>
-              <div class="navBarEyes dropdownOnClick" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+              <div class="navBarEyes dropdownOnClick">  <!--onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"-->
               	  <div class="navTopCat2" href='#top' onClick="return showContent('category',{'navcat':'.acw.200eyes'});"><a>Eyes</a>
                   </div>
-                  <div class="dropdown headerDropdownEyes alignLeft">
-                      <ul class="floatLeft">
-                          <div class="dropdownSpacerEyes"></div>
-                          <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.brows'});" class="pointer">Brows</a></li>
-                          <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.eye-shadow'});" class="pointer">Eye Shadow</a></li>
-                          <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.eye-shadow-refills'});" class="pointer">Eye Shadow Refills</a></li>
-                          <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.eyelashes'});" class="pointer">Eyelashes</a></li>
-                          <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.eyeliner'});" class="pointer">Eyeliner</a></li>
-                          <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.mascara'});" class="pointer">Mascara</a></li>
-                      </ul>
-                      <ul class="floatLeft">
-                          <div class="dropdownSpacerEyes"></div>
-                           <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.pigments'});" class="pointer">Pigments</a></li>
-                           <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.primer'});" class="pointer">Primer</a></li>
-                      </ul>
+                  <div class="dropdown headerDropdownEyes alignLeft dropdownOnClick">
+                       <div class="dropdownWindow">
+                       	  <!--[if IE 8 ]>
+                          	<img class="dropdownLeftBorderImg3" src="images/header_nav_bar/dropdowns/left_border.png" />
+                          <![endif]-->                
+                          <img class="dropdownLeftBorderImg4" src="images/header_nav_bar/dropdowns/left_border2.png" />
+                           <!--[if IE 8 ]>
+                          	<img class="dropdownRightBorderImg3" src="images/header_nav_bar/dropdowns/right_border.png" />
+                          <![endif]--> 
+                          <img class="dropdownRightBorderImg4" src="images/header_nav_bar/dropdowns/right_border2.png" />
+                          <!--[if IE 8 ]>
+                          	<img class="dropdownTopBorderIm3" src="images/header_nav_bar/dropdowns/top_border.png" />
+                          <![endif]--> 
+                          <img class="dropdownTopBorderImg4" src="images/header_nav_bar/dropdowns/top_border2.png" />
+                          <!--[if IE 8 ]>
+                          	<img class="dropdownBottomBorderImg3" src="images/header_nav_bar/dropdowns/bottom_border.png" />
+                          <![endif]--> 
+                          <img class="dropdownBottomBorderImg4" src="images/header_nav_bar/dropdowns/bottom_border2.png" />
+                          <div class="dropdownContainerEyes">
+                              <ul class="floatLeft">
+                                  <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.brows'});" class="pointer">Brows</a></li>
+                                  <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.eye-shadow'});" class="pointer">Eye Shadow</a></li>
+                                  <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.eye-shadow-refills'});" class="pointer">Eye Shadow Refills</a></li>
+                                  <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.eyelashes'});" class="pointer">Eyelashes</a></li>
+                                  <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.eyeliner'});" class="pointer">Eyeliner</a></li>
+                                  <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.mascara'});" class="pointer">Mascara</a></li>
+                              </ul>
+                              <ul class="floatLeft">
+                                   <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.pigments'});" class="pointer">Pigments</a></li>
+                                   <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.200eyes.primer'});" class="pointer">Primer</a></li>
+                              </ul>
+                              <img src="images/header_nav_bar/dropdowns/background_swash.png" />
+                          </div>
+                      </div>
                   </div>
               </div>
               <div class="navBarLips dropdownOnClick" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
