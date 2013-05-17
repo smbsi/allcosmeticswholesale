@@ -223,7 +223,7 @@ var store_acw = function() {
 			},
 			productElasticSearchList : {
 				onSuccess : function(responseData){
-					//alert("holy crap");
+					//alert("hello");
 					//app.u.dump(responseData, "debug");
 					
 					$('.elasticlist', responseData.$context).anycontent({"templateID":"prodPageElasticTemplate","datapointer":"ProdPageElastic"});

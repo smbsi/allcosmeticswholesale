@@ -346,9 +346,9 @@ span.ui-state-highlight{
     z-index: 1;
 }
 .dropdownLeftBorderImg3{
-	left: 0px;
+	left: 18px;
     position: absolute;
-    top: 0px;
+    top: 77px;
 	z-index:1;
 }
 .dropdownLeftBorderImg4{
@@ -359,8 +359,8 @@ span.ui-state-highlight{
 }
 .dropdownRightBorderImg3{
 	position: absolute;
-    right: 0px;
-    top: 0px;
+    right: 17px;
+    top: 77px;
 	z-index:1;
 }
 .dropdownRightBorderImg4{
@@ -370,9 +370,9 @@ span.ui-state-highlight{
     z-index: 1;
 }
 .dropdownTopBorderImg3{
-	left: 0px;
+	left: 155px;
     position: absolute;
-    top: 0px;
+    top: 18px;
 	z-index:1;
 }
 .dropdownTopBorderImg4{
@@ -382,8 +382,8 @@ span.ui-state-highlight{
     z-index: 1;
 }
 .dropdownBottomBorderImg3{
-	bottom: 0px;
-    left: 0px;
+	bottom: 17px;
+    left: 170px;
     position: absolute;
 	z-index:1;
 }
@@ -1222,15 +1222,15 @@ margin-left:20px;
 /**homepageBottomSec**/
 #homeProdSearchSale{
 	width:950px;
-	height:900px;
+	height:1025px;
 }
 #homeProdSearchBestSellers{
 	width:950px;
-	height:900px;
+	height:1025px;
 }
 #homeProdSearchDiscontinued{
 	width:950px;
-	height:900px;
+	height:1025px;
 }
 .carouselHPSearchCont{
 	margin-left:30px;
@@ -2118,7 +2118,7 @@ h2 .cents{
 .carouselProdListCont{
 	clear:both;
 	overflow:hidden;
-	height:990px;
+	height:1020px;
 	width:1020px;
 }
 

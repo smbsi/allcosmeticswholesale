@@ -121,7 +121,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 	function foo2(){ $(".carouselHPSearchList").carouFredSel
 	({
 		width   : 1000,
-		height	: 900,
+		height	: 1025,
 		items   : 1,
 		scroll: 1,
 		auto : false
@@ -402,34 +402,62 @@ var hideIEBorderImg = function ($tag) {
 	if($(".dropdownLeftBorderBrandImg").length){
 		$(".dropdownLeftBorderBrandImg2").hide().css("visibility","hidden");
 		$(".headerDropdownBrand").css("top","10px");
-		app.u.dump('removing left border');
+		//app.u.dump('removing brand left border');
 	}
 	else{
-		app.u.dump('leaving left border');
+		//app.u.dump('leaving brand left border');
+	}
+	if($(".dropdownLeftBorderImg3").length){
+		$(".dropdownLeftBorderImg4").hide().css("visibility","hidden");
+		app.u.dump('removing all other left border');
+	}
+	else{
+		app.u.dump('leaving all other left border');
 	}
 	if($(".dropdownTopBorderBrandImg").length){
 		$(".dropdownTopBorderBrandImg2").hide().css("visibility","hidden");
-		app.u.dump('removing top border');
+		app.u.dump('removing brand top border');
 	}
 	else{
-		app.u.dump('leaving top border');
+		app.u.dump('leaving brand top border');
+	}
+	if($(".dropdownTopBorderImg3").length){
+		$(".dropdownTopBorderImg4").hide().css("visibility","hidden");
+		app.u.dump('removing all other top border');
+	}
+	else{
+		app.u.dump('leaving all other top border');
 	}
 	if($(".dropdownRightBorderBrandImg").length){
 		$(".dropdownRightBorderBrandImg2").hide().css("visibility","hidden");
-		app.u.dump('removing right border');
+		app.u.dump('removing brand right border');
 	}
 	else{
-		app.u.dump('leaving right border');
+		app.u.dump('leaving brand right border');
+	}
+	if($(".dropdownRightBorderImg3").length){
+		$(".dropdownRightBorderImg4").hide().css("visibility","hidden");
+		app.u.dump('removing all other right border');
+	}
+	else{
+		app.u.dump('leaving all other right border');
 	}
 	if($(".dropdownBottomBorderBrandImg").length){
 		$(".dropdownBottomBorderBrandImg2").hide().css("visibility","hidden");
-		app.u.dump('removing bottom border');
+		app.u.dump('removing brand bottom border');
 	}
 	else{
-		app.u.dump('leaving bottom border');
+		app.u.dump('leaving brand bottom border');
+	}
+	if($(".dropdownBottomBorderImg3").length){
+		$(".dropdownBottomBorderImg4").hide().css("visibility","hidden");
+		app.u.dump('removing all other bottom border');
+	}
+	else{
+		app.u.dump('leaving all other bottom border');
 	}
 }
-setTimeout(hideIEBorderImg, 1500);
+setTimeout(hideIEBorderImg, 2000);
 
 
 //sample of an onDeparts. executed any time a user leaves this page/template type.
