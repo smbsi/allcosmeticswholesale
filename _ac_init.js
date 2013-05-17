@@ -393,7 +393,7 @@ var showDropdownBrand = function ($tag) {
 }
 	
 var hideDropdown = function ($tag) {
-	$(".dropdown", $tag).stop().animate({"height":"0px"}, 200);
+	$(".dropdown", $tag).stop().animate({"height":"0px"}, 100);
 }
 
 //IE8 dropdown alterate images
