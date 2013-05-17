@@ -208,7 +208,7 @@ span.ui-state-highlight{
     font-weight: 200;
     height: 40px;
     line-height: 43px;
-    margin-left: 50px;
+    margin-left: 40px;
     position: relative;
     text-align: center;
     width: 80px;
@@ -319,7 +319,7 @@ span.ui-state-highlight{
 	font-size: 18px;
 	font-weight: 200;
 	position:relative;
-	margin-left:5px;
+	margin-left:0px;
 }
 .headerDropdownEyes{
 	 float: left;
@@ -421,7 +421,7 @@ span.ui-state-highlight{
 	font-size: 18px;
 	font-weight: 200;
 	position:relative;
-	margin-left: 0px;
+	margin-left: -5px;
 }
 .headerDropdownLips{
 	 float: left;
@@ -448,7 +448,9 @@ span.ui-state-highlight{
     z-index: 1;
 }
 .navBarLips ul{
-	list-style:none;
+	list-style: none outside none;
+    position: relative;
+    z-index: 3;
 }
 .navBarLips:active{
 	color:#000000;
@@ -468,7 +470,7 @@ span.ui-state-highlight{
 	font-size: 18px;
 	font-weight: 200;
 	position:relative;
-	margin-left: 0px;
+	margin-left: -10px;
 }
 .navBarFace:active{
 	color:#000000;
@@ -502,7 +504,9 @@ span.ui-state-highlight{
     z-index: 1;
 }
 .navBarFace ul{
-	list-style:none;
+	list-style: none outside none;
+    position: relative;
+    z-index: 3;
 }
 .navBarAccess{
 	width:123px;
@@ -552,7 +556,9 @@ span.ui-state-highlight{
     z-index: 1;
 }
 .navBarAccess ul{
-	list-style:none;
+	list-style: none outside none;
+    position: relative;
+    z-index: 3;
 }
 
 .navBarSkin{
@@ -565,7 +571,7 @@ span.ui-state-highlight{
 	font-family: 'Special Elite', cursive;
 	font-size: 18px;
 	font-weight: 200;
-	margin-left:15px;
+	margin-left:10px;
 	position:relative;
 }
 .navBarSkin:active{
@@ -600,7 +606,9 @@ span.ui-state-highlight{
     z-index: 1;
 }
 .navBarSkin ul{
-	list-style:none;
+	list-style: none outside none;
+    position: relative;
+    z-index: 3;
 }
 
 .navBarNails{
@@ -627,8 +635,9 @@ span.ui-state-highlight{
 	color:#000000;
 }
 .navBarNails ul{
-	left: 539px;
-	top: 40px;
+	list-style: none outside none;
+    position: relative;
+    z-index: 3;
 }
 .navBarFragrance{
 	width:106px;
@@ -641,7 +650,7 @@ span.ui-state-highlight{
 	font-size: 18px;
 	font-weight: 200;
 	position:relative;
-	margin-left:10px;
+	margin-left:5px;
 }
 .navBarFragrance:active{
 	color:#000000;
@@ -651,8 +660,9 @@ span.ui-state-highlight{
 	color:#000000;
 }
 .navBarFragrance ul{
-	left: 659px;
-	top: 40px;
+	list-style: none outside none;
+    position: relative;
+    z-index: 3;
 }
 .navBarHair{
 	width:80px;
@@ -665,7 +675,7 @@ span.ui-state-highlight{
 	font-size: 18px;
 	font-weight: 200;
 	position:relative;
-	margin-left:10px;
+	margin-left:0px;
 }
 .navBarHair:active{
 	color:#000000;
@@ -700,8 +710,9 @@ span.ui-state-highlight{
     z-index: 1;
 }
 .navBarHair ul{
-	list-style:none;
-}
+	list-style: none outside none;
+    position: relative;
+    z-index: 3;
 }
 .navBarJewel{
 	width:80px;
@@ -723,12 +734,33 @@ span.ui-state-highlight{
 	color:#000000;
 }
 .navBarJewel ul{
-	 left: -240px;
-    top: 14px;
+	list-style: none outside none;
+    position: relative;
+    z-index: 3;
 }
-.navBarSale ul{
-	left: -330px;
-    top: 15px;
+.headerDropdownJewel{
+	 float: left;
+    height: 0px;
+    left: -440px;
+    top: 30px;
+    width: 634px;
+}
+.dropdownContainerJewel{
+	background-color: black;
+    border: 5px solid #3FB8AF;
+    box-shadow: 0 0 20px 15px #000000;
+    height: 240px;
+    margin-left: 43px;
+    margin-top: 52px;
+    position: absolute;
+    width: 540px;
+	overflow:hidden;
+}
+.dropdownContainerJewel img{
+	 bottom: 0;
+    position: absolute;
+    right: 0;
+    z-index: 1;
 }
 .navBarSale{
 	width:80px;
@@ -741,6 +773,7 @@ span.ui-state-highlight{
 	font-size: 18px;
 	font-weight: 200;
 	position:relative;
+	margin-left:-5px;
 }
 .navBarSale a{
 	margin-left:5px;
@@ -777,7 +810,9 @@ span.ui-state-highlight{
     z-index: 1;
 }
 .navBarSale ul{
-	list-style:none;
+	list-style: none outside none;
+    position: relative;
+    z-index: 3;
 }
 
 .dropdown {
@@ -973,7 +1008,7 @@ span.ui-state-highlight{
 .footerMidThird{
 	border-bottom:solid 5px #7fc7af;
 	background-color:#000000;
-	height:270px;
+	height:290px;
 	width:100%;
 	float:left;
 }

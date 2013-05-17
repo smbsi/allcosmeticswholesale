@@ -470,13 +470,35 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
               <div class="navBarJewel dropdownOnClick" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                   <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.acw.brands.jewelry'});"><a>Jewelry</a>
                   </div>
-                  <ul class="dropdown headerDropdown alignLeft">
-                      <div class="dropdownSpacer"></div>
-                      <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.brands.jewelry.bracelet'});" class="pointer">Bracelets</a></li>
-                      <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.brands.jewelry.earrings'});" class="pointer">Earrings</a></li>
-                      <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.brands.jewelry.necklace'});" class="pointer">Necklaces</a></li>
-                      <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.brands.jewelry.rings'});" class="pointer">Rings</a></li>
-                  </ul>
+                  <div class="dropdown headerDropdownJewel alignLeft dropdownOnClick">
+                       <div class="dropdownWindow">
+                       	  <!--[if IE 8 ]>
+                          	<img class="dropdownLeftBorderImg3" src="images/header_nav_bar/dropdowns/left_border.png" />
+                          <![endif]-->                
+                          <img class="dropdownLeftBorderImg4" src="images/header_nav_bar/dropdowns/left_border2.png" />
+                           <!--[if IE 8 ]>
+                          	<img class="dropdownRightBorderImg3" src="images/header_nav_bar/dropdowns/right_border.png" />
+                          <![endif]--> 
+                          <img class="dropdownRightBorderImg4" src="images/header_nav_bar/dropdowns/right_border2.png" />
+                          <!--[if IE 8 ]>
+                          	<img class="dropdownTopBorderImg3" src="images/header_nav_bar/dropdowns/top_border.png" />
+                          <![endif]--> 
+                          <img class="dropdownTopBorderImg4" src="images/header_nav_bar/dropdowns/top_border2.png" />
+                          <!--[if IE 8 ]>
+                          	<img class="dropdownBottomBorderImg3" src="images/header_nav_bar/dropdowns/bottom_border.png" />
+                          <![endif]--> 
+                          <img class="dropdownBottomBorderImg4" src="images/header_nav_bar/dropdowns/bottom_border2.png" />
+                          <div class="dropdownContainerJewel">
+                              <ul class="floatLeft">
+                                  <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.brands.jewelry.bracelet'});" class="pointer">Bracelets</a></li>
+                                  <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.brands.jewelry.earrings'});" class="pointer">Earrings</a></li>
+                                  <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.brands.jewelry.necklace'});" class="pointer">Necklaces</a></li>
+                                  <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.brands.jewelry.rings'});" class="pointer">Rings</a></li>
+                              </ul>
+                              <img src="images/header_nav_bar/dropdowns/background_swash.png" />
+                          </div>
+                      </div>
+                  </div>
               </div>
               <div class="navBarSale dropdownOnClick" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                   <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.acw.sale'});"><a>Sale</a>
@@ -581,11 +603,11 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
                     <li>
                         <a href='#top' onClick="return showContent('category',{'navcat':'.acw.400face'});">Face</a>
                     </li>
-                </ul>
-                <ul  style="width:35%; margin-top:0px;" class="floatLeft">
                     <li>
                         <a href='#top' onClick="return showContent('category',{'navcat':'.acw.500accessories'});">Accessories</a>
                     </li>
+                </ul>
+                <ul  style="width:35%; margin-top:0px;" class="floatLeft">
                     <li>
                         <a href='#top' onClick="return showContent('category',{'navcat':'.acw.600skincare'});">Skincare</a>
                     </li>
@@ -603,6 +625,9 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
                     </li>
                     <li>
                         <a href='#top' onClick="return showContent('category',{'navcat':'.acw.sale'});">Sale</a>
+                    </li>
+                    <li>
+                    	<a href="#" onClick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/','vstore'); return false;" title="Suite 7 beauty" target="_blank">Shop Suite7Beauty</a>
                     </li>
                 </ul>
             </div>
@@ -630,6 +655,9 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
                     </li>
                     <li>
                         <a  href='#top' onClick="return showContent('company',{'show':'privacy'});">Privacy Policy</a>
+                    </li>
+                    <li>
+                    	<a href="#" onClick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/','vstore'); return false;" title="Suite 7 beauty" target="_blank">Shop Suite7Beauty</a>
                     </li>
                 </ul>
             </div>
