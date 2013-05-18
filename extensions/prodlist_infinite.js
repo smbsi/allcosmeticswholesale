@@ -63,7 +63,7 @@ var prodlist_infinite = function() {
 				app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 					$(window).off('scroll.infiniteScroll'); 
 					}]);
-				
+
 //				app.u.dump('END app.ext.store_prodlist.init.onSuccess');
 				},
 			onError : function()	{
@@ -86,7 +86,7 @@ var prodlist_infinite = function() {
 
 
 	renderFormats : {
-			
+
 //a product list needs an ID for multipage to work right. will assign a random one if none is set.
 //that parent ID is prepended to the sku and used in the list item id to decrease likelyhood of duplicate id's
 //data.bindData will get passed into getProdlistVar and used for defaults on the list itself. That means any var supported in prodlistVars can be set in bindData.
@@ -148,7 +148,7 @@ It is run once, executed by the renderFormat.
 			addProductToPage : function($tag)	{
 				app.u.dump("BEGIN prodlist_infinite.u.addProductToPage");
 				$tag.data('isDispatching',true);
-				
+
 				var plObj = app.ext.store_prodlist.u.setProdlistVars($tag.data('bindData')),
 				numRequests = 0,
 				pageCSV = app.ext.store_prodlist.u.getSkusForThisPage(plObj), //gets a truncated list based on items per page.
@@ -166,7 +166,7 @@ It is run once, executed by the renderFormat.
 						numRequests += app.ext.store_prodlist.calls.appReviewsList.init(pageCSV[i],{},'mutable');
 						}
 					}
-				
+
 				var infiniteCallback = function(rd)	{
 					$tag.data('isDispatching',false); //toggle T/F as a dispatch occurs so that only 1 infinite scroll dispatch occurs at a time.
 					if(app.model.responseHasErrors(rd)){
@@ -222,7 +222,7 @@ else	{
 
 			} //util
 
-		
+
 		} //r object.
 	return r;
 	}

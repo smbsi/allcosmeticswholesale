@@ -322,21 +322,21 @@ span.ui-state-highlight{
 	margin-left:0px;
 }
 .headerDropdownEyes{
-	 float: left;
+	float: left;
     height: 0px;
     left: -130px;
     top: 30px;
-    width: 634px;
+    width: 439px;
 }
 .dropdownContainerEyes{
 	background-color: black;
     border: 5px solid #3FB8AF;
     box-shadow: 0 0 20px 15px #000000;
-    height: 240px;
+    height: 200px;
     margin-left: 43px;
     margin-top: 52px;
     position: absolute;
-    width: 540px;
+    width: 345px;
 	overflow:hidden;
 }
 .dropdownContainerEyes img{
@@ -348,48 +348,48 @@ span.ui-state-highlight{
 .dropdownLeftBorderImg3{
 	left: 18px;
     position: absolute;
-    top: 77px;
+    top: 56px;
 	z-index:1;
 }
 .dropdownLeftBorderImg4{
 	 left: 0;
     position: absolute;
-    top: 77px;
+    top: 57px;
     z-index: 1;
 }
 .dropdownRightBorderImg3{
 	position: absolute;
     right: 17px;
-    top: 77px;
+    top: 57px;
 	z-index:1;
 }
 .dropdownRightBorderImg4{
 	position: absolute;
     right: 0;
-    top: 77px;
+    top: 58px;
     z-index: 1;
 }
 .dropdownTopBorderImg3{
-	left: 155px;
+	left: 62px;
     position: absolute;
     top: 18px;
 	z-index:1;
 }
 .dropdownTopBorderImg4{
-	left: 145px;
+	left: 52px;
     position: absolute;
     top: 0;
     z-index: 1;
 }
 .dropdownBottomBorderImg3{
 	bottom: 17px;
-    left: 170px;
+    left: 68px;
     position: absolute;
 	z-index:1;
 }
 .dropdownBottomBorderImg4{
 	bottom: 0;
-    left: 165px;
+    left: 70px;
     position: absolute;
     z-index: 1;
 }
@@ -424,21 +424,21 @@ span.ui-state-highlight{
 	margin-left: -5px;
 }
 .headerDropdownLips{
-	 float: left;
+	float: left;
     height: 0px;
     left: -180px;
     top: 30px;
-    width: 634px;
+    width: 439px;
 }
 .dropdownContainerLips{
 	background-color: black;
     border: 5px solid #3FB8AF;
     box-shadow: 0 0 20px 15px #000000;
-    height: 240px;
+    height: 200px;
     margin-left: 43px;
     margin-top: 52px;
     position: absolute;
-    width: 540px;
+    width: 345px;
 	overflow:hidden;
 }
 .dropdownContainerLips img{
@@ -482,19 +482,19 @@ span.ui-state-highlight{
 .headerDropdownFace{
 	 float: left;
     height: 0px;
-    left: -273px;
+    left: -180px;
     top: 30px;
-    width: 634px;
+    width: 439px;
 }
 .dropdownContainerFace{
 	background-color: black;
     border: 5px solid #3FB8AF;
     box-shadow: 0 0 20px 15px #000000;
-    height: 240px;
+    height: 200px;
     margin-left: 43px;
     margin-top: 52px;
     position: absolute;
-    width: 540px;
+    width: 345px;
 	overflow:hidden;
 }
 .dropdownContainerFace img{
@@ -534,19 +534,19 @@ span.ui-state-highlight{
 .headerDropdownAccess{
 	 float: left;
     height: 0px;
-    left: -251px;
+    left: -158px;
     top: 30px;
-    width: 634px;
+    width: 439px;
 }
 .dropdownContainerAccess{
 	background-color: black;
     border: 5px solid #3FB8AF;
     box-shadow: 0 0 20px 15px #000000;
-    height: 240px;
+    height: 200px;
     margin-left: 43px;
     margin-top: 52px;
     position: absolute;
-    width: 540px;
+    width: 345px;
 	overflow:hidden;
 }
 .dropdownContainerAccess img{
@@ -584,19 +584,19 @@ span.ui-state-highlight{
 .headerDropdownSkin{
 	 float: left;
     height: 0px;
-    left: -265px;
+    left: -173px;
     top: 30px;
-    width: 634px;
+    width: 439px;
 }
 .dropdownContainerSkin{
 	background-color: black;
     border: 5px solid #3FB8AF;
     box-shadow: 0 0 20px 15px #000000;
-    height: 240px;
+    height: 200px;
     margin-left: 43px;
     margin-top: 52px;
     position: absolute;
-    width: 540px;
+    width: 345px;
 	overflow:hidden;
 }
 .dropdownContainerSkin img{
@@ -688,19 +688,19 @@ span.ui-state-highlight{
 .headerDropdownHair{
 	 float: left;
     height: 0px;
-    left: -440px;
+    left: -195px;
     top: 30px;
-    width: 634px;
+    width: 439px;
 }
 .dropdownContainerHair{
 	background-color: black;
     border: 5px solid #3FB8AF;
     box-shadow: 0 0 20px 15px #000000;
-    height: 240px;
+    height: 200px;
     margin-left: 43px;
     margin-top: 52px;
     position: absolute;
-    width: 540px;
+    width: 345px;
 	overflow:hidden;
 }
 .dropdownContainerHair img{
@@ -741,19 +741,19 @@ span.ui-state-highlight{
 .headerDropdownJewel{
 	 float: left;
     height: 0px;
-    left: -440px;
+    left: -260px;
     top: 30px;
-    width: 634px;
+    width: 439px;
 }
 .dropdownContainerJewel{
 	background-color: black;
     border: 5px solid #3FB8AF;
     box-shadow: 0 0 20px 15px #000000;
-    height: 240px;
+    height: 200px;
     margin-left: 43px;
     margin-top: 52px;
     position: absolute;
-    width: 540px;
+    width: 345px;
 	overflow:hidden;
 }
 .dropdownContainerJewel img{
@@ -788,19 +788,19 @@ span.ui-state-highlight{
 .headerDropdownSale{
 	 float: left;
     height: 0px;
-    left: -505px;
+    left: -325px;
     top: 30px;
-    width: 634px;
+    width: 439px;
 }
 .dropdownContainerSale{
 	background-color: black;
     border: 5px solid #3FB8AF;
     box-shadow: 0 0 20px 15px #000000;
-    height: 240px;
+    height: 200px;
     margin-left: 43px;
     margin-top: 52px;
     position: absolute;
-    width: 540px;
+    width: 345px;
 	overflow:hidden;
 }
 .dropdownContainerSale img{
