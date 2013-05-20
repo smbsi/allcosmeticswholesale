@@ -881,7 +881,8 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 				switch(pageType)	{
 
 					case 'product':
-	//add item to recently viewed list IF it is not already in the list.				
+	//add item to recently viewed list IF it is not already in the list.	
+						infoObj.performJumpToTop = false;			
 						if($.inArray(infoObj.pid,app.ext.myRIA.vars.session.recentlyViewedItems) < 0)	{
 							app.ext.myRIA.vars.session.recentlyViewedItems.unshift(infoObj.pid);
 							}
@@ -894,9 +895,9 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 	
 					case 'homepage':
 						infoObj.pageType = 'homepage';
+						infoObj.performJumpToTop = false;
 						infoObj.navcat = zGlobals.appSettings.rootcat;
 						infoObj.parentID = app.ext.myRIA.u.showPage(infoObj);
-						infoObj.performJumpToTop = false;
 						break;
 
 					case 'category':
@@ -906,22 +907,26 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 						if(app.ext.myRIA.vars.session.recentCategories[0] != infoObj.navcat)	{
 							app.ext.myRIA.vars.session.recentCategories.unshift(infoObj.navcat);
 							}
-						
+						infoObj.performJumpToTop = false;
 						infoObj.parentID = app.ext.myRIA.u.showPage(infoObj); //### look into having showPage return infoObj instead of just parentID.
 						break;
 	
 					case 'search':
 	//					app.u.dump(" -> Got to search case.");	
+						infoObj.performJumpToTop = false;
 						app.ext.myRIA.u.showSearch(infoObj);
 						infoObj.parentID = 'mainContentArea_search';
 						break;
 	
 					case 'customer':
+						infoObj.performJumpToTop = false;
 						if('file:' == document.location.protocol || 'https:' == document.location.protocol)	{
+							infoObj.performJumpToTop = false;
 							var performJumpToTop = app.ext.myRIA.u.showCustomer(infoObj);
 							infoObj.performJumpToTop = infoObj.performJumpToTop || performJumpToTop;
 							}
 						else	{
+							infoObj.performJumpToTop = false;
 							$('#mainContentArea').empty().addClass('loadingBG').html("<h1>Transferring to Secure Login...</h1>");
 							var SSLlocation = app.vars.secureURL+"?cartID="+app.vars.cartID;
 							SSLlocation += "#customer?show="+infoObj.show
@@ -933,6 +938,7 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 	
 					case 'checkout':
 //						app.u.dump("PROTOCOL: "+document.location.protocol);
+						infoObj.performJumpToTop = false;
 						infoObj.parentID = 'checkoutContainer'; //parent gets created within checkout. that id is hard coded in the checkout extensions.
 						infoObj.templateID = 'checkoutTemplate'
 						infoObj.state = 'onInits'; //needed for handleTemplateFunctions.
@@ -953,12 +959,14 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 						else	{
 							app.ext.orderCreate.a.startCheckout($('#mainContentArea'));
 							}
+						infoObj.performJumpToTop = false;
 						infoObj.state = 'onCompletes'; //needed for handleTemplateFunctions.
 						app.ext.myRIA.u.handleTemplateFunctions(infoObj);
 
 						break;
 	
 					case 'company':
+						infoObj.performJumpToTop = false;
 						infoObj.parentID = 'mainContentArea_company';
 						app.ext.myRIA.u.showCompany(infoObj);
 						break;

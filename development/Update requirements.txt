@@ -46,6 +46,10 @@ color:#FF3D7F;
 	font-weight:200;
 
 
+- Go to th showContent :       function
+Add infoObj.performJumpToTop = false; to EVERY case before .show portion of the code. Putting it under this will not stop the auto scroll to top of the page when backing to an already visited page.
+
+
 
 store-product.js:
 - Go to the prodDataInModal function. Change width:'86%' to width:'74%'
@@ -53,3 +57,8 @@ store-product.js:
 store-cart.js:
 - go to showCartInModal function. Change width:'65%' to 66%
 - height to height:$(window).height() - 225});
+
+prodlist_infinite.js:
+- Change: if( $(window).scrollTop() >= ( $(document).height() - $(window).height() - ($tag.children().first().height() * 2) ) )	{
+to
+if( $(window).scrollTop() >= ( $(document).height() - $(window).height() - 1550 - ($tag.children().first().height() * 2) ) )	{
