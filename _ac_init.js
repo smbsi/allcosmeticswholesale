@@ -106,7 +106,11 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 		height	: 390,
 		items   : 1,
 		scroll: 1,
-		auto : true,
+		auto : {
+			duration    : 500,
+			timeoutDuration: 5000,
+			pauseOnHover: true
+		},
 		pagination  : "#paginCaro",
 		prev : ".prevHPCaro",
 		next : ".nextHPCaro"
