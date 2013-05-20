@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130520133000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130520143000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "acw_active",//can be passive, active or required
@@ -163,7 +163,7 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
                           <img class="dropdownBottomBorderBrandImg2" src="images/header_nav_bar/dropdowns/bottom_border2.png" />
                             <div class="dropdownContainerBrand">
                               <ul class="alignLeft">
-                                  <li class="headerDropdownLink2 alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.brands.100__pure'});" class="pointer">100% Pure</a></li>
+                                  <li class="headerDropdownLink2 alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent().parent().parent()); return false;"><a onClick="return showContent('category',{'navcat':'.acw.brands.100__pure'});" class="pointer">100% Pure</a></li>
                                   <li class="headerDropdownLink2 alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.brands.adoro'});" class="pointer">Adoro</a></li>
                                   <li class="headerDropdownLink2 alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.brands.almay'});" class="pointer">Almay</a></li>
                                   <li class="headerDropdownLink2 alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.brands.becca'});" class="pointer">Becca</a></li>
