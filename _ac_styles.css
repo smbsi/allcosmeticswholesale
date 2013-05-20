@@ -407,6 +407,7 @@ span.ui-state-highlight{
 	list-style: none outside none;
     position: relative;
     z-index: 3;
+	padding-left:35px;
 }
 .navBarEyes div{
 }
