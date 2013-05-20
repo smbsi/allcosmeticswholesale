@@ -418,13 +418,38 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
                       </div>
                   </div>
               </div>
-              <div class="navBarNails dropdownOnClick" href='#top' onClick="return showContent('category',{'navcat':'.acw.700nails'});"><a>Nails</a> <!--**ADD BACK WHEN DROPDOWN CATS AVAILABLE**--><!--onClick="return showContent('category',{'navcat':'.acw.700nails'});" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"-->
-                  <!--**ADD BACK WHEN DROPDOWN CATS AVAILABLE**-->
-                   <!--<div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.acw.700nails'});"></div>
-                  <ul class="dropdown headerDropdown alignLeft">
-                      <div class="dropdownSpacer"></div>
-                      <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':''});" class="pointer"></a></li>
-                  </ul>-->
+              <div class="navBarNails dropdownOnClick" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+                  <div class="navTopCat" href='#top' onClick="return showContent('category',{'navcat':'.acw.700nails'});"><a>Nails</a>
+                  </div>
+                  <div class="dropdown headerDropdownNails alignLeft dropdownOnClick">
+                       <div class="dropdownWindow">
+                       	  <!--[if IE 8 ]>
+                          	<img class="dropdownLeftBorderImg3" src="images/header_nav_bar/dropdowns/left_border.png" />
+                          <![endif]-->                
+                          <img class="dropdownLeftBorderImg4" src="images/header_nav_bar/dropdowns/left_border2.png" />
+                           <!--[if IE 8 ]>
+                          	<img class="dropdownRightBorderImg3" src="images/header_nav_bar/dropdowns/right_border.png" />
+                          <![endif]--> 
+                          <img class="dropdownRightBorderImg4" src="images/header_nav_bar/dropdowns/right_border2.png" />
+                          <!--[if IE 8 ]>
+                          	<img class="dropdownTopBorderImg3" src="images/header_nav_bar/dropdowns/top_border.png" />
+                          <![endif]--> 
+                          <img class="dropdownTopBorderImg4" src="images/header_nav_bar/dropdowns/top_border2.png" />
+                          <!--[if IE 8 ]>
+                          	<img class="dropdownBottomBorderImg3" src="images/header_nav_bar/dropdowns/bottom_border.png" />
+                          <![endif]--> 
+                          <img class="dropdownBottomBorderImg4" src="images/header_nav_bar/dropdowns/bottom_border2.png" />
+                          <div class="dropdownContainerNails">
+                              <ul class="floatLeft">
+                                  <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.700nails.appliques'});" class="pointer">Appliques</a></li>
+                                  <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.700nails.polish'});" class="pointer">Polish</a></li>
+                                  <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.700nails.sets'});" class="pointer">Sets</a></li>
+                                  <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.700nails.tools'});" class="pointer">Tools</a></li>
+                              </ul>
+                              <img src="images/header_nav_bar/dropdowns/background_swash.png" />
+                          </div>
+                      </div>
+                  </div>
               </div>
               <div class="navBarFragrance dropdownOnClick" href='#top' onClick="return showContent('category',{'navcat':'.acw.800fragrance'});"><a>Fragrance</a> <!--**ADD BACK WHEN DROPDOWN CATS AVAILABLE**--><!--onClick="return showContent('category',{'navcat':'.acw.800fragrance'});" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"-->
                   <!--**ADD BACK WHEN DROPDOWN CATS AVAILABLE**-->
