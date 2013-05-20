@@ -47,7 +47,7 @@ color:#FF3D7F;
 
 
 - Go to th showContent :       function
-Add infoObj.performJumpToTop = false; to EVERY case before .show portion of the code. Putting it under this will not stop the auto scroll to top of the page when backing to an already visited page.
+Add infoObj.performJumpToTop = false; to EVERY case before .show portion of the code EXCEPT for the product case. Putting it under this will not stop the auto scroll to top of the page when backing to an already visited page.
 
 
 
