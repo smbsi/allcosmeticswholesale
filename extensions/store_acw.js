@@ -349,6 +349,14 @@ var store_acw = function() {
 				//$('.dropdownOnClick4').css({'height':'0px'});
 				$(".dropdown", $tag).stop().animate({"height":"0px"}, 0);
 			},
+			scrollToTopPage : function(){
+				$('html, body').animate({scrollTop : 0},1000);
+				app.u.dump("running function properly");
+			},
+			scrollToTopPage : function(scrollHeight){
+				$('html, body').animate({scrollTop : scrollHeight},1000);
+				app.u.dump("running function properly");
+			},
 			
 			
 		},

@@ -15,6 +15,7 @@ div.ui-dialog div.redirectToSiteApp{
 	width:100%;
 	font-family: 'Special Elite', cursive;
 	margin-bottom:0;
+	font-size:20px;
 }
 .redirectToSiteApp div{
 	width:100%;
@@ -41,6 +42,7 @@ div.ui-dialog div.redirectToSiteApp{
     color: black !important;
     cursor: pointer;
     width: 200px;
+	font-family: 'Special Elite',cursive;
 }
 .redirectToSiteAppButton:hover{
 	background-color:#ff3d7f;
@@ -61,7 +63,7 @@ div.ui-dialog div.redirectToSiteApp{
     border: medium none;
     cursor: pointer;
     margin-top: 30px;
-
+	font-family: 'Special Elite',cursive;
 }
 div.ui-dialog-titlebar {
 	display:none;

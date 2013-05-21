@@ -918,14 +918,12 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 						break;
 	
 					case 'customer':
-						infoObj.performJumpToTop = false;
 						if('file:' == document.location.protocol || 'https:' == document.location.protocol)	{
 							infoObj.performJumpToTop = false;
 							var performJumpToTop = app.ext.myRIA.u.showCustomer(infoObj);
 							infoObj.performJumpToTop = infoObj.performJumpToTop || performJumpToTop;
 							}
 						else	{
-							infoObj.performJumpToTop = false;
 							$('#mainContentArea').empty().addClass('loadingBG').html("<h1>Transferring to Secure Login...</h1>");
 							var SSLlocation = app.vars.secureURL+"?cartID="+app.vars.cartID;
 							SSLlocation += "#customer?show="+infoObj.show
@@ -958,14 +956,12 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 						else	{
 							app.ext.orderCreate.a.startCheckout($('#mainContentArea'));
 							}
-						infoObj.performJumpToTop = false;
 						infoObj.state = 'onCompletes'; //needed for handleTemplateFunctions.
 						app.ext.myRIA.u.handleTemplateFunctions(infoObj);
 
 						break;
 	
 					case 'company':
-						infoObj.performJumpToTop = false;
 						infoObj.parentID = 'mainContentArea_company';
 						app.ext.myRIA.u.showCompany(infoObj);
 						break;
@@ -995,6 +991,7 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 				infoObj.performJumpToTop = (infoObj.performJumpToTop === false) ? false : true; //specific instances jump to top. these are passed in (usually related to modals).
 
 //				app.u.dump(" -> infoObj.performJumpToTop: "+infoObj.performJumpToTop);
+				
 				r = app.ext.myRIA.u.addPushState(infoObj);
 				
 //r will = true if pushState isn't working (IE or local). so the hash is updated instead.
