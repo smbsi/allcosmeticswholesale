@@ -16,11 +16,13 @@
 
 
 <script type="text/javascript">
-var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPLOYMENT!
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-26122636-2']);
+_gaq.push(['_trackPageview']);
 var myCreole;
 
 var app = {vars:{
-	"release":"20130521133600",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130521141500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "acw_active",//can be passive, active or required
