@@ -98,6 +98,8 @@ div.ui-dialog div.autoRedirectToSiteApp{
     padding-left: 5px;
     text-align: center;
     width: 100%;
+	font-size:12px !important;
+	font-family: 'Special Elite',cursive !important;
 }
 .autoRedirectToSiteApp button{
 	float: left;
