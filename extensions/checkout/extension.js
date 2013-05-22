@@ -732,10 +732,10 @@ an existing user gets a list of previous addresses they've used and an option to
 					hasPredefShipAddr = app.ext.cco.u.buyerHasPredefinedAddresses('ship');
 					
 					if(formObj['want/bill_to_ship'] && hasPredefBillAddr && formObj['bill/shortcut']){
-						$fieldset.anymessage({"message":"<p>No shipping methods are available.</p>","persistant":true});
+						$fieldset.anymessage({"message":"<p>Please enter shipping information to see options.</p>","persistant":true});
 						}
 					else if(!formObj['want/bill_to_ship'] && app.ext.cco.u.buyerHasPredefinedAddresses('ship') == true && formObj['ship/shortcut']){
-						$fieldset.anymessage({"message":"<p>No shipping methods are available.</p>","persistant":true});
+						$fieldset.anymessage({"message":"<p>Please enter shipping information to see options.</p>","persistant":true});
 						}
 					else	{
 						$fieldset.anymessage({"message":"<p>Please enter/select an address for a list of shipping options.</p>","persistant":true});
@@ -750,7 +750,7 @@ an existing user gets a list of previous addresses they've used and an option to
 						$fieldset.anymessage({"message":"<p>Please enter a shipping zip code for a list of shipping options.</p>","persistant":true});
 						}
 					else	{
-						$fieldset.anymessage({"message":"<p>No shipping methods are available.</p>","persistant":true});
+						$fieldset.anymessage({"message":"<p>Please enter shipping information to see options.</p>","persistant":true});
 						}
 					}
 				}, //chkoutMethodsShip
