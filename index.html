@@ -1859,10 +1859,11 @@ It's done this way because ID's hard coded into template are bad mojo (templates
             </span>
             <h6 class="displayNone" data-bind='var: product(zoovy:prod_msrp); format:showIfSet;'>You Save</h6>
         </div>
-    	<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm' action='#' onSubmit="app.ext.myRIA.u.addItemToCart($(this),{'action':'modal'}); return false;">
-            <input type='hidden' name='qty' value='1' />
-            <button class="qvAddToCart" data-bind='format:addToCartButton; extension:store_product; useParentData:true;'>more details</button>
+    	   	<form data-bind='var: product(pid); format:atcForm; extension:store_product; ' class='prodViewerAddToCartForm' action='#' onSubmit="app.ext.myRIA.u.addItemToCart($(this),{'action':'message'}); return false;">
+           <input type='hidden' name='qty' value='1' />
+            <button class="qvAddToCart2 displayNone" data-bind='format:addToCartButton; extension:myRIA; useParentData:true;'>more details</button>
         </form>
+
     </td>
 </tr>
 <tr>
@@ -1873,8 +1874,6 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 	</td>
 </tr>
 </table>
-
-
 </div><!-- productTemplateQuickView -->
 
 <div id='productTemplateQuickViewAlternate'>
@@ -1920,17 +1919,17 @@ It's done this way because ID's hard coded into template are bad mojo (templates
             <h6 class="displayNone" data-bind='var: product(zoovy:prod_msrp); format:showIfSet;'>You Save</h6>
         </div>
          <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.addItemToCart($(this), {'action':'message'}); return false;">
-
-		<fieldset data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></fieldset>
-        <div class="prodQuantity">
-			<fieldset data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; defaultValue:1;' class="borderNone"></fieldset>
-            <!--<fieldset data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; pretext:Quantity: ; defaultValue:1;' class='borderNone'></fieldset>-->
-
-            <input type="button" value="ENTER" class="quantityButton" />
-        </div>
-
-		<input type='submit' value='BAG IT!' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;'  />
-	</form>
+    
+            <fieldset data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></fieldset>
+            <div class="prodQuantity">
+                <fieldset data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; defaultValue:1;' class="borderNone"></fieldset>
+                <!--<fieldset data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; pretext:Quantity: ; defaultValue:1;' class='borderNone'></fieldset>-->
+    
+                <input type="button" value="ENTER" class="quantityButton" />
+            </div>
+    
+            <input type='submit' value='BAG IT!' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;'  />
+        </form>
     </td>
 </tr>
 <tr>
