@@ -1702,6 +1702,20 @@ ul .mpControlJumpToPage{
 .prodViewerAddToCartForm button span{
 	padding-top:10px !important;
 }
+form.ProductListForm button.addToCartButtonProdItem{
+	height: 40px;
+    padding-top: 3px;
+    width: 100%;
+}
+.addToCartButtonProdItem{
+	background-color:#3FB8AF;
+}
+.addToCartButtonProdItem:hover{
+	background-color:#ff3d7f;
+}
+form.ProductListForm fieldset{
+margin-bottom:0;
+}
 
 
 /*************************************************************************************************************************/
