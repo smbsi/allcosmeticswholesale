@@ -1824,6 +1824,12 @@ margin-bottom:0;
 	float:left;
 	width: 240px;
 }
+.prodPriceSummaryContainer2 form.prodViewerAddToCartForm{
+	padding-left:20px;
+}
+.prodPriceSummaryContainer2 form.prodViewerAddToCartForm input{
+	border:none;
+}
 .prodSummaryContainer h6{
 	color:#ff9e9d;
 	margin-top: 10px;
