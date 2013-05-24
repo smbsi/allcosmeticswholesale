@@ -940,7 +940,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
         <div class="clear"></div>
         <h2>Featured Items</h2>
         <!--<ul id='catProdSearchSale' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_DISCONTINUED"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults;' class='listStyleNone fluidList clearfix noPadOrMargin productList floatLeft'></ul>-->
-        <ul id='catProdSearch' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
+        <ul id='catProdSearch' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
         
         	<!--   **UNCOMMENT TO INCORPORATE IN CAROUSELS**
         	<!--    <div class="carouselCatSearchPagination">
@@ -1401,7 +1401,7 @@ SANITY -> if you change the height and width of this image, change the .minimalM
     	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
     <!--</div>
     <!--END TESTING SECTION-->
-    <ul data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList2'></ul><!-- outputs the product list -->
+    <ul data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList2'></ul><!-- outputs the product list -->
     
     <h2>BRANDS</h2>
     <div class="brandList">
@@ -1861,7 +1861,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
         </div>
     	<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm' action='#' onSubmit="app.ext.myRIA.u.addItemToCart($(this),{'action':'modal'}); return false;">
             <input type='hidden' name='qty' value='1' />
-            <button class="qvAddToCart" data-bind='format:addToCartButton; extension:myRIA; useParentData:true;'>more details</button>
+            <button class="qvAddToCart" data-bind='format:addToCartButton; extension:store_product; useParentData:true;'>more details</button>
         </form>
     </td>
 </tr>
@@ -1919,9 +1919,9 @@ It's done this way because ID's hard coded into template are bad mojo (templates
             </span>
             <h6 class="displayNone" data-bind='var: product(zoovy:prod_msrp); format:showIfSet;'>You Save</h6>
         </div>
-    	<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm' action='#' onSubmit="app.ext.myRIA.u.addItemToCart($(this),{'action':'modal'}); return false;">
+    	<form data-bind='var: product(pid); format:atcForm; extension:store_product; ' class='prodViewerAddToCartForm' action='#' onSubmit="app.ext.myRIA.u.addItemToCart($(this),{'action':'message'}); return false;">
             <input type='hidden' name='qty' value='1' />
-            <button class="qvAddToCart2" data-bind='format:addToCartButton; extension:myRIA; useParentData:true;'>more details</button>
+            <button class="qvAddToCart2 displayNone" data-bind='var: product(pid); format:addToCartButton; extension:store_product; useParentData:true;'>more details</button>
         </form>
     </td>
 </tr>
