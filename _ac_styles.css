@@ -3133,6 +3133,10 @@ div div.mainColumn div#privacyArticle h4, h3{
 }
 .createAccountForm div div form fieldset.userInfo{
 	width: 250px;
+	text-align: left;
+	padding-left: 0;
+	margin-left: 0;
+	margin-bottom: 10px;
 }
 .createAccountForm{
 	float:left;
