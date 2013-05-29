@@ -22,6 +22,7 @@ app.rq.push(['extension',0,'store_search','extensions/store_search.js']);
 app.rq.push(['extension',0,'store_product','extensions/store_product.js']);
 app.rq.push(['extension',0,'store_cart','extensions/store_cart.js']);
 app.rq.push(['extension',0,'store_crm','extensions/store_crm.js']);
+app.rq.push(['extension',0,'store_filter','extensions/_store_filter_search.js']);
 app.rq.push(['extension',0,'myRIA','app-quickstart.js','startMyProgram']);
 app.rq.push(['extension',0,'prodlist_infinite','extensions/prodlist_infinite.js']);
 
@@ -278,8 +279,53 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P)
 	}
 	carouselCatSearchPaginationTitleBottom = foo7;
 	setTimeout(carouselCatSearchPaginationTitleBottom, 2000);
+	
+	
+	
+	
 }]);
 
+
+app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',function(P) 
+{
+	var $context = $(app.u.jqSelector('#',P.parentID));
+	
+	app.ext.store_filter.vars.catPageID = $(app.u.jqSelector('#',P.parentID));  
+	
+	app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
+	if(app.ext.store_filter.filterMap[P.navcat])	{
+		app.u.dump(" -> safe id DOES have a filter.");
+
+		var $page = $(app.u.jqSelector('#',P.parentID));
+		app.u.dump(" -> $page.length: "+$page.length);
+		if($page.data('filterAdded'))	{} //filter is already added, don't add again.
+		else	{
+			$page.data('filterAdded',true)
+			var $form = $("[name='"+app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
+			$form.on('submit.filterSearch',function(event){
+				event.preventDefault()
+				app.u.dump(" -> Filter form submitted.");
+				app.ext.store_filter.a.execFilter($form,$page);
+				});
+	
+			if(typeof app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
+				app.ext.store_filter.filterMap[P.navcat].exec($form,P)
+				}
+	
+	//make all the checkboxes auto-submit the form.
+			$(":checkbox",$form).off('click.formSubmit').on('click.formSubmit',function() {
+				$form.submit();      
+				});
+			}
+		}
+		
+		//Reset button functionality
+		$('.resetButton', $context).click(function(){
+		$context.empty().remove();
+		showContent('category',{'navcat':P.navcat});
+		});
+
+}]);
 
 
 /*
