@@ -59,6 +59,22 @@ css files should be included before any .js file to ensure they are downloaded i
 
 
 <script type="text/javascript">
+$.fn.intervaledEmpty = function(interval, remove){
+    interval = interval || 1000;
+    if($(this).children().length > 0){
+      var i = 0;
+      $(this).children().each(function(){
+        $(this).detach();
+        setTimeout(function(){$(this).intervaledEmpty(interval, true);},interval*i);
+        i++;
+      });
+    }
+    if(remove){
+      console.debug("removal");
+      $(this).remove();
+    }
+    return this;
+  }
 app.u.loadScript(app.vars.baseURL+"_ac_init.js");
 </script>
 

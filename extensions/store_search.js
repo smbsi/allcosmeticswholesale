@@ -118,7 +118,7 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 				
 				var $list = _rtag.list;
 				if($list && $list.length)	{
-					$list.empty().removeClass('loadingBG').attr('data-app-role','searchResults');
+					$list.intervaledEmpty().removeClass('loadingBG').attr('data-app-role','searchResults');
 					$list.closest('.previewListContainer').find('.resultsHeader').empty().remove(); //remove any previous results multipage headers
 
 					if(L == 0)	{
@@ -146,9 +146,13 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 							var $header = app.ext.store_search.u.buildResultsHeader($list,_rtag.datapointer), //# of results and keyword display.
 //							$sortMenu = app.ext.store_search.u.buildSortMenu($list,_rtag), //sorting options as ul
 							$pageMenu = app.ext.store_search.u.buildPagination($list,_tag), //pagination as ul
+							$pageMenuFoot = app.ext.store_search.u.buildPagination($list,_tag), //pagination as ul
 							$multipage = app.ext.store_search.u.buildPaginationButtons($list,_tag), //next/prev buttons
+							$multipageFoot = app.ext.store_search.u.buildPaginationButtons($list,_tag), //next/prev buttons
 							$menuContainer = $("<div \/>").addClass('resultsMenuContainer'), //used to hold menus. imp for abs. positioning.
-							$controlsContainer = $("<div \/>").addClass('ui-widget ui-widget-content resultsHeader clearfix ui-corner-bottom'); //used to hold menus and buttons.
+							$menuContainerFoot = $("<div \/>").addClass('resultsMenuContainer'), //used to hold menus. imp for abs. positioning.
+							$controlsContainer = $("<div \/>").addClass('ui-widget ui-widget-content resultsHeader clearfix ui-corner-bottom'), //used to hold menus and buttons.
+							$controlsContainerFoot = $("<div \/>").addClass('ui-widget ui-widget-content resultsHeader clearfix ui-corner-bottom'); //used to hold menus and buttons.
 							
 //							$menuContainer.append($sortMenu); //sorting not working. commented out for now. !!!
 							$header.prependTo($parent);
@@ -156,13 +160,18 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 							if($pageMenu)	{
 	
 								$menuContainer.append($pageMenu);
+								$menuContainerFoot.append($pageMenuFoot);
 								$menuContainer.appendTo($controlsContainer);
+								$menuContainerFoot.appendTo($controlsContainerFoot);
 								$multipage.appendTo($controlsContainer); //multipage nav is at the top and bottom
+								$multipageFoot.appendTo($controlsContainerFoot); //multipage nav is at the top and bottom
 								
 								
 								$controlsContainer.prependTo($parent);
+								$controlsContainerFoot.appendTo($parent);
 //add to DOM prior to running menu. helps it to not barf.
 								$pageMenu.menu();
+								$pageMenuFoot.menu();
 //								$sortMenu.menu();
 								}
 	
@@ -240,10 +249,12 @@ app.u.dump(" -> pageInFocus: "+pageInFocus);
 
 //SANITY -> the classes on these buttons are used in quickstart. 					
 					var $prevPageBtn = $("<button \/>").text("Previous Page").button({icons: {primary: "ui-icon-circle-triangle-w"},text: false}).addClass('prevPageButton').on('click.multipagePrev',function(event){
+						$('html, body').animate({scrollTop : 0},1000)
 						event.preventDefault();
 						app.ext.store_search.u.changePage($list,(pageInFocus - 1),_rtag);
 						});
 					var $nextPageBtn = $("<button \/>").text("Next Page").button({icons: {primary: "ui-icon-circle-triangle-e"},text: false}).addClass('nextPageButton').on('click.multipageNext',function(event){
+						$('html, body').animate({scrollTop : 0},1000)
 						event.preventDefault();
 						app.ext.store_search.u.changePage($list,(pageInFocus + 1),_rtag);
 						});
