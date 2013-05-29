@@ -285,8 +285,8 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P)
 	
 }]);
 
-
-app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',function(P) 
+//ADDS FILTERED SEARCH TO THIS CAT PAGE
+/*app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',function(P) 
 {
 	var $context = $(app.u.jqSelector('#',P.parentID));
 	
@@ -325,7 +325,7 @@ app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',func
 		showContent('category',{'navcat':P.navcat});
 		});
 
-}]);
+}]);*/
 
 
 /*
