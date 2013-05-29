@@ -1187,7 +1187,7 @@ margin-left:20px;
 }
 
 .homepageSignUp div{
-	padding-top:10px;
+	padding-top:0;
 	width:100%;
 }
 
@@ -1198,6 +1198,7 @@ margin-left:20px;
 }
 .homepageSignUp div h2{
 	font-size: 16px;
+	margin-top:10px;
 }
 .homepageSignUp div h1{
 	font-size:22px;
@@ -1205,9 +1206,10 @@ margin-left:20px;
 
 .homepageSignUp div #subscribeFrm{
 	float: right;
-    height: 130px;
-    margin-right: 0px;
-    width: 350px;
+    height: 154px;
+    margin-right: 0;
+    margin-top: 15px;
+    width: 230px;
 }
 
 .homepageSignUp div hr{
@@ -1227,20 +1229,22 @@ margin-left:20px;
 }
 
 .userInfo2{
-	float:right;
-	width:100%;
-	height:130px;
 	border: medium none;
+    float: right;
+    height: 156px;
+    padding-top: 0;
+    width: 90%;
 }
 
 .userInfo2 input{
-	margin-bottom: 10px;
-    margin-left: 20px;
-    margin-right: 15px;
+    margin-right: 12px;
 }
-
+.userInfo2 label{
+	float:left;
+	margin-left:14px;
+}
 .homepageSubInput{
-	width:50%;
+	width:85%;
 	height:30px;
 }
 
@@ -1253,8 +1257,8 @@ margin-left:20px;
     font-family: 'Special Elite',cursive;
     font-size: 16px;
     height: 30px;
-    margin-top: 0;
-    padding-top: 10px !important;
+    margin-top: 10px;
+	padding-top: 10px !important;
     width: 100px;
 }
 
@@ -1269,13 +1273,13 @@ margin-left:20px;
 }
 
 .homepageSignUp div.homepageSignUpBottom{
-	float:left;
-	width:100%;
-	height:75px;
-	background-image:url(images/homepage/newsletterSwatch.png);
-	background-size:cover;
-	background-repeat:no-repeat;
-	margin-top:12px;
+	background-image: url("images/homepage/newsletterSwatch.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    float: left;
+    height: 75px;
+    margin-top: 12px;
+    width: 100%;
 }
 
 /*************************************************************************************************************************/
