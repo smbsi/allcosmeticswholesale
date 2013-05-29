@@ -1401,6 +1401,8 @@ SANITY -> if you change the height and width of this image, change the .minimalM
     	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
     <!--</div>
     <!--END TESTING SECTION-->
+    <div class='filterContainer clearfix'></div>
+    
     <ul data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList2'></ul><!-- outputs the product list -->
     
     <h2>BRANDS</h2>
@@ -2954,6 +2956,101 @@ The 'data-action' attribute is used to assign an onclick.
 		<button class='ui-button-text ui-button ui-state-default ui-corner-all ' id='modalLoginContinueButton' onClick="$('#loginFormForModal').dialog('close');">Continue</button>
 	</div>
 </div>
+
+
+<div id='appFilters' class='displayNone'>
+
+<!--****FILTERED SEARCH FORM****-->
+
+<form action='#' name='FilterSearchForm' id='genFilterForm' class='layeredSearch'>
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled" class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<!--<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="wood" />
+</fieldset>-->
+<fieldset class="" data-elastic-key="prod_size" data-filtertype="checkboxes">
+	<legend>King Height</legend>
+	<label class='break'><input type='checkbox' value='KH+2+75' />2.75"</label>
+    <label class='break'><input type='checkbox' value='KH+3' />3"</label>
+    <label class='break'><input type='checkbox' value='KH+3+25' />3.25"</label>
+    <label class='break'><input type='checkbox' value='KH+3+5' />3.5"</label>
+    <label class='break'><input type='checkbox' value='KH+3+75' />3.75"</label>
+    <label class='break'><input type='checkbox' value='KH+3+875' />3.875"</label>
+    <label class='break'><input type='checkbox' value='KH+4' />4"</label>
+    <label class='break'><input type='checkbox' value='KH+4+125' />4.125"</label>
+    <label class='break'><input type='checkbox' value='KH+4+25' />4.25"</label>
+    <label class='break'><input type='checkbox' value='KH+4+4' />4.4"</label>
+	<label class='break'><input type='checkbox' value='KH+4+5' />4.5"</label>
+	<label class='break'><input type='checkbox' value='KH+4+75' />4.75"</label>
+	<label class='break'><input type='checkbox' value='KH+5' />5"</label>
+    <label class='break'><input type='checkbox' value='KH+6' />6"</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_mat_attrib_1" data-filtertype="checkboxes">
+	<legend>Wood Type</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='blue' />Blue</label>
+    <label class='break'><input type='checkbox' value='boxwood' />Boxwood</label>
+    <label class='break'><input type='checkbox' value='ebonizedboxwood' />Ebonized Boxwood</label>
+    <label class='break'><input type='checkbox' value='ebony' />Ebony</label>
+    <label class='break'><input type='checkbox' value='goldenrosewood' />Golden Rosewood</label>
+    <label class='break'><input type='checkbox' value='africanpadauk' />African Padauk</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+    <label class='break'><input type='checkbox' value='redsandalwood' />Red Sandalwood</label>
+    <label class='break'><input type='checkbox' value='rosewood' />Rosewood</label>
+</fieldset>
+<fieldset class="modelType" data-elastic-key="prod_model_type" data-filtertype="checkboxes">
+	<legend>Model Type</legend>
+    <label class='break'><input type='checkbox' value='bridledstallion' />Bridled Stallion</label>
+    <label class='break'><input type='checkbox' value='british' />British</label>
+    <label class='break'><input type='checkbox' value='columbianknight' />Columbian Knight</label>
+    <label class='break'><input type='checkbox' value='cambridge' />Cambridge</label>
+    <label class='break'><input type='checkbox' value='deluxeoldclub' />Deluxe Old Club</label>
+    <label class='break'><input type='checkbox' value='fierceknight' />Fierce Knight</label>
+    <label class='break'><input type='checkbox' value='frenchlardy' />French Lardy</label>
+    <label class='break'><input type='checkbox' value='germanknight' />German Knight</label>
+    <label class='break'><input type='checkbox' value='grande' />Grande</label>
+    <label class='break'><input type='checkbox' value='hampshire' />Hampshire</label>
+    <label class='break'><input type='checkbox' value='khansstallion' />Khans Stallion</label>
+    <label class='break'><input type='checkbox' value='kohinoor' />Kohinoor</label>
+    <label class='break'><input type='checkbox' value='newexclusive' />New Exclusive</label>
+    <label class='break'><input type='checkbox' value='gotham' />Gotham</label>
+    <label class='break'><input type='checkbox' value='yugoslavia' />Yugoslavia</label>
+    <label class='break'><input type='checkbox' value='players' />Players</label>
+    <label class='break'><input type='checkbox' value='parker' />Parker</label>
+    <label class='break'><input type='checkbox' value='philidor' />Philidor</label>
+    <label class='break'><input type='checkbox' value='kingsguard' />Kings Guard</label>
+    <label class='break'><input type='checkbox' value='royal' />Royal</label>
+    <label class='break'><input type='checkbox' value='sheffield' />Sheffield</label>
+    <label class='break'><input type='checkbox' value='stgeorge' />St George</label>
+    <label class='break'><input type='checkbox' value='stjohn' />St John</label>
+    <label class='break'><input type='checkbox' value='sultan' />Sultan</label>
+    <label class='break'><input type='checkbox' value='wellington' />Wellington</label>
+    <label class='break'><input type='checkbox' value='wingfield' />Wingfield</label>
+    </fieldset>
+<!--<fieldset data-elastic-key="prod_material" data-filtertype="checkboxes">
+	<legend>Material</legend>
+	<label class='break'><input class="woodPieces" type='checkbox' value='wood' />Wood</label>
+    <label class='break'><input type='checkbox' value='metal' />Metal</label>
+    <label class='break'><input type='checkbox' value='marble' />Marble</label>
+    <label class='break'><input type='checkbox' value='plastic' />Plastic</label>
+    <label class='break'><input type='checkbox' value='theme' />Theme</label>
+    <label class='break'><input type='checkbox' value='unfinished' />Unfinished Wood</label>
+    <label class='break'><input type='checkbox' value='jaques' />Jaques</label>
+    <label class='break'><input type='checkbox' value='bone' />Bone</label>
+    <label class='break'><input type='checkbox' value='unique' />Unique</label>  
+</fieldset>-->
+
+<button class="resetButton"> Reset</button>
+
+</form>
 
 
 
