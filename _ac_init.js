@@ -282,23 +282,22 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P)
 	
 	
 	
-	
 }]);
 
 //ADDS FILTERED SEARCH TO THIS CAT PAGE
-/*app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',function(P) 
+app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',function(P) 
 {
 	var $context = $(app.u.jqSelector('#',P.parentID));
 	
 	app.ext.store_filter.vars.catPageID = $(app.u.jqSelector('#',P.parentID));  
 	
-	app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
+	app.u.dump("BEGIN categoryProductListTemplate onCompletes for filtering");
 	if(app.ext.store_filter.filterMap[P.navcat])	{
 		app.u.dump(" -> safe id DOES have a filter.");
 
 		var $page = $(app.u.jqSelector('#',P.parentID));
 		app.u.dump(" -> $page.length: "+$page.length);
-		if($page.data('filterAdded'))	{} //filter is already added, don't add again.
+		if($page.data('filterAdded'))	{app.u.dump("Filter sidebar already exists, do nothing.");} //filter is already added, don't add again.
 		else	{
 			$page.data('filterAdded',true)
 			var $form = $("[name='"+app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
@@ -325,7 +324,7 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P)
 		showContent('category',{'navcat':P.navcat});
 		});
 
-}]);*/
+}]);
 
 
 /*

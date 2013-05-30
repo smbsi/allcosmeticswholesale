@@ -42,7 +42,7 @@ var store_filter = function() {
 			".acw.brands.100__pure":{
 			"filter": "genFilterForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:200});}
-			},
+			}
 			
 		},
 		
@@ -111,7 +111,7 @@ var store_filter = function() {
 			execFilter : function($form,$page){
 
 app.u.dump("BEGIN store_filter.a.filter");
-var $prodlist = $("[data-app-role='productList']",$page).first().empty();
+var $prodlist = $("[data-app-role='productList2']",$page).first().empty();
 
 
 $('.categoryList',$page).hide(); //hide any subcategory lists in the main area so customer can focus on results
@@ -121,7 +121,7 @@ if(app.ext.store_filter.u.validateFilterProperties($form))	{
 //	app.u.dump(" -> validated Filter Properties.")
 	var query = {
 		"mode":"elastic-native",
-		"size":50,
+		"size":300,
 		"filter" : app.ext.store_filter.u.buildElasticFilters($form),
 		}//query
 //	app.u.dump(" -> Query: "); app.u.dump(query);
@@ -144,7 +144,7 @@ if(app.ext.store_filter.u.validateFilterProperties($form))	{
 				}
 			
 			},'datapointer':'appPublicSearch|elasticFiltering',
-			'templateID': $form.data('loadstemplate') || 'productListTemplateResultsFilter'
+			'templateID': $form.data('loadstemplate') || 'productListTemplateResults'
 			});
 			app.u.dump(JSON.stringify(query));
 		app.model.dispatchThis();

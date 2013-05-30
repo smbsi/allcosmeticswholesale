@@ -409,7 +409,7 @@ $display.appendTo($tag);
 
 //will remove the add to cart button if the item is not purchaseable.
 			addToCartButton : function($tag,data)	{
-				app.u.dump("BEGIN store_product.renderFunctions.addToCartButton");
+//				app.u.dump("BEGIN store_product.renderFunctions.addToCartButton");
 //				app.u.dump(" -> ID before any manipulation: "+$tag.attr('id'));
 				var pid = data.value;
 				var pData = app.data['appProductGet|'+pid];
@@ -443,8 +443,8 @@ it is a parent
 it has no inventory AND inventory matters to merchant 
 */
 			productIsPurchaseable : function(pid)	{
-				app.u.dump("BEGIN store_product.u.productIsPurchaseable");
-				app.u.dump("pid = " + pid);
+				//app.u.dump("BEGIN store_product.u.productIsPurchaseable");
+				//app.u.dump("pid = " + pid);
 				var r = true;  //returns true if purchaseable, false if not or error.
 				if(!pid)	{
 					app.u.dump("ERROR! pid not passed into store_product.u.productIsPurchaseable");

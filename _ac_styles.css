@@ -902,7 +902,7 @@ span.ui-state-highlight{
     height: 100%;
     list-style: none outside none;
     margin-left: 0;
-    margin-top: -235px;
+    margin-top: -245px;
     position: relative;
     width: 90px;
     z-index: 5;
@@ -1745,7 +1745,22 @@ margin-bottom:0;
 .productListTemplate{
 	width:1020px;
 }
-
+.catProdListCont{
+	float: right;
+    height: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    width: 777px;
+}
+.catBrowseSidebar{
+	width:200px;
+	background-color:#B29F6B;
+	float:left;
+	border-radius:5px;
+	
+}
+.filterContainer{
+}
 .productListTemplate h2{
 	color:#3fb8af;
 	float: left;
