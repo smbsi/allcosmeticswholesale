@@ -359,10 +359,16 @@ var store_acw = function() {
 			},
 			
 			//function for showing/hiding the bag it button after a quantity is entered.
-			addToCartInventoryCheck : function(prodPid){
-				app.u.dump(prodPid);
-				var inventory = app.ext.store_product.u.getProductInventory(prodPid.sku.value);
-				app.u.dump(inventory);
+			addToCartInventoryCheck : function(prodPid, input){
+				//app.u.dump(prodPid);
+				var inventory = app.ext.store_product.u.getProductInventory(prodPid);
+				//app.u.dump(inventory);
+				if(input <= inventory){
+					//display bag it button and allow them to proceed with checkout
+				}
+				else{
+					//Display warning message that quantity requested is larger than quantity in stock.
+				}
 			},
 			
 		},

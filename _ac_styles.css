@@ -2166,7 +2166,12 @@ h2 .cents{
 .prodViewerAddToCartForm span.notAvailableForPurchase{
 	color:white;
 }
-
+div.priceContainer h4.displayInvAmount{
+	margin-top:10px;
+	font-family: 'Special Elite', cursive;
+	color:#FF3D7F;
+	font-size: 19px;
+}
 
 /*************************************************************************************************************************/
 /**Search Categories**/

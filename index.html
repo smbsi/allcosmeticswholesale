@@ -1647,7 +1647,7 @@ this will likely become more flexible in the future. ###
         <h3 class='savingsDifference' data-bind='var: product(pid); format:priceRetailSavingsDifference; extension:myRIA;'></h3>
         <h3 class='savingsPercentage' data-bind='var: product(pid); format:priceRetailSavingsPercentage; extension:myRIA; pretext: (; posttext:);'></h3>
         <h4 class="displayNone" data-bind='var: product(zoovy:prod_msrp); format:showIfSet;'>YOU SAVE</h4>
-        <h4>Hurry! Only <span data-bind="var: product(pid); format:inventoryCount; extension: store_acw;">0</span> are left!</h4>
+        <h4 class="displayInvAmount">Hurry! Only <span data-bind="var: product(pid); format:inventoryCount; extension: store_acw;">0</span> are left!</h4>
     </div>
     
     <!--***Removed to match design***<!--<h5 data-bind='var: product(zoovy:prod_mfg); format:searchLink; extension:myRIA; pretext: Mfg: ;'></h5>
@@ -1667,7 +1667,8 @@ this will likely become more flexible in the future. ###
 			<fieldset data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; defaultValue:1;' class="borderNone"></fieldset>
             <!--<fieldset data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; pretext:Quantity: ; defaultValue:1;' class='borderNone'></fieldset>-->
 			 <div data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>
-             	<input type="button" value="ENTER" class="quantityButton" onClick="app.ext.store_acw.a.addToCartInventoryCheck({sku:$(this).parent().attr('data-pid')}); return false;" />
+             	<!--<input type="button" value="ENTER" class="quantityButton" onClick="app.ext.store_acw.a.addToCartInventoryCheck($(this).parent().attr('data-pid'), document.getElementById('').value); return false;" />-->
+                <input type="button" value="ENTER" class="quantityButton" />
         	 </div>
         </div>
 
@@ -1947,6 +1948,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
                 <span class='savingsPercentage' data-bind='var: product(pid); format:priceRetailSavingsPercentage; extension:myRIA; pretext: (; posttext:);'></span>
             </span>
             <h6 class="displayNone" data-bind='var: product(zoovy:prod_msrp); format:showIfSet;'>You Save</h6>
+            <h4 class="displayInvAmount">Hurry! Only <span data-bind="var: product(pid); format:inventoryCount; extension: store_acw;">0</span> are left!</h4>
         </div>
          <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.addItemToCart($(this), {'action':'message'}); return false;">
     
