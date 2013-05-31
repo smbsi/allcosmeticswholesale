@@ -358,6 +358,12 @@ var store_acw = function() {
 				app.u.dump("running function properly");
 			},
 			
+			//function for showing/hiding the bag it button after a quantity is entered.
+			addToCartInventoryCheck : function(prodPid){
+				app.u.dump(prodPid);
+				var inventory = app.ext.store_product.u.getProductInventory(prodPid.sku.value);
+				app.u.dump(inventory);
+			},
 			
 		},
 		
@@ -378,6 +384,11 @@ var store_acw = function() {
 				else{
 					//app.u.dump('Not hiding .ordersNoOrdersMess. Length is =< 0');
 				}
+			},
+			
+			//render format for displaying inventory value on the produt page.
+			inventoryCount : function($tag,data){
+				$tag.text(app.ext.store_product.u.getProductInventory(data.value));
 			},
 			
 			processListAlt : function($tag,data){

@@ -1647,6 +1647,7 @@ this will likely become more flexible in the future. ###
         <h3 class='savingsDifference' data-bind='var: product(pid); format:priceRetailSavingsDifference; extension:myRIA;'></h3>
         <h3 class='savingsPercentage' data-bind='var: product(pid); format:priceRetailSavingsPercentage; extension:myRIA; pretext: (; posttext:);'></h3>
         <h4 class="displayNone" data-bind='var: product(zoovy:prod_msrp); format:showIfSet;'>YOU SAVE</h4>
+        <h4>Hurry! Only <span data-bind="var: product(pid); format:inventoryCount; extension: store_acw;">0</span> are left!</h4>
     </div>
     
     <!--***Removed to match design***<!--<h5 data-bind='var: product(zoovy:prod_mfg); format:searchLink; extension:myRIA; pretext: Mfg: ;'></h5>
@@ -1665,8 +1666,9 @@ this will likely become more flexible in the future. ###
         <div class="prodQuantity">
 			<fieldset data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; defaultValue:1;' class="borderNone"></fieldset>
             <!--<fieldset data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; pretext:Quantity: ; defaultValue:1;' class='borderNone'></fieldset>-->
-
-            <input type="button" value="ENTER" class="quantityButton" />
+			 <div data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>
+             	<input type="button" value="ENTER" class="quantityButton" onClick="app.ext.store_acw.a.addToCartInventoryCheck({sku:$(this).parent().attr('data-pid')}); return false;" />
+        	 </div>
         </div>
 
 		<input type='submit' value='BAG IT!' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;'  />
