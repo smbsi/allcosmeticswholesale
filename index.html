@@ -1432,7 +1432,7 @@ SANITY -> if you change the height and width of this image, change the .minimalM
     	<ul data-app-role='productList' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList2'></ul><!-- outputs the product list -->
     
         <h2>BRANDS</h2>
-        <div class="brandList">
+        <div class="brandList2">
             <ul>
                 <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.adoro'});">Adoro</a></li>
                 <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.almay'});">Almay</a></li>
@@ -1523,7 +1523,7 @@ SANITY -> if you change the height and width of this image, change the .minimalM
         </div>
         
         <h3>SUITE 7 BRANDS</h3>
-        <div class="suite7List">
+        <div class="suite7List2">
             <ul>
                 <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.100pure/','vstore'); return false;">100% Pure</a></li>
                 <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.abbe_taintor_-_coming_soon_/','vstore'); return false;">Anne Taintor <span>&#45; NEW&#33;</span></a></li>
@@ -3016,36 +3016,190 @@ The 'data-action' attribute is used to assign an onclick.
     <label class='break'><input type='checkbox' value='jewelry' />Jewelry</label>
     <label class='break'><input type='checkbox' value='sale' />Sale</label>
 </fieldset>
-<fieldset class="">
-	<legend>SORT BY BRAND</legend>
-    <label class='break sortByBrand'><input type='radio' />A</label>
-    <label class='break sortByBrand'><input type='radio' />B</label>
-    <label class='break sortByBrand'><input type='radio' />C</label>
-    <label class='break sortByBrand'><input type='radio' />D</label>
-    <label class='break sortByBrand'><input type='radio' />E</label>
-    <label class='break sortByBrand'><input type='radio' />F</label>
-    <label class='break sortByBrand'><input type='radio' />G</label>
-    <label class='break sortByBrand'><input type='radio' />H</label>
-    <label class='break sortByBrand'><input type='radio' />I</label>
-    <label class='break sortByBrand'><input type='radio' />J</label>
-    <label class='break sortByBrand'><input type='radio' />K</label>
-    <label class='break sortByBrand'><input type='radio' />L</label>
-    <label class='break sortByBrand'><input type='radio' />M</label>
-    <label class='break sortByBrand'><input type='radio' />N</label>
-    <label class='break sortByBrand'><input type='radio' />O</label>
-    <label class='break sortByBrand'><input type='radio' />P</label>
-    <label class='break sortByBrand'><input type='radio' />Q</label>
-    <label class='break sortByBrand'><input type='radio' />R</label>
-    <label class='break sortByBrand'><input type='radio' />S</label>
-    <label class='break sortByBrand'><input type='radio' />T</label>
-    <label class='break sortByBrand'><input type='radio' />U</label>
-    <label class='break sortByBrand'><input type='radio' />V</label>
-    <label class='break sortByBrand'><input type='radio' />W</label>
-    <label class='break sortByBrand'><input type='radio' />X</label>
-    <label class='break sortByBrand'><input type='radio' />Y</label>
-    <label class='break sortByBrand'><input type='radio' />Z</label>
+	<legend class="sortByBrandLegend">SORT BY BRAND</legend>
+    <div class="sortByBrandDiv">
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showABrands(); return false;">A</a>
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showBBrands(); return false;">B</a>
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showCBrands(); return false;">C</a>
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showDBrands(); return false;">D</a>
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showEBrands(); return false;">E</a>
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showFBrands(); return false;">F</a>
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showGBrands(); return false;">G</a>
+    </div>
+    <div class="sortByBrandDiv">
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showHBrands(); return false;">H</a>
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showIBrands(); return false;">I</a>
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showJBrands(); return false;">J</a>
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showKBrands(); return false;">K</a>
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showLBrands(); return false;">L</a>
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showMBrands(); return false;">M</a>
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showNBrands(); return false;">N</a>
+    </div>
+    <div class="sortByBrandDiv">
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showOBrands(); return false;">O</a>
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showPBrands(); return false;">P</a>
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showQBrands(); return false;">Q</a>
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showRBrands(); return false;">R</a>
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showSBrands(); return false;">S</a>
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showTBrands(); return false;">T</a>
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showUBrands(); return false;">U</a>
+    </div>
+    <div style="margin-bottom:10px;" class="sortByBrandDiv">
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showVBrands(); return false;">V</a>
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showWBrands(); return false;">W</a>
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showXBrands(); return false;">X</a>
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showYBrands(); return false;">Y</a>
+        <a class='sortByBrand' onClick="app.ext.store_filter.a.showZBrands(); return false;">Z</a>
+    </div>
+    
+<fieldset class="aList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "A" FOR:</legend>
+	<label class='break'><input type='checkbox' class="brandNameCheck" value='adoro' />Adoro</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='almay' />Almay</label>
 </fieldset>
-
+<fieldset class="bList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "B" FOR:</legend>
+	<label class='break'><input type='checkbox' class="brandNameCheck" value='becca' />Becca</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='benefit' />Benefit</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='bobbibrown' />Bobbi Brown</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='bourjoisparis' />Bourjois Paris</label>
+</fieldset>
+<fieldset class="cList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "C" FOR:</legend>
+	<label class='break'><input type='checkbox' class="brandNameCheck" value='chinaglaze' />China Glaze</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='claudioriaz' />Claudio Riaz</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='clinique' />Clinique</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='coverfx' />Cover FX</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='covergirl' />Covergirl</label>
+</fieldset>
+<fieldset class="dList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "D" FOR:</legend>
+	<label class='break'><input type='checkbox' class="brandNameCheck" value='dermablend' />Dermablend</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='dior' />Dior</label>
+</fieldset>
+<fieldset class="eList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "E" FOR:</legend>
+	<label class='break'><input type='checkbox' class="brandNameCheck" value='edwardbess' />Edward Bess</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='esteelauder' />Estee Lauder</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='eyesbydesign' />Eyes By Design</label>
+</fieldset>
+<fieldset class="fList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "F" FOR:</legend>
+	<label class='break'><input type='checkbox' class="brandNameCheck" value='facefront' />Face Front</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='factoryblems' />Factory "Blems"</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='flirt' />Flirt</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='fusionbeauty' />Fusion Beauty</label>
+</fieldset>
+<fieldset class="gList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "G" FOR:</legend>
+	<label class='break'><input type='checkbox' class="brandNameCheck" value='goody' />Goody</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='guerlain' />Guerlain</label>
+</fieldset>
+<fieldset class="hList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "H" FOR:</legend>
+	<label class='break'><input type='checkbox' class="brandNameCheck" value='hardcandy' />Hard candy</label>
+</fieldset>
+<fieldset class="iList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "I" FOR:</legend>
+	<H4>No selections are available for this brand letter.</H4>
+</fieldset>
+<fieldset class="jList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "J" FOR:</legend>
+	<label class='break'><input type='checkbox' class="brandNameCheck" value='jane' />Jane</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='japonesque' />Japonesque</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='jewelry' />Jewelry</label>
+</fieldset>
+<fieldset class="kList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "K" FOR:</legend>
+	<label class='break'><input type='checkbox' class="brandNameCheck" value='kiehls' />Kiehl's</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='korres' />Korres</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='kryolan' />Kryolan</label>
+</fieldset>
+<fieldset class="lList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "L" FOR:</legend>
+	<label class='break'><input type='checkbox' class="brandNameCheck" value='lancome' />Lancome</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='lauramercier' />Laura Mercier</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='loreal' />L'oreal</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='lottaluv' />Lotta Luv</label>
+</fieldset>
+<fieldset class="mList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "M" FOR:</legend>
+	<label class='break'><input type='checkbox' class="brandNameCheck" value='mac' />Mac</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='makeupforever' />Make Up Forever</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='marykateashley' />Mary&#150;Kate &#38; Ashley</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='maybelline' />Maybelline</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='mememe' />Me Me Me</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='modelco' />Model Co</label>
+    
+</fieldset>
+<fieldset class="nList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "N" FOR:</legend>
+	<label class='break'><input type='checkbox' class="brandNameCheck" value='nars' />Nars</label>
+</fieldset>
+<fieldset class="oList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "O" FOR:</legend>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='' />Obsessive Compulsive Cosmetics</label>
+	<label class='break'><input type='checkbox' class="brandNameCheck" value='ojonhair' />Ojon Hair</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='otherbrands' />Other Brands</label>  
+</fieldset>
+<fieldset class="pList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "P" FOR:</legend>
+	<label class='break'><input type='checkbox' class="brandNameCheck" value='playboycosmetics' />Playboy Cosmetics</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='poppixi' />Pop&#47;Pixi</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='prescriptives' />Prescriptives</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='pupamilano' />Pupa Milano</label>
+</fieldset>
+<fieldset class="qList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "Q" FOR:</legend>
+	<H4>No selections are available for this brand letter.</H4>
+</fieldset>
+<fieldset class="rList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "R" FOR:</legend>
+	<label class='break'><input type='checkbox' class="brandNameCheck" value='redcherry' />Red Cherry</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='revlon' />Revlon</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='rimmellondon' />Rimmel London</label>
+</fieldset>
+<fieldset class="sList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "S" FOR:</legend>
+	<label class='break'><input type='checkbox' class="brandNameCheck" value='sallyhansen' />Sally Hansen</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='sigma' />Sigma</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='smashbox' />Smashbox</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='smh' />SMH</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='stila' />Stila</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='suitesevenbeauty' />Suite 7 Beauty</label>
+</fieldset>
+<fieldset class="tList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "T" FOR:</legend>
+	<label class='break'><input type='checkbox' class="brandNameCheck" value='tarte' />Tarte</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='toofaced' />Too Faced</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='twilight' />Twilight</label>
+</fieldset>
+<fieldset class="uList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "U" FOR:</legend>
+	<label class='break'><input type='checkbox' class="brandNameCheck" value='ultraflesh' />Ultraflesh</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='urbandecay' />Urban Decay</label>
+</fieldset>
+<fieldset class="vList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "V" FOR:</legend>
+	<label class='break'><input type='checkbox' class="brandNameCheck" value='victoriassecret' />Victoria's Secret</label>
+</fieldset>
+<fieldset class="wList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "W" FOR:</legend>
+	<label class='break'><input type='checkbox' class="brandNameCheck" value='wetnwild' />WET n WILD</label>
+</fieldset>
+<fieldset class="xList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "X" FOR:</legend>
+	<H4>No selections are available for this brand letter.</H4>
+</fieldset>
+<fieldset class="yList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "Y" FOR:</legend>
+	<label class='break'><input type='checkbox' class="brandNameCheck" value='yrnails' />YR Nails</label>
+    <label class='break'><input type='checkbox' class="brandNameCheck" value='ysl' />YSL</label>
+</fieldset>
+<fieldset class="adoro brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
+	<legend>YOU'VE SELECTED "Z" FOR:</legend>
+	<H4>No selections are available for this brand letter.</H4>
+</fieldset>
 
 <button class="resetButton"> Reset</button>
 

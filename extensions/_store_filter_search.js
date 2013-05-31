@@ -159,7 +159,138 @@ else	{
 $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll to top.
 
 				
-				}//filter
+				},//filter
+				
+showABrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.aList').show();
+},
+showBBrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.bList').show();
+},
+showCBrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.cList').show();
+},
+showDBrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.dList').show();
+},
+showEBrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.eList').show();
+},
+showFBrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.fList').show();
+},
+showGBrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.gList').show();
+},
+showHBrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.hList').show();
+},
+showIBrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.iList').show();
+},
+showJBrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.jList').show();
+},
+showKBrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.kList').show();
+},
+showLBrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.lList').show();
+},
+showMBrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.mList').show();
+},
+showNBrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.nList').show();
+},
+showOBrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.oList').show();
+},
+showPBrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.pList').show();
+},
+showQBrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.qList').show();
+},
+showRBrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.rList').show();
+},
+showSBrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.sList').show();
+},
+showTBrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.tList').show();
+},
+showUBrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.uList').show();
+},
+showVBrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.vList').show();
+},
+showWBrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.wList').show();
+},
+showXBrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.xList').show();
+},
+showYBrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.yList').show();
+},
+showZBrands : function(){
+	$('.brandListFilter').hide();
+	$(".brandNameCheck").removeAttr("checked");
+	$('.zList').show();
+}
 			
 			}, //actions
 
