@@ -1344,6 +1344,12 @@ margin-left:20px;
 .categoryTemplate{
 	width:1020px;
 }
+.catProdListCont ul.breadcrumb{
+	margin-left: 225px;
+    margin-right: auto;
+    text-align: center;
+    width: 500px;
+}
 .breadcrumb{
 	text-align:center;
 	width: 500px;
@@ -1553,8 +1559,8 @@ div .catListingCat:hover{
 	padding-right: 20px;
 }
 .productList2{
-	padding-left:55px;
-	padding-right: 20px;
+	margin-left: 55px;
+    padding-right: 20px;
 }
 .productList2 li{
 	width: 210px;
@@ -1752,15 +1758,7 @@ margin-bottom:0;
     padding-right: 0;
     width: 777px;
 }
-.catBrowseSidebar{
-	width:200px;
-	background-color:#B29F6B;
-	float:left;
-	border-radius:5px;
-	
-}
-.filterContainer{
-}
+
 .productListTemplate h2{
 	color:#3fb8af;
 	float: left;
@@ -1786,6 +1784,55 @@ margin-bottom:0;
 	text-align: center;
     width: 90%;
 }
+
+/*************************************************************************************************************************/
+/**Filtered search side bar**/
+.catBrowseSidebar{
+	width:200px;
+	background-color:none;
+	float:left;
+	border-radius:5px;
+	margin-left:42px;
+}
+.filterContainer{
+}
+.layeredSearch{
+}
+.layeredSearch fieldset{
+	border:none;
+}
+.sliderValue{
+	margin-left: 18px;
+}
+.layeredSearch fieldset legend{
+	background-color: #FF3D7F;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    height: 27px;
+    line-height: 27px;
+    padding-left: 10px;
+    text-align: left;
+    width: 100%;
+}
+.layeredSearch fieldset label{
+	float: left;
+    width: 100%;
+	margin-bottom:5px;
+}
+fieldset label.sortByBrand{
+	width: 44px;
+}
+.resetButton{
+	background-color: #349890;
+    border: medium none;
+    border-radius: 0 0 0 0;
+    height: 25px;
+    margin-bottom: 10px;
+    margin-left: 55px;
+    width: 100px;
+}
+
 
 /*************************************************************************************************************************/
 /*************************************************************************************************************************/

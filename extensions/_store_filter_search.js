@@ -111,7 +111,7 @@ var store_filter = function() {
 			execFilter : function($form,$page){
 
 app.u.dump("BEGIN store_filter.a.filter");
-var $prodlist = $("[data-app-role='productList2']",$page).first().empty();
+var $prodlist = $("[data-app-role='productList']",$page).first().empty();
 
 
 $('.categoryList',$page).hide(); //hide any subcategory lists in the main area so customer can focus on results
