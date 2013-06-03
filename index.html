@@ -22,7 +22,7 @@ _gaq.push(['_trackPageview']);
 var myCreole;
 
 var app = {vars:{
-	"release":"20130531163000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130603100000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "acw_active",//can be passive, active or required
@@ -1647,7 +1647,7 @@ this will likely become more flexible in the future. ###
         <h3 class='savingsDifference' data-bind='var: product(pid); format:priceRetailSavingsDifference; extension:myRIA;'></h3>
         <h3 class='savingsPercentage' data-bind='var: product(pid); format:priceRetailSavingsPercentage; extension:myRIA; pretext: (; posttext:);'></h3>
         <h4 class="displayNone" data-bind='var: product(zoovy:prod_msrp); format:showIfSet;'>YOU SAVE</h4>
-        <h4 class="displayInvAmount">Hurry! Only <span data-bind="var: product(pid); format:inventoryCount; extension: store_acw;">0</span> are left!</h4>
+        <!--<h4 class="displayInvAmount">Hurry! Only <span data-bind="var: product(pid); format:inventoryCount; extension: store_acw;">0</span> are left!</h4>-->
     </div>
     
     <!--***Removed to match design***<!--<h5 data-bind='var: product(zoovy:prod_mfg); format:searchLink; extension:myRIA; pretext: Mfg: ;'></h5>
