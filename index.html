@@ -1565,6 +1565,11 @@ SANITY -> if you change the height and width of this image, change the .minimalM
     </div>
 </div>
 
+<div id='informationalPageTemplate' class='loadingBG informationPage'>
+    <h4 data-bind="var: category(pretty); format: catText; extension: myRIA;"></h4>        
+    <p class='categoryText' data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+</div>
+
 
 
 

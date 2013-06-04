@@ -245,7 +245,10 @@ var store_acw = function() {
 				".acw.sale.face" : "categoryProductListTemplate",
 				".acw.sale.lips" : "categoryProductListTemplate",
 				".acw.sale.nails" : "categoryProductListTemplate",
-				".acw.sale.skincare" : "categoryProductListTemplate"
+				".acw.sale.skincare" : "categoryProductListTemplate",
+				
+				//INFORMATIONAL PAGES
+				"." : "informationalPageTemplate",
 			},
 		},
 		
