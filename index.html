@@ -577,7 +577,7 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
                   </div>
               </div>
            	  <div class="headerAdBar">
-              	<img src="images/header_ad_bar/templateBanner_940x80_allCosmeticsWholesale_welcome_2.png" onClick="return showContent('category',{'navcat':'.acw.sale'});" />
+              	<img class="pointer" src="images/header_ad_bar/templateBanner_940x80_allCosmeticsWholesale_welcome_2.png" onClick="return showContent('category',{'navcat':'.acw.information_page'});" />
        		  </div>
            </div>
        </div>
@@ -1566,7 +1566,7 @@ SANITY -> if you change the height and width of this image, change the .minimalM
 </div>
 
 <div id='informationalPageTemplate' class='loadingBG informationPage'>
-    <h4 data-bind="var: category(pretty); format: catText; extension: myRIA;"></h4>        
+    <!--<h4 data-bind="var: category(pretty); format: catText; extension: myRIA;"></h4>-->   
     <p class='categoryText' data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
 </div>
 

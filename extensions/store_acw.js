@@ -248,7 +248,7 @@ var store_acw = function() {
 				".acw.sale.skincare" : "categoryProductListTemplate",
 				
 				//INFORMATIONAL PAGES
-				"." : "informationalPageTemplate",
+				".acw.information_page" : "informationalPageTemplate",
 			},
 		},
 		
