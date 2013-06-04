@@ -930,6 +930,7 @@ span.ui-state-highlight{
 .categoryText h1{
 	font-family: 'Special Elite', cursive;
 	color:#ff3d7f;
+	margin-top:10px;
 }
 .categoryText p{
 	font-family: 'Montserrat', sans-serif;
