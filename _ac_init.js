@@ -63,6 +63,16 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 			  }
 		  }
 	  else	{} //couldn't find the tab to tabificate.
+	  
+	  //START REMOVE TIMER TO REMOVE PAGE FROM DOM, FORCING A REFRESH.
+//	   app.u.dump("start prod removal test function");
+	  function remove1Hour(){
+//		  app.u.dump('Removing all product template');
+		   $('.productTemplate').remove(this);
+	  }
+	  setTimeout(remove1Hour, 3600000);
+	  
+	  
 }]);
 
 app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
@@ -280,7 +290,13 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P)
 	carouselCatSearchPaginationTitleBottom = foo7;
 	setTimeout(carouselCatSearchPaginationTitleBottom, 2000);
 	
-	
+	//START REMOVE TIMER TO REMOVE PAGE FROM DOM, FORCING A REFRESH.
+//	  app.u.dump("start cat removal test function");
+	  function remove1Hour(){
+//		   app.u.dump('Removing all cat template');
+		   $('.categoryTemplate').remove();
+	  }
+	  setTimeout(remove1Hour, 3600000);
 	
 	
 }]);
