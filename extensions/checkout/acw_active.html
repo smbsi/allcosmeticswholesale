@@ -81,7 +81,7 @@ item list and summary are separate just to give more control over location.
     </div>
     
     
-    <fieldset class="checkoutShipSidebar" data-app-role='chkoutMethodsShip' class='marginBottom'>
+    <fieldset class="checkoutShipSidebar marginBottom" data-app-role='chkoutMethodsShip'>
             <legend class='headerPadding' >Shipping Methods</legend>
             <div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutMethodsShipTemplate;'></div>
         </fieldset>
@@ -91,7 +91,7 @@ item list and summary are separate just to give more control over location.
 
 
 <!-- totals et all -->
-	<fieldset class="checkoutSummarySidebar" data-app-role='chkoutCartSummary' class='marginBottom'>
+	<fieldset class="checkoutSummarySidebar marginBottom" data-app-role='chkoutCartSummary'>
 		<legend class='headerPadding' >Summary</legend>
 		<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutCartSummaryTemplate;'></div>
 	</fieldset>
@@ -143,7 +143,7 @@ item list and summary are separate just to give more control over location.
 <div data-app-role='login'>
 	<div>If you have an account with us, please enter your password below to login</div>
 	<input class="loginEmailCheckout" type='email' name='bill/email' size='30' placeholder="email address" data-bind="var:cart(bill/email); defaultVar:cart(customer/login); format:popVal;" data-app-event='orderCreate|execBuyerEmailUpdate' /><br />
-	<div class="checkoutPWInput" data-app-role='loginPasswordContainer' class='displayNone floatRight'>
+	<div class="checkoutPWInput displayNone floatRight" data-app-role='loginPasswordContainer'>
 		<input type='password' placeholder='password' size='30' name='password' /><button data-app-event='orderCreate|execBuyerLogin'>login</button>
 	</div>
 
@@ -252,6 +252,7 @@ messaging are hidden by default, then displayed if needed. keeps panel from bein
 
 <div id='chkoutMethodsShipTemplate'>
 	<ul class='noPadOrMargin listStyleNone' data-bind='var: cart(@SHIPMETHODS); format:shipMethodsAsRadioButtons; extension: orderCreate;' data-app-event='orderCreate|addTriggerShipMethodUpdate'></ul>
+    <label class="shipInsur displayNone"><input type="checkbox" onChange="" />Add shipping insurance to this order?</label>
 </div>
 
 

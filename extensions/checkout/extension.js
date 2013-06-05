@@ -1618,6 +1618,21 @@ note - the order object is available at app.data['order|'+P.orderID]
 					o += "/>"+shipName+": <span >"+app.u.formatMoney(data.value[i].amount,'$','',false)+"<\/span><\/label><\/li>";
 					}
 				$tag.html(o);
+				
+				//CHECK TO ENSURE ALL USPS/FED EX SHIPPING OPTIONS GIVE THE OPTION FOR SHIPPING INSURANCE.
+				if($("input:radio[value='GROUND_HOME_DELIVERY']")){
+					app.u.dump("valid input exists, proceed with checks.");
+					var checkedRadios = $(":radio[value='GROUND_HOME_DELIVERY']").find('input:radio:checked');
+					if(checkedRadios.length > 0){
+						app.u.dump("Showing insurance selector");
+						$(".shipInsur").show();
+					}
+				else{
+					app.u.dump("hiding insurance selector");
+					$(".shipInsur").hide();
+				}
+				}
+				
 				}, //shipMethodsAsRadioButtons
 
 			payMethodsAsRadioButtons : function($tag,data)	{
