@@ -913,14 +913,12 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 	
 					case 'search':
 	//					app.u.dump(" -> Got to search case.");	
-						infoObj.performJumpToTop = false;
 						app.ext.myRIA.u.showSearch(infoObj);
 						infoObj.parentID = 'mainContentArea_search';
 						break;
 	
 					case 'customer':
 						if('file:' == document.location.protocol || 'https:' == document.location.protocol)	{
-							infoObj.performJumpToTop = false;
 							var performJumpToTop = app.ext.myRIA.u.showCustomer(infoObj);
 							infoObj.performJumpToTop = infoObj.performJumpToTop || performJumpToTop;
 							}
@@ -936,7 +934,6 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 	
 					case 'checkout':
 //						app.u.dump("PROTOCOL: "+document.location.protocol);
-						infoObj.performJumpToTop = false;
 						infoObj.parentID = 'checkoutContainer'; //parent gets created within checkout. that id is hard coded in the checkout extensions.
 						infoObj.templateID = 'checkoutTemplate'
 						infoObj.state = 'onInits'; //needed for handleTemplateFunctions.
@@ -1268,6 +1265,7 @@ setTimeout(function(){
 						});
 					app.model.dispatchThis();
 					}
+			$('html, body').animate({scrollTop : 200},1000);
 				}, //handleProdPreview
 
 
