@@ -1620,18 +1620,31 @@ note - the order object is available at app.data['order|'+P.orderID]
 				$tag.html(o);
 				
 				//CHECK TO ENSURE ALL USPS/FED EX SHIPPING OPTIONS GIVE THE OPTION FOR SHIPPING INSURANCE.
-				if($("input:radio[value='GROUND_HOME_DELIVERY']")){
+				/*if($("[value='GROUND_HOME_DELIVERY']")){
+			    $(".shipInsur").show();
+				app.u.dump("Showing insurance selector");
+				app.u.dump($("[value='GROUND_HOME_DELIVERY']"));
+			    }
+			    else {
+				app.u.dump("hiding insurance selector");
+				app.u.dump($("[value='GROUND_HOME_DELIVERY']"));
+			    $(".shipInsur").hide();
+			    }*/
+				
+				
+				/*if($("input[value='GROUND_HOME_DELIVERY']")){
 					app.u.dump("valid input exists, proceed with checks.");
-					var checkedRadios = $(":radio[value='GROUND_HOME_DELIVERY']").find('input:radio:checked');
-					if(checkedRadios.length > 0){
+					//var checkedRadios = $(":radio[value='GROUND_HOME_DELIVERY']").find('input:radio:checked');$('input[name=radioName]:checked'
+					//app.u.dump(checkedRadios.length);
+					if($("input[value='GROUND_HOME_DELIVERY']:checked")){
 						app.u.dump("Showing insurance selector");
 						$(".shipInsur").show();
 					}
-				else{
-					app.u.dump("hiding insurance selector");
-					$(".shipInsur").hide();
-				}
-				}
+					else{
+						app.u.dump("hiding insurance selector");
+						$(".shipInsur").hide();
+					}
+				}*/
 				
 				}, //shipMethodsAsRadioButtons
 

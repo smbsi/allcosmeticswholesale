@@ -87,6 +87,7 @@ item list and summary are separate just to give more control over location.
         </fieldset>
         
         <br />
+        <label class="shipInsur displayNone"><input type="checkbox" onChange="" />Add shipping insurance to this order?</label>
         <h4 class="displayNone" id="shippingWarning">SHIPPING MAY TAKE 8-12 WEEKS DEPENDING ON YOUR LOCATION</h4>
 
 
@@ -252,7 +253,6 @@ messaging are hidden by default, then displayed if needed. keeps panel from bein
 
 <div id='chkoutMethodsShipTemplate'>
 	<ul class='noPadOrMargin listStyleNone' data-bind='var: cart(@SHIPMETHODS); format:shipMethodsAsRadioButtons; extension: orderCreate;' data-app-event='orderCreate|addTriggerShipMethodUpdate'></ul>
-    <label class="shipInsur displayNone"><input type="checkbox" onChange="" />Add shipping insurance to this order?</label>
 </div>
 
 
