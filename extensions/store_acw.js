@@ -374,6 +374,19 @@ var store_acw = function() {
 				}
 			},
 			
+			//function for adding a shipping insurance note
+			addShippingInsurance : function(){
+				var input = $(".chkoutOrderNotes ");
+				
+				if($(".shipInsurCB :checkbox:checked")){
+				if(input.val === "Please add shipping insurance to this order."){
+				}
+				else{
+					input.val( input.val() + "Please add shipping insurance to this order." );
+				}
+				}
+			}
+			
 		},
 		
 		renderFormats : {
