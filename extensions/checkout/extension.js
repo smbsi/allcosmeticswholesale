@@ -1620,13 +1620,13 @@ note - the order object is available at app.data['order|'+P.orderID]
 				$tag.html(o);
 				
 				//CHECK TO ENSURE ALL USPS/FED EX SHIPPING OPTIONS GIVE THE OPTION FOR SHIPPING INSURANCE.
-				/*if($("[value='GROUND_HOME_DELIVERY']")){
+				/*if($("input[name='want/shipping_id']:checked").val()){
 			    $(".shipInsur").show();
 				app.u.dump("Showing insurance selector");
 				app.u.dump($("[value='GROUND_HOME_DELIVERY']"));
 			    }
 			    else {
-				app.u.dump("hiding insurance selector");
+				app.u.dump("hiding insurance selector......" + $("input[name='want/shipping_id']:checked").val());
 				app.u.dump($("[value='GROUND_HOME_DELIVERY']"));
 			    $(".shipInsur").hide();
 			    }*/

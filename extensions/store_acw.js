@@ -378,12 +378,19 @@ var store_acw = function() {
 			addShippingInsurance : function(){
 				var input = $(".chkoutOrderNotes ");
 				
-				if($(".shipInsurCB :checkbox:checked")){
-				if(input.val === "Please add shipping insurance to this order."){
+				if($('.shipInsurCB').is(':checked')){
+					app.u.dump("Box is checked, checking to see if note has been added already");
+					if(input.val == "Please add shipping insurance to this order."){
+						app.u.dump("Note already added, do nothing.");
+					}
+					else{
+						app.u.dump("Note not added, adding not now.");
+						input.val( input.val() + "Please add shipping insurance to this order." );
+					}
 				}
 				else{
-					input.val( input.val() + "Please add shipping insurance to this order." );
-				}
+					app.u.dump("Box unchecked, clearing out order notes.");
+					$(".chkoutOrderNotes").val("");
 				}
 			}
 			
