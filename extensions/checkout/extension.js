@@ -1598,9 +1598,11 @@ note - the order object is available at app.data['order|'+P.orderID]
 
 			shipMethodsAsRadioButtons : function($tag,data)	{
 //				app.u.dump('BEGIN store_cart.renderFormat.shipMethodsAsRadioButtons');
+				$(".shipInsur").hide();
 				var o = '';
 				var shipName,id,isSelectedMethod,safeid;  // id is actual ship id. safeid is id without any special characters or spaces. isSelectedMethod is set to true if id matches cart shipping id selected.;
 				var L = data.value.length;
+				var l = L - 1;
 				for(var i = 0; i < L; i += 1)	{
 					id = data.value[i].id; //shortcut of this shipping methods ID.
 					if(app.data.cartDetail && app.data.cartDetail.want && app.data.cartDetail.want.shipping_id == id)	{isSelectedMethod =  true;}
@@ -1611,22 +1613,43 @@ note - the order object is available at app.data['order|'+P.orderID]
 					o += "<li class='headerPadding "
 					if(isSelectedMethod)
 						o+= ' selected ';
-					o += "shipcon_"+safeid; 
-					o += "'><label><input type='radio' name='want/shipping_id' value='"+id+"' ";
+						o += "shipcon_"+safeid; 
+						o += "'><label><input type='radio' name='want/shipping_id' value='"+id+"' ";
 					if(isSelectedMethod)
 						o += " checked='checked' "
-					o += "/>"+shipName+": <span >"+app.u.formatMoney(data.value[i].amount,'$','',false)+"<\/span><\/label><\/li>";
+						o += "/>"+shipName+": <span >"+app.u.formatMoney(data.value[i].amount,'$','',false)+"<\/span><\/label><\/li>";
+					if((isSelectedMethod && id=="INTERNATIONAL_PRIORITY") || (isSelectedMethod &&  id=="INTERNATIONAL_ECONOMY")){
+						$(".shipInsur").show();
+						//app.u.dump("Showing insurance selector");
+						//app.u.dump(id);
 					}
+					}
+					
+					/*if(isSelectedMethod){
+						if(){
+						}
+					}
+					
+					if((isSelectedMethod && id=="INTERNATIONAL_PRIORITY") || (isSelectedMethod &&  id=="INTERNATIONAL_ECONOMY")){
+						$(".shipInsur").show();
+						app.u.dump("Showing insurance selector");
+						app.u.dump(id);
+					}
+					else{
+						app.u.dump("Hiding insurance selector");
+						app.u.dump(id);
+			   			$(".shipInsur").hide();
+					}*/
 				$tag.html(o);
 				
 				//CHECK TO ENSURE ALL USPS/FED EX SHIPPING OPTIONS GIVE THE OPTION FOR SHIPPING INSURANCE.
-				/*if($("input[name='want/shipping_id']:checked").val()){
+				/*if($("input[value='GROUND_HOME_DELIVERY']").is(':checked')){
 			    $(".shipInsur").show();
 				app.u.dump("Showing insurance selector");
-				app.u.dump($("[value='GROUND_HOME_DELIVERY']"));
+				app.u.dump($("input[value='GROUND_HOME_DELIVERY']").is(':checked'));
 			    }
 			    else {
-				app.u.dump("hiding insurance selector......" + $("input[name='want/shipping_id']:checked").val());
+				app.u.dump("hiding insurance selector......" + $("input[name='want/shipping_id']").val());
 				app.u.dump($("[value='GROUND_HOME_DELIVERY']"));
 			    $(".shipInsur").hide();
 			    }*/

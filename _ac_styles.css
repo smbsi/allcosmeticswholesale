@@ -3382,5 +3382,7 @@ div.buttonList .removeButtonWishlist:hover{
 	background-image:none;
 	background-color:transparent;
 }
-.shipInsur{
+.shipInsurCB{
+	margin-bottom: 20px !important;
+    margin-left: 15px !important;
 }
