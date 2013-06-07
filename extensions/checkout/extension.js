@@ -1618,56 +1618,14 @@ note - the order object is available at app.data['order|'+P.orderID]
 					if(isSelectedMethod)
 						o += " checked='checked' "
 						o += "/>"+shipName+": <span >"+app.u.formatMoney(data.value[i].amount,'$','',false)+"<\/span><\/label><\/li>";
-					if((isSelectedMethod && id=="INTERNATIONAL_PRIORITY") || (isSelectedMethod &&  id=="INTERNATIONAL_ECONOMY")){
+					if((isSelectedMethod && id=="INTERNATIONAL_PRIORITY") || (isSelectedMethod &&  id=="INTERNATIONAL_ECONOMY") || (isSelectedMethod && id.indexOf('WEIGHT_') === 0 && $("#countrySelectorBilling").val() != "US")){
 						$(".shipInsur").show();
 						//app.u.dump("Showing insurance selector");
 						//app.u.dump(id);
 					}
 					}
 					
-					/*if(isSelectedMethod){
-						if(){
-						}
-					}
-					
-					if((isSelectedMethod && id=="INTERNATIONAL_PRIORITY") || (isSelectedMethod &&  id=="INTERNATIONAL_ECONOMY")){
-						$(".shipInsur").show();
-						app.u.dump("Showing insurance selector");
-						app.u.dump(id);
-					}
-					else{
-						app.u.dump("Hiding insurance selector");
-						app.u.dump(id);
-			   			$(".shipInsur").hide();
-					}*/
 				$tag.html(o);
-				
-				//CHECK TO ENSURE ALL USPS/FED EX SHIPPING OPTIONS GIVE THE OPTION FOR SHIPPING INSURANCE.
-				/*if($("input[value='GROUND_HOME_DELIVERY']").is(':checked')){
-			    $(".shipInsur").show();
-				app.u.dump("Showing insurance selector");
-				app.u.dump($("input[value='GROUND_HOME_DELIVERY']").is(':checked'));
-			    }
-			    else {
-				app.u.dump("hiding insurance selector......" + $("input[name='want/shipping_id']").val());
-				app.u.dump($("[value='GROUND_HOME_DELIVERY']"));
-			    $(".shipInsur").hide();
-			    }*/
-				
-				
-				/*if($("input[value='GROUND_HOME_DELIVERY']")){
-					app.u.dump("valid input exists, proceed with checks.");
-					//var checkedRadios = $(":radio[value='GROUND_HOME_DELIVERY']").find('input:radio:checked');$('input[name=radioName]:checked'
-					//app.u.dump(checkedRadios.length);
-					if($("input[value='GROUND_HOME_DELIVERY']:checked")){
-						app.u.dump("Showing insurance selector");
-						$(".shipInsur").show();
-					}
-					else{
-						app.u.dump("hiding insurance selector");
-						$(".shipInsur").hide();
-					}
-				}*/
 				
 				}, //shipMethodsAsRadioButtons
 
