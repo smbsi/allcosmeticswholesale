@@ -1618,7 +1618,7 @@ note - the order object is available at app.data['order|'+P.orderID]
 					if(isSelectedMethod)
 						o += " checked='checked' "
 						o += "/>"+shipName+": <span >"+app.u.formatMoney(data.value[i].amount,'$','',false)+"<\/span><\/label><\/li>";
-					if((isSelectedMethod && id=="INTERNATIONAL_PRIORITY") || (isSelectedMethod &&  id=="INTERNATIONAL_ECONOMY") || (isSelectedMethod && id.indexOf('WEIGHT_') === 0 && $("#countrySelectorBilling").val() != "US")){
+					if((isSelectedMethod && id=="INTERNATIONAL_PRIORITY") || (isSelectedMethod &&  id=="INTERNATIONAL_ECONOMY")){ //ADD THIS SECTION BACK ONCE A SELECTOR FOR USPS INTERNATIONAL EXPRESS CAN BE ADDED|| (isSelectedMethod && id.indexOf('WEIGHT_') === 0 && $("#countrySelectorBilling").val() != "US")){
 						$(".shipInsur").show();
 						//app.u.dump("Showing insurance selector");
 						//app.u.dump(id);
