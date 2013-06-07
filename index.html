@@ -576,9 +576,19 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
                       </div>
                   </div>
               </div>
-           	  <div class="headerAdBar">
+              
+              
+<!--***********************************************************************************************************************
+    ****SHERI, HERE IS THE CODE FOR THE GLOBAL BANNER IN THE HEADER. CHANGE THIS CODE TO CHANGE THE BANNER!*************-->                       
+           	  
+              <div class="headerAdBar">
               	<img class="pointer" src="images/header_ad_bar/templateBanner_940x80_allCosmeticsWholesale_temporarilyClosed.png" onClick="return showContent('category',{'navcat':'.acw.information_page'});" />
        		  </div>
+ 
+ <!--***********************************************************************************************************************
+    **********************************************END OF BANNER CODE*****************************************************-->              
+              
+              
            </div>
        </div>
     </div>
@@ -835,20 +845,28 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             <a class="nextHPCaro"><img class="carouselHPButton pointer" style="right:0px; top:0px;" src="images/homepage/arrow_bar_right.png" /></a>
             <div id="paginCaro">
             </div>
+         
+            
+<!--***********************************************************************************************************************
+****SHERI, HERE IS THE CODE FOR THE HOMEPAGE SLIDESHOW BANNER IN THE HEADER. CHANGE THIS CODE TO CHANGE THESE BANNERS!**--> 
         	<ul class="carouselHPBannerList">
-            	<li class="pointer" onClick="return showContent('category',{'navcat':'.acw.brands.hard_candy'});">
+            	<li class="pointer" onClick="return showContent('category',{'navcat':'.'});">
                 	<img src="images/homepage/banner/templateBanner_710x390_allCosmeticsWholesale_temporarilyClosed.jpg" />
                 </li>
-                <li class="pointer" onClick="return showContent('customer',{'show':'newsletter'});">
+                <!--<li class="pointer" onClick="return showContent('customer',{'show':'newsletter'});">
                 	<img src="images/homepage/banner/templateBanner_710x390_allCosmeticsWholesale_temporarilyClosed.jpg" />
                 </li>
                 <li class="pointer" onClick="return showContent('category',{'navcat':'.acw.sale'});">
                 	<img src="images/homepage/banner/templateBanner_710x390_allCosmeticsWholesale_temporarilyClosed.jpg" />
                 </li>
                 <li class="pointer" onClick="return showContent('category',{'navcat':'.acw.brands.wet_N_wild'});">
-                	<img src="images/homepage/banner/templateBanner_710x390_allCosmeticsWholesale_temporarilyclosed.jpg" />
-                </li>
+                	<img src="images/homepage/banner/templateBanner_710x390_allCosmeticsWholesale_temporarilyClosed.jpg" />
+                </li>-->
             </ul>
+<!--***********************************************************************************************************************
+*******************************************END HOMEPAGE SLIDESHOW BANNER CODE!******************************************--> 
+            
+            
             <div class="pagination" id="carouselHPBannerPag">
             </div>
         </div>
