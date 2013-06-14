@@ -92,6 +92,9 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 		fullscreen: false,
 		slideshow: false
 		});
+		
+			var $context = $(app.u.jqSelector('#',P.parentID));
+			app.u.dump($context);
 }]);
   
   
@@ -464,7 +467,7 @@ var hideDropdown = function ($tag) {
 
 //IE8 dropdown alterate images
 var hideIEBorderImg = function ($tag) {
-	app.u.dump("Begin IE border alt image switching");
+	//app.u.dump("Begin IE border alt image switching");
 	if($(".dropdownLeftBorderBrandImg").length){
 		$(".dropdownLeftBorderBrandImg2").hide().css("visibility","hidden");
 		$(".headerDropdownBrand").css("top","10px");
@@ -475,52 +478,52 @@ var hideIEBorderImg = function ($tag) {
 	}
 	if($(".dropdownLeftBorderImg3").length){
 		$(".dropdownLeftBorderImg4").hide().css("visibility","hidden");
-		app.u.dump('removing all other left border');
+		//app.u.dump('removing all other left border');
 	}
 	else{
-		app.u.dump('leaving all other left border');
+		//app.u.dump('leaving all other left border');
 	}
 	if($(".dropdownTopBorderBrandImg").length){
 		$(".dropdownTopBorderBrandImg2").hide().css("visibility","hidden");
-		app.u.dump('removing brand top border');
+		//app.u.dump('removing brand top border');
 	}
 	else{
-		app.u.dump('leaving brand top border');
+		//app.u.dump('leaving brand top border');
 	}
 	if($(".dropdownTopBorderImg3").length){
 		$(".dropdownTopBorderImg4").hide().css("visibility","hidden");
-		app.u.dump('removing all other top border');
+		//app.u.dump('removing all other top border');
 	}
 	else{
-		app.u.dump('leaving all other top border');
+		//app.u.dump('leaving all other top border');
 	}
 	if($(".dropdownRightBorderBrandImg").length){
 		$(".dropdownRightBorderBrandImg2").hide().css("visibility","hidden");
-		app.u.dump('removing brand right border');
+		//app.u.dump('removing brand right border');
 	}
 	else{
-		app.u.dump('leaving brand right border');
+		//app.u.dump('leaving brand right border');
 	}
 	if($(".dropdownRightBorderImg3").length){
 		$(".dropdownRightBorderImg4").hide().css("visibility","hidden");
-		app.u.dump('removing all other right border');
+		//app.u.dump('removing all other right border');
 	}
 	else{
-		app.u.dump('leaving all other right border');
+		//app.u.dump('leaving all other right border');
 	}
 	if($(".dropdownBottomBorderBrandImg").length){
 		$(".dropdownBottomBorderBrandImg2").hide().css("visibility","hidden");
-		app.u.dump('removing brand bottom border');
+		//app.u.dump('removing brand bottom border');
 	}
 	else{
-		app.u.dump('leaving brand bottom border');
+		//app.u.dump('leaving brand bottom border');
 	}
 	if($(".dropdownBottomBorderImg3").length){
 		$(".dropdownBottomBorderImg4").hide().css("visibility","hidden");
-		app.u.dump('removing all other bottom border');
+		//app.u.dump('removing all other bottom border');
 	}
 	else{
-		app.u.dump('leaving all other bottom border');
+		//app.u.dump('leaving all other bottom border');
 	}
 }
 setTimeout(hideIEBorderImg, 2000);
