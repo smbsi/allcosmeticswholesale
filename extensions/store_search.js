@@ -491,9 +491,9 @@ P.parentID - The parent ID is used as the pointer in the multipage controls obje
 					query.size = 250;
 					query.query =  {
 						"filtered" : {
-						  "filter" : {"not" : { "term" : {"prod_outofstock":"1"}}}
-						  //"filter" : {"not" : { "term" : {"incog_neat_o":"1"}}},
-						  //"filter" : {"not" : { "term" : {"site_ownership_acw":"1"}}}
+						  "filter" : {"not" : { "term" : {"prod_outofstock":"1"}}},
+						  "filter" : {"not" : { "term" : {"incog_neat_o":"1"}}},
+						  "filter" : {"not" : { "term" : {"site_ownership_acw":"1"}}}
 						  }
 					  };
 					}
