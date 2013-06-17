@@ -443,8 +443,8 @@ it is a parent
 it has no inventory AND inventory matters to merchant 
 */
 			productIsPurchaseable : function(pid)	{
-				app.u.dump("BEGIN store_product.u.productIsPurchaseable");
-				app.u.dump("pid = " + pid);
+				//app.u.dump("BEGIN store_product.u.productIsPurchaseable");
+				//app.u.dump("pid = " + pid);
 				var r = true;  //returns true if purchaseable, false if not or error.
 				if(!pid)	{
 					//app.u.dump("ERROR! pid not passed into store_product.u.productIsPurchaseable");
@@ -465,12 +465,12 @@ it has no inventory AND inventory matters to merchant
 // ex: app.data["appProductGet|"+PID]["@inventory"][PID].inv
 // also avail is ...[PID].res (reserved)
 					if(typeof app.data['appProductGet|'+pid]['@inventory'] === 'undefined' || typeof app.data['appProductGet|'+pid]['@variations'] === 'undefined')	{
-						app.u.dump(" -> inventory ("+typeof app.data['appProductGet|'+pid]['@inventory']+") and/or variations ("+typeof app.data['appProductGet|'+pid]['@variations']+") object(s) not defined.");
+						//app.u.dump(" -> inventory ("+typeof app.data['appProductGet|'+pid]['@inventory']+") and/or variations ("+typeof app.data['appProductGet|'+pid]['@variations']+") object(s) not defined.");
 						r = false;
 						}
 					else	{
 						if(app.ext.store_product.u.getProductInventory(pid) <= 0)	{
-							app.u.dump(" -> inventory not available: "+pid);
+							//app.u.dump(" -> inventory not available: "+pid);
 							r = false
 							}
 						}
