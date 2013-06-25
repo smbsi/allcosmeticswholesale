@@ -1616,7 +1616,7 @@ note - the order object is available at app.data['order|'+P.orderID]
 					if(isSelectedMethod)
 						o+= ' selected ';
 						o += "shipcon_"+safeid; 
-						o += "'><label><input type='radio' name='"+shipName+"' value='"+id+"' ";
+						o += "'><label><input type='radio' name='want/shipping_id' class='"+shipName+"' + value='"+id+"' ";
 					if(isSelectedMethod)
 						o += " checked='checked' "
 						o += "/>"+shipName+": <span >"+app.u.formatMoney(data.value[i].amount,'$','',false)+"<\/span><\/label><\/li>";
