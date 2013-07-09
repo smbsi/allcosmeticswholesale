@@ -902,7 +902,7 @@ span.ui-state-highlight{
     height: 100%;
     list-style: none outside none;
     margin-left: 0;
-    margin-top: -245px;
+    margin-top: -235px;
     position: relative;
     width: 90px;
     z-index: 5;
@@ -921,6 +921,19 @@ span.ui-state-highlight{
     height: 80px;
     margin-left: 43px;
     width: 940px;
+}
+
+/*************************************************************************************************************************/
+/**Global Banner/Informational Page**/
+.categoryText{
+}
+.categoryText h1{
+	font-family: 'Special Elite', cursive;
+	color:#ff3d7f;
+	margin-top:10px;
+}
+.categoryText p{
+	font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -1344,12 +1357,6 @@ margin-left:20px;
 .categoryTemplate{
 	width:1020px;
 }
-.catProdListCont ul.breadcrumb{
-	margin-left: 225px;
-    margin-right: auto;
-    text-align: center;
-    width: 500px;
-}
 .breadcrumb{
 	text-align:center;
 	width: 500px;
@@ -1604,8 +1611,8 @@ div .catListingCat:hover{
 	padding-right: 20px;
 }
 .productList2{
-	margin-left: 55px;
-    padding-right: 20px;
+	padding-left:55px;
+	padding-right: 20px;
 }
 .productList2 li{
 	width: 210px;
@@ -1809,7 +1816,7 @@ margin-bottom:0;
 	float: left;
 	font-family: 'Special Elite', cursive;
 	font-weight: 200;
-    margin-left:-90px;
+    margin-left:60px;
 	margin-bottom:20px;
     padding-top: 15px;
 	clear:both;
@@ -1822,7 +1829,7 @@ margin-bottom:0;
 	float: left;
 	font-family: 'Special Elite', cursive;
 	font-weight: 200;
-    margin-left:-90px;
+    margin-left:60px;
 	margin-bottom:20px;
     padding-top: 15px;
 	clear:both;
@@ -2088,6 +2095,15 @@ div .socialLinks{
 	height: 50px;
     width: 100%;
 }
+#socialLinks{
+	border:none;
+}
+#socialLinks a{
+	
+}
+.atclear{
+	border:none !important;
+}
 
 .intShippingModal .ui-dialog-titlebar {display:none;}
 
@@ -2323,7 +2339,12 @@ h2 .cents{
 .prodViewerAddToCartForm span.notAvailableForPurchase{
 	color:white;
 }
-
+div.priceContainer h4.displayInvAmount{
+	margin-top:10px;
+	font-family: 'Special Elite', cursive;
+	color:#FF3D7F;
+	font-size: 19px;
+}
 
 /*************************************************************************************************************************/
 /**Search Categories**/
@@ -3520,4 +3541,8 @@ div.buttonList .removeButtonWishlist:hover{
 .ui-dialog-titlebar{
 	background-image:none;
 	background-color:transparent;
+}
+.shipInsurCB{
+	margin-bottom: 20px !important;
+    margin-left: 15px !important;
 }

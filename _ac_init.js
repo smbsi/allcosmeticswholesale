@@ -30,7 +30,7 @@ app.rq.push(['extension',0,'store_acw','extensions/store_acw.js','startExtension
 
 
 //app.rq.push(['extension',1,'google_analytics','extensions/partner_google_analytics.js','startExtension']);
-//app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js','startExtension']);
+app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js']);
 //app.rq.push(['extension',1,'resellerratings_survey','extensions/partner_buysafe_guarantee.js','startExtension']); /// !!! needs testing.
 //app.rq.push(['extension',1,'buysafe_guarantee','extensions/partner_buysafe_guarantee.js','startExtension']);
 //app.rq.push(['extension',1,'powerReviews_reviews','extensions/partner_powerreviews_reviews.js','startExtension']);
@@ -63,6 +63,16 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 			  }
 		  }
 	  else	{} //couldn't find the tab to tabificate.
+	  
+	  //START REMOVE TIMER TO REMOVE PAGE FROM DOM, FORCING A REFRESH.
+//	   app.u.dump("start prod removal test function");
+	  function remove1Hour(){
+//		  app.u.dump('Removing all product template');
+		   $('.productTemplate').remove(this);
+	  }
+	  setTimeout(remove1Hour, 3600000);
+	  
+	  
 }]);
 
 app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
@@ -82,6 +92,9 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 		fullscreen: false,
 		slideshow: false
 		});
+		
+			var $context = $(app.u.jqSelector('#',P.parentID));
+			app.u.dump($context);
 }]);
   
   
@@ -280,6 +293,13 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P)
 	carouselCatSearchPaginationTitleBottom = foo7;
 	setTimeout(carouselCatSearchPaginationTitleBottom, 2000);
 	
+	//START REMOVE TIMER TO REMOVE PAGE FROM DOM, FORCING A REFRESH.
+//	  app.u.dump("start cat removal test function");
+	  function remove1Hour(){
+//		   app.u.dump('Removing all cat template');
+		   $('.categoryTemplate').remove();
+	  }
+	  setTimeout(remove1Hour, 3600000);
 	
 	
 }]);
@@ -447,7 +467,7 @@ var hideDropdown = function ($tag) {
 
 //IE8 dropdown alterate images
 var hideIEBorderImg = function ($tag) {
-	app.u.dump("Begin IE border alt image switching");
+	//app.u.dump("Begin IE border alt image switching");
 	if($(".dropdownLeftBorderBrandImg").length){
 		$(".dropdownLeftBorderBrandImg2").hide().css("visibility","hidden");
 		$(".headerDropdownBrand").css("top","10px");
@@ -458,52 +478,52 @@ var hideIEBorderImg = function ($tag) {
 	}
 	if($(".dropdownLeftBorderImg3").length){
 		$(".dropdownLeftBorderImg4").hide().css("visibility","hidden");
-		app.u.dump('removing all other left border');
+		//app.u.dump('removing all other left border');
 	}
 	else{
-		app.u.dump('leaving all other left border');
+		//app.u.dump('leaving all other left border');
 	}
 	if($(".dropdownTopBorderBrandImg").length){
 		$(".dropdownTopBorderBrandImg2").hide().css("visibility","hidden");
-		app.u.dump('removing brand top border');
+		//app.u.dump('removing brand top border');
 	}
 	else{
-		app.u.dump('leaving brand top border');
+		//app.u.dump('leaving brand top border');
 	}
 	if($(".dropdownTopBorderImg3").length){
 		$(".dropdownTopBorderImg4").hide().css("visibility","hidden");
-		app.u.dump('removing all other top border');
+		//app.u.dump('removing all other top border');
 	}
 	else{
-		app.u.dump('leaving all other top border');
+		//app.u.dump('leaving all other top border');
 	}
 	if($(".dropdownRightBorderBrandImg").length){
 		$(".dropdownRightBorderBrandImg2").hide().css("visibility","hidden");
-		app.u.dump('removing brand right border');
+		//app.u.dump('removing brand right border');
 	}
 	else{
-		app.u.dump('leaving brand right border');
+		//app.u.dump('leaving brand right border');
 	}
 	if($(".dropdownRightBorderImg3").length){
 		$(".dropdownRightBorderImg4").hide().css("visibility","hidden");
-		app.u.dump('removing all other right border');
+		//app.u.dump('removing all other right border');
 	}
 	else{
-		app.u.dump('leaving all other right border');
+		//app.u.dump('leaving all other right border');
 	}
 	if($(".dropdownBottomBorderBrandImg").length){
 		$(".dropdownBottomBorderBrandImg2").hide().css("visibility","hidden");
-		app.u.dump('removing brand bottom border');
+		//app.u.dump('removing brand bottom border');
 	}
 	else{
-		app.u.dump('leaving brand bottom border');
+		//app.u.dump('leaving brand bottom border');
 	}
 	if($(".dropdownBottomBorderImg3").length){
 		$(".dropdownBottomBorderImg4").hide().css("visibility","hidden");
-		app.u.dump('removing all other bottom border');
+		//app.u.dump('removing all other bottom border');
 	}
 	else{
-		app.u.dump('leaving all other bottom border');
+		//app.u.dump('leaving all other bottom border');
 	}
 }
 setTimeout(hideIEBorderImg, 2000);
@@ -511,6 +531,10 @@ setTimeout(hideIEBorderImg, 2000);
 
 //sample of an onDeparts. executed any time a user leaves this page/template type.
 app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.u.dump("just left the homepage")}]);
+
+app.rq.push(['templateFunction','customerTemplate','onCompletes',function(P) {
+	
+}]);
 
 
 

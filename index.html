@@ -502,6 +502,7 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
                                   <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.450hair.hairaccessories'});" class="pointer">Hair Accessories</a></li>
                                   <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.450hair.shampoo'});" class="pointer">Shampoo</a></li>
                                   <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.450hair.stylingproducts'});" class="pointer">Styling Products</a></li>
+                                  <li class="headerDropdownLink alignLeft" onClick="app.ext.store_acw.a.closeDropdownOnClick($(this).parent().parent().parent().parent().parent()); return false;"><a href="#" onClick="return showContent('category',{'navcat':'.acw.450hair.curling_iron'});" class="pointer">Tools</a></li>
                               </ul>
                               <img src="images/header_nav_bar/dropdowns/background_swash.png" />
                           </div>
@@ -576,9 +577,19 @@ app.u.loadScript(app.vars.baseURL+"_ac_init.js");
                       </div>
                   </div>
               </div>
-           	  <div class="headerAdBar">
-              	<img src="images/header_ad_bar/templateBanner_940x80_allCosmeticsWholesale_welcome_2.png" onClick="return showContent('category',{'navcat':'.acw.sale'});" />
+              
+              
+<!--***********************************************************************************************************************
+    ****SHERI, HERE IS THE CODE FOR THE GLOBAL BANNER IN THE HEADER. CHANGE THIS CODE TO CHANGE THE BANNER!*************-->                       
+           	  
+              <div class="headerAdBar">
+              	<img class="pointer" src="images/header_ad_bar/appStoreBanner_940x80_3freehardcandynailcolortrio.jpg" onClick="return showContent('company',{'show':'about'});" />
        		  </div>
+ 
+ <!--***********************************************************************************************************************
+    **********************************************END OF BANNER CODE*****************************************************-->              
+              
+              
            </div>
        </div>
     </div>
@@ -835,20 +846,28 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             <a class="nextHPCaro"><img class="carouselHPButton pointer" style="right:0px; top:0px;" src="images/homepage/arrow_bar_right.png" /></a>
             <div id="paginCaro">
             </div>
+         
+            
+<!--***********************************************************************************************************************
+****SHERI, HERE IS THE CODE FOR THE HOMEPAGE SLIDESHOW BANNER IN THE HEADER. CHANGE THIS CODE TO CHANGE THESE BANNERS!**--> 
         	<ul class="carouselHPBannerList">
-            	<li class="pointer" onClick="return showContent('category',{'navcat':'.acw.brands.hard_candy'});">
-                	<img src="images/homepage/banner/templateBanner_710x390_allCosmeticsWholesale_hardCandy.jpg" />
+            	<li class="pointer" onClick="return showContent('category',{'navcat':'.acw.information_page'});">
+                	<img src="images/homepage/banner/templateBanner_710x390_allCosmeticsWholesale_welcome.jpg" />
                 </li>
                 <li class="pointer" onClick="return showContent('customer',{'show':'newsletter'});">
                 	<img src="images/homepage/banner/templateBanner_710x390_allCosmeticsWholesale_newItems.jpg" />
                 </li>
-                <li class="pointer" onClick="return showContent('category',{'navcat':'.acw.sale'});">
-                	<img src="images/homepage/banner/templateBanner_710x390_allCosmeticsWholesale_welcome.jpg" />
+                <li class="pointer" onClick="return showContent('company',{'show':'about'});">
+                	<img src="images/homepage/banner/appStoreBanner_710x390_3freehardcandynailcolortrio.jpg" />
                 </li>
-                <li class="pointer" onClick="return showContent('category',{'navcat':'.acw.brands.wet_n_wild'});">
+                <li class="pointer" onClick="return showContent('category',{'navcat':'.acw.brands.wet_N_wild'});">
                 	<img src="images/homepage/banner/templateBanner_710x390_allCosmeticsWholesale_wetNWild.jpg" />
                 </li>
             </ul>
+<!--***********************************************************************************************************************
+*******************************************END HOMEPAGE SLIDESHOW BANNER CODE!******************************************--> 
+            
+            
             <div class="pagination" id="carouselHPBannerPag">
             </div>
         </div>
@@ -1429,149 +1448,153 @@ SANITY -> if you change the height and width of this image, change the .minimalM
             <ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
         <!--</div>
         <!--END TESTING SECTION-->
-    	<ul data-app-role='productList' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList2'></ul><!-- outputs the product list -->
+    	<ul data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList2'></ul><!-- outputs the product list -->
     
-        <h2>BRANDS</h2>
-        <div class="brandList2">
-            <ul>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.adoro'});">Adoro</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.almay'});">Almay</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.balmshell'});">Balmshell</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.becca'});">Becca</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.benefit'});">Benefit</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.bobbi-brown'});">Bobbi Brown</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.bourjois_paris'});">Bourjois Paris</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.china-glaze'});">China Glaze</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.claudio_riaz'});">Claudio Riaz</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.clean'});">Clean</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.clinique'});">Clinique</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.dermablend'});">Dermablend</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.conair'});">Conair</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.covergirl'});">Covergirl</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.cover_fx'});">Cover FX</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.dermablend'});">Dermablend</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.dior'});">Dior</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.duwop'});">Duwop</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.edward_bess'});">Edward Bess</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.estee-lauder'});">Estee Lauder</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.eyes-by-design'});">Eyes By Design</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.face-front'});">Face Front</a></li>
-            </ul>
-            <ul>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.factory-blems'});">Factory Blems</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.flirt'});">Flirt</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.fusion-beauty'});">Fusion Beauty</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.goody'});">Goody</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.guerlain'});">Guerlain</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.hard_candy'});">Hard Candy</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.iso'});">ISO</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.jane'});">Jane</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.japonesque'});">Japonesque</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.jewelry'});">Jewelry</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.kiehls'});">Kiehl's</a></li> 
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.korres'});">Korres</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.kryolan'});">Kryolan</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.lancome'});">Lancome</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.laura-mercier'});">Laura Mercier</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.lola'});">Lola</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.loreal'});">L'oreal</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.lotta_luv'});">Lotta Luv</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.mac'});">Mac</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.make-up-forever'});">Make Up Forever</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.mary-kate___ashley'});">Mary-Kate Ashley</a></li>
-    
-            </ul>
-            <ul>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.max-factor'});">Max Factor</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.maybelline'});">Maybelline</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.me-me-me'});">Me Me Me</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.model_co'});">Model Co</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.nars'});">Nars</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.obsessive_compulsive_cosmetics'});">Obsessive Compulsive Cosmetics</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.ojon-hair'});">Ojon Hair</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.on10'});">On10</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.other-brands'});">Other Brands</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.paula-dorf'});">Paula Dorf</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.playboy_cosmetics'});">Playboy Cosmetics</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.pop-pixi'});">Pop Pixi</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.prescriptives'});">Prescriptives</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.proraso'});">Proraso</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.pupa_milano'});">Pupa Milano</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.red_cherry'});">Red Cherry</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.revlon'});">Revlon</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.rimmel_london'});">Rimmel London</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.rocket-city'});">Rocket City</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.sally_hansen'});">Sally Hansen</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.sigma'});">Sigma</a></li>
-            </ul>
-            <ul>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.smashbox'});">Smashbox</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.smh'});">SMH</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.stila'});">Stila</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.suite_7_beauty'});">Suite 7 Beauty</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.tarte'});">Tarte</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.too-faced'});">Too Faced</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.twilight'});">Twilight</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.ultraflesh'});">Ultraflesh</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.urban-decay'});">Urban Decay</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.victorias-secret'});">Victoria's Secret</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.wet_n_wild'});">Wet n Wild</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.yr_nails'});">YR Nails</a></li>
-                <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.ysl'});">YSL</a></li>
-    
-            </ul>
-        </div>
-        
-        <h3>SUITE 7 BRANDS</h3>
-        <div class="suite7List2">
-            <ul>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.100pure/','vstore'); return false;">100% Pure</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.abbe_taintor_-_coming_soon_/','vstore'); return false;">Anne Taintor <span>&#45; NEW&#33;</span></a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.alvaro_avila/','vstore'); return false;">Alvaro Avila</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.bdellium/','vstore'); return false;">Bdellium</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.beauty_spoon/','vstore'); return false;">Beauty Spoon</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.blossom_accessories/','vstore'); return false;">Blossom Accessories</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.blue_q_-__coming_soon_/','vstore'); return false;">Blue Q <span>&#45; NEW&#33;</span></a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('www.suite7beauty.com/category/brands.blum_naturals/','vstore'); return false;">Blum Naturals</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.crazy_rumors_-_coming_soon_/','vstore'); return false;">Crazy Rumors</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.elf_-_coming_soon_/','vstore'); return false;">E.L.F. <span>&#45; NEW&#33;</span></a></li>
-            </ul>
-            <ul>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.embelish_-_coming_soon_/','vstore'); return false;">Embellish <span>&#45; NEW&#33;</span></a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.eos/','vstore'); return false;">EOS</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.face-front/','vstore'); return false;">Face Front</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.face_lace/','vstore'); return false;">Face Lace</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.featherheads/','vstore'); return false;">Featherheads</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.japonesque/','vstore'); return false;">Japonesque</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.jewelry/','vstore'); return false;">Jewelry</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('','vstore'); return false;">Kleancolor</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.kryolan/','vstore'); return false;">Kryolan</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.laqa___co/','vstore'); return false;">LAQA &#38; Co.</a></li>        </ul>
-            <ul>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.lime-crime/','vstore'); return false;">Lime Crime</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.medusa_s_make_up/','vstore'); return false;">Medusa&#44;s Make Up</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.morgana_cryptoria/','vstore'); return false;">Morgana Cryptoria</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.naiad/','vstore'); return false;">Naiad Soap Arts</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.natural_products_-_coming_soon_/','vstore'); return false;">NPW <span>&#45; NEW&#33;</span></a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.nuturing_force/','vstore'); return false;">Nuturing Force</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.nyx/','vstore'); return false;">NYX</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.occ/','vstore'); return false;">Obsessive Compulsive Cosmetics</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.palladio_-_coming_soon_/','vstore'); return false;">Palladio</a></li>
-            </ul>
-            <ul>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.rosebud/','vstore'); return false;">Rosebud</a></li>          
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.sigma/','vstore'); return false;">Sigma</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.sugarpill/','vstore'); return false;">Sugarpill</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.suite_7_beauty/','vstore'); return false;">Suite 7 Beauty</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.sweetpea___fay/','vstore'); return false;">Sweetpea &#38; Fay</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.towel_treats/','vstore'); return false;">Towel Treats</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.violent_lips/','vstore'); return false;">Violent Lips</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.yr_nails/','vstore'); return false;">YR Nails</a></li>
-                <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.z-palette/','vstore'); return false;">Z Palette</a></li>
-    
-            </ul>
-        </div>
+    <h2>BRANDS</h2>
+    <div class="brandList">
+    	<ul>
+        	<li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.adoro'});">Adoro</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.almay'});">Almay</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.balmshell'});">Balmshell</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.becca'});">Becca</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.benefit'});">Benefit</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.bobbi-brown'});">Bobbi Brown</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.bourjois_paris'});">Bourjois Paris</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.china-glaze'});">China Glaze</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.claudio_riaz'});">Claudio Riaz</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.clean'});">Clean</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.clinique'});">Clinique</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.dermablend'});">Dermablend</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.conair'});">Conair</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.covergirl'});">Covergirl</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.cover_fx'});">Cover FX</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.dermablend'});">Dermablend</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.dior'});">Dior</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.duwop'});">Duwop</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.edward_bess'});">Edward Bess</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.estee-lauder'});">Estee Lauder</a></li>
+			<li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.eyes-by-design'});">Eyes By Design</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.face-front'});">Face Front</a></li>
+        </ul>
+        <ul>
+        	<li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.factory-blems'});">Factory Blems</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.flirt'});">Flirt</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.fusion-beauty'});">Fusion Beauty</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.goody'});">Goody</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.guerlain'});">Guerlain</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.hard_candy'});">Hard Candy</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.iso'});">ISO</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.jane'});">Jane</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.japonesque'});">Japonesque</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.jewelry'});">Jewelry</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.kiehls'});">Kiehl's</a></li> 
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.korres'});">Korres</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.kryolan'});">Kryolan</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.lancome'});">Lancome</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.laura-mercier'});">Laura Mercier</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.lola'});">Lola</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.loreal'});">L'oreal</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.lotta_luv'});">Lotta Luv</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.mac'});">Mac</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.make-up-forever'});">Make Up Forever</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.mary-kate___ashley'});">Mary-Kate Ashley</a></li>
+
+        </ul>
+        <ul>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.max-factor'});">Max Factor</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.maybelline'});">Maybelline</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.me-me-me'});">Me Me Me</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.model_co'});">Model Co</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.nars'});">Nars</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.obsessive_compulsive_cosmetics'});">Obsessive Compulsive Cosmetics</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.ojon-hair'});">Ojon Hair</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.on10'});">On10</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.other-brands'});">Other Brands</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.paula-dorf'});">Paula Dorf</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.playboy_cosmetics'});">Playboy Cosmetics</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.pop-pixi'});">Pop Pixi</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.prescriptives'});">Prescriptives</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.proraso'});">Proraso</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.pupa_milano'});">Pupa Milano</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.red_cherry'});">Red Cherry</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.revlon'});">Revlon</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.rimmel_london'});">Rimmel London</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.rocket-city'});">Rocket City</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.sally_hansen'});">Sally Hansen</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.sigma'});">Sigma</a></li>
+        </ul>
+        <ul>
+        	<li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.smashbox'});">Smashbox</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.smh'});">SMH</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.stila'});">Stila</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.suite_7_beauty'});">Suite 7 Beauty</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.tarte'});">Tarte</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.too-faced'});">Too Faced</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.twilight'});">Twilight</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.ultraflesh'});">Ultraflesh</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.urban-decay'});">Urban Decay</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.victorias-secret'});">Victoria's Secret</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.wet_n_wild'});">Wet n Wild</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.yr_nails'});">YR Nails</a></li>
+            <li onClick="app.ext.store_acw.a.scrollToTopPage(); return false;"><a class="noUnderline pointer" href="#" onClick="return showContent('category',{'navcat':'.acw.brands.ysl'});">YSL</a></li>
+
+        </ul>
     </div>
+    
+    <h3>SUITE 7 BRANDS</h3>
+    <div class="suite7List">
+    	<ul>
+        	<li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.100pure/','vstore'); return false;">100% Pure</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.abbe_taintor_-_coming_soon_/','vstore'); return false;">Anne Taintor <span>&#45; NEW&#33;</span></a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.alvaro_avila/','vstore'); return false;">Alvaro Avila</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.bdellium/','vstore'); return false;">Bdellium</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.beauty_spoon/','vstore'); return false;">Beauty Spoon</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.blossom_accessories/','vstore'); return false;">Blossom Accessories</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.blue_q_-__coming_soon_/','vstore'); return false;">Blue Q <span>&#45; NEW&#33;</span></a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('www.suite7beauty.com/category/brands.blum_naturals/','vstore'); return false;">Blum Naturals</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.crazy_rumors_-_coming_soon_/','vstore'); return false;">Crazy Rumors</a></li>
+			<li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.elf_-_coming_soon_/','vstore'); return false;">E.L.F. <span>&#45; NEW&#33;</span></a></li>
+        </ul>
+        <ul>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.embelish_-_coming_soon_/','vstore'); return false;">Embellish <span>&#45; NEW&#33;</span></a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.eos/','vstore'); return false;">EOS</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.face-front/','vstore'); return false;">Face Front</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.face_lace/','vstore'); return false;">Face Lace</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.featherheads/','vstore'); return false;">Featherheads</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.japonesque/','vstore'); return false;">Japonesque</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.jewelry/','vstore'); return false;">Jewelry</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('','vstore'); return false;">Kleancolor</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.kryolan/','vstore'); return false;">Kryolan</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.laqa___co/','vstore'); return false;">LAQA &#38; Co.</a></li>        </ul>
+        <ul>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.lime-crime/','vstore'); return false;">Lime Crime</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.medusa_s_make_up/','vstore'); return false;">Medusa&#44;s Make Up</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.morgana_cryptoria/','vstore'); return false;">Morgana Cryptoria</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.naiad/','vstore'); return false;">Naiad Soap Arts</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.natural_products_-_coming_soon_/','vstore'); return false;">NPW <span>&#45; NEW&#33;</span></a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.nuturing_force/','vstore'); return false;">Nuturing Force</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.nyx/','vstore'); return false;">NYX</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.occ/','vstore'); return false;">Obsessive Compulsive Cosmetics</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.palladio_-_coming_soon_/','vstore'); return false;">Palladio</a></li>
+        </ul>
+        <ul>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.rosebud/','vstore'); return false;">Rosebud</a></li>          
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.sigma/','vstore'); return false;">Sigma</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.sugarpill/','vstore'); return false;">Sugarpill</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.suite_7_beauty/','vstore'); return false;">Suite 7 Beauty</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.sweetpea___fay/','vstore'); return false;">Sweetpea &#38; Fay</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.towel_treats/','vstore'); return false;">Towel Treats</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.violent_lips/','vstore'); return false;">Violent Lips</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.yr_nails/','vstore'); return false;">YR Nails</a></li>
+            <li><a class="noUnderline pointer" href="#" onclick="app.ext.myRIA.a.linkToStore('http://www.suite7beauty.com/category/brands.z-palette/','vstore'); return false;">Z Palette</a></li>
+
+        </ul>
+    </div>
+</div>
+
+<div id='informationalPageTemplate' class='loadingBG informationPage'>
+    <!--<h4 data-bind="var: category(pretty); format: catText; extension: myRIA;"></h4>-->   
+    <p class='categoryText' data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
 </div>
 
 
@@ -1621,10 +1644,9 @@ this will likely become more flexible in the future. ###
 
 		<div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"4"});' data-bind='var: product(zoovy:prod_image4); format:showIfSet;' class='pointer displayNone'><img src='blank.gif' data-bind='var: product(zoovy:prod_image4); format:imageURL;' width='100' height='100' /></div>
 
-	</div>
-	<div class="socialLinks"></div>    
+	</div>    
     
-
+<div class="socialLinks"></div>
 </div>
 
 
@@ -1656,6 +1678,7 @@ this will likely become more flexible in the future. ###
         <h3 class='savingsDifference' data-bind='var: product(pid); format:priceRetailSavingsDifference; extension:myRIA;'></h3>
         <h3 class='savingsPercentage' data-bind='var: product(pid); format:priceRetailSavingsPercentage; extension:myRIA; pretext: (; posttext:);'></h3>
         <h4 class="displayNone" data-bind='var: product(zoovy:prod_msrp); format:showIfSet;'>YOU SAVE</h4>
+        <!--<h4 class="displayInvAmount">Hurry! Only <span data-bind="var: product(pid); format:inventoryCount; extension: store_acw;">0</span> are left!</h4>-->
     </div>
     
     <!--***Removed to match design***<!--<h5 data-bind='var: product(zoovy:prod_mfg); format:searchLink; extension:myRIA; pretext: Mfg: ;'></h5>
@@ -1674,8 +1697,10 @@ this will likely become more flexible in the future. ###
         <div class="prodQuantity">
 			<fieldset data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; defaultValue:1;' class="borderNone"></fieldset>
             <!--<fieldset data-bind='useParentData:true; format:atcQuantityInput; extension:store_product; pretext:Quantity: ; defaultValue:1;' class='borderNone'></fieldset>-->
-
-            <input type="button" value="ENTER" class="quantityButton" />
+			 <div data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>
+             	<!--<input type="button" value="ENTER" class="quantityButton" onClick="app.ext.store_acw.a.addToCartInventoryCheck($(this).parent().attr('data-pid'), document.getElementById('').value); return false;" />-->
+                <input type="button" value="ENTER" class="quantityButton" />
+        	 </div>
         </div>
 
 		<input type='submit' value='BAG IT!' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;'  />
@@ -1954,6 +1979,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
                 <span class='savingsPercentage' data-bind='var: product(pid); format:priceRetailSavingsPercentage; extension:myRIA; pretext: (; posttext:);'></span>
             </span>
             <h6 class="displayNone" data-bind='var: product(zoovy:prod_msrp); format:showIfSet;'>You Save</h6>
+            <!--<h4 class="displayInvAmount">Hurry! Only <span data-bind="var: product(pid); format:inventoryCount; extension: store_acw;">0</span> are left!</h4>-->
         </div>
          <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.addItemToCart($(this), {'action':'message'}); return false;">
     
@@ -2549,8 +2575,9 @@ So the cart template should contain these two elements and the extension should 
         <p>All domestic orders qualify for free standard shipping&#46; Applicable only to address in the continental United States &#40;HI and AK are not included&#41;&#46; Free shipping does not apply to orders shipped to PO Boxes or international destinations&#46; Not applicable to eBay or Amazon purchases&#46;</p>
     </div>
     <div>
-    	<h3>PREORDERS</h3>
+    	<!--<h3>PREORDERS</h3>
         <p>All preorders paid with a credit card will be charged at the time of shipment&#46; All preorders paid with Google Checkout, Paypal or Amazon Payments will be charged when your order is placed&#46; If you do not wish to pay for your preorder until it ships then you must use the checkout button and pay with a credit card&#46; Orders that have both preorder and instock items we be shipped at the same time in one shipment&#46; We recommend that you do not order in stock items with preorder items&#46;</p>
+    	-->
     </div>
 </div>
 </div><!-- /cartTemplate -->
