@@ -1,7 +1,13 @@
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Special+Elite'>
+<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Montserrat:400,700'>
 <script type="text/javascript">
+
+var modal = {};
+modal.jQuery = jQuery.noConflict(true);
+
 /**
  * Loads a CSS file from the supplied URL
  * @param {String} url    The URL of the CSS file, if its relative
@@ -18,7 +24,8 @@
    return link;
  }
  
- loadcss('http://app.thechessstore.com/redirectmodal.css');
+ loadcss('http://app.allcosmeticswholesale.com/redirectmodal.css');
+ //loadcss('redirectmodal.css');
  </script>
  
  <!--BEGIN MODAL FUNCTION SCRIPT-->
@@ -26,30 +33,25 @@
 
 //FUNCTIONS
 function handleRedirect() {
- window.location = "http://app.thechessstore.com";
- console.log("var Function was added");
+ window.location = "http://app.allcosmeticswholesale.com";
 }
 function bugLater(){
  sessionStorage.redirectToAppSessionNoCheck = true;
- $('.redirectToSiteApp').dialog('close');
- console.log("sessionStorage = " + sessionStorage.redirectToAppSessionNoCheck);
- console.log("localStorage = " + localStorage.redirectToAppVar);
+ modal.jQuery('.redirectToSiteApp').dialog('close');
 }
 function autoRedirect(){
  localStorage.redirectToAppVar = true;
- $('.redirectToSiteApp').dialog('close');
- window.location = "http://app.thechessstore.com";
+ modal.jQuery('.redirectToSiteApp').dialog('close');
+ window.location = "http://app.allcosmeticswholesale.com";
 }
 function resetRedirectPreferences(){
  localStorage.redirectToAppVar = false;
- $(".stopFutureRedirectMessage").css("display", "block");
- console.log("sessionStorage have now been set to: " + sessionStorage.redirectToAppSessionNoCheck);
- console.log("localStorage have now been set to: " + localStorage.redirectToAppVar);
+ modal.jQuery(".stopFutureRedirectMessage").css("display", "block");
 }
 
 
 //SCRIPT BEGINS WHEN THE PAGE IS FULLY LOADED
-$(document).ready(function() {
+modal.jQuery(document).ready(function() {
  //RESET FOR THE SESSION VARIABLE
  //sessionStorage.redirectToAppSessionNoCheck = false;
  
@@ -65,49 +67,39 @@ $(document).ready(function() {
   else{
    sessionStorage.redirectToAppSessionNoCheck = false;
   }
-  $('<div class="redirectToSiteApp"> '+
+  modal.jQuery('<div class="redirectToSiteApp"> '+
   '<h3>Try our new site for a superior shopping experience&#63;</h3>' +
-  '<div>' +
-   '<img onclick="handleRedirect(); return false;" src="http://app.thechessstore.com/images/logo.png" />' +
-  '</div>' +
-  '<button class="autoRedirectButton" onclick="autoRedirect()">Always redirect to new site when visiting www.TheChessStore.com</button>' +
-'<button onclick="handleRedirect(); return false;">See it in action</button>' +
-  '<a class="bugLaterButton" onclick="bugLater()">Remind me next time</a>' +
+  '<button class="autoRedirectButton" onclick="autoRedirect()">Always redirect to new site when visiting www.allcosmeticswholesale.com</button>' +
+  '<button class="redirectToSiteAppButton" onclick="handleRedirect(); return false;">Try it now!</button>' +
+  '<a class="bugLaterButton" onclick="bugLater()">Next time</a>' +
   //'<button onclick="resetRedirectPreferences()">Reset Preferences</button>' +
   '</div>').appendTo('head');
   
   if(typeof(Storage)!=="undefined"){
-   console.log("storage exists check passed");
    if(localStorage.redirectToAppVar == "true"){
-    $('<div style="background-color:white; float:left;" class="autoRedirectToSiteApp"> '+
+    modal.jQuery('<div class="autoRedirectToSiteApp"> '+
     '<h3>Redirecting to app site. Please wait a few Seconds....</h3>' +
     '<div>' +
-     '<img src="https://static.zoovy.com/img/thechessstore//appresources/loading_gif.gif" />' +
     '</div>' +
     '<p class="stopFutureRedirectMessage">Done!</p>' +
     '<button onclick="resetRedirectPreferences()">Prompt me next time instead of auto-redirecting</button>' +
     '</div>').appendTo('head');
-    $('.autoRedirectToSiteApp').dialog({'modal':'true', 'width':400, height:270});
+    modal.jQuery('.autoRedirectToSiteApp').dialog({'modal':'true', 'width':400, height:230});
     function foo1(){
-     window.location = "http://app.thechessstore.com";
+     window.location = "http://app.allcosmeticswholesale.com";
     }
     var autoRedirectTimer;
     redirectTimer = foo1;
     autoRedirectTimer = setTimeout(redirectTimer, 5000);
    }
    else if (sessionStorage.redirectToAppSessionNoCheck == "true"){
-    console.log("One of the two storage values was true, redirect modal is not displaying.");
    }
     else{
-     $('.redirectToSiteApp').dialog({'modal':'true', 'width':450, height:390});
-     console.log("Neither storage value was true, displaying redirect modal");
-     console.log("sessionStorage = " + sessionStorage.redirectToAppSessionNoCheck);
-     console.log("localStorage = " + localStorage.redirectToAppVar);
+     modal.jQuery('.redirectToSiteApp').dialog({'modal':'true', 'width':450, height:240});
     }
   }
  }
  else{
-  console.log("Storage is not supported");
  }
 });
 </script>

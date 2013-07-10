@@ -923,6 +923,19 @@ span.ui-state-highlight{
     width: 940px;
 }
 
+/*************************************************************************************************************************/
+/**Global Banner/Informational Page**/
+.categoryText{
+}
+.categoryText h1{
+	font-family: 'Special Elite', cursive;
+	color:#ff3d7f;
+	margin-top:10px;
+}
+.categoryText p{
+	font-family: 'Montserrat', sans-serif;
+}
+
 
 /*************************************************************************************************************************/
 /*************************************************************************************************************************/
@@ -1187,7 +1200,7 @@ margin-left:20px;
 }
 
 .homepageSignUp div{
-	padding-top:10px;
+	padding-top:0;
 	width:100%;
 }
 
@@ -1198,6 +1211,7 @@ margin-left:20px;
 }
 .homepageSignUp div h2{
 	font-size: 16px;
+	margin-top:10px;
 }
 .homepageSignUp div h1{
 	font-size:22px;
@@ -1205,9 +1219,10 @@ margin-left:20px;
 
 .homepageSignUp div #subscribeFrm{
 	float: right;
-    height: 130px;
-    margin-right: 0px;
-    width: 350px;
+    height: 154px;
+    margin-right: 0;
+    margin-top: 15px;
+    width: 230px;
 }
 
 .homepageSignUp div hr{
@@ -1227,20 +1242,22 @@ margin-left:20px;
 }
 
 .userInfo2{
-	float:right;
-	width:100%;
-	height:130px;
 	border: medium none;
+    float: right;
+    height: 156px;
+    padding-top: 0;
+    width: 90%;
 }
 
 .userInfo2 input{
-	margin-bottom: 10px;
-    margin-left: 20px;
-    margin-right: 15px;
+    margin-right: 12px;
 }
-
+.userInfo2 label{
+	float:left;
+	margin-left:14px;
+}
 .homepageSubInput{
-	width:50%;
+	width:85%;
 	height:30px;
 }
 
@@ -1253,8 +1270,8 @@ margin-left:20px;
     font-family: 'Special Elite',cursive;
     font-size: 16px;
     height: 30px;
-    margin-top: 0;
-    padding-top: 10px !important;
+    margin-top: 10px;
+	padding-top: 10px !important;
     width: 100px;
 }
 
@@ -1269,13 +1286,13 @@ margin-left:20px;
 }
 
 .homepageSignUp div.homepageSignUpBottom{
-	float:left;
-	width:100%;
-	height:75px;
-	background-image:url(images/homepage/newsletterSwatch.png);
-	background-size:cover;
-	background-repeat:no-repeat;
-	margin-top:12px;
+	background-image: url("images/homepage/newsletterSwatch.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    float: left;
+    height: 75px;
+    margin-top: 12px;
+    width: 100%;
 }
 
 /*************************************************************************************************************************/
@@ -1343,7 +1360,7 @@ margin-left:20px;
 .breadcrumb{
 	text-align:center;
 	width: 500px;
-	margin-left: 350px;
+	margin-left: 170px;
 	margin-right: auto;
 }
 .breadcrumb a{
@@ -1516,6 +1533,27 @@ div .catListingCat:hover{
 .brandList a:hover{
 	color:#3fb8af;
 }
+.brandList2{
+	width:103%;
+	height:610px;
+	float:left;
+	margin-left: -140px;
+}
+.brandList2 ul{
+	width:20%;
+	float:left;
+}
+.brandList2 li{
+	font-family: 'Montserrat', sans-serif;
+	list-style:none;
+	margin-bottom:5px;
+}
+.brandList2 a{
+	color:white;
+}
+.brandList2 a:hover{
+	color:#3fb8af;
+}
 .suite7List{
 	width:100%;
 	height:270px;
@@ -1540,6 +1578,30 @@ div .catListingCat:hover{
 .suite7List span{
 	color:#3fb8af;
 }
+.suite7List2{
+	float: left;
+    height: 320px;
+    margin-left: -140px;
+    width: 103%;
+}
+.suite7List2 ul{
+	width:20%;
+	float:left;
+}
+.suite7List2 li{
+	font-family: 'Montserrat', sans-serif;
+	list-style:none;
+	margin-bottom:5px;
+}
+.suite7List2 a{
+	color:white;
+}
+.suite7List2 a:hover{
+	color:#ff3d7f;
+}
+.suite7List2 span{
+	color:#3fb8af;
+}
 
 
 /*************************************************************************************************************************/
@@ -1560,7 +1622,7 @@ div .catListingCat:hover{
 	position:relative;
 }
 .productList li{
-	width: 210px;
+	width: 222px;
 	height:330px;
 	margin-bottom:10px;
 }
@@ -1741,6 +1803,13 @@ margin-bottom:0;
 .productListTemplate{
 	width:1020px;
 }
+.catProdListCont{
+	float: right;
+    height: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    width: 777px;
+}
 
 .productListTemplate h2{
 	color:#3fb8af;
@@ -1767,6 +1836,107 @@ margin-bottom:0;
 	text-align: center;
     width: 90%;
 }
+
+/*************************************************************************************************************************/
+/**Filtered search side bar**/
+.catBrowseSidebar{
+	width:200px;
+	background-color:none;
+	float:left;
+	border-radius:5px;
+	margin-left:42px;
+}
+.filterContainer{
+}
+.layeredSearch{
+}
+.layeredSearch fieldset{
+	border:none;
+}
+.sliderValue{
+	margin-left: 18px;
+}
+.layeredSearch fieldset legend{
+	background-color: #FF3D7F;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    height: 27px;
+    line-height: 27px;
+    padding-left: 10px;
+    text-align: left;
+    width: 100%;
+}
+.layeredSearch fieldset label{
+	float: left;
+    width: 100%;
+	margin-bottom:5px;
+}
+.layeredSearch legend{
+	background-color: #FF3D7F;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    height: 27px;
+    line-height: 27px;
+    padding-left: 10px;
+    text-align: left;
+    width: 100%;
+}
+a.sortByBrand{
+	color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 27px;
+    width: 25px;
+}
+a.sortByBrand:hover{
+	color:#349890;
+}
+.sortByBrandDiv{
+	padding-left: 5px;
+    text-align: center;
+    width: 100%;
+}
+.sortByBrandLegend{
+	margin-bottom:10px;
+}
+.brandListFilter{
+	font-family: 'Montserrat',sans-serif;
+    margin: 10px 0;
+    padding: 0;
+}
+form fieldset.brandListFilter legend{
+	background: none repeat scroll 0 0 transparent;
+    color: white;
+    font-family: 'Montserrat',sans-serif;
+    height: 45px;
+    padding: 0;
+    text-align: center;
+    width: 103%;
+}
+.brandListFilter label{
+	margin-left: 10px;
+}
+.brandListFilter label:hover{
+	color:#349890;
+}
+.brandListFilter h4{
+	margin-left:14px;
+}
+.resetButton{
+	background-color: #349890;
+    border: medium none;
+    border-radius: 0 0 0 0;
+    height: 25px;
+    margin-bottom: 10px;
+    margin-left: 55px;
+    width: 100px;
+}
+.fsSubCatFilterCat{
+}
+
 
 /*************************************************************************************************************************/
 /*************************************************************************************************************************/
@@ -1926,6 +2096,15 @@ div .socialLinks{
 	border:none;
 	height: 50px;
     width: 100%;
+}
+#socialLinks{
+	border:none;
+}
+#socialLinks a{
+	
+}
+.atclear{
+	border:none !important;
 }
 
 .intShippingModal .ui-dialog-titlebar {display:none;}
@@ -2162,7 +2341,12 @@ h2 .cents{
 .prodViewerAddToCartForm span.notAvailableForPurchase{
 	color:white;
 }
-
+div.priceContainer h4.displayInvAmount{
+	margin-top:10px;
+	font-family: 'Special Elite', cursive;
+	color:#FF3D7F;
+	font-size: 19px;
+}
 
 /*************************************************************************************************************************/
 /**Search Categories**/
@@ -3350,7 +3534,9 @@ div.buttonList .removeButtonWishlist:hover{
 	position:relative;
 }
 #resultsProductListContainer{
-	 padding-left:40px;
+	float: left;
+    margin-left: 40px;
+    width: 755px
 }
 .minimalMode .searchResultsProduct{
 	height: 183px;
@@ -3359,4 +3545,18 @@ div.buttonList .removeButtonWishlist:hover{
 .ui-dialog-titlebar{
 	background-image:none;
 	background-color:transparent;
+}
+.shipInsurCB{
+	margin-bottom: 20px !important;
+    margin-left: 15px !important;
+}
+.filterContainerSearch{
+	width:200px;
+	float:left;
+	height:100%;
+}
+.searchFilterResults{
+	float: left;
+    margin-left: 40px;
+    width: 755px
 }

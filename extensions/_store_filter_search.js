@@ -38,12 +38,11 @@ var store_filter = function() {
 //key is safe id. value is name of the filter form.
 	filterMap : {
 		
-		//**Wood Chess Pieces**
-			".acw.brands.100__pure":{
+			"exec":{
 			"filter": "genFilterForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:200});}
-			},
-			
+			}
+		
 		},
 		
 		callbacks : {
@@ -121,7 +120,7 @@ if(app.ext.store_filter.u.validateFilterProperties($form))	{
 //	app.u.dump(" -> validated Filter Properties.")
 	var query = {
 		"mode":"elastic-native",
-		"size":50,
+		"size":300,
 		"filter" : app.ext.store_filter.u.buildElasticFilters($form),
 		}//query
 //	app.u.dump(" -> Query: "); app.u.dump(query);
@@ -144,7 +143,7 @@ if(app.ext.store_filter.u.validateFilterProperties($form))	{
 				}
 			
 			},'datapointer':'appPublicSearch|elasticFiltering',
-			'templateID': $form.data('loadstemplate') || 'productListTemplateResultsFilter'
+			'templateID': $form.data('loadstemplate') || 'productListTemplateResults'
 			});
 			app.u.dump(JSON.stringify(query));
 		app.model.dispatchThis();
@@ -159,7 +158,214 @@ else	{
 $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll to top.
 
 				
-				}//filter
+				},//filter
+	
+	//**SUB CATEGORY HOIDE/SHOW FUNCTIONALITY**//
+	showHideEyesSubCat : function(){
+		if($('input[value=eyes]:checkbox:checked').length > 0){
+			$(".fsSubCatEyes").show();
+		}
+		else{
+			$(".fsSubCatEyes").hide();
+		}
+	},
+	showHideLipsSubCat : function(){
+		if($('input[value=lips]:checkbox:checked').length > 0){
+			$(".fsSubCatLips").show();
+		}
+		else{
+			$(".fsSubCatLips").hide();
+		}
+	},
+	showHideFaceSubCat : function(){
+		if($('input[value=face]:checkbox:checked').length > 0){
+			$(".fsSubCatFace").show();
+		}
+		else{
+			$(".fsSubCatFace").hide();
+		}
+	},
+	showHideAccessSubCat : function(){
+		if($('input[value=accessories]:checkbox:checked').length > 0){
+			$(".fsSubCatAccess").show();
+		}
+		else{
+			$(".fsSubCatAccess").hide();
+		}
+	},
+	showHideSkinSubCat : function(){
+		if($('input[value=skincare]:checkbox:checked').length > 0){
+			$(".fsSubCatSkin").show();
+		}
+		else{
+			$(".fsSubCatSkin").hide();
+		}
+	},
+	showHideNailSubCat : function(){
+		if($('input[value=nails]:checkbox:checked').length > 0){
+			$(".fsSubCatNail").show();
+		}
+		else{
+			$(".fsSubCatNail").hide();
+		}
+	},
+	showHideHairSubCat : function(){
+		if($('input[value=hair]:checkbox:checked').length > 0){
+			$(".fsSubCatHair").show();
+		}
+		else{
+			$(".fsSubCatHair").hide();
+		}
+	},
+	showHideJewelrySubCat : function(){
+		if($('input[value=jewelry]:checkbox:checked').length > 0){
+			$(".fsSubCatJewelry").show();
+		}
+		else{
+			$(".fsSubCatJewelry").hide();
+		}
+	},
+	showHideSaleSubCat : function(){
+		if($('input[value=sale]:checkbox:checked').length > 0){
+			$(".fsSubCatSale").show();
+		}
+		else{
+			$(".fsSubCatSale").hide();
+		}
+	},
+	
+	
+	//**BRAND NAME SWITCH FUNCTIONS**//			
+	showABrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.aList').show();
+	},
+	showBBrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.bList').show();
+	},
+	showCBrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.cList').show();
+	},
+	showDBrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.dList').show();
+	},
+	showEBrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.eList').show();
+	},
+	showFBrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.fList').show();
+	},
+	showGBrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.gList').show();
+	},
+	showHBrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.hList').show();
+	},
+	showIBrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.iList').show();
+	},
+	showJBrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.jList').show();
+	},
+	showKBrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.kList').show();
+	},
+	showLBrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.lList').show();
+	},
+	showMBrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.mList').show();
+	},
+	showNBrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.nList').show();
+	},
+	showOBrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.oList').show();
+	},
+	showPBrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.pList').show();
+	},
+	showQBrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.qList').show();
+	},
+	showRBrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.rList').show();
+	},
+	showSBrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.sList').show();
+	},
+	showTBrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.tList').show();
+	},
+	showUBrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.uList').show();
+	},
+	showVBrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.vList').show();
+	},
+	showWBrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.wList').show();
+	},
+	showXBrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.xList').show();
+	},
+	showYBrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.yList').show();
+	},
+	showZBrands : function(){
+		$('.brandListFilter').hide();
+		$(".brandNameCheck").removeAttr("checked");
+		$('.zList').show();
+	}
 			
 			}, //actions
 

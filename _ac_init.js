@@ -30,7 +30,7 @@ app.rq.push(['extension',0,'store_acw','extensions/store_acw.js','startExtension
 
 
 //app.rq.push(['extension',1,'google_analytics','extensions/partner_google_analytics.js','startExtension']);
-//app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js','startExtension']);
+app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js']);
 //app.rq.push(['extension',1,'resellerratings_survey','extensions/partner_buysafe_guarantee.js','startExtension']); /// !!! needs testing.
 //app.rq.push(['extension',1,'buysafe_guarantee','extensions/partner_buysafe_guarantee.js','startExtension']);
 //app.rq.push(['extension',1,'powerReviews_reviews','extensions/partner_powerreviews_reviews.js','startExtension']);
@@ -63,6 +63,16 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 			  }
 		  }
 	  else	{} //couldn't find the tab to tabificate.
+	  
+	  //START REMOVE TIMER TO REMOVE PAGE FROM DOM, FORCING A REFRESH.
+//	   app.u.dump("start prod removal test function");
+	  function remove1Hour(){
+//		  app.u.dump('Removing all product template');
+		   $('.productTemplate').remove(this);
+	  }
+	  setTimeout(remove1Hour, 3600000);
+	  
+	  
 }]);
 
 app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
@@ -82,6 +92,9 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 		fullscreen: false,
 		slideshow: false
 		});
+		
+			var $context = $(app.u.jqSelector('#',P.parentID));
+			app.u.dump($context);
 }]);
   
   
@@ -280,20 +293,27 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P)
 	carouselCatSearchPaginationTitleBottom = foo7;
 	setTimeout(carouselCatSearchPaginationTitleBottom, 2000);
 	
-	
+	//START REMOVE TIMER TO REMOVE PAGE FROM DOM, FORCING A REFRESH.
+//	  app.u.dump("start cat removal test function");
+	  function remove1Hour(){
+//		   app.u.dump('Removing all cat template');
+		   $('.categoryTemplate').remove();
+	  }
+	  setTimeout(remove1Hour, 3600000);
 	
 	
 }]);
 
 //ADDS FILTERED SEARCH TO THIS CAT PAGE
-/*app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',function(P) 
+app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',function(P) 
 {
 	var $context = $(app.u.jqSelector('#',P.parentID));
+	//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
 	
 	app.ext.store_filter.vars.catPageID = $(app.u.jqSelector('#',P.parentID));  
 	
 	app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
-	if(app.ext.store_filter.filterMap[P.navcat])	{
+	if(app.ext.store_filter.filterMap["exec"])	{
 		app.u.dump(" -> safe id DOES have a filter.");
 
 		var $page = $(app.u.jqSelector('#',P.parentID));
@@ -301,31 +321,39 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P)
 		if($page.data('filterAdded'))	{} //filter is already added, don't add again.
 		else	{
 			$page.data('filterAdded',true)
-			var $form = $("[name='"+app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
+			var $form = $("[name='"+app.ext.store_filter.filterMap["exec"].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
 			$form.on('submit.filterSearch',function(event){
 				event.preventDefault()
 				app.u.dump(" -> Filter form submitted.");
 				app.ext.store_filter.a.execFilter($form,$page);
 				});
 	
-			if(typeof app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
-				app.ext.store_filter.filterMap[P.navcat].exec($form,P)
+			if(typeof app.ext.store_filter.filterMap["exec"].exec == 'function')	{
+				app.ext.store_filter.filterMap["exec"].exec($form,P)
 				}
 	
 	//make all the checkboxes auto-submit the form.
 			$(":checkbox",$form).off('click.formSubmit').on('click.formSubmit',function() {
 				$form.submit();      
 				});
-			}
+				
+				//Reset button functionality
+			$('.resetButton', $context).click(function(){
+				$(".fsSubCatFilterCat").hide();
+				$context.empty().remove();
+				showContent('category',{'navcat':P.navcat});
+			});
 		}
-		
-		//Reset button functionality
-		$('.resetButton', $context).click(function(){
-		$context.empty().remove();
-		showContent('category',{'navcat':P.navcat});
-		});
+	}
 
-}]);*/
+}]);
+app.rq.push(['templateFunction','categoryProductListTemplate','onDeparts',function(P) {
+	if(app.ext.store_filter.vars.catPageID.empty && typeof app.ext.store_filter.vars.catPageID.empty === 'function'){
+    		app.ext.store_filter.vars.catPageID.empty().remove();
+		}	
+	$(".fsSubCatFilterCat").hide();
+	
+}]);
 
 
 /*
@@ -448,7 +476,7 @@ var hideDropdown = function ($tag) {
 
 //IE8 dropdown alterate images
 var hideIEBorderImg = function ($tag) {
-	app.u.dump("Begin IE border alt image switching");
+	//app.u.dump("Begin IE border alt image switching");
 	if($(".dropdownLeftBorderBrandImg").length){
 		$(".dropdownLeftBorderBrandImg2").hide().css("visibility","hidden");
 		$(".headerDropdownBrand").css("top","10px");
@@ -459,52 +487,52 @@ var hideIEBorderImg = function ($tag) {
 	}
 	if($(".dropdownLeftBorderImg3").length){
 		$(".dropdownLeftBorderImg4").hide().css("visibility","hidden");
-		app.u.dump('removing all other left border');
+		//app.u.dump('removing all other left border');
 	}
 	else{
-		app.u.dump('leaving all other left border');
+		//app.u.dump('leaving all other left border');
 	}
 	if($(".dropdownTopBorderBrandImg").length){
 		$(".dropdownTopBorderBrandImg2").hide().css("visibility","hidden");
-		app.u.dump('removing brand top border');
+		//app.u.dump('removing brand top border');
 	}
 	else{
-		app.u.dump('leaving brand top border');
+		//app.u.dump('leaving brand top border');
 	}
 	if($(".dropdownTopBorderImg3").length){
 		$(".dropdownTopBorderImg4").hide().css("visibility","hidden");
-		app.u.dump('removing all other top border');
+		//app.u.dump('removing all other top border');
 	}
 	else{
-		app.u.dump('leaving all other top border');
+		//app.u.dump('leaving all other top border');
 	}
 	if($(".dropdownRightBorderBrandImg").length){
 		$(".dropdownRightBorderBrandImg2").hide().css("visibility","hidden");
-		app.u.dump('removing brand right border');
+		//app.u.dump('removing brand right border');
 	}
 	else{
-		app.u.dump('leaving brand right border');
+		//app.u.dump('leaving brand right border');
 	}
 	if($(".dropdownRightBorderImg3").length){
 		$(".dropdownRightBorderImg4").hide().css("visibility","hidden");
-		app.u.dump('removing all other right border');
+		//app.u.dump('removing all other right border');
 	}
 	else{
-		app.u.dump('leaving all other right border');
+		//app.u.dump('leaving all other right border');
 	}
 	if($(".dropdownBottomBorderBrandImg").length){
 		$(".dropdownBottomBorderBrandImg2").hide().css("visibility","hidden");
-		app.u.dump('removing brand bottom border');
+		//app.u.dump('removing brand bottom border');
 	}
 	else{
-		app.u.dump('leaving brand bottom border');
+		//app.u.dump('leaving brand bottom border');
 	}
 	if($(".dropdownBottomBorderImg3").length){
 		$(".dropdownBottomBorderImg4").hide().css("visibility","hidden");
-		app.u.dump('removing all other bottom border');
+		//app.u.dump('removing all other bottom border');
 	}
 	else{
-		app.u.dump('leaving all other bottom border');
+		//app.u.dump('leaving all other bottom border');
 	}
 }
 setTimeout(hideIEBorderImg, 2000);
@@ -513,7 +541,72 @@ setTimeout(hideIEBorderImg, 2000);
 //sample of an onDeparts. executed any time a user leaves this page/template type.
 app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.u.dump("just left the homepage")}]);
 
+app.rq.push(['templateFunction','customerTemplate','onCompletes',function(P) {
+	
+}]);
 
+
+
+
+app.rq.push(['templateFunction','searchTemplate','onCompletes',function(P) {
+	if(P.preservePage){ alert("You hit the back button");}
+	
+	var $context = $(app.u.jqSelector('#',P.parentID));
+	var $page = $(app.u.jqSelector('#',P.parentID));
+	
+	//****FILTERED SEARCH CODE****
+	if($page.data('filterAdded'))	{} //filter is already added, don't add again.
+		else	{
+			$page.data('filterAdded',true)
+			$('.fsCheckbox').attr('checked', false);
+			$("#resultsProductListContainer").show(); 
+			$(".searchFilterResults").hide();    
+			app.u.dump("BEGIN searchTemplate onCompletes for filtering");
+			var $form = $("[name='genFilterForm']",'#appFilters').clone().appendTo($('.filterContainerSearch',$page));
+			$form.on('submit.filterSearch',function(event){
+				event.preventDefault()
+				app.u.dump(" -> Filter form submitted.");
+				app.ext.store_filter.a.execFilter($form,$page);
+						});
+			
+				if(typeof app.ext.store_filter.filterMap["exec"].exec == 'function')	{
+					app.ext.store_filter.filterMap["exec"].exec($form,P)
+					}
+			
+			//make all the checkboxes auto-submit the form.
+				$(":checkbox",$form).off('click.formSubmit').on('click.formSubmit',function() {
+					$form.submit(); 
+					app.u.dump("Filter search actvated");
+					$("#resultsProductListContainer").hide(); 
+					$(".resultsHeader").hide(); 
+					
+					$group1 = $('.fsCheckbox');
+					if($group1.filter(':checked').length === 0){
+						app.u.dump("All checkboxes removed. Filter search deactivated.");
+						$("#resultsProductListContainer").show(); 
+						$(".resultsHeader").show(); 
+						$(".searchFilterResults").hide();    
+					}
+					else{
+						app.u.dump("All checkboxes removed. Filter search still active.");
+						$("#resultsProductListContainer").hide(); 
+						$(".resultsHeader").hide(); 
+						$(".searchFilterResults").show();    
+					}  
+				});
+						
+					
+				
+				$('.resetButtonSearchPage', $context).click(function(){
+					$('.fsCheckbox').attr('checked', false);
+					$("#resultsProductListContainer").show(); 
+					$(".searchFilterResults").hide();    
+				});
+				
+				
+				
+		}
+}]);
 
 
 
