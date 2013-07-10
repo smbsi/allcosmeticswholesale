@@ -44,8 +44,8 @@ css files should be included before any .js file to ensure they are downloaded i
 -->
 <link rel="stylesheet" type="text/css" href="app-quickstart.css" />
 <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/ui-lightness/jquery-ui.css" />
-<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Special+Elite'>
-<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Montserrat:400,700'>
+<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Special+Elite' />
+<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Montserrat:400,700' />
 <link rel="stylesheet" type="text/css" href="Theme/jquery-ui-1.10.1.custom/css/ac_theme/jquery-ui-1.10.1.custom.css" />
 <link rel="stylesheet" type="text/css" href="_ac_styles.css" />
 
@@ -1436,7 +1436,7 @@ SANITY -> if you change the height and width of this image, change the .minimalM
 	
 	
 		<div class='filterContainer clearfix'>
-		
+			
 		</div>
 	
         <div class="clear"></div>
@@ -1448,7 +1448,7 @@ SANITY -> if you change the height and width of this image, change the .minimalM
             <ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
         <!--</div>
         <!--END TESTING SECTION-->
-    	<ul data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList2'></ul><!-- outputs the product list -->
+    	<ul data-app-role='productList' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1; withInventory:1; withVariations:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList2'></ul><!-- outputs the product list -->
     </div>
     <h2>BRANDS</h2>
     <div class="brandList">
@@ -3032,52 +3032,122 @@ The 'data-action' attribute is used to assign an onclick.
 </fieldset>-->
 <fieldset class="" data-elastic-key="prod_type" data-filtertype="checkboxes">
 	<legend>SORT BY CATEGORY</legend>
-	<label class='break'><input type='checkbox' value='eyes' />Eyes</label>
-    <label class='break'><input type='checkbox' value='lips' />Lips</label>
-    <label class='break'><input type='checkbox' value='face' />Face</label>
-    <label class='break'><input type='checkbox' value='accessories' />Accessories</label>
-    <label class='break'><input type='checkbox' value='skincare' />Skincare</label>
-    <label class='break'><input type='checkbox' value='nails' />Nails</label>
+	<label class='break'><input type='checkbox' value='eyes' onChange="app.ext.store_filter.a.showHideEyesSubCat(); return false;" />Eyes</label>
+    <fieldset class="fsSubCatFilterCat fsSubCatEyes displayNone" data-elastic-key="app_prod_sub_type" data-filtertype="checkboxes">
+    	<legend>SORT BY EYE TYPE</legend>
+        <label class='break'><input type='checkbox' value='eye+shadow' />Eye Shadow</label>
+        <label class='break'><input type='checkbox' value='eye+shadow+refills' />Eye Shadow Refills</label>
+        <label class='break'><input type='checkbox' value='eyelashes' />Eyelashes</label>
+        <label class='break'><input type='checkbox' value='eyeliner' />Eyeliner</label>
+        <label class='break'><input type='checkbox' value='mascara' />Mascara</label>
+        <label class='break'><input type='checkbox' value='pigments' />Pigments</label>
+        <label class='break'><input type='checkbox' value='primer' />Primer</label>	
+    </fieldset>
+    <label class='break'><input type='checkbox' value='lips' onChange="app.ext.store_filter.a.showHideLipsSubCat(); return false;" />Lips</label>
+    <fieldset class="fsSubCatFilterCat fsSubCatLips displayNone" data-elastic-key="app_prod_sub_type" data-filtertype="checkboxes">
+    	<legend>SORT BY LIPS TYPE</legend>
+        <label class='break'><input type='checkbox' value='balms' />Balms</label>
+        <label class='break'><input type='checkbox' value='lip+liner' />Lip Liner</label>
+        <label class='break'><input type='checkbox' value='lip+gloss' />Lip Gloss</label>
+        <label class='break'><input type='checkbox' value='lipstick' />Lipstick</label>
+    </fieldset>
+    <label class='break'><input type='checkbox' value='face' onChange="app.ext.store_filter.a.showHideFaceSubCat(); return false;" />Face</label>
+    <fieldset class="fsSubCatFilterCat fsSubCatFace displayNone" data-elastic-key="app_prod_sub_type" data-filtertype="checkboxes">
+    	<legend>SORT BY FACE TYPE</legend>
+        <label class='break'><input type='checkbox' value='blush' />Blush</label>
+        <label class='break'><input type='checkbox' value='boncealer' />Concealer</label>
+        <label class='break'><input type='checkbox' value='foundation' />Foundation</label>
+        <label class='break'><input type='checkbox' value='powder' />Powder</label>
+        <label class='break'><input type='checkbox' value='primer' />Primer</label>
+    </fieldset>
+    <label class='break'><input type='checkbox' value='accessories' onChange="app.ext.store_filter.a.showHideAccessSubCat(); return false;" />Accessories</label>
+    <fieldset class="fsSubCatFilterCat fsSubCatAccess displayNone" data-elastic-key="app_prod_sub_type" data-filtertype="checkboxes">
+    	<legend>SORT BY ACCESSORY</legend>
+        <label class='break'><input type='checkbox' value='bags' />Bags</label>
+        <label class='break'><input type='checkbox' value='brushes' />Brushes</label>
+        <label class='break'><input type='checkbox' value='jewelry' />Jewelry</label>
+        <label class='break'><input type='checkbox' value='tools' />Tools</label>
+    </fieldset>
+    <label class='break'><input type='checkbox' value='skincare' onChange="app.ext.store_filter.a.showHideSkinSubCat(); return false;" />Skincare</label>
+    <fieldset class="fsSubCatFilterCat fsSubCatSkin displayNone" data-elastic-key="app_prod_sub_type" data-filtertype="checkboxes">
+    	<legend>SORT BY SKINCARE</legend>
+        <label class='break'><input type='checkbox' value='body' />Body</label>
+        <label class='break'><input type='checkbox' value='eyes' />Eyes</label>
+        <label class='break'><input type='checkbox' value='face' />Face</label>
+        <label class='break'><input type='checkbox' value='lips' />Lips</label>
+    </fieldset>
+    <label class='break'><input type='checkbox' value='nails' onChange="app.ext.store_filter.a.showHideNailSubCat(); return false;" />Nails</label>
+    <fieldset class="fsSubCatFilterCat fsSubCatNail displayNone" data-elastic-key="app_prod_sub_type" data-filtertype="checkboxes">
+    	<legend>SORT BY NAIL TYPE</legend>
+        <label class='break'><input type='checkbox' value='appliques' />Appliques</label>
+        <label class='break'><input type='checkbox' value='polish' />Polish</label>
+        <label class='break'><input type='checkbox' value='sets' />Sets</label>
+        <label class='break'><input type='checkbox' value='tools' />Tools</label>
+    </fieldset>
     <label class='break'><input type='checkbox' value='fragrance' />Fragrance</label>
-    <label class='break'><input type='checkbox' value='hair' />Hair</label>
-    <label class='break'><input type='checkbox' value='jewelry' />Jewelry</label>
-    <label class='break'><input type='checkbox' value='sale' />Sale</label>
+    <label class='break'><input type='checkbox' value='hair' onChange="app.ext.store_filter.a.showHideHairSubCat(); return false;" />Hair</label>
+    <fieldset class="fsSubCatFilterCat fsSubCatHair displayNone" data-elastic-key="app_prod_sub_type" data-filtertype="checkboxes">
+    	<legend>SORT BY HAIR TYPE</legend>
+        <label class='break'><input type='checkbox' value='conditioner' />Conditioner</label>
+        <label class='break'><input type='checkbox' value='tools' />Tools	</label>
+        <label class='break'><input type='checkbox' value='hair+accessories' />Hair Accessories</label>
+        <label class='break'><input type='checkbox' value='shampoo' />Shampoo</label>
+        <label class='break'><input type='checkbox' value='styling+products' />Styling Products</label>
+    </fieldset>
+    <label class='break'><input type='checkbox' value='jewelry' onChange="app.ext.store_filter.a.showHideJewelrySubCat(); return false;" />Jewelry</label>
+    <fieldset class="fsSubCatFilterCat fsSubCatJewelry displayNone" data-elastic-key="app_prod_sub_type" data-filtertype="checkboxes">
+    	<legend>SORT BY JEWELRY</legend>
+        <label class='break'><input type='checkbox' value='bracelet' />Bracelets</label>
+        <label class='break'><input type='checkbox' value='earrings' />Earrings</label>
+        <label class='break'><input type='checkbox' value='necklace' />Necklace</label>
+        <label class='break'><input type='checkbox' value='rings' />Rings</label>
+    </fieldset>
+    <label class='break'><input type='checkbox' value='sale' onChange="app.ext.store_filter.a.showHideSaleSubCat(); return false;" />Sale</label>
+    <fieldset class="fsSubCatFilterCat fsSubCatSale displayNone" data-elastic-key="app_prod_sub_type" data-filtertype="checkboxes">
+    	<legend>SORT BY SALE TYPE</legend>
+        <label class='break'><input type='checkbox' value='accessories' />Accessories</label>
+        <label class='break'><input type='checkbox' value='eyes' />Eyes</label>
+        <label class='break'><input type='checkbox' value='face' />Face</label>
+        <label class='break'><input type='checkbox' value='lips' />Lips</label>
+        <label class='break'><input type='checkbox' value='nails' />Nails</label>
+        <label class='break'><input type='checkbox' value='skincare' />Skincare</label>
+    </fieldset>
 </fieldset>
-	<legend class="sortByBrandLegend">SORT BY BRAND</legend>
-    <div class="sortByBrandDiv">
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showABrands(); return false;">A</a>
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showBBrands(); return false;">B</a>
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showCBrands(); return false;">C</a>
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showDBrands(); return false;">D</a>
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showEBrands(); return false;">E</a>
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showFBrands(); return false;">F</a>
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showGBrands(); return false;">G</a>
-    </div>
-    <div class="sortByBrandDiv">
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showHBrands(); return false;">H</a>
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showIBrands(); return false;">I</a>
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showJBrands(); return false;">J</a>
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showKBrands(); return false;">K</a>
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showLBrands(); return false;">L</a>
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showMBrands(); return false;">M</a>
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showNBrands(); return false;">N</a>
-    </div>
-    <div class="sortByBrandDiv">
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showOBrands(); return false;">O</a>
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showPBrands(); return false;">P</a>
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showQBrands(); return false;">Q</a>
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showRBrands(); return false;">R</a>
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showSBrands(); return false;">S</a>
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showTBrands(); return false;">T</a>
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showUBrands(); return false;">U</a>
-    </div>
-    <div style="margin-bottom:10px;" class="sortByBrandDiv">
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showVBrands(); return false;">V</a>
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showWBrands(); return false;">W</a>
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showXBrands(); return false;">X</a>
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showYBrands(); return false;">Y</a>
-        <a class='sortByBrand' onClick="app.ext.store_filter.a.showZBrands(); return false;">Z</a>
-    </div>
+<legend class="sortByBrandLegend">SORT BY BRAND</legend>
+<div class="sortByBrandDiv">
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showABrands(); return false;">A</a>
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showBBrands(); return false;">B</a>
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showCBrands(); return false;">C</a>
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showDBrands(); return false;">D</a>
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showEBrands(); return false;">E</a>
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showFBrands(); return false;">F</a>
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showGBrands(); return false;">G</a>
+</div>
+<div class="sortByBrandDiv">
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showHBrands(); return false;">H</a>
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showIBrands(); return false;">I</a>
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showJBrands(); return false;">J</a>
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showKBrands(); return false;">K</a>
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showLBrands(); return false;">L</a>
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showMBrands(); return false;">M</a>
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showNBrands(); return false;">N</a>
+</div>
+<div class="sortByBrandDiv">
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showOBrands(); return false;">O</a>
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showPBrands(); return false;">P</a>
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showQBrands(); return false;">Q</a>
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showRBrands(); return false;">R</a>
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showSBrands(); return false;">S</a>
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showTBrands(); return false;">T</a>
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showUBrands(); return false;">U</a>
+</div>
+<div style="margin-bottom:10px;" class="sortByBrandDiv">
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showVBrands(); return false;">V</a>
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showWBrands(); return false;">W</a>
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showXBrands(); return false;">X</a>
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showYBrands(); return false;">Y</a>
+    <a class='sortByBrand' onClick="app.ext.store_filter.a.showZBrands(); return false;">Z</a>
+</div>
     
 <fieldset class="aList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "A" FOR:</legend>

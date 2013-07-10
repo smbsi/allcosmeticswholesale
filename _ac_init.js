@@ -340,8 +340,9 @@ app.rq.push(['templateFunction','categoryProductListTemplate','onCompletes',func
 		
 		//Reset button functionality
 		$('.resetButton', $context).click(function(){
-		$context.empty().remove();
-		showContent('category',{'navcat':P.navcat});
+			$(".fsSubCatFilterCat").hide();
+			$context.empty().remove();
+			showContent('category',{'navcat':P.navcat});
 		});
 
 }]);
