@@ -38,12 +38,11 @@ var store_filter = function() {
 //key is safe id. value is name of the filter form.
 	filterMap : {
 		
-		
-			".acw.brands.100__pure":{
+			"exec":{
 			"filter": "genFilterForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:200});}
 			}
-			
+		
 		},
 		
 		callbacks : {
