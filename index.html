@@ -2374,9 +2374,14 @@ subscribeListsArticle is used for authenticated buyers
 	<div class='previewProductDetail displayNone'></div>
 
 	<div class='previewListContainer'>
+    
+    <!--**FILTERED SEARCH FORM**-->
+    <div class="filterContainerSearch"></div>
+  
 		<!-- productListTemplateResults gets loaded into here -->
-		<ul id='resultsProductListContainer' class='listStyleNone fluidList noPadOrMargin productList'></ul>
-	</div>
+        	<ul id='resultsProductListContainer' class='listStyleNone fluidList productList'></ul>
+    		<ul class="listStyleNone fluidList searchFilterResults productList" data-app-role='productList'></ul>
+    </div>
 
 </div>
 
@@ -3032,85 +3037,85 @@ The 'data-action' attribute is used to assign an onclick.
 </fieldset>-->
 <fieldset class="" data-elastic-key="prod_type" data-filtertype="checkboxes">
 	<legend>SORT BY CATEGORY</legend>
-	<label class='break'><input type='checkbox' value='eyes' onChange="app.ext.store_filter.a.showHideEyesSubCat(); return false;" />Eyes</label>
+	<label class='break'><input type='checkbox' class="fsCheckbox" value='eyes' onChange="app.ext.store_filter.a.showHideEyesSubCat(); return false;" />Eyes</label>
     <fieldset class="fsSubCatFilterCat fsSubCatEyes displayNone" data-elastic-key="app_prod_sub_type" data-filtertype="checkboxes">
     	<legend>SORT BY EYE TYPE</legend>
-        <label class='break'><input type='checkbox' value='eye+shadow' />Eye Shadow</label>
-        <label class='break'><input type='checkbox' value='eye+shadow+refills' />Eye Shadow Refills</label>
-        <label class='break'><input type='checkbox' value='eyelashes' />Eyelashes</label>
-        <label class='break'><input type='checkbox' value='eyeliner' />Eyeliner</label>
-        <label class='break'><input type='checkbox' value='mascara' />Mascara</label>
-        <label class='break'><input type='checkbox' value='pigments' />Pigments</label>
-        <label class='break'><input type='checkbox' value='primer' />Primer</label>	
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='eye+shadow' />Eye Shadow</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='eye+shadow+refills' />Eye Shadow Refills</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='eyelashes' />Eyelashes</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='eyeliner' />Eyeliner</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='mascara' />Mascara</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='pigments' />Pigments</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='primer' />Primer</label>	
     </fieldset>
-    <label class='break'><input type='checkbox' value='lips' onChange="app.ext.store_filter.a.showHideLipsSubCat(); return false;" />Lips</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" value='lips' onChange="app.ext.store_filter.a.showHideLipsSubCat(); return false;" />Lips</label>
     <fieldset class="fsSubCatFilterCat fsSubCatLips displayNone" data-elastic-key="app_prod_sub_type" data-filtertype="checkboxes">
     	<legend>SORT BY LIPS TYPE</legend>
-        <label class='break'><input type='checkbox' value='balms' />Balms</label>
-        <label class='break'><input type='checkbox' value='lip+liner' />Lip Liner</label>
-        <label class='break'><input type='checkbox' value='lip+gloss' />Lip Gloss</label>
-        <label class='break'><input type='checkbox' value='lipstick' />Lipstick</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='balms' />Balms</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='lip+liner' />Lip Liner</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='lip+gloss' />Lip Gloss</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='lipstick' />Lipstick</label>
     </fieldset>
-    <label class='break'><input type='checkbox' value='face' onChange="app.ext.store_filter.a.showHideFaceSubCat(); return false;" />Face</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" value='face' onChange="app.ext.store_filter.a.showHideFaceSubCat(); return false;" />Face</label>
     <fieldset class="fsSubCatFilterCat fsSubCatFace displayNone" data-elastic-key="app_prod_sub_type" data-filtertype="checkboxes">
     	<legend>SORT BY FACE TYPE</legend>
-        <label class='break'><input type='checkbox' value='blush' />Blush</label>
-        <label class='break'><input type='checkbox' value='boncealer' />Concealer</label>
-        <label class='break'><input type='checkbox' value='foundation' />Foundation</label>
-        <label class='break'><input type='checkbox' value='powder' />Powder</label>
-        <label class='break'><input type='checkbox' value='primer' />Primer</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='blush' />Blush</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='boncealer' />Concealer</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='foundation' />Foundation</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='powder' />Powder</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='primer' />Primer</label>
     </fieldset>
-    <label class='break'><input type='checkbox' value='accessories' onChange="app.ext.store_filter.a.showHideAccessSubCat(); return false;" />Accessories</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" value='accessories' onChange="app.ext.store_filter.a.showHideAccessSubCat(); return false;" />Accessories</label>
     <fieldset class="fsSubCatFilterCat fsSubCatAccess displayNone" data-elastic-key="app_prod_sub_type" data-filtertype="checkboxes">
     	<legend>SORT BY ACCESSORY</legend>
-        <label class='break'><input type='checkbox' value='bags' />Bags</label>
-        <label class='break'><input type='checkbox' value='brushes' />Brushes</label>
-        <label class='break'><input type='checkbox' value='jewelry' />Jewelry</label>
-        <label class='break'><input type='checkbox' value='tools' />Tools</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='bags' />Bags</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='brushes' />Brushes</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='jewelry' />Jewelry</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='tools' />Tools</label>
     </fieldset>
-    <label class='break'><input type='checkbox' value='skincare' onChange="app.ext.store_filter.a.showHideSkinSubCat(); return false;" />Skincare</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" value='skincare' onChange="app.ext.store_filter.a.showHideSkinSubCat(); return false;" />Skincare</label>
     <fieldset class="fsSubCatFilterCat fsSubCatSkin displayNone" data-elastic-key="app_prod_sub_type" data-filtertype="checkboxes">
     	<legend>SORT BY SKINCARE</legend>
-        <label class='break'><input type='checkbox' value='body' />Body</label>
-        <label class='break'><input type='checkbox' value='eyes' />Eyes</label>
-        <label class='break'><input type='checkbox' value='face' />Face</label>
-        <label class='break'><input type='checkbox' value='lips' />Lips</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='body' />Body</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='eyes' />Eyes</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='face' />Face</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='lips' />Lips</label>
     </fieldset>
-    <label class='break'><input type='checkbox' value='nails' onChange="app.ext.store_filter.a.showHideNailSubCat(); return false;" />Nails</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" value='nails' onChange="app.ext.store_filter.a.showHideNailSubCat(); return false;" />Nails</label>
     <fieldset class="fsSubCatFilterCat fsSubCatNail displayNone" data-elastic-key="app_prod_sub_type" data-filtertype="checkboxes">
     	<legend>SORT BY NAIL TYPE</legend>
-        <label class='break'><input type='checkbox' value='appliques' />Appliques</label>
-        <label class='break'><input type='checkbox' value='polish' />Polish</label>
-        <label class='break'><input type='checkbox' value='sets' />Sets</label>
-        <label class='break'><input type='checkbox' value='tools' />Tools</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='appliques' />Appliques</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='polish' />Polish</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='sets' />Sets</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='tools' />Tools</label>
     </fieldset>
-    <label class='break'><input type='checkbox' value='fragrance' />Fragrance</label>
-    <label class='break'><input type='checkbox' value='hair' onChange="app.ext.store_filter.a.showHideHairSubCat(); return false;" />Hair</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" value='fragrance' />Fragrance</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" value='hair' onChange="app.ext.store_filter.a.showHideHairSubCat(); return false;" />Hair</label>
     <fieldset class="fsSubCatFilterCat fsSubCatHair displayNone" data-elastic-key="app_prod_sub_type" data-filtertype="checkboxes">
     	<legend>SORT BY HAIR TYPE</legend>
-        <label class='break'><input type='checkbox' value='conditioner' />Conditioner</label>
-        <label class='break'><input type='checkbox' value='tools' />Tools	</label>
-        <label class='break'><input type='checkbox' value='hair+accessories' />Hair Accessories</label>
-        <label class='break'><input type='checkbox' value='shampoo' />Shampoo</label>
-        <label class='break'><input type='checkbox' value='styling+products' />Styling Products</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='conditioner' />Conditioner</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='tools' />Tools	</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='hair+accessories' />Hair Accessories</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='shampoo' />Shampoo</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='styling+products' />Styling Products</label>
     </fieldset>
-    <label class='break'><input type='checkbox' value='jewelry' onChange="app.ext.store_filter.a.showHideJewelrySubCat(); return false;" />Jewelry</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" value='jewelry' onChange="app.ext.store_filter.a.showHideJewelrySubCat(); return false;" />Jewelry</label>
     <fieldset class="fsSubCatFilterCat fsSubCatJewelry displayNone" data-elastic-key="app_prod_sub_type" data-filtertype="checkboxes">
     	<legend>SORT BY JEWELRY</legend>
-        <label class='break'><input type='checkbox' value='bracelet' />Bracelets</label>
-        <label class='break'><input type='checkbox' value='earrings' />Earrings</label>
-        <label class='break'><input type='checkbox' value='necklace' />Necklace</label>
-        <label class='break'><input type='checkbox' value='rings' />Rings</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='bracelet' />Bracelets</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='earrings' />Earrings</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='necklace' />Necklace</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='rings' />Rings</label>
     </fieldset>
-    <label class='break'><input type='checkbox' value='sale' onChange="app.ext.store_filter.a.showHideSaleSubCat(); return false;" />Sale</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" value='sale' onChange="app.ext.store_filter.a.showHideSaleSubCat(); return false;" />Sale</label>
     <fieldset class="fsSubCatFilterCat fsSubCatSale displayNone" data-elastic-key="app_prod_sub_type" data-filtertype="checkboxes">
     	<legend>SORT BY SALE TYPE</legend>
-        <label class='break'><input type='checkbox' value='accessories' />Accessories</label>
-        <label class='break'><input type='checkbox' value='eyes' />Eyes</label>
-        <label class='break'><input type='checkbox' value='face' />Face</label>
-        <label class='break'><input type='checkbox' value='lips' />Lips</label>
-        <label class='break'><input type='checkbox' value='nails' />Nails</label>
-        <label class='break'><input type='checkbox' value='skincare' />Skincare</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='accessories' />Accessories</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='eyes' />Eyes</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='face' />Face</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='lips' />Lips</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='nails' />Nails</label>
+        <label class='break'><input type='checkbox' class="fsCheckbox" value='skincare' />Skincare</label>
     </fieldset>
 </fieldset>
 <legend class="sortByBrandLegend">SORT BY BRAND</legend>
@@ -3151,50 +3156,50 @@ The 'data-action' attribute is used to assign an onclick.
     
 <fieldset class="aList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "A" FOR:</legend>
-	<label class='break'><input type='checkbox' class="brandNameCheck" value='adoro' />Adoro</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='almay' />Almay</label>
+	<label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='adoro' />Adoro</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='almay' />Almay</label>
 </fieldset>
 <fieldset class="bList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "B" FOR:</legend>
-	<label class='break'><input type='checkbox' class="brandNameCheck" value='becca' />Becca</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='benefit' />Benefit</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='bobbibrown' />Bobbi Brown</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='bourjoisparis' />Bourjois Paris</label>
+	<label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='becca' />Becca</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='benefit' />Benefit</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='bobbibrown' />Bobbi Brown</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='bourjoisparis' />Bourjois Paris</label>
 </fieldset>
 <fieldset class="cList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "C" FOR:</legend>
-	<label class='break'><input type='checkbox' class="brandNameCheck" value='chinaglaze' />China Glaze</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='claudioriaz' />Claudio Riaz</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='clinique' />Clinique</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='coverfx' />Cover FX</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='covergirl' />Covergirl</label>
+	<label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='chinaglaze' />China Glaze</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='claudioriaz' />Claudio Riaz</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='clinique' />Clinique</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='coverfx' />Cover FX</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='covergirl' />Covergirl</label>
 </fieldset>
 <fieldset class="dList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "D" FOR:</legend>
-	<label class='break'><input type='checkbox' class="brandNameCheck" value='dermablend' />Dermablend</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='dior' />Dior</label>
+	<label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='dermablend' />Dermablend</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='dior' />Dior</label>
 </fieldset>
 <fieldset class="eList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "E" FOR:</legend>
-	<label class='break'><input type='checkbox' class="brandNameCheck" value='edwardbess' />Edward Bess</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='esteelauder' />Estee Lauder</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='eyesbydesign' />Eyes By Design</label>
+	<label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='edwardbess' />Edward Bess</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='esteelauder' />Estee Lauder</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='eyesbydesign' />Eyes By Design</label>
 </fieldset>
 <fieldset class="fList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "F" FOR:</legend>
-	<label class='break'><input type='checkbox' class="brandNameCheck" value='facefront' />Face Front</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='factoryblems' />Factory "Blems"</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='flirt' />Flirt</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='fusionbeauty' />Fusion Beauty</label>
+	<label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='facefront' />Face Front</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='factoryblems' />Factory "Blems"</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='flirt' />Flirt</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='fusionbeauty' />Fusion Beauty</label>
 </fieldset>
 <fieldset class="gList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "G" FOR:</legend>
-	<label class='break'><input type='checkbox' class="brandNameCheck" value='goody' />Goody</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='guerlain' />Guerlain</label>
+	<label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='goody' />Goody</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='guerlain' />Guerlain</label>
 </fieldset>
 <fieldset class="hList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "H" FOR:</legend>
-	<label class='break'><input type='checkbox' class="brandNameCheck" value='hardcandy' />Hard candy</label>
+	<label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='hardcandy' />Hard candy</label>
 </fieldset>
 <fieldset class="iList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "I" FOR:</legend>
@@ -3202,49 +3207,49 @@ The 'data-action' attribute is used to assign an onclick.
 </fieldset>
 <fieldset class="jList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "J" FOR:</legend>
-	<label class='break'><input type='checkbox' class="brandNameCheck" value='jane' />Jane</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='japonesque' />Japonesque</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='jewelry' />Jewelry</label>
+	<label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='jane' />Jane</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='japonesque' />Japonesque</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='jewelry' />Jewelry</label>
 </fieldset>
 <fieldset class="kList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "K" FOR:</legend>
-	<label class='break'><input type='checkbox' class="brandNameCheck" value='kiehls' />Kiehl's</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='korres' />Korres</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='kryolan' />Kryolan</label>
+	<label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='kiehls' />Kiehl's</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='korres' />Korres</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='kryolan' />Kryolan</label>
 </fieldset>
 <fieldset class="lList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "L" FOR:</legend>
-	<label class='break'><input type='checkbox' class="brandNameCheck" value='lancome' />Lancome</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='lauramercier' />Laura Mercier</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='loreal' />L'oreal</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='lottaluv' />Lotta Luv</label>
+	<label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='lancome' />Lancome</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='lauramercier' />Laura Mercier</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='loreal' />L'oreal</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='lottaluv' />Lotta Luv</label>
 </fieldset>
 <fieldset class="mList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "M" FOR:</legend>
-	<label class='break'><input type='checkbox' class="brandNameCheck" value='mac' />Mac</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='makeupforever' />Make Up Forever</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='marykateashley' />Mary&#150;Kate &#38; Ashley</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='maybelline' />Maybelline</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='mememe' />Me Me Me</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='modelco' />Model Co</label>
+	<label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='mac' />Mac</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='makeupforever' />Make Up Forever</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='marykateashley' />Mary&#150;Kate &#38; Ashley</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='maybelline' />Maybelline</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='mememe' />Me Me Me</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='modelco' />Model Co</label>
     
 </fieldset>
 <fieldset class="nList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "N" FOR:</legend>
-	<label class='break'><input type='checkbox' class="brandNameCheck" value='nars' />Nars</label>
+	<label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='nars' />Nars</label>
 </fieldset>
 <fieldset class="oList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "O" FOR:</legend>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='' />Obsessive Compulsive Cosmetics</label>
-	<label class='break'><input type='checkbox' class="brandNameCheck" value='ojonhair' />Ojon Hair</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='otherbrands' />Other Brands</label>  
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='' />Obsessive Compulsive Cosmetics</label>
+	<label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='ojonhair' />Ojon Hair</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='otherbrands' />Other Brands</label>  
 </fieldset>
 <fieldset class="pList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "P" FOR:</legend>
-	<label class='break'><input type='checkbox' class="brandNameCheck" value='playboycosmetics' />Playboy Cosmetics</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='poppixi' />Pop&#47;Pixi</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='prescriptives' />Prescriptives</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='pupamilano' />Pupa Milano</label>
+	<label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='playboycosmetics' />Playboy Cosmetics</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='poppixi' />Pop&#47;Pixi</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='prescriptives' />Prescriptives</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='pupamilano' />Pupa Milano</label>
 </fieldset>
 <fieldset class="qList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "Q" FOR:</legend>
@@ -3252,37 +3257,37 @@ The 'data-action' attribute is used to assign an onclick.
 </fieldset>
 <fieldset class="rList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "R" FOR:</legend>
-	<label class='break'><input type='checkbox' class="brandNameCheck" value='redcherry' />Red Cherry</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='revlon' />Revlon</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='rimmellondon' />Rimmel London</label>
+	<label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='redcherry' />Red Cherry</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='revlon' />Revlon</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='rimmellondon' />Rimmel London</label>
 </fieldset>
 <fieldset class="sList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "S" FOR:</legend>
-	<label class='break'><input type='checkbox' class="brandNameCheck" value='sallyhansen' />Sally Hansen</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='sigma' />Sigma</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='smashbox' />Smashbox</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='smh' />SMH</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='stila' />Stila</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='suitesevenbeauty' />Suite 7 Beauty</label>
+	<label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='sallyhansen' />Sally Hansen</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='sigma' />Sigma</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='smashbox' />Smashbox</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='smh' />SMH</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='stila' />Stila</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='suitesevenbeauty' />Suite 7 Beauty</label>
 </fieldset>
 <fieldset class="tList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "T" FOR:</legend>
-	<label class='break'><input type='checkbox' class="brandNameCheck" value='tarte' />Tarte</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='toofaced' />Too Faced</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='twilight' />Twilight</label>
+	<label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='tarte' />Tarte</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='toofaced' />Too Faced</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='twilight' />Twilight</label>
 </fieldset>
 <fieldset class="uList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "U" FOR:</legend>
-	<label class='break'><input type='checkbox' class="brandNameCheck" value='ultraflesh' />Ultraflesh</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='urbandecay' />Urban Decay</label>
+	<label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='ultraflesh' />Ultraflesh</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='urbandecay' />Urban Decay</label>
 </fieldset>
 <fieldset class="vList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "V" FOR:</legend>
-	<label class='break'><input type='checkbox' class="brandNameCheck" value='victoriassecret' />Victoria's Secret</label>
+	<label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='victoriassecret' />Victoria's Secret</label>
 </fieldset>
 <fieldset class="wList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "W" FOR:</legend>
-	<label class='break'><input type='checkbox' class="brandNameCheck" value='wetnwild' />WET n WILD</label>
+	<label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='wetnwild' />WET n WILD</label>
 </fieldset>
 <fieldset class="xList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "X" FOR:</legend>
@@ -3290,8 +3295,8 @@ The 'data-action' attribute is used to assign an onclick.
 </fieldset>
 <fieldset class="yList brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "Y" FOR:</legend>
-	<label class='break'><input type='checkbox' class="brandNameCheck" value='yrnails' />YR Nails</label>
-    <label class='break'><input type='checkbox' class="brandNameCheck" value='ysl' />YSL</label>
+	<label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='yrnails' />YR Nails</label>
+    <label class='break'><input type='checkbox' class="fsCheckbox" class="brandNameCheck" value='ysl' />YSL</label>
 </fieldset>
 <fieldset class="adoro brandListFilter displayNone" data-elastic-key="prod_brand" data-filtertype="checkboxes">
 	<legend>YOU'VE SELECTED "Z" FOR:</legend>

@@ -1174,11 +1174,16 @@ app.ext.myRIA.pageTransition($old,$('#'+infoObj.parentID));
 					//class below is used as a selector for setting data() on button bar. don't change.
 					var $buttonBar = $("<div \/>").addClass('buttonBar').css({'position':'absolute','right':0}).prependTo($parent);
 					$buttonBar.data('page-in-focus',$('#resultsProductListContainer').data('page-in-focus')); //used to determine if a page change has occured in next/prev product buttons.
-
+/***ACW***/			$(".filterContainerSearch").hide();
+/***ACW***/			$("#resultsProductListContainer").css({'width':'240px'});
+/***ACW***/			$(".searchFilterResults").css({'width':'240px'});
 					
 //button for turning off preview mode. returns li's to normal state and animates the two 'panes'.
 					$("<button \/>").button().text('close preview').on('click',function(event){
 						app.ext.myRIA.u.revertPageFromPreviewMode($parent);
+/***ACW***/				$(".filterContainerSearch").show();
+/***ACW***/				$("#resultsProductListContainer").css({'width':'755px'});
+/***ACW***/				$(".searchFilterResults").css({'width':'755px'});
 						}).prependTo($buttonBar);
 
 

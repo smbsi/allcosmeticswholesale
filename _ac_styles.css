@@ -1622,7 +1622,7 @@ div .catListingCat:hover{
 	position:relative;
 }
 .productList li{
-	width: 210px;
+	width: 222px;
 	height:330px;
 	margin-bottom:10px;
 }
@@ -3534,7 +3534,9 @@ div.buttonList .removeButtonWishlist:hover{
 	position:relative;
 }
 #resultsProductListContainer{
-	 padding-left:40px;
+	float: left;
+    margin-left: 40px;
+    width: 755px
 }
 .minimalMode .searchResultsProduct{
 	height: 183px;
@@ -3547,4 +3549,14 @@ div.buttonList .removeButtonWishlist:hover{
 .shipInsurCB{
 	margin-bottom: 20px !important;
     margin-left: 15px !important;
+}
+.filterContainerSearch{
+	width:200px;
+	float:left;
+	height:100%;
+}
+.searchFilterResults{
+	float: left;
+    margin-left: 40px;
+    width: 755px
 }

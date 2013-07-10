@@ -548,6 +548,67 @@ app.rq.push(['templateFunction','customerTemplate','onCompletes',function(P) {
 
 
 
+app.rq.push(['templateFunction','searchTemplate','onCompletes',function(P) {
+	if(P.preservePage){ alert("You hit the back button");}
+	
+	var $context = $(app.u.jqSelector('#',P.parentID));
+	var $page = $(app.u.jqSelector('#',P.parentID));
+	
+	//****FILTERED SEARCH CODE****
+	if($page.data('filterAdded'))	{} //filter is already added, don't add again.
+		else	{
+			$page.data('filterAdded',true)
+			$('.fsCheckbox').attr('checked', false);
+			$("#resultsProductListContainer").show(); 
+			$(".searchFilterResults").hide();    
+			app.u.dump("BEGIN searchTemplate onCompletes for filtering");
+			var $form = $("[name='genFilterForm']",'#appFilters').clone().appendTo($('.filterContainerSearch',$page));
+			$form.on('submit.filterSearch',function(event){
+				event.preventDefault()
+				app.u.dump(" -> Filter form submitted.");
+				app.ext.store_filter.a.execFilter($form,$page);
+						});
+			
+				if(typeof app.ext.store_filter.filterMap["exec"].exec == 'function')	{
+					app.ext.store_filter.filterMap["exec"].exec($form,P)
+					}
+			
+			//make all the checkboxes auto-submit the form.
+				$(":checkbox",$form).off('click.formSubmit').on('click.formSubmit',function() {
+					$form.submit(); 
+					app.u.dump("Filter search actvated");
+					$("#resultsProductListContainer").hide(); 
+					$(".resultsHeader").hide(); 
+					
+					$group1 = $('.fsCheckbox');
+					if($group1.filter(':checked').length === 0){
+						app.u.dump("All checkboxes removed. Filter search deactivated.");
+						$("#resultsProductListContainer").show(); 
+						$(".resultsHeader").show(); 
+						$(".searchFilterResults").hide();    
+					}
+					else{
+						app.u.dump("All checkboxes removed. Filter search still active.");
+						$("#resultsProductListContainer").hide(); 
+						$(".resultsHeader").hide(); 
+						$(".searchFilterResults").show();    
+					}  
+				});
+						
+					
+				
+				$('.resetButtonSearchPage', $context).click(function(){
+					$('.fsCheckbox').attr('checked', false);
+					$("#resultsProductListContainer").show(); 
+					$(".searchFilterResults").hide();    
+				});
+				
+				
+				
+		}
+}]);
+
+
 
 
 //group any third party files together (regardless of pass) to make troubleshooting easier.
