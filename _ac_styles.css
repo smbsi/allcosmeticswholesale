@@ -994,9 +994,14 @@ span.ui-state-highlight{
 .footerTwit{
 	margin-top:16px;
 	float:right;
-	margin-right:100px;
+	margin-right:25px;
 }
 .footerFb{
+	margin-top:16px;
+	float:right;
+	margin-right:20px;
+}
+.footerInsta{
 	margin-top:16px;
 	float:right;
 	margin-right:20px;
@@ -1008,7 +1013,7 @@ span.ui-state-highlight{
 }
 .userInfo{
 	height:80px;
-	width: 800px;
+	width: 555px;
 	border:none;
 }
 .subName{
