@@ -50,33 +50,62 @@ color:#FF3D7F;
 Add infoObj.performJumpToTop = false; to EVERY case before .show portion of the code EXCEPT for the product case. Putting it under this will not stop the auto scroll to top of the page when backing to an already visited page.
 
 
-- 
- var $buttonBar = $("<div \/>").addClass('buttonBar').css({'position':'absolute','right':0}).prependTo($parent);
-					$buttonBar.data('page-in-focus',$('#resultsProductListContainer').data('page-in-focus')); //used to determine if a page change has occured in next/prev product buttons.
- 					
- //button for turning off preview mode. returns li's to normal state and animates the two 'panes'.
- $("<button \/>").button().text('close preview').on('click',function(event){
- app.ext.myRIA.u.revertPageFromPreviewMode($parent);
-}).prependTo($buttonBar);
-
-becomes
-
-var $buttonBar = $("<div \/>").addClass('buttonBar').css({'position':'absolute','right':0}).prependTo($parent);
-					$buttonBar.data('page-in-focus',$('#resultsProductListContainer').data('page-in-focus')); //used to determine if a page change has occured in next/prev product buttons.
-					
-/***TOY WARS***/	$(".filterContainerSearch").hide();
-/***TOY WARS***/	$("#resultsProductListContainer").css({'width':'240px'});
-/***TOY WARS***/	$(".searchFilterResults").css({'width':'240px'});
-					
-//button for turning off preview mode. returns li's to normal state and animates the two 'panes'.
-					$("<button \/>").button().text('close preview').on('click',function(event){
-							app.ext.myRIA.u.revertPageFromPreviewMode($parent);
-/***TOY WARS***/			$(".filterContainerSearch").show();
-/***TOY WARS***/			$("#resultsProductListContainer").css({'width':'745px'});
-/***TOY WARS***/			$(".searchFilterResults").css({'width':'760px'});
-						}).prependTo($buttonBar);
-
-
+addItemToCart : function($form,obj)	{
+				app.u.dump("BEGIN myRIA.u.addItemToCart");
+				obj = obj || {'action':'modal'}
+				if($form && $form.length)	{
+					var cartObj = app.ext.store_product.u.buildCartItemAppendObj($form);
+					if(cartObj)	{
+						if(cartObj)	{
+							app.calls.cartItemAppend.init(cartObj,{'callback':function(rd){
+							if(obj.action === "message"){
+							  app.u.dump(rd);
+							  app.u.throwMessage("Product successfully added to cart");
+							  }
+							}},'immutable');
+							app.model.destroy('cartDetail');
+							$('.prodAddToCart').show();
+							function hideATC(){$('.prodAddToCart').hide();}
+							var hideAddToCart = hideATC;
+							setTimeout(hideAddToCart, 10000);	
+							app.calls.cartDetail.init({'callback':function(rd){
+								if(obj.action === "modal"){
+                  					showContent('cart',obj);
+			                    }
+							}},'immutable');
+							app.model.dispatchThis('immutable');
+							}
+						}
+BECOMES
+addItemToCart : function($form,obj)	{
+				app.u.dump("BEGIN myRIA.u.addItemToCart");
+				obj = obj || {'action':'modal'}
+				if($form && $form.length)	{
+					var cartObj = app.ext.store_product.u.buildCartItemAppendObj($form);
+					if(cartObj)	{
+						if(cartObj)	{
+							app.calls.cartItemAppend.init(cartObj,{'callback':function(rd){
+							if(obj.action === "message"){
+							  app.u.dump(rd);
+							  app.u.throwMessage("Product successfully added to cart");
+							  $(".addToCartButton", $form).html("Added to cart!");
+							  $(".addToCartButton", $form).css("font-size", "18px");
+							  $(".addToCartButton", $form).css("background-color", "#FF3D7F");
+							  }
+							}},'immutable');
+							app.model.destroy('cartDetail');
+							$('.prodAddToCart').show();
+							function hideATC(){$('.prodAddToCart').hide();}
+							var hideAddToCart = hideATC;
+							setTimeout(hideAddToCart, 10000);	
+							app.calls.cartDetail.init({'callback':function(rd){
+								if(obj.action === "modal"){
+                  					showContent('cart',obj);
+			                    }
+							}},'immutable');
+							app.model.dispatchThis('immutable');
+							}
+						}
 
 
 store-product.js:
