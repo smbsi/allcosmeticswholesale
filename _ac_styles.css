@@ -1976,7 +1976,7 @@ form fieldset.brandListFilter legend{
 }
 .priceContainer h4{
 	color: #FF3D7F;
-    font-size: 36px;
+    font-size: 40px;
     text-align: center;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 600;
@@ -2127,7 +2127,7 @@ div .socialLinks{
 }
 .prodSummaryContainer2{
 	float:left;
-	width: 400px;
+	width: 345px;
 	height:auto;
 	margin-right:0px;
 	margin-left: 30px;
@@ -2183,6 +2183,12 @@ div .socialLinks{
 	color:white;
 	font-family: 'Montserrat', sans-serif;
 	font-size:14px;
+}
+.prodMSRP{
+	 text-decoration: line-through;
+}
+.prodMSRP span.cents{
+	 text-decoration: line-through;
 }
 
 /*************************************************************************************************************************/
