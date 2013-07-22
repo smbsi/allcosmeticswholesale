@@ -120,7 +120,7 @@ if(app.ext.store_filter.u.validateFilterProperties($form))	{
 //	app.u.dump(" -> validated Filter Properties.")
 	var query = {
 		"mode":"elastic-native",
-		"size":300,
+		"size":75,
 		"filter" : app.ext.store_filter.u.buildElasticFilters($form),
 		}//query
 //	app.u.dump(" -> Query: "); app.u.dump(query);
@@ -167,6 +167,7 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 		}
 		else{
 			$(".fsSubCatEyes").hide();
+			$(".fsSubCatEyesCB").removeAttr("checked");
 		}
 	},
 	showHideLipsSubCat : function(){
@@ -175,6 +176,7 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 		}
 		else{
 			$(".fsSubCatLips").hide();
+			$(".fsSubCatLipsCB").removeAttr("checked");
 		}
 	},
 	showHideFaceSubCat : function(){
@@ -183,6 +185,7 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 		}
 		else{
 			$(".fsSubCatFace").hide();
+			$(".fsSubCatFaceCB").removeAttr("checked");
 		}
 	},
 	showHideAccessSubCat : function(){
@@ -191,6 +194,7 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 		}
 		else{
 			$(".fsSubCatAccess").hide();
+			$(".fsSubCatAccessCB").removeAttr("checked");
 		}
 	},
 	showHideSkinSubCat : function(){
@@ -199,6 +203,7 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 		}
 		else{
 			$(".fsSubCatSkin").hide();
+			$(".fsSubCatSkinCB").removeAttr("checked");
 		}
 	},
 	showHideNailSubCat : function(){
@@ -207,6 +212,7 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 		}
 		else{
 			$(".fsSubCatNail").hide();
+			$(".fsSubCatNailCB").removeAttr("checked");
 		}
 	},
 	showHideHairSubCat : function(){
@@ -215,6 +221,7 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 		}
 		else{
 			$(".fsSubCatHair").hide();
+			$(".fsSubCatHairCB").removeAttr("checked");
 		}
 	},
 	showHideJewelrySubCat : function(){
@@ -223,6 +230,7 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 		}
 		else{
 			$(".fsSubCatJewelry").hide();
+			$(".fsSubCatJewelryCB").removeAttr("checked");
 		}
 	},
 	showHideSaleSubCat : function(){
@@ -231,6 +239,7 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 		}
 		else{
 			$(".fsSubCatSale").hide();
+			$(".fsSubCatSaleCB").removeAttr("checked");
 		}
 	},
 	
