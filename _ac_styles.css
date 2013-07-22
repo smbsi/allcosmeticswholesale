@@ -1972,7 +1972,7 @@ div .socialLinks{
 }
 .prodSummaryContainer2{
 	float:left;
-	width: 400px;
+	width: 345px;
 	height:auto;
 	margin-right:0px;
 	margin-left: 30px;
@@ -2028,6 +2028,12 @@ div .socialLinks{
 	color:white;
 	font-family: 'Montserrat', sans-serif;
 	font-size:14px;
+}
+.prodMSRP{
+	 text-decoration: line-through;
+}
+.prodMSRP span.cents{
+	 text-decoration: line-through;
 }
 
 /*************************************************************************************************************************/
