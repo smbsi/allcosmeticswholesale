@@ -81,17 +81,18 @@ item list and summary are separate just to give more control over location.
     </div>
     
     
-    <fieldset class="checkoutShipSidebar" data-app-role='chkoutMethodsShip' class='marginBottom'>
+    <fieldset class="checkoutShipSidebar marginBottom" data-app-role='chkoutMethodsShip'>
             <legend class='headerPadding' >Shipping Methods</legend>
             <div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutMethodsShipTemplate;'></div>
         </fieldset>
         
         <br />
+        <label class="shipInsur displayNone"><input class="shipInsurCB" type="checkbox" onChange="app.ext.store_acw.a.addShippingInsurance(); return false;" />Add shipping insurance to this order?</label>
         <h4 class="displayNone" id="shippingWarning">SHIPPING MAY TAKE 8-12 WEEKS DEPENDING ON YOUR LOCATION</h4>
 
 
 <!-- totals et all -->
-	<fieldset class="checkoutSummarySidebar" data-app-role='chkoutCartSummary' class='marginBottom'>
+	<fieldset class="checkoutSummarySidebar marginBottom" data-app-role='chkoutCartSummary'>
 		<legend class='headerPadding' >Summary</legend>
 		<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutCartSummaryTemplate;'></div>
 	</fieldset>
@@ -143,7 +144,7 @@ item list and summary are separate just to give more control over location.
 <div data-app-role='login'>
 	<div>If you have an account with us, please enter your password below to login</div>
 	<input class="loginEmailCheckout" type='email' name='bill/email' size='30' placeholder="email address" data-bind="var:cart(bill/email); defaultVar:cart(customer/login); format:popVal;" data-app-event='orderCreate|execBuyerEmailUpdate' /><br />
-	<div class="checkoutPWInput" data-app-role='loginPasswordContainer' class='displayNone floatRight'>
+	<div class="checkoutPWInput displayNone floatRight" data-app-role='loginPasswordContainer'>
 		<input type='password' placeholder='password' size='30' name='password' /><button data-app-event='orderCreate|execBuyerLogin'>login</button>
 	</div>
 
@@ -170,9 +171,11 @@ This template is also used in the myAccount page, which is why a default using _
 
 <section id='chkoutAddressBillTemplate'>
 
-	<div class='billCountry' data-app-role='billCountry'><select id="countrySelectorBilling" name='bill/countrycode' data-bind='var: cart(bill/countrycode); defaultVar: cart(bill/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;' required='required' data-app-event="orderCreate|execCountryUpdate" onchange="app.ext.store_acw.a.showInterShipWarning($(this).val()); return false;"></select></div>
-
-	<div><input type='text' placeholder='first name' name='bill/firstname' required='required' value='' data-bind='var: cart(bill/firstname); defaultVar: cart(bill/firstname); format:popVal;'  /></div>
+	<!--<div class='billCountry' data-app-role='billCountry'><select id="countrySelectorBilling" name='bill/countrycode' data-bind='var: cart(bill/countrycode); defaultVar: cart(bill/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;' required='required' data-app-event="orderCreate|execCountryUpdate" onchange="app.ext.store_acw.a.showInterShipWarning($(this).val()); return false;"></select></div>
+	-->
+    <div class='billCountry' data-app-role='billCountry'><select id="countrySelectorBilling" name='bill/countrycode' data-bind='var: cart(bill/countrycode); defaultVar: cart(bill/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;' required='required' data-app-event="orderCreate|execCountryUpdate" ></select></div>
+	
+    <div><input type='text' placeholder='first name' name='bill/firstname' required='required' value='' data-bind='var: cart(bill/firstname); defaultVar: cart(bill/firstname); format:popVal;'  /></div>
 	<div><input type='text' placeholder='last name' name='bill/lastname' required='required' value='' data-bind='var: cart(bill/lastname); defaultVar: cart(bill/lastname); format:popVal;'  /></div>
 
 	<div class='bill_company'><input type='text' name='bill/company' placeholder='company' value='' data-bind='var: cart(bill/company); defaultVar: cart(bill/company); format:popVal;'  /></div><!-- class is added so it can be easily disabled w/ css -->
@@ -203,7 +206,9 @@ don't add required to any inputs because if bill to ship is checked, NONE of the
 
 <section id='chkoutAddressShipTemplate'>
 
-	<div class='shipCountry' data-app-role='shipCountry'><select id="countrySelectorShipping" name='ship/countrycode' disabled="disabled" data-bind='var: cart(ship/countrycode); defaultVar: cart(ship/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;'  data-app-event="orderCreate|execCountryUpdate" onchange="app.ext.store_acw.a.showInterShipWarning(); return false;" ></select></div>
+	<!--<div class='shipCountry' data-app-role='shipCountry'><select id="countrySelectorShipping" name='ship/countrycode' disabled="disabled" data-bind='var: cart(ship/countrycode); defaultVar: cart(ship/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;'  data-app-event="orderCreate|execCountryUpdate" onchange="app.ext.store_acw.a.showInterShipWarning(); return false;" ></select></div>
+	-->
+    <div class='shipCountry' data-app-role='shipCountry'><select id="countrySelectorShipping" name='ship/countrycode' data-bind='var: cart(ship/countrycode); defaultVar: cart(ship/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;'  data-app-event="orderCreate|execCountryUpdate" ></select></div>
 
 	<div><input type='text' placeholder='first name' name='ship/firstname' required='required' value='' data-bind='var: cart(ship/firstname); defaultVar: cart(ship/firstname); format:popVal;'  /></div>
 	<div><input type='text' placeholder='last name' name='ship/lastname' required='required' value='' data-bind='var: cart(ship/lastname); defaultVar: cart(ship/lastname); format:popVal;'  /></div>

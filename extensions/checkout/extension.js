@@ -472,8 +472,8 @@ _gaq.push(['_trackEvent','Checkout','App Event','Order NOT created. error occure
 							$("input[name='bill/region']",$fieldset).attr('required','required');
 							}
 						else	{
-							$("input[name='bill/postal']",$fieldset).removeAttr('required');
-							$("input[name='bill/region']",$fieldset).removeAttr('required');
+							$("input[name='bill/postal']",$fieldset).attr('required','').removeAttr('required').removeAttr('data-minlength');
+       						$("input[name='bill/region']",$fieldset).attr('required','').removeAttr('required');
 							}
 						
 						if(app.u.validateForm($fieldset))	{valid = 1;} //the validateForm field takes care of highlighting necessary fields and hints.
@@ -1598,26 +1598,38 @@ note - the order object is available at app.data['order|'+P.orderID]
 
 			shipMethodsAsRadioButtons : function($tag,data)	{
 //				app.u.dump('BEGIN store_cart.renderFormat.shipMethodsAsRadioButtons');
+				//PART 1 SELECTOR FUNCTION FOR ADDING SHIPPING INSURANCE FOR FED EX
+				$(".shipInsur").hide();
 				var o = '';
 				var shipName,id,isSelectedMethod,safeid;  // id is actual ship id. safeid is id without any special characters or spaces. isSelectedMethod is set to true if id matches cart shipping id selected.;
 				var L = data.value.length;
+				var l = L - 1;
 				for(var i = 0; i < L; i += 1)	{
 					id = data.value[i].id; //shortcut of this shipping methods ID.
 					if(app.data.cartDetail && app.data.cartDetail.want && app.data.cartDetail.want.shipping_id == id)	{isSelectedMethod =  true;}
 					else	{isSelectedMethod =  false;}
 
 					safeid = app.u.makeSafeHTMLId(data.value[i].id);
+					app.u.dump("shipName = " +shipName);
 					shipName = app.u.isSet(data.value[i].pretty) ? data.value[i].pretty : data.value[i].name
 					o += "<li class='headerPadding "
 					if(isSelectedMethod)
 						o+= ' selected ';
-					o += "shipcon_"+safeid; 
-					o += "'><label><input type='radio' name='want/shipping_id' value='"+id+"' ";
+						o += "shipcon_"+safeid; 
+						o += "'><label><input type='radio' name='want/shipping_id' class='"+shipName+"' + value='"+id+"' ";
 					if(isSelectedMethod)
 						o += " checked='checked' "
-					o += "/>"+shipName+": <span >"+app.u.formatMoney(data.value[i].amount,'$','',false)+"<\/span><\/label><\/li>";
+						o += "/>"+shipName+": <span >"+app.u.formatMoney(data.value[i].amount,'$','',false)+"<\/span><\/label><\/li>";
+					//PART 2 SELECTOR FUNCTION FOR ADDING SHIPPING INSURANCE FOR FED EX
+					if((isSelectedMethod && id=="INTERNATIONAL_PRIORITY") || (isSelectedMethod &&  id=="INTERNATIONAL_ECONOMY") || (isSelectedMethod &&  id=="WEIGHT_1319139012" & $('#countrySelectorBilling').val() != "US")){ //ADD THIS SECTION BACK ONCE A SELECTOR FOR USPS INTERNATIONAL EXPRESS CAN BE ADDED|| (isSelectedMethod && id.indexOf('WEIGHT_') === 0 && $("#countrySelectorBilling").val() != "US")){
+						$(".shipInsur").show();
+						//app.u.dump("Showing insurance selector");
+						//app.u.dump(id);
 					}
+					}
+					
 				$tag.html(o);
+				
 				}, //shipMethodsAsRadioButtons
 
 			payMethodsAsRadioButtons : function($tag,data)	{
