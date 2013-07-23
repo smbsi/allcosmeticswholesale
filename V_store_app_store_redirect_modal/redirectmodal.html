@@ -1,9 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-<!--**COPY ALL CODE FROM BELOW ITNO ADMIN UI TO USE THE MODAL IN YOUR V-STORE**-->
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
@@ -40,10 +34,13 @@ modal.jQuery = jQuery.noConflict(true);
 //FUNCTIONS
 function handleRedirect() {
  window.location = "http://app.allcosmeticswholesale.com";
+ console.log("var Function was added");
 }
 function bugLater(){
  sessionStorage.redirectToAppSessionNoCheck = true;
  modal.jQuery('.redirectToSiteApp').dialog('close');
+ console.log("sessionStorage = " + sessionStorage.redirectToAppSessionNoCheck);
+ console.log("localStorage = " + localStorage.redirectToAppVar);
 }
 function autoRedirect(){
  localStorage.redirectToAppVar = true;
@@ -53,6 +50,8 @@ function autoRedirect(){
 function resetRedirectPreferences(){
  localStorage.redirectToAppVar = false;
  modal.jQuery(".stopFutureRedirectMessage").css("display", "block");
+ console.log("sessionStorage have now been set to: " + sessionStorage.redirectToAppSessionNoCheck);
+ console.log("localStorage have now been set to: " + localStorage.redirectToAppVar);
 }
 
 
@@ -82,6 +81,7 @@ modal.jQuery(document).ready(function() {
   '</div>').appendTo('head');
   
   if(typeof(Storage)!=="undefined"){
+   console.log("storage exists check passed");
    if(localStorage.redirectToAppVar == "true"){
     modal.jQuery('<div class="autoRedirectToSiteApp"> '+
     '<h3>Redirecting to app site. Please wait a few Seconds....</h3>' +
@@ -99,13 +99,18 @@ modal.jQuery(document).ready(function() {
     autoRedirectTimer = setTimeout(redirectTimer, 5000);
    }
    else if (sessionStorage.redirectToAppSessionNoCheck == "true"){
+    console.log("One of the two storage values was true, redirect modal is not displaying.");
    }
     else{
      modal.jQuery('.redirectToSiteApp').dialog({'modal':'true', 'width':450, height:240});
+     console.log("Neither storage value was true, displaying redirect modal");
+     console.log("sessionStorage = " + sessionStorage.redirectToAppSessionNoCheck);
+     console.log("localStorage = " + localStorage.redirectToAppVar);
     }
   }
  }
  else{
+  console.log("Storage is not supported");
  }
 });
 </script>

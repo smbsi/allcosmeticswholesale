@@ -245,10 +245,7 @@ var store_acw = function() {
 				".acw.sale.face" : "categoryProductListTemplate",
 				".acw.sale.lips" : "categoryProductListTemplate",
 				".acw.sale.nails" : "categoryProductListTemplate",
-				".acw.sale.skincare" : "categoryProductListTemplate",
-				
-				//INFORMATIONAL PAGES
-				".acw.information_page" : "informationalPageTemplate",
+				".acw.sale.skincare" : "categoryProductListTemplate"
 			},
 		},
 		
@@ -361,38 +358,6 @@ var store_acw = function() {
 				app.u.dump("running function properly");
 			},
 			
-			//function for showing/hiding the bag it button after a quantity is entered.
-			addToCartInventoryCheck : function(prodPid, input){
-				//app.u.dump(prodPid);
-				var inventory = app.ext.store_product.u.getProductInventory(prodPid);
-				//app.u.dump(inventory);
-				if(input <= inventory){
-					//display bag it button and allow them to proceed with checkout
-				}
-				else{
-					//Display warning message that quantity requested is larger than quantity in stock.
-				}
-			},
-			
-			//function for adding a shipping insurance note
-			addShippingInsurance : function(){
-				var input = $(".chkoutOrderNotes ");
-				
-				if($('.shipInsurCB').is(':checked')){
-					app.u.dump("Box is checked, checking to see if note has been added already");
-					if(input.val == "Please add shipping insurance to this order."){
-						app.u.dump("Note already added, do nothing.");
-					}
-					else{
-						app.u.dump("Note not added, adding not now.");
-						input.val( input.val() + "Please add shipping insurance to this order." );
-					}
-				}
-				else{
-					app.u.dump("Box unchecked, clearing out order notes.");
-					$(".chkoutOrderNotes").val("");
-				}
-			}
 			
 		},
 		
@@ -413,11 +378,6 @@ var store_acw = function() {
 				else{
 					//app.u.dump('Not hiding .ordersNoOrdersMess. Length is =< 0');
 				}
-			},
-			
-			//render format for displaying inventory value on the produt page.
-			inventoryCount : function($tag,data){
-				$tag.text(app.ext.store_product.u.getProductInventory(data.value));
 			},
 			
 			processListAlt : function($tag,data){
