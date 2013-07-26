@@ -2494,6 +2494,7 @@ div span .cents{
 	font-family: 'Montserrat', sans-serif;
 	margin-left:15px;
 	margin-right:50px;
+	margin-bottom:15px;
 	text-align:center;
 }
 .cartSummaryTotalsContainer h2{
@@ -2564,7 +2565,7 @@ div span .cents{
 /*************************************************************************************************************************/
 /**Helpful Links Section**/
 .cartLinks{
-	margin-top:260px;
+	margin-top:20px;
 	width: 240px;
 }
 .cartLinks div{
