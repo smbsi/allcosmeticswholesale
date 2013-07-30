@@ -1819,25 +1819,34 @@ tag = boolean. Set to true to output the <img tag. set to false or blank to just
 app.u.makeImage({"name":"","w":150,"h":150,"b":"FFFFFF","class":"prodThumb","tag":1});
 */
 		makeImage : function(a)	{
-		//	app.u.dump('W = '+a.w+' and H = '+a.h);
-
-			a.lib = app.u.isSet(a.lib) ? a.lib : app.vars.username;  //determine protocol
+//			app.u.dump(a);
+// ** 201318 -> other libs are no longer supported. forced to username
+//			a.lib = app.u.isSet(a.lib) ? a.lib : app.vars.username;  //determine protocol
 			a.m = a.m ? 'M' : '';  //default to minimal mode off. If anything true value (not 0, false etc) is passed in as m, minimal is turned on.
 //			app.u.dump(' -> library: '+a.lib+' and name: '+a.name);
 			if(a.name == null) { a.name = 'i/imagenotfound'; }
-			
+
 			var url, tag;
 			// alert(a.lib);		// uncomment then go into media library for some really wonky behavior 
-		
+
 		//default height and width to blank. setting it to zero or NaN is bad for IE.
 			if(a.h == null || a.h == 'undefined' || a.h == 0)
 				a.h = '';
 			if(a.w == null || a.w == 'undefined' || a.w == 0)
 				a.w = '';
-			
-			url = location.protocol === 'https:' ? 'https:' : 'http:';  //determine protocol
-			url += '\/\/static.zoovy.com\/img\/'+a.lib+'\/';
-		
+// *** 201318 -> new url for media library.			
+//			url = location.protocol === 'https:' ? 'https:' : 'http:';  //determine protocol
+//			url += '\/\/static.zoovy.com\/img\/'+a.lib+'\/';
+//In an admin session, the config.js isn't loaded. The secure domain is set as a global var when a domain is selected or can be retrieved from adminDomainList
+			if(app.vars.thisSessionIsAdmin)	{
+				url = 'https:\/\/'+(app.vars.https_domain || app.ext.admin.a.getDataForDomain(app.vars.domain,'https'))+"\/"
+				url += "media\/img\/"+app.vars.username+"\/";
+				}
+			else	{
+				url = location.protocol === 'https:' ? zGlobals.appSettings.https_app_url : zGlobals.appSettings.http_app_url;
+				url += "media\/img\/"+app.vars.username+"\/";
+				}
+
 			if((a.w == '') && (a.h == ''))
 				url += '-';
 			else	{
@@ -1856,14 +1865,24 @@ app.u.makeImage({"name":"","w":150,"h":150,"b":"FFFFFF","class":"prodThumb","tag
 				url = url.slice(0,url.length-1); //strip trailing - because it isn't stricly 'compliant' with media lib specs.
 				}
 			url += '\/'+a.name;
-		
-		//		app.u.dump(url);
-			
+
+//			app.u.dump(" -> URL: "+url);
+
 			if(a.tag == true)	{
 				a['class'] = typeof a['class'] == 'string' ? a['class'] : ''; //default class to blank
 				a['id'] = typeof a['id'] == 'string' ? a['id'] : 'img_'+a.name; // default id to filename (more or less)
 				a['alt'] = typeof a['alt'] == 'string' ? a['alt'] : a.name; //default alt text to filename
-				var tag = "<img src='"+url+"' alt='"+a.alt+"' id='"+a['id']+"' class='"+a['class']+"' \/>";
+// ** 201318 if width and height are present, they are added to the tag.  This solves an issue that occurs in loading
+//	pic sliders where the width of the images, and thus the scroll amount, is not calculated correctly the first time
+//	the slider loads
+				var tag = "<img src='"+url+"' alt='"+a.alt+"' id='"+a['id']+"' class='"+a['class']+"'"
+				if(a.w){
+					tag+=" width='"+a.w+"'";
+				}
+				if(a.h){
+					tag+=" height='"+a.h+"'";
+				}
+				tag += " \/>";
 				return tag;
 				}
 			else	{
