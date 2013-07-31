@@ -2988,7 +2988,7 @@ else	{
 							app.calls.cartItemAppend.init(cartObj,{'callback':function(rd){
 							if(obj.action === "message"){
 							  app.u.dump(rd);
-							  app.u.throwMessage("Product successfully added to cart");
+							  //app.u.throwMessage("Product successfully added to cart");
 							  $(".addToCartButton", $form).html("Added to cart!");
 							  $(".addToCartButton", $form).css("font-size", "18px");
 							  $(".addToCartButton", $form).css("background-color", "#FF3D7F");
