@@ -171,10 +171,10 @@ This template is also used in the myAccount page, which is why a default using _
 
 <section id='chkoutAddressBillTemplate'>
 
-	<!--<div class='billCountry' data-app-role='billCountry'><select id="countrySelectorBilling" name='bill/countrycode' data-bind='var: cart(bill/countrycode); defaultVar: cart(bill/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;' required='required' data-app-event="orderCreate|execCountryUpdate" onchange="app.ext.store_acw.a.showInterShipWarning($(this).val()); return false;"></select></div>
-	-->
+	<div class='billCountry' data-app-role='billCountry'><select id="countrySelectorBilling" name='bill/countrycode' data-bind='var: cart(bill/countrycode); defaultVar: cart(bill/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;' required='required' data-app-event="orderCreate|execCountryUpdate" onchange="app.ext.store_acw.a.showInterShipWarning($(this).val()); return false;"></select></div>
+	<!--
     <div class='billCountry' data-app-role='billCountry'><select id="countrySelectorBilling" name='bill/countrycode' data-bind='var: cart(bill/countrycode); defaultVar: cart(bill/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;' required='required' data-app-event="orderCreate|execCountryUpdate" ></select></div>
-	
+	-->
     <div><input type='text' placeholder='first name' name='bill/firstname' required='required' value='' data-bind='var: cart(bill/firstname); defaultVar: cart(bill/firstname); format:popVal;'  /></div>
 	<div><input type='text' placeholder='last name' name='bill/lastname' required='required' value='' data-bind='var: cart(bill/lastname); defaultVar: cart(bill/lastname); format:popVal;'  /></div>
 
@@ -206,10 +206,10 @@ don't add required to any inputs because if bill to ship is checked, NONE of the
 
 <section id='chkoutAddressShipTemplate'>
 
-	<!--<div class='shipCountry' data-app-role='shipCountry'><select id="countrySelectorShipping" name='ship/countrycode' disabled="disabled" data-bind='var: cart(ship/countrycode); defaultVar: cart(ship/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;'  data-app-event="orderCreate|execCountryUpdate" onchange="app.ext.store_acw.a.showInterShipWarning(); return false;" ></select></div>
-	-->
+	<div class='shipCountry' data-app-role='shipCountry'><select id="countrySelectorShipping" name='ship/countrycode' data-bind='var: cart(ship/countrycode); defaultVar: cart(ship/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;'  data-app-event="orderCreate|execCountryUpdate" onchange="app.ext.store_acw.a.showInterShipWarning($(this).val()); return false;" ></select></div>
+	<!--
     <div class='shipCountry' data-app-role='shipCountry'><select id="countrySelectorShipping" name='ship/countrycode' data-bind='var: cart(ship/countrycode); defaultVar: cart(ship/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;'  data-app-event="orderCreate|execCountryUpdate" ></select></div>
-
+	-->
 	<div><input type='text' placeholder='first name' name='ship/firstname' required='required' value='' data-bind='var: cart(ship/firstname); defaultVar: cart(ship/firstname); format:popVal;'  /></div>
 	<div><input type='text' placeholder='last name' name='ship/lastname' required='required' value='' data-bind='var: cart(ship/lastname); defaultVar: cart(ship/lastname); format:popVal;'  /></div>
 
