@@ -226,13 +226,6 @@ app.rq.push(['templateFunction','categoryTemplate','onInits',function(P)
 	
 app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) 
 {
-	if(app.ext.store_acw.vars.scrollPosArrayIndex === 0){
-		window.scrollTo(0, app.ext.store_acw.vars.scrollPosHist[app.ext.store_acw.vars.scrollPosArrayIndex]);
-	}
-	else{
-			app.ext.store_acw.vars.scrollPosArrayIndex = app.ext.store_acw.vars.scrollPosArrayIndex - 1;
-			window.scrollTo(0, app.ext.store_acw.vars.scrollPosHist[app.ext.store_acw.vars.scrollPosArrayIndex]);
-		}
 	/*
 	//Carousel horizontal sliders - homepage search lists
 	var carouselCatSearch;
