@@ -226,7 +226,14 @@ app.rq.push(['templateFunction','categoryTemplate','onInits',function(P)
 	
 app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) 
 {
-	
+	if(app.ext.store_acw.vars.scrollPosArrayIndex === 0){
+		window.scrollTo(0, app.ext.store_acw.vars.scrollPosHist[app.ext.store_acw.vars.scrollPosArrayIndex]);
+	}
+	else{
+			app.ext.store_acw.vars.scrollPosArrayIndex = app.ext.store_acw.vars.scrollPosArrayIndex - 1;
+			window.scrollTo(0, app.ext.store_acw.vars.scrollPosHist[app.ext.store_acw.vars.scrollPosArrayIndex]);
+		}
+	/*
 	//Carousel horizontal sliders - homepage search lists
 	var carouselCatSearch;
 	function foo5(){ $(".carouselCatSearchList").carouFredSel
@@ -292,6 +299,7 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P)
 	}
 	carouselCatSearchPaginationTitleBottom = foo7;
 	setTimeout(carouselCatSearchPaginationTitleBottom, 2000);
+	*/
 	
 	//START REMOVE TIMER TO REMOVE PAGE FROM DOM, FORCING A REFRESH.
 //	  app.u.dump("start cat removal test function");
@@ -347,14 +355,50 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P)
 }]);*/
 
 
-/*
+
 app.rq.push(['templateFunction','categoryTemplate','onDeparts',function(P) 
 {
+	/*
 	app.u.dump("Destroying recently created container.");
 	//Destroys the recently viewed element so that it can be used in other cat pages.
 	$(".recentlyViewedBuildContainer").empty();
-	}]);
-*/
+	*/
+	
+	if(app.ext.store_acw.vars.scrollPosHist === ""){
+		app.u.dump("app.ext.store_acw.vars.scrollPosHist is null");
+		app.ext.store_acw.vars.scrollPosHist = window.pageYOffset;
+		app.ext.store_acw.vars.scrollPosArrayIndex = 0;
+		app.u.dump("app.ext.store_acw.vars.scrollPosHist = " + app.ext.store_acw.vars.scrollPosHist);
+		app.u.dump("app.ext.store_acw.vars.scrollPosArrayIndex = " + app.ext.store_acw.vars.scrollPosArrayIndex);
+	}
+	else{
+		if(app.ext.store_acw.vars.scrollPosArrayIndex === 0){
+			app.u.dump("app.ext.store_acw.vars.scrollPosHist is 0");
+			var newArray = new Array();
+			var currentIndex = app.ext.store_acw.vars.scrollPosArrayIndex;
+			newArray[0] = app.ext.store_acw.vars.scrollPosHist;
+			newArray[1] = window.pageYOffset;
+			app.ext.store_acw.vars.scrollPosHist = newArray;
+			currentIndex = currentIndex + 1;
+			app.ext.store_acw.vars.scrollPosArrayIndex = currentIndex;
+			app.u.dump("app.ext.store_acw.vars.scrollPosHist = " + app.ext.store_acw.vars.scrollPosHist);
+			app.u.dump("app.ext.store_acw.vars.scrollPosArrayIndex = " + app.ext.store_acw.vars.scrollPosArrayIndex);
+		}
+		else{
+			app.u.dump("app.ext.store_acw.vars.scrollPosHist does not = 0");
+			var oldArray = new Array();
+			var currentIndex = app.ext.store_acw.vars.scrollPosArrayIndex;
+			oldArray = app.ext.store_acw.vars.scrollPosHist;
+			currentIndex = currentIndex + 1;
+			oldArray[currentIndex] = window.pageYOffset;
+			app.ext.store_acw.vars.scrollPosHist = oldArray;
+			app.ext.store_acw.vars.scrollPosArrayIndex = currentIndex;
+			app.u.dump("app.ext.store_acw.vars.scrollPosHist = " + app.ext.store_acw.vars.scrollPosHist);
+			app.u.dump("app.ext.store_acw.vars.scrollPosArrayIndex = " + app.ext.store_acw.vars.scrollPosArrayIndex);
+		}
+	}
+}]);
+
 
 
 
