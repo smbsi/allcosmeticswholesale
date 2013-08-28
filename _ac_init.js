@@ -219,13 +219,101 @@ app.rq.push(['templateFunction','categoryTemplate','onInits',function(P)
 	}
 }]);	
 */	
-	
+
+function addScrollPosSet(){
+	for( var t in app.ext.myRIA.template ){
+	  if(app.ext.myRIA.template[t].onDeparts){
+		app.ext.myRIA.template[t].onDeparts.push(function(){
+			if(app.ext.store_acw.vars.scrollPosBackHit === 1){
+				app.u.dump("Begin returning scroll position to previous location");
+				app.u.dump("back button was hit.");
+				app.u.dump(app.ext.store_acw.vars.scrollPosBackHit);
+				app.u.dump("app.ext.store_acw.vars.scrollPosArrayIndex = " + app.ext.store_acw.vars.scrollPosArrayIndex);
+				app.u.dump("app.ext.store_acw.vars.scrollPosHist[app.ext.store_acw.vars.scrollPosArrayIndex] = " + app.ext.store_acw.vars.scrollPosHist[app.ext.store_acw.vars.scrollPosArrayIndex]);
+				if(app.ext.store_acw.vars.scrollPosArrayIndex === 0){
+					function scrollToPosition1(){
+						$('html, body').animate({scrollTop : app.ext.store_acw.vars.scrollPosHist[app.ext.store_acw.vars.scrollPosArrayIndex]},1000);
+						app.ext.store_acw.vars.scrollPosBackHit = 0;
+						app.u.dump("app.ext.store_acw.vars.scrollPosArrayIndex = 0");
+						app.u.dump("app.ext.store_acw.vars.scrollPosHist[app.ext.store_acw.vars.scrollPosArrayIndex] = " + app.ext.store_acw.vars.scrollPosHist[app.ext.store_acw.vars.scrollPosArrayIndex]);
+						app.u.dump("Ran scrollToPosition1");
+					}
+					setTimeout(scrollToPosition1, 2000);
+				}
+				else{
+						function scrollToPosition2(){
+							app.u.dump("Begin returning scroll position to previous location");
+							//app.u.dump("app.ext.store_acw.vars.scrollPosArrayIndex before reduction = " + app.ext.store_acw.vars.scrollPosArrayIndex);
+							app.ext.store_acw.vars.scrollPosArrayIndex = app.ext.store_acw.vars.scrollPosArrayIndex - 1;
+							app.u.dump("index passed into scrollTo = " + app.ext.store_acw.vars.scrollPosArrayIndex);
+							app.u.dump("app.ext.store_acw.vars.scrollPosHist = " + app.ext.store_acw.vars.scrollPosHist);
+							app.u.dump("app.ext.store_acw.vars.scrollPosHist[app.ext.store_acw.vars.scrollPosArrayIndex] = " + app.ext.store_acw.vars.scrollPosHist[app.ext.store_acw.vars.scrollPosArrayIndex]);
+							$('html, body').animate({scrollTop : app.ext.store_acw.vars.scrollPosHist[app.ext.store_acw.vars.scrollPosArrayIndex]},1000);
+							app.ext.store_acw.vars.scrollPosBackHit = 0;
+							app.ext.store_acw.vars.scrollPosArrayIndex = app.ext.store_acw.vars.scrollPosArrayIndex - 1;
+							app.u.dump("Ran scrollToPosition2");
+						}
+						setTimeout(scrollToPosition2, 2000);
+				}
+			}
+		});
+	  }
+	}
+}
+setTimeout(addScrollPosSet, 5000);
+
+function addScrollPosStoring(){
+	for( var t in app.ext.myRIA.template ){
+	  if(app.ext.myRIA.template[t].onCompletes){
+		app.ext.myRIA.template[t].onCompletes.push(function(){
+			app.u.dump("Begin adding scroll position to array");
+			app.u.dump("app.ext.store_acw.vars.scrollPosBackHit = " + app.ext.store_acw.vars.scrollPosBackHit);
+			if(app.ext.store_acw.vars.scrollPosHist === ""){
+				app.u.dump("app.ext.store_acw.vars.scrollPosHist is null");
+				app.ext.store_acw.vars.scrollPosHist = window.pageYOffset;
+				app.ext.store_acw.vars.scrollPosArrayIndex = 0;
+				app.u.dump("app.ext.store_acw.vars.scrollPosHist = " + app.ext.store_acw.vars.scrollPosHist);
+				app.u.dump("app.ext.store_acw.vars.scrollPosArrayIndex = " + app.ext.store_acw.vars.scrollPosArrayIndex);
+			}
+			else{
+				if(app.ext.store_acw.vars.scrollPosArrayIndex === 0){
+					app.u.dump("app.ext.store_acw.vars.scrollPosHist is 0");
+					var newArray = new Array();
+					var currentIndex = app.ext.store_acw.vars.scrollPosArrayIndex;
+					newArray[0] = app.ext.store_acw.vars.scrollPosHist;
+					newArray[1] = window.pageYOffset;
+					app.ext.store_acw.vars.scrollPosHist = newArray;
+					currentIndex = currentIndex + 1;
+					app.ext.store_acw.vars.scrollPosArrayIndex = currentIndex;
+					app.u.dump("app.ext.store_acw.vars.scrollPosHist = " + app.ext.store_acw.vars.scrollPosHist);
+					app.u.dump("app.ext.store_acw.vars.scrollPosArrayIndex = " + app.ext.store_acw.vars.scrollPosArrayIndex);
+				}
+				else{
+					app.u.dump("app.ext.store_acw.vars.scrollPosHist does not = 0");
+					var oldArray = new Array();
+					var currentIndex = app.ext.store_acw.vars.scrollPosArrayIndex;
+					oldArray = app.ext.store_acw.vars.scrollPosHist;
+					currentIndex = currentIndex + 1;
+					oldArray[currentIndex] = window.pageYOffset;
+					app.ext.store_acw.vars.scrollPosHist = oldArray;
+					app.ext.store_acw.vars.scrollPosArrayIndex = currentIndex;
+					app.u.dump("app.ext.store_acw.vars.scrollPosHist = " + app.ext.store_acw.vars.scrollPosHist);
+					app.u.dump("app.ext.store_acw.vars.scrollPosArrayIndex = " + app.ext.store_acw.vars.scrollPosArrayIndex);
+				}
+			}
+		});
+	  }
+	}
+}
+setTimeout(addScrollPosStoring, 5000);
 	
 	
 	
 	
 app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) 
 {
+	
+	
 	/*
 	//Carousel horizontal sliders - homepage search lists
 	var carouselCatSearch;
@@ -356,40 +444,6 @@ app.rq.push(['templateFunction','categoryTemplate','onDeparts',function(P)
 	//Destroys the recently viewed element so that it can be used in other cat pages.
 	$(".recentlyViewedBuildContainer").empty();
 	*/
-	
-	if(app.ext.store_acw.vars.scrollPosHist === ""){
-		app.u.dump("app.ext.store_acw.vars.scrollPosHist is null");
-		app.ext.store_acw.vars.scrollPosHist = window.pageYOffset;
-		app.ext.store_acw.vars.scrollPosArrayIndex = 0;
-		app.u.dump("app.ext.store_acw.vars.scrollPosHist = " + app.ext.store_acw.vars.scrollPosHist);
-		app.u.dump("app.ext.store_acw.vars.scrollPosArrayIndex = " + app.ext.store_acw.vars.scrollPosArrayIndex);
-	}
-	else{
-		if(app.ext.store_acw.vars.scrollPosArrayIndex === 0){
-			app.u.dump("app.ext.store_acw.vars.scrollPosHist is 0");
-			var newArray = new Array();
-			var currentIndex = app.ext.store_acw.vars.scrollPosArrayIndex;
-			newArray[0] = app.ext.store_acw.vars.scrollPosHist;
-			newArray[1] = window.pageYOffset;
-			app.ext.store_acw.vars.scrollPosHist = newArray;
-			currentIndex = currentIndex + 1;
-			app.ext.store_acw.vars.scrollPosArrayIndex = currentIndex;
-			app.u.dump("app.ext.store_acw.vars.scrollPosHist = " + app.ext.store_acw.vars.scrollPosHist);
-			app.u.dump("app.ext.store_acw.vars.scrollPosArrayIndex = " + app.ext.store_acw.vars.scrollPosArrayIndex);
-		}
-		else{
-			app.u.dump("app.ext.store_acw.vars.scrollPosHist does not = 0");
-			var oldArray = new Array();
-			var currentIndex = app.ext.store_acw.vars.scrollPosArrayIndex;
-			oldArray = app.ext.store_acw.vars.scrollPosHist;
-			currentIndex = currentIndex + 1;
-			oldArray[currentIndex] = window.pageYOffset;
-			app.ext.store_acw.vars.scrollPosHist = oldArray;
-			app.ext.store_acw.vars.scrollPosArrayIndex = currentIndex;
-			app.u.dump("app.ext.store_acw.vars.scrollPosHist = " + app.ext.store_acw.vars.scrollPosHist);
-			app.u.dump("app.ext.store_acw.vars.scrollPosArrayIndex = " + app.ext.store_acw.vars.scrollPosArrayIndex);
-		}
-	}
 }]);
 
 

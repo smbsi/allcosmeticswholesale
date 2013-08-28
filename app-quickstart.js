@@ -1939,6 +1939,7 @@ if(ps.indexOf('?') >= 1)	{
 //				app.u.dump("BEGIN handlePopState");
 //				app.u.dump(infoObj);
 
+				app.ext.store_acw.vars.scrollPosBackHit = 1;
 //on initial load, infoObj will be blank.
 				if(infoObj)	{
 					infoObj.back = 0;
@@ -3048,7 +3049,7 @@ else	{
 			createTemplateFunctions : function()	{
 
 				app.ext.myRIA.template = {};
-				var pageTemplates = new Array('categoryTemplate','productTemplate','companyTemplate','customerTemplate','homepageTemplate','searchTemplate','cartTemplate','checkoutTemplate','pageNotFoundTemplate');
+				var pageTemplates = new Array('categoryTemplate','categoryProductListTemplate','productTemplate','companyTemplate','customerTemplate','homepageTemplate','searchTemplate','cartTemplate','checkoutTemplate','pageNotFoundTemplate');
 				var L = pageTemplates.length;
 				for(var i = 0; i < L; i += 1)	{
 					app.ext.myRIA.template[pageTemplates[i]] = {"onCompletes":[],"onInits":[],"onDeparts":[]};

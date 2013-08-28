@@ -251,6 +251,7 @@ var store_acw = function() {
 				".acw.information_page" : "informationalPageTemplate",
 			},
 			scrollPosHist : "",
+			scrollPosBackHit : "",
 			scrollPosArrayIndex : ""
 		},
 		
