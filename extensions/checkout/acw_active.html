@@ -15,11 +15,18 @@ item list and summary are separate just to give more control over location.
 
 	<div class="checkoutContainer">
     
+    	<div class="checkoutByPayPalContainer">
+        	<p>Want to checkout with Paypal? Click the button to get started!
+        	<span id='paypalECButton' data-bind='var: cart(cart/cartid); format:paypalECButton;'></span>
+        </div>
+    
+    
     	<!-- line items -->	
         <fieldset data-app-role='chkoutCartItemsList' class='marginBottom'>
             <legend class='headerPadding' >Contents</legend>
             <div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutCartContentsTemplate;'></div>
         </fieldset>
+        
     
         <!-- define panel order -->
         <fieldset data-app-role='chkoutPreflight' class='marginBottom'>

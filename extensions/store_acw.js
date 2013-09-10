@@ -315,8 +315,8 @@ var store_acw = function() {
 				//countrySelectorShipping
 				//console.debug(val);
 				
-				$("#countrySelectorShipping").val(val);
-				$("#countrySelectorBilling").val(val);
+				//$("#countrySelectorShipping").val(val);
+				//$("#countrySelectorBilling").val(val);
 				
 				//var $options = $("#countrySelectorBilling > option").clone();
 				//$('#countrySelectorShipping').append($options);
