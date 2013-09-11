@@ -2566,6 +2566,9 @@ div span .cents{
 	clear: left;
     float: left;
 }
+.checkoutLoginPassCont{
+	float:left;
+}
 .checkoutLoginPassCont button{
 	margin-top:2px !important;
 }
@@ -2574,6 +2577,7 @@ div span .cents{
 .cartLinks{
 	margin-top:20px;
 	width: 240px;
+	float:left;
 }
 .cartLinks div{
 	width:100px;
