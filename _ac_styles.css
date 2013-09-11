@@ -2576,6 +2576,10 @@ div span .cents{
 	float:left;
 	clear:left;
 }
+.checkoutLoginPassCont button{
+	float:left;
+	clear:left;
+}
 /*************************************************************************************************************************/
 /**Helpful Links Section**/
 .cartLinks{
