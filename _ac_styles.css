@@ -2572,6 +2572,10 @@ div span .cents{
 .checkoutLoginPassCont button{
 	margin-top:2px !important;
 }
+.checkoutLoginPassCont label{
+	float:left;
+	clear:left;
+}
 /*************************************************************************************************************************/
 /**Helpful Links Section**/
 .cartLinks{
