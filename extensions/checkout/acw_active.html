@@ -23,9 +23,9 @@ item list and summary are separate just to give more control over location.
     
     	<!-- line items -->	
         <fieldset data-app-role='chkoutCartItemsList' class='marginBottom'>
-            <legend class='headerPadding' >Contents</legend>
-            <div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutCartContentsTemplate;'></div>
-        </fieldset>
+		<legend class='headerPadding' >Contents</legend>
+		<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutCartContentsTemplate;'></div>
+	</fieldset>
         
     
         <!-- define panel order -->
@@ -71,6 +71,7 @@ item list and summary are separate just to give more control over location.
         </fieldset>
     
     
+
         
         <fieldset data-app-role='chkoutMethodsPay' class='marginBottom'>
             <legend class='headerPadding' >Payment Choices</legend>
@@ -88,10 +89,10 @@ item list and summary are separate just to give more control over location.
     </div>
     
     
-    <fieldset class="checkoutShipSidebar marginBottom" data-app-role='chkoutMethodsShip'>
-            <legend class='headerPadding' >Shipping Methods</legend>
-            <div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutMethodsShipTemplate;'></div>
-        </fieldset>
+    <fieldset class="checkoutShipSidebar marginBottom" data-app-role='chkoutMethodsShip' class='marginBottom'>
+		<legend class='headerPadding' >Shipping Methods</legend>
+		<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutMethodsShipTemplate;'></div>
+	</fieldset>
         
         <br />
         <label class="shipInsur displayNone"><input class="shipInsurCB" type="checkbox" onChange="app.ext.store_acw.a.addShippingInsurance(); return false;" />Add shipping insurance to this order?</label>
@@ -149,12 +150,14 @@ item list and summary are separate just to give more control over location.
 <h4 class='displayNone' data-app-role='username' data-bind="var:cart(bill/email); defaultVar: cart(customer/login); format:text;"></h4>
 
 <div data-app-role='login'>
+	<div data-app-role='loginPasswordContainer' class='displayNone floatRight'>
 	<div>If you have an account with us, please enter your password below to login</div>
 	<input class="loginEmailCheckout" type='email' name='bill/email' size='30' placeholder="email address" data-bind="var:cart(bill/email); defaultVar:cart(customer/login); format:popVal;" data-app-event='orderCreate|execBuyerEmailUpdate' /><br />
 	<div class="checkoutPWInput displayNone floatRight" data-app-role='loginPasswordContainer'>
 		<input type='password' placeholder='password' size='30' name='password' /><button data-app-event='orderCreate|execBuyerLogin'>login</button>
 	</div>
 
+	<input type='email' name='bill/email' size='30' placeholder="email address" data-bind="var:cart(bill/email); defaultVar:cart(customer/login); format:popVal;" data-app-event='orderCreate|execBuyerEmailUpdate' /><br />
 	<label class='accountCreateContainer'><input type='checkbox' name='want/create_customer' data-app-event='orderCreate|tagAsAccountCreate' />Create a new account</label>
 	
 
@@ -178,7 +181,7 @@ This template is also used in the myAccount page, which is why a default using _
 
 <section id='chkoutAddressBillTemplate'>
 
-	<div class='billCountry' data-app-role='billCountry'><select id="countrySelectorBilling" name='bill/countrycode' data-bind='var: cart(bill/countrycode); defaultVar: cart(bill/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;' required='required' data-app-event="orderCreate|execCountryUpdate" onchange="app.ext.store_acw.a.showInterShipWarning($(this).val()); return false;"></select></div>
+	<div class='billCountry' data-app-role='billCountry'><select name='bill/countrycode' data-bind='var: cart(bill/countrycode); defaultVar: cart(bill/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;' required='required' data-app-event="orderCreate|execCountryUpdate" onchange="app.ext.store_acw.a.showInterShipWarning($(this).val()); return false;"></select></div>
 	<!--
     <div class='billCountry' data-app-role='billCountry'><select id="countrySelectorBilling" name='bill/countrycode' data-bind='var: cart(bill/countrycode); defaultVar: cart(bill/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;' required='required' data-app-event="orderCreate|execCountryUpdate" ></select></div>
 	-->
@@ -213,7 +216,7 @@ don't add required to any inputs because if bill to ship is checked, NONE of the
 
 <section id='chkoutAddressShipTemplate'>
 
-	<div class='shipCountry' data-app-role='shipCountry'><select id="countrySelectorShipping" name='ship/countrycode' data-bind='var: cart(ship/countrycode); defaultVar: cart(ship/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;'  data-app-event="orderCreate|execCountryUpdate" onchange="app.ext.store_acw.a.showInterShipWarning($(this).val()); return false;" ></select></div>
+	<div class='shipCountry' data-app-role='shipCountry'><select name='ship/countrycode' data-bind='var: cart(ship/countrycode); defaultVar: cart(ship/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;'  data-app-event="orderCreate|execCountryUpdate" onchange="app.ext.store_acw.a.showInterShipWarning($(this).val()); return false;" ></select></div>
 	<!--
     <div class='shipCountry' data-app-role='shipCountry'><select id="countrySelectorShipping" name='ship/countrycode' data-bind='var: cart(ship/countrycode); defaultVar: cart(ship/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;'  data-app-event="orderCreate|execCountryUpdate" ></select></div>
 	-->
@@ -342,7 +345,7 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
 <table class='fullWidth gridTable'>
 <thead>
 <tr>
-	<th colspan='2' class='alignLeft'></th>
+	<th colspan='2' class='alignLeft'>product information</th>
 	<th class='alignRight'>qty</th>
 	<th class='alignRight'>price</th>
 	<th class='alignRight'>item total</th>

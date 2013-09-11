@@ -158,6 +158,25 @@ a callback was also added which just executes this call, so that checkout COULD 
 			},//cartOrderCreate
 
 
+		cartPaypalSetExpressCheckout : {
+			init : function(obj,_tag,Q)	{
+				this.dispatch(obj,_tag,Q);
+				return 1;
+				},
+			dispatch : function(obj,_tag,Q)	{
+				obj = obj || {};
+				obj._tag = _tag || {};
+				var parentID = obj._tag.parentID || '';
+				obj._cmd = "cartPaypalSetExpressCheckout";
+				obj.cancelURL = (app.vars._clientid == '1pc') ? zGlobals.appSettings.https_app_url+"c="+app.vars.cartID+"/cart.cgis?parentID="+parentID : zGlobals.appSettings.https_app_url+"?_session="+app.vars._session+"parentID="+parentID+"&cartID="+app.vars.cartID+"#cart?show=inline";
+				obj.returnURL =  (app.vars._clientid == '1pc') ? zGlobals.appSettings.https_app_url+"c="+app.vars.cartID+"/checkout.cgis?parentID="+parentID : zGlobals.appSettings.https_app_url+"?_session="+app.vars._session+"parentID="+parentID+"&cartID="+app.vars.cartID+"#checkout?show=checkout";
+				
+				obj._tag.datapointer = "cartPaypalSetExpressCheckout";
+				
+				app.model.addDispatchToQ(obj,Q || 'immutable');
+				}
+			}, //cartPaypalSetExpressCheckout	
+
 /*
 
 THESE STILL NEED LOVE
@@ -187,24 +206,6 @@ left them be to provide guidance later.
 				}
 			}, //cartGoogleCheckoutURL	
 
-		cartPaypalSetExpressCheckout : {
-			init : function(obj,_tag,Q)	{
-				this.dispatch(obj,_tag,Q);
-				return 1;
-				},
-			dispatch : function(obj,_tag,Q)	{
-				var parentID = _tag.parentID || '';
-				obj = obj || {};
-				obj._cmd = "cartPaypalSetExpressCheckout";
-				obj.cancelURL = (app.vars._clientid == '1pc') ? zGlobals.appSettings.https_app_url+"c="+app.vars.cartID+"/cart.cgis?parentID="+parentID : zGlobals.appSettings.https_app_url+"?parentID="+parentID+"&cartID="+app.vars.cartID+"#cart?show=inline";
-				obj.returnURL =  (app.vars._clientid == '1pc') ? zGlobals.appSettings.https_app_url+"c="+app.vars.cartID+"/checkout.cgis?parentID="+parentID : zGlobals.appSettings.https_app_url+"?parentID="+parentID+"&cartID="+app.vars.cartID+"#checkout?show=checkout"
-				
-				obj._tag = _tag || {};
-				obj._tag.datapointer = "cartPaypalSetExpressCheckout";
-				
-				app.model.addDispatchToQ(obj,Q || 'immutable');
-				}
-			}, //cartPaypalSetExpressCheckout	
 
 		cartAmazonPaymentURL : {
 			init : function()	{
@@ -261,17 +262,6 @@ left them be to provide guidance later.
 				},
 			onError : function(responseData,uuid)	{
 				$('#chkoutPlaceOrderBtn').removeAttr('disabled').removeClass('ui-state-disabled'); // re-enable checkout button on checkout page.
-				app.u.throwMessage(responseData,uuid);
-				}
-			},
-
-		handleCartPaypalSetECResponse : {
-			onSuccess : function(tagObj)	{
-				app.u.dump('BEGIN cco.callbacks.handleCartPaypalSetECResponse.onSuccess');
-				window.location = app.data[tagObj.datapointer].URL
-				},
-			onError : function(responseData,uuid)	{
-				$('#chkoutPlaceOrderBtn').removeAttr('disabled').removeClass('ui-state-disabled'); // re-enable checkout button on cart page.
 				app.u.throwMessage(responseData,uuid);
 				}
 			}
@@ -707,7 +697,7 @@ the dom update for the lineitem needs to happen last so that the cart changes ar
 // to save from bill to bill, pass bill,bill. to save from bill to ship, pass bill,ship
 					var populateAddressFromShortcut = function(fromAddr,toAddr)	{
 						var addr = app.ext.cco.u.getAddrObjByID(fromAddr,formObj[fromAddr+'/shortcut']);
-						for(index in addr)	{
+						for(var index in addr)	{
 							if(index.indexOf(fromAddr+'/') == 0)	{ //looking for bill/ means fields like id and shortcut won't come over, which is desired behavior.
 								if(fromAddr == toAddr)	{
 									formObj[index] = addr[index];
@@ -734,13 +724,16 @@ the dom update for the lineitem needs to happen last so that the cart changes ar
 						}
 //bill to ship, but no short cut (not logged in)
 					else if(formObj['want/bill_to_ship'])	{
-						for(index in formObj)	{
+						for(var index in formObj)	{
 //copy billing fields into shipping. not email tho.
 							if(index.indexOf('bill/') == 0 && index != 'bill/email')	{ 
 								formObj[index.replace('bill/','ship/')] = formObj[index]
 								}
 							}
 						}
+//regularize checkbox data.
+					if(formObj['want/bill_to_ship'] == 'ON')	{formObj['want/bill_to_ship'] = 1} 
+					if(formObj['want/create_customer'] == 'ON')	{formObj['want/create_customer'] = 1}
 
 //these aren't valid checkout field. used only for some logic processing.
 					delete formObj['want/reference_number'];

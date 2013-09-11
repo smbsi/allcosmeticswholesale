@@ -29,7 +29,6 @@ var store_product = function() {
 
 
 
-
 					////////////////////////////////////   CALLS    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\		
 
 
@@ -409,7 +408,7 @@ $display.appendTo($tag);
 
 //will remove the add to cart button if the item is not purchaseable.
 			addToCartButton : function($tag,data)	{
-				//app.u.dump("BEGIN store_product.renderFunctions.addToCartButton");
+//				app.u.dump("BEGIN store_product.renderFunctions.addToCartButton");
 //				app.u.dump(" -> ID before any manipulation: "+$tag.attr('id'));
 				var pid = data.value;
 				var pData = app.data['appProductGet|'+pid];
@@ -443,19 +442,18 @@ it is a parent
 it has no inventory AND inventory matters to merchant 
 */
 			productIsPurchaseable : function(pid)	{
-				//app.u.dump("BEGIN store_product.u.productIsPurchaseable");
-				//app.u.dump("pid = " + pid);
+//				app.u.dump("BEGIN store_product.u.productIsPurchaseable");
 				var r = true;  //returns true if purchaseable, false if not or error.
 				if(!pid)	{
-					//app.u.dump("ERROR! pid not passed into store_product.u.productIsPurchaseable");
+					app.u.dump("ERROR! pid not passed into store_product.u.productIsPurchaseable");
 					r = false;
 					}
 				else if(app.data['appProductGet|'+pid]['%attribs']['zoovy:base_price'] == '')	{
-					//app.u.dump(" -> base price not set: "+pid);
+//					app.u.dump(" -> base price not set: "+pid);
 					r = false;
 					}
 				else if(app.data['appProductGet|'+pid]['%attribs']['zoovy:grp_type'] == 'PARENT')	{
-					//app.u.dump(" -> product is a parent: "+pid);
+//					app.u.dump(" -> product is a parent: "+pid);
 					r = false;
 					}
 //inventory mode of 1 will allow selling more than what's in stock, so skip any inv validating if == 1.
@@ -465,12 +463,12 @@ it has no inventory AND inventory matters to merchant
 // ex: app.data["appProductGet|"+PID]["@inventory"][PID].inv
 // also avail is ...[PID].res (reserved)
 					if(typeof app.data['appProductGet|'+pid]['@inventory'] === 'undefined' || typeof app.data['appProductGet|'+pid]['@variations'] === 'undefined')	{
-						//app.u.dump(" -> inventory ("+typeof app.data['appProductGet|'+pid]['@inventory']+") and/or variations ("+typeof app.data['appProductGet|'+pid]['@variations']+") object(s) not defined.");
+						app.u.dump(" -> inventory ("+typeof app.data['appProductGet|'+pid]['@inventory']+") and/or variations ("+typeof app.data['appProductGet|'+pid]['@variations']+") object(s) not defined.");
 						r = false;
 						}
 					else	{
 						if(app.ext.store_product.u.getProductInventory(pid) <= 0)	{
-							//app.u.dump(" -> inventory not available: "+pid);
+							app.u.dump(" -> inventory not available: "+pid);
 							r = false
 							}
 						}
@@ -702,15 +700,21 @@ NOTES
 
 							}
 						else	{
+// ** 201318 returning false will prevent the addItemToCart from dispatching calls
+							obj = false;
 							//the validation itself will display the errors.
 							}
 						}
 					else	{
+// ** 201318 returning false will prevent the addItemToCart from dispatching calls
+						obj = false;
 						$form.anymessage({'message':'The form for store_product.u.handleAddToCart was either missing a sku ['+sku+'] or qty input ['+$qtyInput.length+'].','gMessage':true});
 						}
 		
 					}
 				else	{
+// ** 201318 returning false will prevent the addItemToCart from dispatching calls
+					obj = false;
 					$('#globalMessaging').anymessage({'message':'In store_product.u.buildCartItemAppendObj, $form not passed.','gMessage':true});
 					}
 				return obj;

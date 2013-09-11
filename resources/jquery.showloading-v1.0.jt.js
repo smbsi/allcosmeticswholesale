@@ -51,7 +51,7 @@
 				$loadingDiv.addClass(settings.addClass);
 				}
 			if(settings.message)	{
-				$loadingDiv.addClass('ui-widget ui-widget-content ui-corner-all stdPadding alignCenter').text(settings.message);
+				$loadingDiv.addClass('ui-widget ui-widget-content ui-corner-all stdPadding alignCenter').html($("<div \/>").addClass('ui-loading-message').text(settings.message));
 				}
 	
 			$loadingDiv.prepend("<div class='loadingBG'></div>"); //add gfx before txt.
@@ -232,7 +232,7 @@
 
 
 	jQuery.fn.hideLoading = function(options) {
-	
+		var indicatorID;
 		var settings = {};
 		jQuery.extend(settings, options);
 
@@ -242,9 +242,11 @@
 		else {
 			indicatorID = $(this).attr('id');
 			}
-       	
-   		$(this).find('#loading-indicator-' + indicatorID ).remove();
-		$(this).find('#loading-indicator-' + indicatorID + '-overlay' ).remove();
+// ** 201318 -> better method for selector
+		$(app.u.jqSelector('#','loading-indicator-'+indicatorID),$(this)).remove();
+		$(app.u.jqSelector('#','loading-indicator-'+indicatorID+'-overlay'),$(this)).remove();
+//		$(this).find('#loading-indicator-' + indicatorID ).remove();
+//		$(this).find('#loading-indicator-' + indicatorID + '-overlay' ).remove();
 		
 		return this;
      	};

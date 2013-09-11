@@ -23,7 +23,7 @@ An extension for managing the media library in addition to ALL other file upload
 
 
 var admin_support = function() {
-	var theseTemplates = new Array('supportFileUploadTemplate','supportPageTemplate','supportTicketRowTemplate','supportTicketCreateTemplate','supportTicketDetailTemplate','supportTicketFollowupTemplate');
+	var theseTemplates = new Array('supportFileUploadTemplate','supportPageTemplate','supportTicketRowTemplate','supportTicketCreateTemplate','supportTicketDetailTemplate','supportTicketFollowupTemplate','helpPageTemplate','helpDocumentTemplate','helpSearchResultsTemplate');
 	var r = {
 
 ////////////////////////////////////   CALLS    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -100,7 +100,69 @@ var admin_support = function() {
 				app.model.dispatchThis('mutable');
 				
 				},
-			
+
+
+			showHelpInterfaceInDialog : function()	{
+				var $container = $('#helpDialog');
+				if($container.length)	{
+					$container.dialog('open'); //do nothing but open, as the help dialog has been opened before. this will show last search.
+					}
+				else	{
+					$container = $("<div \/>",{'id':'helpDialog','title':'Webdoc'}).appendTo('body');
+					$container.dialog({'width':'90%','height':($(window).height() - 100)});
+					this.showHelpInterface($container);
+					}
+				},
+
+//will open help interface within $target.
+			showHelpInterface : function($target){
+				if($("[data-app-role='dualModeContainer']",$target).length)	{
+					$target.show();
+					} //already an instance of help open in this target. leave as is.
+				else	{
+					$target.anycontent({'templateID':'helpPageTemplate','showLoading':false}); //clear contents and add help interface
+					app.ext.admin.u.handleAppEvents($target);
+					$('.gridTable',$target).anytable();
+					}
+				},
+
+
+
+
+//does everything. pass in a docid and this 'll handle the call, request and display.
+//will check to see if a dom element already exists and , if so, just open that and make it flash. 
+			showHelpDocInDialog : function(docid)	{
+				if(docid)	{
+					var targetID = 'helpfile_'+docid
+					var $target = $(app.u.jqSelector('#',targetID));
+//already on the dom. just open it.
+					if($target.length)	{
+						$target.dialog('open')
+						$target.effect("highlight", {}, 1500);
+						}
+					else	{
+						$target = $("<div \/>",{'id':targetID,'title':'help doc: '+docid}).attr('docid',docid).addClass('helpDoc').appendTo('body');
+						$target.dialog({width:500, height:500});
+						$target.showLoading({'message':'Fetching help documentation...'});
+
+						app.ext.admin.calls.helpDocumentGet.init(docid,{'callback':function(rd){
+							if(app.model.responseHasErrors(rd)){
+								$('#globalMessaging').anymessage({'message':rd});
+								}
+							else	{
+								$target.anycontent({'templateID':'helpDocumentTemplate','datapointer':rd.datapointer});
+								app.u.handleAppEvents($target);
+								app.ext.admin_support.u.handleHelpDocOverwrites($target);
+								}
+							}},'mutable');
+						app.model.dispatchThis('mutable');
+						}
+					}
+				else	{
+					app.u.throwMessage("In admin.u.showHelpInModal, no docid specified.");
+					}
+				},
+
 			addSupportFileUploadToID : function(id,ticketid,uuid)	{
 				var $target = $(app.u.jqSelector('#',id));
 				$target.empty(); //clear any previous instantiations of the uploader. (in case of doubleclick)
@@ -118,7 +180,7 @@ var admin_support = function() {
 					if($target.length){$target.empty();}
 					else	{
 						$target = $("<div \/>").attr('id','ticketFileUploadModal').appendTo('body');
-						$target.dialog({'autoOpen':false,'width':'90%','height':550});
+						$target.dialog({'autoOpen':false,'width':'90%','height':550,'modal':true});
 						}
 					$target.attr('data-ticketid',ticketid);
 					$('.ui-dialog-title',$target.parent()).text("File upload for ticket "+ticketid);
@@ -196,6 +258,23 @@ var admin_support = function() {
 				else	{
 					$('#globalMessaging').anymessage({'message':"In admin_support.u.reloadTicketList, either tbody ["+typeof $tbody+"] or disposition ["+disposition+"] not defined.",'gMessage':true});
 					}
+				},
+
+//overwrite the linkdoc links.  In the future, this will probably do more.
+			handleHelpDocOverwrites : function($target)	{
+				app.u.dump("BEGIN admin_support.u.handleHelpDocOverwrites");
+				app.u.dump("$('.linkdoc',$target).length: "+$('.linkdoc',$target).length);
+				//syllabus_product_basics -> good place to test linkdoc
+				// !!! link this to a search, not an individual docs.  build in support for passing keywords in showUI obj var. set as val of keywords in put and submit form.
+				$('.linkdoc',$target).each(function(){
+					var $a = $(this),
+					docID = $a.attr('href').split('=')[1];
+					$a.on('click',function(event){
+						event.preventDefault();
+						app.u.dump(" -> Click got registered.");
+						app.ext.admin_support.a.showHelpDocInDialog(docID);
+						});
+					});
 				}
 			
 			}, //u
@@ -214,8 +293,8 @@ var admin_support = function() {
 						$form.showLoading({'message':'Creating a new ticket'});
 						var sfo = $form.serializeJSON(),
 						uuid = $btn.closest('.ui-dialog-content').data('uuid'),
-						messageBody = sfo.description; //NOTE -> the user inputted message body should always be first. That way it's at the top of a high priority SMS/page.
-						for(index in sfo)	{
+						messageBody = sfo.description+"\n"; //NOTE -> the user inputted message body should always be first. That way it's at the top of a high priority SMS/page.
+						for(var index in sfo)	{
 							//only pass populated fields and don't pass description again (see above).
 							if(sfo[index] && index != 'description'){messageBody += "\n"+index+": "+sfo[index]}
 							}
@@ -235,7 +314,7 @@ var admin_support = function() {
 									}
 								else	{
 									$form.empty().anymessage({'message':app.u.successMsgObject("Thank you, your ticket has been created.")});
-									$("<button \/>").text('Close Window').button({icons: {primary: "ui-icon-circle-close"}}).on('click',function(event){event.preventDefault(); $(this).closest('ui-dialog-content').dialog('close')}).appendTo($form);
+									$("<button \/>").text('Close Window').button({icons: {primary: "ui-icon-circle-close"}}).on('click',function(event){event.preventDefault(); $(this).closest('.ui-dialog-content').dialog('close')}).appendTo($form);
 									
 									if(app.data[rd.datapointer] && app.data[rd.datapointer].TICKETID)	{
 										$("<button \/>").text('Add File(s) To Ticket').button({icons: {primary: "ui-icon-circle-plus"}}).on('click',function(event){
@@ -257,7 +336,7 @@ var admin_support = function() {
 						}
 					else	{} //validation handles error display
 					});
-				},
+				}, //execTicketCreate
 
 			execTicketClose : function($btn)	{
 				
@@ -273,13 +352,22 @@ var admin_support = function() {
 					$btn.off('click.execTicketClose').on('click.execTicketClose',function(event){
 						event.preventDefault();
 						
-						var $tbody = $btn.closest("[data-app-role='dualModeList']").find("[data-app-role='dualModeListContents']"),
-						ticketID = $btn.closest('tr').data('id');
+						var $D = app.ext.admin.i.dialogConfirmRemove({
+							'message':'Are you sure you want to close this ticket?',
+							'removeButtonText' : 'Close Ticket',
+							'removeFunction':function(rd){
+								var
+									$tbody = $btn.closest("[data-app-role='dualModeList']").find("[data-app-role='dualModeListContents']"),
+									ticketID = $btn.closest('tr').data('id');
+								app.model.destroy('adminTicketList');
+								app.ext.admin.calls.adminTicketMacro.init(ticketID,new Array('CLOSE'),{},'immutable');
+								app.ext.admin_support.u.reloadTicketList($tbody,$btn.closest("[data-app-role='dualModeList']").find("[name='disposition']").val(),'immutable'); //handles showloading
+								app.model.dispatchThis('immutable');
+								$D.dialog('close');
+								}
+							});
 						
-						app.model.destroy('adminTicketList');
-						app.ext.admin.calls.adminTicketMacro.init(ticketID,new Array('CLOSE'),{},'immutable');
-						app.ext.admin_support.u.reloadTicketList($tbody,$btn.closest("[data-app-role='dualModeList']").find("[name='disposition']").val(),'immutable'); //handles showloading
-						app.model.dispatchThis('immutable');
+
 						});
 					}
 				}, //execTicketClose
@@ -317,12 +405,67 @@ var admin_support = function() {
 					});
 				}, //execTicketUpdate
 
+			execHelpDetailEdit : function($btn)	{
+				$btn.button();
+				$btn.off('click.execHelpDetailEdit').on('click.execHelpDetailEdit',function(){
+					var docID = $btn.closest("[data-docid]").data('docid');
+					if(docID)	{
+						window.open('https://github.com/zoovy/documentation/blob/master/'+docID+'.html');
+						}
+					else	{
+						$btn.parent().after().anymessage({'message':'In admin_support.e.execHelpDetailHistory, unable to determine docid','gMessage':true});
+						}
+					});
+				}, //execHelpDetailEdit
+				
+			execHelpDetailHistory : function($btn)	{
+				$btn.button();
+				$btn.off('click.execHelpDetailHistory').on('click.execHelpDetailHistory',function(){
+					var docID = $btn.closest("[data-docid]").data('docid');
+					if(docID)	{
+						window.open('https://github.com/zoovy/documentation/commits/master/'+docID+'.html');
+						}
+					else	{
+						$btn.parent().after().anymessage({'message':'In admin_support.e.execHelpDetailHistory, unable to determine docid','gMessage':true});
+						}
+					});
+				}, //execHelpDetailHistory
 
+			execHelpSearch : function($btn)	{
+				$btn.button({icons: {primary: "ui-icon-search"},text: false});
+				$btn.off('click.helpSearch').on('click.helpSearch',function(event){
+					
+					var $parent = $btn.closest("[data-app-role='dualModeContainer']"),
+					$form = $("[data-app-role='helpSearch']",$parent).first(),
+					keywords = $("[name='keywords']",$parent).val();
+
+//					app.u.dump(" -> $parent.length: "+$parent.length);
+//					app.u.dump(" -> $form.length: "+$form.length);
+//					app.u.dump(" -> formObj: "); app.u.dump(formObj);
+//					app.u.dump(" -> keywords: "+keywords);
+
+					if(keywords)	{
+						$('.dualModeListMessaging',$parent).first().empty().hide();
+						var $contentArea = $('.gridTable',$parent).first();
+						$contentArea.show().find('tbody').empty(); //empty any previous search results.
+						$contentArea.showLoading({"message":"Searching for help files"});
+						app.ext.admin.calls.helpSearch.init(keywords,{'callback':'anycontent','jqObj':$contentArea},'mutable');
+						app.model.dispatchThis('mutable');
+						}
+					else	{
+						$('.dualModeListMessaging',$parent).first().empty().show().anymessage({'message':'Please enter some keywords into the form input above to search for.'});
+						$("[data-app-role='dualModeListContents']",$parent).first().hide();
+						}
+					event.preventDefault();
+					});
+				}, //execHelpSearch
+
+//this event is used both in create and edit.
 			showFileAttachmentModal : function($btn)	{
 				$btn.button({icons: {primary: "ui-icon-circle-plus"}});
 				$btn.off('click.showFileAttachmentModal').on('click.showFileAttachmentModal',function(event){
 					event.preventDefault();
-					var $panelContents = $(this).closest('.ui-widget-content');
+					var $panelContents = $(this).closest('.ui-widget-content'); //in create, the dialog body get this same class, so the selector works in both places.
 					if($panelContents && $panelContents.data('ticketid') && $panelContents.data('uuid'))	{
 						app.ext.admin_support.a.showFileUploadInModal($panelContents.data('ticketid'),$panelContents.data('uuid')); 
 						}
@@ -334,6 +477,66 @@ var admin_support = function() {
 						}
 					});
 				}, //showFileAttachmentModal
+
+//used on a button in the search interface. allows merchant to open the doc in a dialog, for portability.
+//button should be hidden when webdoc itself opened in dialog.
+			showHelpDetailInDialog : function($ele)	{
+				if($ele.is('button'))	{$ele.button({icons: {primary: "ui-icon-newwin"}});}
+				$ele.off('click.showHelpDetailInDialog').on('click.showHelpDetailInDialog',function(event){
+					event.preventDefault();
+					var docID = $ele.closest('tr').data('docid');
+					if(docID)	{
+						app.ext.admin_support.a.showHelpDocInDialog(docID);
+						}
+					else	{
+						$('#globalMessaging').anymessage({'message':'In admin_support.e.showHelpDetailInDialog, unable to determine docID.','gMessage':true});
+						}
+					});
+				}, //showHelpDetailInDialog
+
+//in this case, the event may be applied to a btn OR some text.
+			showHelpDetail : function($ele)	{
+				
+				if($ele.is('button'))	{$ele.button({icons: {primary: "ui-icon-circle-arrow-e"}});}
+				$ele.off('click.showHelpDetail').on('click.showHelpDetail',function(event){
+					event.preventDefault();
+					var docID = $ele.closest('tr').data('docid');
+					if(docID)	{
+
+var $dualModeDetail = $ele.closest("[data-app-role='dualModeContainer']").find("[data-app-role='dualModeDetail']").first(),
+panelID = app.u.jqSelector('','helpDetail_'+docID),
+$panel = $("<div\/>").data('docid',docID).hide().anypanel({
+	'header':'Help file: '+docID,
+	'templateID':'helpDocumentTemplate',
+	'dataAttribs': {'id':panelID,'docid':docID}
+	}).prependTo($dualModeDetail);
+
+app.ext.admin.u.toggleDualMode($dualModeDetail.closest("[data-app-role='dualModeContainer']"),'detail');
+
+app.ext.admin.calls.helpDocumentGet.init(docID,{
+	'callback':function(rd){
+		if(app.model.responseHasErrors(rd)){
+			app.u.throwMessage(rd);
+			}
+		else	{
+			$panel.anycontent({'datapointer':rd.datapointer});
+			app.u.handleAppEvents($panel);
+			app.ext.admin_support.u.handleHelpDocOverwrites($panel);
+			}
+		}
+	},'mutable');
+
+$panel.slideDown('fast',function(){$panel.showLoading({'message':'Fetching Help Document.'});});
+app.model.dispatchThis('mutable');
+
+
+						}
+					else	{
+						$('#globalMessaging').anymessage({'message':'In admin_support.e.showHelpDetail, unable to determine docID.','gMessage':true});
+						}
+					});
+				
+				},
 
 			showTicketLastUpdate : function($ele)	{
 				if($ele.text().charAt(0) == '0')	{} //value will be 00:00: etc if no update has occured.
@@ -366,8 +569,9 @@ var admin_support = function() {
 				$btn.button();
 				$btn.off('click.showTicketCreate').on('click.showTicketCreate',function(event){
 					event.preventDefault();
-					var $target = $("<div \/>",{'title':'Create a new support ticket'}).data('uuid',app.u.guidGenerator()).appendTo('body');
+					var $target = $("<div \/>",{'title':'Create a new support ticket'}).appendTo('body');
 					$target.anycontent({data:{},'templateID':'supportTicketCreateTemplate'});
+					$target.data({'ticketid':'0','uuid':app.u.guidGenerator()}); //necessary for file attachment.
 					$target.dialog({'width':'75%','height':500});
 					app.u.handleAppEvents($target,{'$context':$btn.closest("[data-app-role='dualModeList']")});
 					});
@@ -409,8 +613,8 @@ var admin_support = function() {
 									app.u.handleAppEvents($panel);
 									}
 								}
-							},'mutable')
-							$panel.slideDown('fast',function(){$panel.showLoading({'message':'Gathering nuts, berries and user details.'});});
+							},'mutable');
+							$panel.slideDown('fast',function(){$panel.showLoading({'message':'Fetching Ticket Details.'});});
 							app.model.dispatchThis('mutable');
 
 
