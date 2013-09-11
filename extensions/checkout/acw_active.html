@@ -152,9 +152,13 @@ item list and summary are separate just to give more control over location.
 <div data-app-role='login'>
 	<div data-app-role='loginPasswordContainer' class='displayNone floatRight checkoutLoginPassCont'>
 	<div>If you have an account with us, please enter your password below to login</div>
-	<input class="loginEmailCheckout" type='email' name='bill/email' size='30' placeholder="email address" data-bind="var:cart(bill/email); defaultVar:cart(customer/login); format:popVal;" data-app-event='orderCreate|execBuyerEmailUpdate' />
-		<input type='password' placeholder='password' size='30' name='password' /><button data-app-event='orderCreate|execBuyerLogin'>login</button>
-	</div>
+		<div class="checkoutLoginEmailCont">
+        	<input class="loginEmailCheckout" type='email' name='bill/email' size='30' placeholder="email address" data-bind="var:cart(bill/email); defaultVar:cart(customer/login); format:popVal;" data-app-event='orderCreate|execBuyerEmailUpdate' />
+		</div>
+        <div class="checkoutLoginPassWCont">
+        	<input type='password' placeholder='password' size='30' name='password' /><button data-app-event='orderCreate|execBuyerLogin'>login</button>
+		</div>
+    </div>
 
 	<label class='accountCreateContainer'><input type='checkbox' name='want/create_customer' data-app-event='orderCreate|tagAsAccountCreate' />Create a new account</label>
 	

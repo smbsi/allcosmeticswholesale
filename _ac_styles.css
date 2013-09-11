@@ -2562,21 +2562,19 @@ div span .cents{
 .chkoutPreflightTemplate div div label span{
 	float:left;
 }
-.checkoutFormContainer input[type="password"]{
-	clear: left;
-    float: left;
-}
+
 .checkoutLoginPassCont{
 	float:left;
 }
 .checkoutLoginPassCont button{
 	margin-top:2px !important;
+	float:right !important;
 }
-.checkoutLoginPassCont label{
+.checkoutLoginEmailCont{
 	float:left;
 	clear:left;
 }
-.checkoutLoginPassCont button{
+.checkoutLoginPassWCont{
 	float:left;
 	clear:left;
 }
